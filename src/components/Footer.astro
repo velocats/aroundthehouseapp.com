@@ -1,0 +1,38 @@
+---
+const { compact = false } = Astro.props;
+---
+<footer class="footer">
+  {compact ? (
+    <div class="container">
+      <p>© 2026 Around The House. Built by <a href="https://quiettoolsapps.com/">Quiet Tools</a>.</p>
+    </div>
+  ) : (
+    <div class="container footer-grid">
+      <div>
+        <a class="brand" href="/">
+          <img src="/assets/icons/around-the-house-icon.png" alt="" />
+          <span>Around The House</span>
+        </a>
+        <p>The home memory app for repairs, reminders, warranties, receipts, photos, notes, and important home details.</p>
+      </div>
+      <div>
+        <h4>Product</h4>
+        <a href="/#how-it-works">How it works</a>
+        <a href="/#features">What it tracks</a>
+        <a href="/#pricing">Pricing</a>
+      </div>
+      <div>
+        <h4>Support</h4>
+        <a href="/support/">Support</a>
+        <a href="/privacy/">Privacy</a>
+        <a href="/terms/">Terms</a>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <a href="https://quiettoolsapps.com/">Quiet Tools</a>
+        <a href="mailto:support@aroundthehouseapp.com">support@aroundthehouseapp.com</a>
+        <p>© 2026 Around The House.</p>
+      </div>
+    </div>
+  )}
+</footer>

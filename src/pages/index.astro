@@ -1,0 +1,209 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const structuredData = {
+  '@context': 'https://schema.org',
+  '@type': 'SoftwareApplication',
+  name: 'Around The House',
+  applicationCategory: 'LifestyleApplication',
+  operatingSystem: 'iOS, iPadOS, macOS',
+  description: 'Around The House is a simple home memory app for repairs, reminders, warranties, receipts, photos, notes, and important home details.',
+  publisher: { '@type': 'Organization', name: 'Quiet Tools' },
+  offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' }
+};
+
+const answerCards = [
+  ['Add the thing', 'Appliances, HVAC, roof, tools, cars, electronics, furniture — anything you want to remember.'],
+  ['Save the details', 'Photos, receipts, warranties, model numbers, serial numbers, notes, service visits, and costs.'],
+  ['Find it later', 'Search one calm place instead of digging through texts, drawers, emails, and old photos.']
+];
+
+const quickUses = [
+  'What size is the furnace filter?',
+  'When did we replace the water heater?',
+  'Where is the receipt?',
+  'Who fixed the dishwasher?',
+  'Is that warranty still active?',
+  'What needs to be done this month?'
+];
+
+const featureCards = [
+  ['🏠', 'Home item records', 'Give every important home thing its own place for notes, dates, photos, files, and history.'],
+  ['🔔', 'Simple reminders', 'Remember filters, inspections, renewals, seasonal tasks, service dates, and warranty deadlines.'],
+  ['📎', 'Receipts and files', 'Attach paperwork to the exact item it belongs to, so it is not lost in email or a drawer.'],
+  ['🛠️', 'Repair history', 'Save who fixed it, what they did, what it cost, and what you should know next time.'],
+  ['📷', 'Photos and notes', 'Snap a label, serial number, breaker panel, part, or problem before you forget the details.'],
+  ['📱', 'iPhone, iPad, and Mac', 'Keep your home details available across your Apple devices with private iCloud sync when enabled.']
+];
+
+const peopleCards = [
+  ['Busy households', 'For families with too many small home details to keep in one person’s head.'],
+  ['Forgetful brains', 'For anyone who means to write it down, then forgets where they wrote it.'],
+  ['Detail people', 'For list-makers, planners, and anyone who likes having the answer ready.'],
+  ['New homeowners', 'For learning your home as you go: systems, repairs, warranties, and seasonal care.']
+];
+
+const pricingCards = [
+  ['Free', 'Start with a few real home items and see if Around The House fits your household.'],
+  ['Pro', 'Unlock unlimited items, exports, QR labels, advanced scheduling, and reports.'],
+  ['Lifetime', 'A one-time option for people who want long-term home records without a subscription.']
+];
+---
+<BaseLayout
+  title="Around The House — The Home Memory App"
+  description="Around The House is a simple home memory app for repairs, reminders, warranties, receipts, photos, notes, and important home details."
+  ogTitle="Around The House — The Home Memory App"
+  ogDescription="Remember everything about your home: repairs, reminders, warranties, receipts, photos, notes, and important details."
+  structuredData={structuredData}
+>
+  <main>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <div class="kicker">The home memory app</div>
+          <h1>Remember everything about your home.</h1>
+          <p class="lead">Around The House keeps repairs, reminders, warranties, receipts, photos, notes, and important home details in one simple place.</p>
+          <p class="plain-line">Built for busy households, forgetful brains, detail people, and anyone tired of searching through texts, drawers, email, and camera rolls.</p>
+          <div class="hero-actions" id="app-store">
+            <a class="button disabled" href="#pricing" aria-disabled="true">App Store coming soon</a>
+            <a class="button secondary" href="#how-it-works">See how it works</a>
+          </div>
+          <p class="microcopy">No Around The House account. Your data stays on your Apple devices and in your private iCloud when sync is enabled.</p>
+        </div>
+        <div class="hero-visual" aria-label="Around The House app screenshots">
+          <div class="device-stage simple-stage">
+            <div class="phone-row hero-phone-row">
+              <div class="phone-shot"><img src="/assets/screenshots/iphone-today.webp" alt="Around The House Today screen showing home reminders and items needing attention" /></div>
+              <div class="phone-shot offset"><img src="/assets/screenshots/iphone-assets.webp" alt="Around The House home items list" /></div>
+            </div>
+            <div class="floating-card"><strong>Open it. Find the answer.</strong><span>Filter sizes, receipts, repair dates, warranties, notes, photos, and reminders.</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="trust-strip">
+      <div class="container quick-answer" aria-label="Quick explanation">
+        <span>Simple home records</span>
+        <span>Repairs and reminders</span>
+        <span>Receipts and warranties</span>
+        <span>iPhone, iPad, and Mac</span>
+      </div>
+    </section>
+
+    <section class="section tight" id="how-it-works">
+      <div class="container">
+        <div class="section-header centered">
+          <div class="kicker">What Around The House does</div>
+          <h2>Add it once. Stop trying to remember it later.</h2>
+          <p>Every important thing in your home gets a simple record. Add what you know now, then build the history over time.</p>
+        </div>
+        <div class="grid-3 answer-grid">
+          {answerCards.map(([title, body], index) => (
+            <article class="answer-card">
+              <div class="big-number">{index + 1}</div>
+              <h3>{title}</h3>
+              <p>{body}</p>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="section problem-section">
+      <div class="container problem-grid">
+        <div>
+          <div class="kicker">Made for real life</div>
+          <h2>Home information gets scattered everywhere.</h2>
+          <p class="lead small-lead">Around The House gives you one calm place for the little details that matter later.</p>
+        </div>
+        <div class="question-list">
+          {quickUses.map((item) => <div class="question-pill">{item}</div>)}
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="features">
+      <div class="container">
+        <div class="section-header centered">
+          <div class="kicker">What you can track</div>
+          <h2>The house stuff people actually forget.</h2>
+          <p>No complicated setup. Just useful records for the home details you want to find fast.</p>
+        </div>
+        <div class="grid-3">
+          {featureCards.map(([icon, title, body]) => (
+            <article class="card"><div class="icon">{icon}</div><h3>{title}</h3><p>{body}</p></article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="section showcase-section">
+      <div class="container showcase">
+        <div class="screenshot-card"><img src="/assets/screenshots/ipad-dashboard.webp" alt="Around The House dashboard showing home reminders, recent work, and maintenance overview" /></div>
+        <div>
+          <div class="kicker">Fast answers</div>
+          <h2>When something breaks, you already have the record.</h2>
+          <p class="lead small-lead">See the item, notes, photos, warranty, files, service history, costs, and upcoming reminders together.</p>
+          <ul class="check-list">
+            <li>Pull up service history before calling a repair person.</li>
+            <li>Find receipts and warranty details without searching email.</li>
+            <li>Share better notes with your future self, family, or a buyer.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="band">
+      <div class="container">
+        <div class="section-header centered light">
+          <div class="kicker">Who it helps</div>
+          <h2>For the person who ends up remembering the house.</h2>
+          <p>Whether you are organized, overwhelmed, or somewhere in between, Around The House keeps the important home details easy to capture and easy to find.</p>
+        </div>
+        <div class="grid-4">
+          {peopleCards.map(([title, body]) => <article class="card"><h3>{title}</h3><p>{body}</p></article>)}
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="screenshots">
+      <div class="container">
+        <div class="section-header centered">
+          <div class="kicker">Product preview</div>
+          <h2>Calm records for busy homes.</h2>
+          <p>Track what is due, what happened, what it cost, and where the proof is saved.</p>
+        </div>
+        <div class="screenshot-grid">
+          <div class="screenshot-card"><img src="/assets/screenshots/iphone-history.webp" alt="Around The House maintenance history screen" /></div>
+          <div class="screenshot-card wide"><img src="/assets/screenshots/mac-dashboard.webp" alt="Around The House Mac dashboard showing home overview" /></div>
+          <div class="screenshot-card"><img src="/assets/screenshots/iphone-calendar.webp" alt="Around The House calendar screen showing maintenance reminders" /></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section pricing-section" id="pricing">
+      <div class="container">
+        <div class="section-header centered">
+          <div class="kicker">Pricing</div>
+          <h2>Start simple. Unlock more when you need it.</h2>
+          <p>Around The House will be free to try, with optional upgrades for larger homes and deeper record keeping.</p>
+        </div>
+        <div class="pricing simple-pricing">
+          {pricingCards.map(([title, body]) => (
+            <article class="price-card"><h3>{title}</h3><p>{body}</p></article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="cta">
+      <div class="container cta-inner">
+        <div class="kicker">Coming to the App Store</div>
+        <h2>Give your home a memory.</h2>
+        <p class="lead">Start keeping the details now, before the next repair, warranty question, filter change, or mystery receipt.</p>
+        <div class="hero-actions center"><a class="button disabled" href="#app-store" aria-disabled="true">App Store link coming soon</a><a class="button secondary" href="https://quiettoolsapps.com/">Visit Quiet Tools</a></div>
+      </div>
+    </section>
+  </main>
+</BaseLayout>

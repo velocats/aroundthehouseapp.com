@@ -1,0 +1,27 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import LegalArticle from '../components/LegalArticle.astro';
+---
+<BaseLayout
+  title="Privacy Policy — Around The House"
+  description="Around The House privacy policy."
+  canonicalPath="/privacy/"
+  page="legal"
+  compactFooter={true}
+>
+  <LegalArticle kicker="Privacy" title="Privacy Policy" effectiveDate="July 8, 2026">
+    <p>Around The House is designed to keep your home maintenance records under your control. Your home items, service history, reminders, photos, documents, warranty details, costs, and reports live on your Apple devices and, when enabled, in your private iCloud account.</p>
+    <h2>No Around The House account</h2>
+    <p>Around The House does not require an Around The House web account or login. Quiet Tools does not operate an Around The House web dashboard for your home records.</p>
+    <h2>iCloud sync</h2>
+    <p>If iCloud is enabled on your device, Around The House may use Apple iCloud and CloudKit to sync your records privately across devices signed into the same Apple Account. Sync is personal to your Apple Account. Around The House does not provide team sharing, employee sharing, or collaboration features.</p>
+    <h2>Data collection</h2>
+    <p>Quiet Tools does not sell your Around The House data and does not use your Around The House records for advertising. We do not collect your home maintenance records on our own servers.</p>
+    <h2>Apple services</h2>
+    <p>Purchases, subscriptions, family sharing behavior, iCloud, crash diagnostics, and app analytics may be handled by Apple according to your device settings and Apple’s policies.</p>
+    <h2>Support requests</h2>
+    <p>If you email support, we receive the information you choose to send, such as your email address, message, screenshots, or diagnostic details. We use that information only to respond to your request and improve the app.</p>
+    <h2>Contact</h2>
+    <p>Questions about this policy can be sent to <a href="mailto:support@aroundthehouseapp.com">support@aroundthehouseapp.com</a>.</p>
+  </LegalArticle>
+</BaseLayout>

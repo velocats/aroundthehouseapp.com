@@ -1,0 +1,27 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import LegalArticle from '../components/LegalArticle.astro';
+---
+<BaseLayout
+  title="Support — Around The House"
+  description="Get support for Around The House home maintenance tracking."
+  canonicalPath="/support/"
+  page="legal"
+  compactFooter={true}
+>
+  <LegalArticle kicker="Help" title="Around The House Support">
+    <p>Need help with Around The House? Send a note to <a href="mailto:support@aroundthehouseapp.com">support@aroundthehouseapp.com</a>.</p>
+    <h2>Helpful details to include</h2>
+    <ul>
+      <li>Your device type: iPhone, iPad, or Mac.</li>
+      <li>Your iOS, iPadOS, or macOS version.</li>
+      <li>What you were trying to do.</li>
+      <li>What happened instead.</li>
+      <li>Screenshots, if they help explain the issue.</li>
+    </ul>
+    <h2>iCloud sync notes</h2>
+    <p>Around The House syncs through your own iCloud account when iCloud is enabled. Make sure your devices are signed into the same Apple Account and have iCloud access available. Around The House also works offline; changes can sync after your device is back online.</p>
+    <h2>Purchases</h2>
+    <p>If Pro features do not appear after purchase, open Around The House settings and use Restore Purchases. App Store purchases are handled by Apple.</p>
+  </LegalArticle>
+</BaseLayout>

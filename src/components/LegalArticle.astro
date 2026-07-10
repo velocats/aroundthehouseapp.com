@@ -1,0 +1,13 @@
+---
+const { kicker, title, effectiveDate } = Astro.props;
+---
+<main class="legal-page">
+  <div class="container">
+    <article>
+      <div class="kicker">{kicker}</div>
+      <h1>{title}</h1>
+      {effectiveDate && <p><strong>Effective date:</strong> {effectiveDate}</p>}
+      <slot />
+    </article>
+  </div>
+</main>

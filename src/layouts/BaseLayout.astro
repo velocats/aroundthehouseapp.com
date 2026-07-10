@@ -1,0 +1,41 @@
+---
+import '../styles/global.css';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+const {
+  title = 'Around The House — The Home Memory App',
+  description = 'Around The House is a simple home memory app for repairs, reminders, warranties, receipts, photos, notes, and important home details.',
+  canonicalPath = '/',
+  page = 'home',
+  compactFooter = false,
+  ogTitle = 'Around The House — The Home Memory App',
+  ogDescription = 'Remember everything about your home: repairs, reminders, warranties, receipts, photos, notes, and important details.',
+  structuredData = null
+} = Astro.props;
+
+const canonicalUrl = new URL(canonicalPath, Astro.site ?? 'https://aroundthehouseapp.com').toString();
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalUrl} />
+    <meta property="og:title" content={ogTitle} />
+    <meta property="og:description" content={ogDescription} />
+    <meta property="og:image" content="https://aroundthehouseapp.com/assets/og/around-the-house-og.png" />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" href="/assets/icons/favicon-32.png" sizes="32x32" />
+    <link rel="apple-touch-icon" href="/assets/icons/favicon-180.png" />
+    {structuredData && <script type="application/ld+json" set:html={JSON.stringify(structuredData)}></script>}
+  </head>
+  <body>
+    <Header page={page} />
+    <slot />
+    <Footer compact={compactFooter} />
+  </body>
+</html>
