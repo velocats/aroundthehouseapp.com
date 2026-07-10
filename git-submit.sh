@@ -8,7 +8,7 @@ echo
 if [ ! -d ".git" ]; then
   echo "Error: This directory is not a Git repository."
   echo "Run this script from:"
-  echo "/Users/ecross/Documents/personal/websites/aroundthehouseapp"
+  echo "/Users/home/Documents/personal/websites/aroundthehouseapp"
   exit 1
 fi
 
