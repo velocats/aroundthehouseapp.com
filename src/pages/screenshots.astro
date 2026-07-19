@@ -55,7 +55,7 @@ const structuredData = {
         <div class="gallery-grid">
           {phoneScreens.map(([file, title, description], index) => (
             <figure class="gallery-figure">
-              <img src={`/assets/screenshots/new/${file}`} width="1290" height="2796" alt={`${title} in the Around The House iPhone app`} loading={index < 3 ? 'eager' : 'lazy'} decoding="async" />
+              <img src={`/assets/screenshots/new/${file}`} width="1206" height="2622" alt={`${title} in the Around The House iPhone app`} loading={index < 3 ? 'eager' : 'lazy'} decoding="async" />
               <figcaption><strong>{title}</strong><span>{description}</span></figcaption>
             </figure>
           ))}
@@ -69,7 +69,7 @@ const structuredData = {
         <div class="gallery-grid tablet">
           {tabletScreens.map(([file, title, description]) => (
             <figure class="gallery-figure">
-              <img src={`/assets/screenshots/new/${file}`} width="2064" height="2752" alt={`${title} in the Around The House iPad app`} loading="lazy" decoding="async" />
+              <img src={`/assets/screenshots/new/${file}`} width="2048" height="2732" alt={`${title} in the Around The House iPad app`} loading="lazy" decoding="async" />
               <figcaption><strong>{title}</strong><span>{description}</span></figcaption>
             </figure>
           ))}
