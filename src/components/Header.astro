@@ -5,7 +5,7 @@ const isHome = page === 'home';
 <header class="site-header">
   <nav class="container nav" aria-label="Main navigation">
     <a class="brand" href="/" aria-label="Around The House home">
-      <img src="/assets/icons/around-the-house-icon.png" alt="Around The House app icon" />
+      <img src="/assets/icons/around-the-house-icon.png" width="512" height="512" alt="Around The House app icon" />
       <span>Around The House</span>
     </a>
     {isHome ? (
@@ -14,7 +14,7 @@ const isHome = page === 'home';
         <a href="#features">What it tracks</a>
         <a href="#pricing">Pricing</a>
         <a href="/support/">Support</a>
-        <a class="button disabled" href="#app-store" aria-disabled="true">App Store coming soon</a>
+        <span class="button disabled" aria-disabled="true">App Store coming soon</span>
       </div>
     ) : (
       <div class="nav-links">

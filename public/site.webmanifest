@@ -1,0 +1,24 @@
+{
+  "name": "Around The House",
+  "short_name": "Around The House",
+  "description": "A private home maintenance app for repairs, reminders, receipts, warranties, photos, notes, and important home details.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#f8f3ea",
+  "theme_color": "#244c42",
+  "icons": [
+    {
+      "src": "/assets/icons/around-the-house-icon.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/assets/icons/favicon-180.png",
+      "sizes": "180x180",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}

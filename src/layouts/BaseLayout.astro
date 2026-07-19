@@ -5,16 +5,45 @@ import Footer from '../components/Footer.astro';
 
 const {
   title = 'Around The House — The Home Memory App',
-  description = 'Around The House is a simple home memory app for repairs, reminders, warranties, receipts, photos, notes, and important home details.',
+  description = 'Around The House is a private home maintenance app for tracking repairs, reminders, warranties, receipts, photos, notes, and important home details.',
   canonicalPath = '/',
   page = 'home',
   compactFooter = false,
   ogTitle = 'Around The House — The Home Memory App',
-  ogDescription = 'Remember everything about your home: repairs, reminders, warranties, receipts, photos, notes, and important details.',
+  ogDescription = description,
   structuredData = null
 } = Astro.props;
 
 const canonicalUrl = new URL(canonicalPath, Astro.site ?? 'https://aroundthehouseapp.com').toString();
+const siteUrl = new URL('/', Astro.site ?? 'https://aroundthehouseapp.com').toString();
+const ogImageUrl = new URL('/assets/og/around-the-house-og.png', Astro.site ?? 'https://aroundthehouseapp.com').toString();
+const baseSchema = [
+  {
+    '@type': 'Organization',
+    '@id': `${siteUrl}#organization`,
+    name: 'Quiet Tools',
+    url: 'https://quiettoolsapps.com/'
+  },
+  {
+    '@type': 'WebSite',
+    '@id': `${siteUrl}#website`,
+    name: 'Around The House',
+    url: siteUrl,
+    publisher: { '@id': `${siteUrl}#organization` },
+    inLanguage: 'en-US'
+  },
+  {
+    '@type': 'WebPage',
+    '@id': `${canonicalUrl}#webpage`,
+    url: canonicalUrl,
+    name: title,
+    description,
+    isPartOf: { '@id': `${siteUrl}#website` },
+    publisher: { '@id': `${siteUrl}#organization` },
+    inLanguage: 'en-US'
+  }
+];
+const schemaGraph = [...baseSchema, ...(Array.isArray(structuredData) ? structuredData : structuredData ? [structuredData] : [])];
 ---
 <!doctype html>
 <html lang="en">
@@ -23,17 +52,29 @@ const canonicalUrl = new URL(canonicalPath, Astro.site ?? 'https://aroundthehous
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{title}</title>
     <meta name="description" content={description} />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
+    <meta name="theme-color" content="#244c42" />
     <link rel="canonical" href={canonicalUrl} />
     <meta property="og:title" content={ogTitle} />
     <meta property="og:description" content={ogDescription} />
-    <meta property="og:image" content="https://aroundthehouseapp.com/assets/og/around-the-house-og.png" />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:site_name" content="Around The House" />
+    <meta property="og:image" content={ogImageUrl} />
+    <meta property="og:image:alt" content="Around The House app for home maintenance records, reminders, receipts, warranties, and repairs." />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
     <meta property="og:type" content="website" />
     <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={ogTitle} />
+    <meta name="twitter:description" content={ogDescription} />
+    <meta name="twitter:image" content={ogImageUrl} />
     <link rel="icon" href="/assets/icons/favicon-32.png" sizes="32x32" />
     <link rel="apple-touch-icon" href="/assets/icons/favicon-180.png" />
-    {structuredData && <script type="application/ld+json" set:html={JSON.stringify(structuredData)}></script>}
+    <link rel="manifest" href="/site.webmanifest" />
+    <script type="application/ld+json" set:html={JSON.stringify({ '@context': 'https://schema.org', '@graph': schemaGraph })}></script>
   </head>
   <body>
+    <a class="skip-link" href="#main-content">Skip to main content</a>
     <Header page={page} />
     <slot />
     <Footer compact={compactFooter} />

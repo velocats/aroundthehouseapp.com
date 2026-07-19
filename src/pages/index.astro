@@ -1,16 +1,8 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 
-const structuredData = {
-  '@context': 'https://schema.org',
-  '@type': 'SoftwareApplication',
-  name: 'Around The House',
-  applicationCategory: 'LifestyleApplication',
-  operatingSystem: 'iOS, iPadOS, macOS',
-  description: 'Around The House is a simple home memory app for repairs, reminders, warranties, receipts, photos, notes, and important home details.',
-  publisher: { '@type': 'Organization', name: 'Quiet Tools' },
-  offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' }
-};
+const siteUrl = 'https://aroundthehouseapp.com/';
+const appDescription = 'Around The House is a private home maintenance app for tracking repairs, reminders, warranties, receipts, photos, notes, service history, costs, and important home details.';
 
 const answerCards = [
   ['Add the thing', 'Appliances, HVAC, roof, tools, cars, electronics, furniture — anything you want to remember.'],
@@ -48,15 +40,71 @@ const pricingCards = [
   ['Pro', 'Unlock unlimited items, exports, QR labels, advanced scheduling, and reports.'],
   ['Lifetime', 'A one-time option for people who want long-term home records without a subscription.']
 ];
+
+const faqItems = [
+  ['What is Around The House?', 'Around The House is a home maintenance app that keeps repairs, reminders, receipts, warranties, photos, notes, model numbers, serial numbers, service history, and costs organized in one place.'],
+  ['Does Around The House require an account?', 'No. Around The House does not require a separate web account. Your records stay on your Apple devices and in your private iCloud account when iCloud sync is enabled.'],
+  ['What devices does Around The House support?', 'Around The House is built for iPhone, iPad, and Mac, with private iCloud sync available when it is enabled on your devices.'],
+  ['Can I track more than repairs?', 'Yes. You can track appliances, HVAC systems, roof details, tools, cars, electronics, furniture, warranties, receipts, files, reminders, photos, notes, and recurring home tasks.']
+];
+
+const structuredData = [
+  {
+    '@type': 'SoftwareApplication',
+    '@id': `${siteUrl}#app`,
+    name: 'Around The House',
+    alternateName: 'Around The House App',
+    url: siteUrl,
+    applicationCategory: 'LifestyleApplication',
+    applicationSubCategory: 'Home maintenance app',
+    operatingSystem: 'iOS, iPadOS, macOS',
+    description: appDescription,
+    image: `${siteUrl}assets/og/around-the-house-og.png`,
+    screenshot: [
+      `${siteUrl}assets/screenshots/iphone-today.webp`,
+      `${siteUrl}assets/screenshots/ipad-dashboard.webp`,
+      `${siteUrl}assets/screenshots/mac-dashboard.webp`
+    ],
+    featureList: [
+      'Home maintenance records',
+      'Repair history',
+      'Recurring reminders',
+      'Receipts and warranty files',
+      'Photos and notes',
+      'Private iCloud sync'
+    ],
+    publisher: { '@id': `${siteUrl}#organization` },
+    offers: [
+      { '@type': 'Offer', name: 'Free', price: '0', priceCurrency: 'USD' },
+      { '@type': 'Offer', name: 'Pro', priceCurrency: 'USD', availability: 'https://schema.org/PreOrder' }
+    ]
+  },
+  {
+    '@type': 'FAQPage',
+    '@id': `${siteUrl}#faq`,
+    mainEntity: faqItems.map(([question, answer]) => ({
+      '@type': 'Question',
+      name: question,
+      acceptedAnswer: { '@type': 'Answer', text: answer }
+    }))
+  },
+  {
+    '@type': 'BreadcrumbList',
+    '@id': `${siteUrl}#breadcrumbs`,
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: siteUrl }
+    ]
+  }
+];
 ---
 <BaseLayout
-  title="Around The House — The Home Memory App"
-  description="Around The House is a simple home memory app for repairs, reminders, warranties, receipts, photos, notes, and important home details."
-  ogTitle="Around The House — The Home Memory App"
-  ogDescription="Remember everything about your home: repairs, reminders, warranties, receipts, photos, notes, and important details."
+  title="Around The House — Home Maintenance App"
+  description="Track home repairs, reminders, receipts, warranties, photos, notes, service history, costs, and important house details in one private app."
+  ogTitle="Around The House — Home Maintenance App"
+  ogDescription="Remember everything about your home: repairs, reminders, warranties, receipts, photos, notes, service history, costs, and important details."
   structuredData={structuredData}
 >
-  <main>
+  <main id="main-content" tabindex="-1">
     <section class="hero">
       <div class="container hero-grid">
         <div class="hero-copy">
@@ -64,8 +112,8 @@ const pricingCards = [
           <h1>Remember everything about your home.</h1>
           <p class="lead">Around The House keeps repairs, reminders, warranties, receipts, photos, notes, and important home details in one simple place.</p>
           <p class="plain-line">Built for busy households, forgetful brains, detail people, and anyone tired of searching through texts, drawers, email, and camera rolls.</p>
-          <div class="hero-actions" id="app-store">
-            <a class="button disabled" href="#pricing" aria-disabled="true">App Store coming soon</a>
+          <div class="hero-actions">
+            <span class="button disabled" id="app-store" aria-disabled="true">App Store coming soon</span>
             <a class="button secondary" href="#how-it-works">See how it works</a>
           </div>
           <p class="microcopy">No Around The House account. Your data stays on your Apple devices and in your private iCloud when sync is enabled.</p>
@@ -73,8 +121,8 @@ const pricingCards = [
         <div class="hero-visual" aria-label="Around The House app screenshots">
           <div class="device-stage simple-stage">
             <div class="phone-row hero-phone-row">
-              <div class="phone-shot"><img src="/assets/screenshots/iphone-today.webp" alt="Around The House Today screen showing home reminders and items needing attention" /></div>
-              <div class="phone-shot offset"><img src="/assets/screenshots/iphone-assets.webp" alt="Around The House home items list" /></div>
+              <div class="phone-shot"><img src="/assets/screenshots/iphone-today.webp" width="390" height="845" alt="Around The House Today screen showing home reminders and items needing attention" fetchpriority="high" decoding="async" /></div>
+              <div class="phone-shot offset"><img src="/assets/screenshots/iphone-assets.webp" width="390" height="845" alt="Around The House home items list" fetchpriority="high" decoding="async" /></div>
             </div>
             <div class="floating-card"><strong>Open it. Find the answer.</strong><span>Filter sizes, receipts, repair dates, warranties, notes, photos, and reminders.</span></div>
           </div>
@@ -101,7 +149,7 @@ const pricingCards = [
         <div class="grid-3 answer-grid">
           {answerCards.map(([title, body], index) => (
             <article class="answer-card">
-              <div class="big-number">{index + 1}</div>
+              <div class="big-number" aria-hidden="true">{index + 1}</div>
               <h3>{title}</h3>
               <p>{body}</p>
             </article>
@@ -132,7 +180,7 @@ const pricingCards = [
         </div>
         <div class="grid-3">
           {featureCards.map(([icon, title, body]) => (
-            <article class="card"><div class="icon">{icon}</div><h3>{title}</h3><p>{body}</p></article>
+            <article class="card"><div class="icon" aria-hidden="true">{icon}</div><h3>{title}</h3><p>{body}</p></article>
           ))}
         </div>
       </div>
@@ -140,7 +188,7 @@ const pricingCards = [
 
     <section class="section showcase-section">
       <div class="container showcase">
-        <div class="screenshot-card"><img src="/assets/screenshots/ipad-dashboard.webp" alt="Around The House dashboard showing home reminders, recent work, and maintenance overview" /></div>
+        <div class="screenshot-card"><img src="/assets/screenshots/ipad-dashboard.webp" width="620" height="827" alt="Around The House dashboard showing home reminders, recent work, and maintenance overview" loading="lazy" decoding="async" /></div>
         <div>
           <div class="kicker">Fast answers</div>
           <h2>When something breaks, you already have the record.</h2>
@@ -175,9 +223,9 @@ const pricingCards = [
           <p>Track what is due, what happened, what it cost, and where the proof is saved.</p>
         </div>
         <div class="screenshot-grid">
-          <div class="screenshot-card"><img src="/assets/screenshots/iphone-history.webp" alt="Around The House maintenance history screen" /></div>
-          <div class="screenshot-card wide"><img src="/assets/screenshots/mac-dashboard.webp" alt="Around The House Mac dashboard showing home overview" /></div>
-          <div class="screenshot-card"><img src="/assets/screenshots/iphone-calendar.webp" alt="Around The House calendar screen showing maintenance reminders" /></div>
+          <div class="screenshot-card"><img src="/assets/screenshots/iphone-history.webp" width="390" height="845" alt="Around The House maintenance history screen" loading="lazy" decoding="async" /></div>
+          <div class="screenshot-card wide"><img src="/assets/screenshots/mac-dashboard.webp" width="960" height="600" alt="Around The House Mac dashboard showing home overview" loading="lazy" decoding="async" /></div>
+          <div class="screenshot-card"><img src="/assets/screenshots/iphone-calendar.webp" width="390" height="845" alt="Around The House calendar screen showing maintenance reminders" loading="lazy" decoding="async" /></div>
         </div>
       </div>
     </section>
@@ -197,12 +245,30 @@ const pricingCards = [
       </div>
     </section>
 
+    <section class="section faq-section" id="faq">
+      <div class="container">
+        <div class="section-header centered">
+          <div class="kicker">Questions</div>
+          <h2>Home maintenance records, without the scavenger hunt.</h2>
+          <p>Quick answers about what Around The House tracks, how it syncs, and where your records live.</p>
+        </div>
+        <div class="faq-list">
+          {faqItems.map(([question, answer]) => (
+            <article class="faq-item">
+              <h3>{question}</h3>
+              <p>{answer}</p>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
     <section class="cta">
       <div class="container cta-inner">
         <div class="kicker">Coming to the App Store</div>
         <h2>Give your home a memory.</h2>
         <p class="lead">Start keeping the details now, before the next repair, warranty question, filter change, or mystery receipt.</p>
-        <div class="hero-actions center"><a class="button disabled" href="#app-store" aria-disabled="true">App Store link coming soon</a><a class="button secondary" href="https://quiettoolsapps.com/">Visit Quiet Tools</a></div>
+        <div class="hero-actions center"><span class="button disabled" aria-disabled="true">App Store link coming soon</span><a class="button secondary" href="https://quiettoolsapps.com/">Visit Quiet Tools</a></div>
       </div>
     </section>
   </main>
