@@ -105,14 +105,16 @@ h3 { font-size: 23px; }
   position: relative;
   overflow: hidden;
 }
-.simple-stage:before { content: ""; position: absolute; right: -80px; bottom: -130px; width: 260px; height: 260px; background: rgba(213, 170, 87, .22); border-radius: 50%; }
+.hero-device-stage { padding: 22px; }
+.hero-product-shot { border-radius: 28px; overflow: hidden; background: #fffaf2; box-shadow: 0 16px 46px rgba(32, 63, 55, .15); border: 1px solid rgba(32, 63, 55, .12); }
+.hero-product-shot img { width: 100%; }
+.hero-screen-caption { display: flex; align-items: center; justify-content: space-between; gap: 18px; padding: 18px 8px 2px; }
+.hero-screen-caption strong { font-size: 17px; }
+.hero-screen-caption span { color: var(--muted); font-size: 14px; text-align: right; }
 .phone-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; position: relative; }
 .hero-phone-row { max-width: 510px; margin: 0 auto; }
 .phone-shot { border-radius: 30px; overflow: hidden; box-shadow: 0 16px 46px rgba(32, 63, 55, .17); border: 1px solid rgba(32, 63, 55, .12); background: white; }
 .phone-shot.offset { transform: translateY(54px); }
-.floating-card { position: absolute; left: 24px; bottom: 24px; background: rgba(255, 250, 242, .94); border: 1px solid rgba(32, 63, 55, .12); border-radius: 22px; padding: 16px 18px; box-shadow: var(--shadow); max-width: 290px; }
-.floating-card strong { display: block; }
-.floating-card span { color: var(--muted); font-size: 14px; display: block; margin-top: 4px; }
 
 .trust-strip { padding: 24px 0 42px; }
 .quick-answer { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
@@ -208,7 +210,6 @@ h3 { font-size: 23px; }
   .hero { padding-top: 48px; }
   .nav-links a:not(.button) { display: none; }
   .quick-answer { grid-template-columns: 1fr 1fr; }
-  .floating-card { position: static; margin-top: 14px; max-width: none; }
   .phone-shot.offset { transform: none; }
   .screenshot-grid .screenshot-card { max-width: 620px; margin: 0 auto; }
   .capability-grid.reverse > :first-child { order: initial; }
@@ -219,6 +220,10 @@ h3 { font-size: 23px; }
   .container { width: min(100% - 24px, 1120px); }
   .phone-row, .quick-answer, .question-list { grid-template-columns: 1fr; }
   .phone-row .phone-shot:nth-child(2) { display: none; }
+  .hero-device-stage { padding: 12px; border-radius: 28px; }
+  .hero-product-shot { border-radius: 20px; }
+  .hero-screen-caption { display: block; padding: 14px 5px 3px; }
+  .hero-screen-caption span { display: block; text-align: left; margin-top: 3px; }
   .section { padding: 52px 0; }
   .nav { min-height: 64px; }
   .brand span { font-size: 15px; }
