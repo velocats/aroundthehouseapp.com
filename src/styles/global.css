@@ -147,6 +147,14 @@ h3 { font-size: 23px; }
 .showcase-section { padding-top: 52px; }
 .screenshot-card { background: rgba(255, 250, 242, .8); border: 1px solid var(--line); border-radius: 34px; padding: 18px; box-shadow: var(--shadow); }
 .screenshot-card img { border-radius: 24px; border: 1px solid rgba(32, 63, 55, .12); }
+.landscape-shot { padding: 14px; }
+.capability-section { overflow: hidden; }
+.capability-grid { display: grid; grid-template-columns: .82fr 1.18fr; gap: 46px; align-items: center; }
+.capability-grid.reverse > :first-child { order: 2; }
+.soft-section { background: rgba(255, 250, 242, .48); border-block: 1px solid var(--line); }
+.phone-pair { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; align-items: center; max-width: 600px; }
+.phone-pair .phone-shot:nth-child(2) { transform: translateY(34px); }
+.gallery-link { display: flex; justify-content: center; margin-top: 30px; }
 .check-list { margin: 24px 0 0; padding: 0; list-style: none; display: grid; gap: 12px; color: #40514b; font-weight: 700; }
 .check-list li { position: relative; padding-left: 30px; }
 .check-list li:before { content: "✓"; position: absolute; left: 0; top: 0; color: var(--accent); font-weight: 950; }
@@ -158,6 +166,18 @@ h3 { font-size: 23px; }
 
 .screenshot-grid { display: grid; grid-template-columns: .8fr 1.4fr .8fr; gap: 18px; align-items: center; }
 .screenshot-card.wide { padding: 16px; }
+.gallery-hero { padding: 74px 0 28px; text-align: center; }
+.gallery-hero .lead { margin-inline: auto; }
+.gallery-section { padding-top: 40px; }
+.gallery-heading { display: flex; align-items: end; justify-content: space-between; gap: 24px; margin-bottom: 24px; }
+.gallery-heading p { color: var(--muted); max-width: 580px; margin: 0; }
+.gallery-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; align-items: start; }
+.gallery-grid.tablet { grid-template-columns: repeat(2, 1fr); }
+.gallery-figure { margin: 0; background: rgba(255, 250, 242, .82); border: 1px solid var(--line); border-radius: 28px; padding: 14px; box-shadow: var(--soft-shadow); }
+.gallery-figure img { border-radius: 19px; border: 1px solid rgba(32, 63, 55, .1); width: 100%; height: auto; }
+.gallery-figure figcaption { padding: 13px 5px 4px; }
+.gallery-figure strong { display: block; font-size: 17px; }
+.gallery-figure span { display: block; color: var(--muted); font-size: 14px; margin-top: 3px; }
 .pricing { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; align-items: stretch; }
 .price-card { border-radius: 30px; border: 1px solid var(--line); background: rgba(255, 250, 242, .8); padding: 28px; box-shadow: var(--soft-shadow); }
 .price-card:nth-child(2) { background: #fffaf2; box-shadow: var(--shadow); border-color: rgba(62, 122, 105, .26); }
@@ -184,13 +204,16 @@ h3 { font-size: 23px; }
 .legal-page a { color: var(--accent-dark); font-weight: 800; text-decoration: underline; text-underline-offset: 3px; }
 
 @media (max-width: 980px) {
-  .hero-grid, .showcase, .problem-grid, .pricing, .grid-3, .grid-4, .footer-grid, .screenshot-grid, .faq-list { grid-template-columns: 1fr; }
+  .hero-grid, .showcase, .problem-grid, .pricing, .grid-3, .grid-4, .footer-grid, .screenshot-grid, .faq-list, .capability-grid { grid-template-columns: 1fr; }
   .hero { padding-top: 48px; }
   .nav-links a:not(.button) { display: none; }
   .quick-answer { grid-template-columns: 1fr 1fr; }
   .floating-card { position: static; margin-top: 14px; max-width: none; }
   .phone-shot.offset { transform: none; }
   .screenshot-grid .screenshot-card { max-width: 620px; margin: 0 auto; }
+  .capability-grid.reverse > :first-child { order: initial; }
+  .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+  .gallery-grid.tablet { grid-template-columns: 1fr; }
 }
 @media (max-width: 560px) {
   .container { width: min(100% - 24px, 1120px); }
@@ -205,6 +228,10 @@ h3 { font-size: 23px; }
   h1 { font-size: clamp(43px, 14vw, 60px); }
   .card, .answer-card, .price-card { padding: 23px; }
   .cta-inner { padding: 42px 20px; border-radius: 30px; }
+  .gallery-grid, .phone-pair { grid-template-columns: 1fr; }
+  .phone-pair .phone-shot:nth-child(2) { transform: none; }
+  .gallery-heading { display: block; }
+  .gallery-heading p { margin-top: 12px; }
 }
 
 @media (prefers-reduced-motion: reduce) {

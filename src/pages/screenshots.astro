@@ -1,0 +1,89 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const phoneScreens = [
+  ['iphone-today.webp', 'Today dashboard', 'Overdue work, upcoming maintenance, documents, and home areas in one view.'],
+  ['iphone-items.webp', 'Home item inventory', 'Search and filter appliances, systems, fixtures, and equipment with photos and service details.'],
+  ['iphone-schedule.webp', 'Maintenance schedule', 'See recurring, upcoming, due-today, and overdue home maintenance on a calendar.'],
+  ['iphone-binder.webp', 'Home document binder', 'Organize receipts, manuals, and warranties by category and the item they belong to.'],
+  ['iphone-health-report.webp', 'Home maintenance report', 'Review a home health score, completed work, overdue items, costs, and service providers.'],
+  ['iphone-cost-tracking.webp', 'Home maintenance cost tracking', 'Understand spending on maintenance, repairs, replacements, and future replacement exposure.'],
+  ['iphone-warranty-countdown.webp', 'Warranty countdown', 'See expired and upcoming warranty dates across tracked appliances and home systems.'],
+  ['iphone-home-handoff.webp', 'Home handoff report', 'Prepare a maintenance packet with inventory, history, reminders, documents, warranties, and costs.'],
+  ['iphone-item-history.webp', 'Item photos and service history', 'Keep cover photos, repair history, providers, and costs attached to the correct home item.']
+];
+
+const tabletScreens = [
+  ['ipad-today.webp', 'iPad home dashboard', 'A roomy overview of home areas, due work, documents, and reminders.'],
+  ['ipad-items.webp', 'iPad item inventory', 'Browse a visual, searchable inventory with service dates and document counts.'],
+  ['ipad-schedule.webp', 'iPad maintenance calendar', 'Plan maintenance with a full calendar and actionable reminder list.'],
+  ['ipad-binder.webp', 'iPad document binder', 'Browse manuals, receipts, and warranties without digging through email or drawers.'],
+  ['ipad-health-report.webp', 'Home health and trends', 'See maintenance performance, spending trends, a watchlist, and recent records.'],
+  ['ipad-cost-tracking.webp', 'Detailed home cost analysis', 'Compare spend by month, property, area, maintenance type, and service provider.'],
+  ['ipad-home-handoff.webp', 'Detailed home handoff report', 'Preview a buyer-ready summary of assets, maintenance, reminders, documents, and warranties.'],
+  ['ipad-item-record.webp', 'Complete item record', 'Keep photos, maintenance history, reminders, manuals, receipts, and warranties together.'],
+  ['ipad-qr-item-details.webp', 'Specifications and QR labels', 'Save filter sizes, model and serial numbers, costs, notes, and a scannable QR code.']
+];
+
+const siteUrl = 'https://aroundthehouseapp.com/';
+const structuredData = {
+  '@type': 'CollectionPage',
+  name: 'Around The House App Screenshots',
+  url: `${siteUrl}screenshots/`,
+  description: 'See Around The House on iPhone and iPad, including home inventory, maintenance schedules, document storage, cost tracking, warranty countdowns, reports, and QR labels.'
+};
+---
+<BaseLayout
+  title="Around The House App Screenshots — iPhone & iPad"
+  description="Explore Around The House app screenshots for home inventory, maintenance calendars, receipts, manuals, warranties, cost tracking, reports, QR labels, and home handoff reports."
+  canonicalPath="/screenshots/"
+  page="screenshots"
+  structuredData={structuredData}
+>
+  <main id="main-content" tabindex="-1">
+    <section class="gallery-hero">
+      <div class="container">
+        <div class="kicker">Inside Around The House</div>
+        <h1>One place for the whole story of your home.</h1>
+        <p class="lead">See how Around The House turns scattered maintenance details into a useful home inventory, schedule, binder, service history, cost record, warranty watchlist, and handoff report.</p>
+      </div>
+    </section>
+
+    <section class="section gallery-section">
+      <div class="container">
+        <div class="gallery-heading"><h2>On iPhone</h2><p>Capture information where the work happens, then pull up the answer when you need it.</p></div>
+        <div class="gallery-grid">
+          {phoneScreens.map(([file, title, description], index) => (
+            <figure class="gallery-figure">
+              <img src={`/assets/screenshots/new/${file}`} width="1290" height="2796" alt={`${title} in the Around The House iPhone app`} loading={index < 3 ? 'eager' : 'lazy'} decoding="async" />
+              <figcaption><strong>{title}</strong><span>{description}</span></figcaption>
+            </figure>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="section gallery-section soft-section">
+      <div class="container">
+        <div class="gallery-heading"><h2>On iPad</h2><p>Review larger inventories, reports, schedules, and detailed records with more room to see the full picture.</p></div>
+        <div class="gallery-grid tablet">
+          {tabletScreens.map(([file, title, description]) => (
+            <figure class="gallery-figure">
+              <img src={`/assets/screenshots/new/${file}`} width="2064" height="2752" alt={`${title} in the Around The House iPad app`} loading="lazy" decoding="async" />
+              <figcaption><strong>{title}</strong><span>{description}</span></figcaption>
+            </figure>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="cta">
+      <div class="container cta-inner">
+        <div class="kicker">Home care for everyday household life</div>
+        <h2>Stop rebuilding your home’s history from memory.</h2>
+        <p class="lead">Keep the receipt, repair, reminder, warranty, photo, cost, and model number with the item it belongs to.</p>
+        <div class="hero-actions center"><span class="button disabled" aria-disabled="true">App Store link coming soon</span><a class="button secondary" href="/">Learn how it works</a></div>
+      </div>
+    </section>
+  </main>
+</BaseLayout>

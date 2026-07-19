@@ -25,7 +25,7 @@ const featureCards = [
   ['📎', 'Receipts and files', 'Attach paperwork to the exact item it belongs to, so it is not lost in email or a drawer.'],
   ['🛠️', 'Repair history', 'Save who fixed it, what they did, what it cost, and what you should know next time.'],
   ['📷', 'Photos and notes', 'Snap a label, serial number, breaker panel, part, or problem before you forget the details.'],
-  ['📱', 'iPhone, iPad, and Mac', 'Keep your home details available across your Apple devices with private iCloud sync when enabled.']
+  ['📊', 'Reports and cost insights', 'See home health, maintenance spending, warranty deadlines, and a handoff-ready summary.']
 ];
 
 const peopleCards = [
@@ -61,9 +61,9 @@ const structuredData = [
     description: appDescription,
     image: `${siteUrl}assets/og/around-the-house-og.png`,
     screenshot: [
-      `${siteUrl}assets/screenshots/iphone-today.webp`,
-      `${siteUrl}assets/screenshots/ipad-dashboard.webp`,
-      `${siteUrl}assets/screenshots/mac-dashboard.webp`
+      `${siteUrl}assets/screenshots/new/iphone-today.webp`,
+      `${siteUrl}assets/screenshots/new/ipad-health-report.webp`,
+      `${siteUrl}assets/screenshots/new/ipad-cost-tracking.webp`
     ],
     featureList: [
       'Home maintenance records',
@@ -71,6 +71,8 @@ const structuredData = [
       'Recurring reminders',
       'Receipts and warranty files',
       'Photos and notes',
+      'Home maintenance reports and cost tracking',
+      'Warranty countdowns and home handoff reports',
       'Private iCloud sync'
     ],
     publisher: { '@id': `${siteUrl}#organization` },
@@ -121,8 +123,8 @@ const structuredData = [
         <div class="hero-visual" aria-label="Around The House app screenshots">
           <div class="device-stage simple-stage">
             <div class="phone-row hero-phone-row">
-              <div class="phone-shot"><img src="/assets/screenshots/iphone-today.webp" width="390" height="845" alt="Around The House Today screen showing home reminders and items needing attention" fetchpriority="high" decoding="async" /></div>
-              <div class="phone-shot offset"><img src="/assets/screenshots/iphone-assets.webp" width="390" height="845" alt="Around The House home items list" fetchpriority="high" decoding="async" /></div>
+              <div class="phone-shot"><img src="/assets/screenshots/new/iphone-today.webp" width="1290" height="2796" alt="Around The House Today dashboard showing overdue work, upcoming maintenance, documents, and home areas" fetchpriority="high" decoding="async" /></div>
+              <div class="phone-shot offset"><img src="/assets/screenshots/new/iphone-items.webp" width="1290" height="2796" alt="Searchable Around The House item inventory with photos, areas, service dates, documents, and reminders" fetchpriority="high" decoding="async" /></div>
             </div>
             <div class="floating-card"><strong>Open it. Find the answer.</strong><span>Filter sizes, receipts, repair dates, warranties, notes, photos, and reminders.</span></div>
           </div>
@@ -188,7 +190,7 @@ const structuredData = [
 
     <section class="section showcase-section">
       <div class="container showcase">
-        <div class="screenshot-card"><img src="/assets/screenshots/ipad-dashboard.webp" width="620" height="827" alt="Around The House dashboard showing home reminders, recent work, and maintenance overview" loading="lazy" decoding="async" /></div>
+        <div class="screenshot-card landscape-shot"><img src="/assets/screenshots/new/ipad-item-record.webp" width="2064" height="2752" alt="Detailed home item record with photos, maintenance history, reminders, manuals, receipts, and warranties" loading="lazy" decoding="async" /></div>
         <div>
           <div class="kicker">Fast answers</div>
           <h2>When something breaks, you already have the record.</h2>
@@ -198,6 +200,36 @@ const structuredData = [
             <li>Find receipts and warranty details without searching email.</li>
             <li>Share better notes with your future self, family, or a buyer.</li>
           </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section capability-section" aria-labelledby="reports-heading">
+      <div class="container capability-grid">
+        <div>
+          <div class="kicker">Home maintenance reports</div>
+          <h2 id="reports-heading">See the health of your home, not just a list of chores.</h2>
+          <p class="lead small-lead">Turn years of home records into a clear health score, maintenance trends, overdue work, replacement attention, and service-provider history.</p>
+          <ul class="check-list">
+            <li>Track completed and overdue maintenance at a glance.</li>
+            <li>Spot the items that need follow-up or replacement.</li>
+            <li>Share a practical home handoff report with a future buyer or owner.</li>
+          </ul>
+        </div>
+        <div class="screenshot-card wide"><img src="/assets/screenshots/new/ipad-health-report.webp" width="2064" height="2752" alt="Around The House home maintenance report with health score, trends, watchlist, costs, and recent records" loading="lazy" decoding="async" /></div>
+      </div>
+    </section>
+
+    <section class="section capability-section soft-section" aria-labelledby="money-heading">
+      <div class="container capability-grid reverse">
+        <div>
+          <div class="kicker">Costs and warranties</div>
+          <h2 id="money-heading">Know what your home costs—and what is about to expire.</h2>
+          <p class="lead small-lead">Cost tracking organizes maintenance, repairs, replacements, asset value, and replacement exposure. Warranty countdowns keep coverage dates visible before they slip by.</p>
+        </div>
+        <div class="phone-pair">
+          <div class="phone-shot"><img src="/assets/screenshots/new/iphone-cost-tracking.webp" width="1290" height="2796" alt="Home maintenance cost tracking with spending totals and monthly chart" loading="lazy" decoding="async" /></div>
+          <div class="phone-shot"><img src="/assets/screenshots/new/iphone-warranty-countdown.webp" width="1290" height="2796" alt="Warranty countdown organized by expiration date for tracked home equipment" loading="lazy" decoding="async" /></div>
         </div>
       </div>
     </section>
@@ -223,10 +255,11 @@ const structuredData = [
           <p>Track what is due, what happened, what it cost, and where the proof is saved.</p>
         </div>
         <div class="screenshot-grid">
-          <div class="screenshot-card"><img src="/assets/screenshots/iphone-history.webp" width="390" height="845" alt="Around The House maintenance history screen" loading="lazy" decoding="async" /></div>
-          <div class="screenshot-card wide"><img src="/assets/screenshots/mac-dashboard.webp" width="960" height="600" alt="Around The House Mac dashboard showing home overview" loading="lazy" decoding="async" /></div>
-          <div class="screenshot-card"><img src="/assets/screenshots/iphone-calendar.webp" width="390" height="845" alt="Around The House calendar screen showing maintenance reminders" loading="lazy" decoding="async" /></div>
+          <div class="screenshot-card"><img src="/assets/screenshots/new/iphone-schedule.webp" width="1290" height="2796" alt="Home maintenance calendar with overdue and upcoming recurring reminders" loading="lazy" decoding="async" /></div>
+          <div class="screenshot-card wide"><img src="/assets/screenshots/new/ipad-binder.webp" width="2064" height="2752" alt="Home document binder organizing receipts, manuals, and warranties by category and item" loading="lazy" decoding="async" /></div>
+          <div class="screenshot-card"><img src="/assets/screenshots/new/iphone-home-handoff.webp" width="1290" height="2796" alt="Home handoff report summarizing assets, maintenance records, reminders, warranties, documents, and costs" loading="lazy" decoding="async" /></div>
         </div>
+        <div class="gallery-link"><a class="button secondary" href="/screenshots/">Explore every app screen</a></div>
       </div>
     </section>
 
