@@ -20,6 +20,8 @@ const tabletScreens = [
   ['ipad-binder.webp', 'iPad document binder', 'Browse home, maintenance, project, insurance, and personal-property records without digging through email or drawers.'],
   ['ipad-health-report.webp', 'Home health and trends', 'See maintenance performance, spending trends, a watchlist, and recent records.'],
   ['ipad-cost-tracking.webp', 'Detailed home cost analysis', 'Compare spend by month, property, area, maintenance type, and service provider.'],
+  ['ipad-insurance-coverage-overview.webp', 'Insurance coverage overview', 'Compare the home values and insurance limits you enter, with estimated differences shown clearly in one overview.'],
+  ['ipad-personal-property-documentation.webp', 'Personal property documentation check', 'Review personal-property totals and see which items still need photos, receipts, model numbers, or serial numbers.'],
   ['ipad-home-handoff.webp', 'Detailed home handoff report', 'Preview a buyer-ready summary of assets, maintenance, reminders, documents, and warranties.'],
   ['ipad-item-record.webp', 'Complete item record', 'Keep photos, maintenance history, reminders, manuals, receipts, and warranties together.'],
   ['ipad-qr-item-details.webp', 'Specifications and QR labels', 'Save filter sizes, model and serial numbers, costs, notes, and a scannable QR code.']
@@ -30,12 +32,12 @@ const structuredData = {
   '@type': 'CollectionPage',
   name: 'Around The House App Screenshots',
   url: `${siteUrl}screenshots/`,
-  description: 'See Around The House on iPhone and iPad, including home inventory, maintenance schedules, document storage, cost tracking, warranty countdowns, reports, and QR labels.'
+  description: 'See Around The House on iPhone and iPad, including home inventory, personal property, insurance coverage, maintenance schedules, document storage, cost tracking, reports, and QR labels.'
 };
 ---
 <BaseLayout
   title="Around The House App Screenshots — iPhone & iPad"
-  description="Explore Around The House app screenshots for home inventory, maintenance calendars, receipts, manuals, warranties, cost tracking, reports, QR labels, and home handoff reports."
+  description="Explore Around The House app screenshots for home inventory, personal property, insurance coverage, maintenance calendars, documents, cost tracking, reports, and QR labels."
   canonicalPath="/screenshots/"
   page="screenshots"
   structuredData={structuredData}
@@ -45,7 +47,7 @@ const structuredData = {
       <div class="container">
         <div class="kicker">Inside Around The House</div>
         <h1>One place for the whole story of your home.</h1>
-        <p class="lead">See how Around The House turns scattered maintenance details into a useful home inventory, schedule, binder, service history, cost record, warranty watchlist, and handoff report.</p>
+        <p class="lead">See how Around The House turns scattered details into a useful home inventory, schedule, Binder, personal-property record, coverage overview, service history, cost record, and handoff report.</p>
       </div>
     </section>
 
@@ -65,7 +67,7 @@ const structuredData = {
 
     <section class="section gallery-section soft-section">
       <div class="container">
-        <div class="gallery-heading"><h2>On iPad</h2><p>Review larger inventories, reports, schedules, and detailed records with more room to see the full picture.</p></div>
+        <div class="gallery-heading"><h2>On iPad</h2><p>Review larger inventories, personal-property documentation, homeowner-entered coverage, reports, schedules, and detailed records with more room to see the full picture.</p></div>
         <div class="gallery-grid tablet">
           {tabletScreens.map(([file, title, description]) => (
             <figure class="gallery-figure">
