@@ -2,7 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 
 const siteUrl = 'https://aroundthehouseapp.com/';
-const appDescription = 'Around The House is a private home maintenance app for tracking repairs, reminders, warranties, receipts, photos, notes, service history, costs, and important home details.';
+const appDescription = 'Around The House is a private home maintenance app for organizing home records, repairs, reminders, insurance coverage, personal property, receipts, photos, and important documents.';
 
 const answerCards = [
   ['Add the thing', 'Appliances, HVAC, roof, tools, cars, electronics, furniture — anything you want to remember.'],
@@ -22,10 +22,10 @@ const quickUses = [
 const featureCards = [
   ['🏠', 'Home item records', 'Give every important home thing its own place for notes, dates, photos, files, and history.'],
   ['🔔', 'Simple reminders', 'Remember filters, inspections, renewals, seasonal tasks, service dates, and warranty deadlines.'],
-  ['📎', 'Receipts and files', 'Attach paperwork to the exact item it belongs to, so it is not lost in email or a drawer.'],
+  ['📎', 'One organized Binder', 'Keep records and documents for your home, maintenance, projects, insurance, and personal property together.'],
   ['🛠️', 'Repair history', 'Save who fixed it, what they did, what it cost, and what you should know next time.'],
   ['📷', 'Photos and notes', 'Snap a label, serial number, breaker panel, part, or problem before you forget the details.'],
-  ['📊', 'Reports and cost insights', 'See home health, maintenance spending, warranty deadlines, and a handoff-ready summary.']
+  ['📊', 'Reports and coverage overview', 'See home health, maintenance spending, warranty deadlines, homeowner-entered coverage, and a handoff-ready summary.']
 ];
 
 const peopleCards = [
@@ -42,10 +42,10 @@ const pricingCards = [
 ];
 
 const faqItems = [
-  ['What is Around The House?', 'Around The House is a home maintenance app that keeps repairs, reminders, receipts, warranties, photos, notes, model numbers, serial numbers, service history, and costs organized in one place.'],
+  ['What is Around The House?', 'Around The House is a home maintenance app that keeps home, maintenance, project, insurance, and personal-property records and documents organized in one private Binder.'],
   ['Does Around The House require an account?', 'No. Around The House does not require a separate web account. Your records stay on your Apple devices and in your private iCloud account when iCloud sync is enabled.'],
   ['What devices does Around The House support?', 'Around The House is built for iPhone, iPad, and Mac, with private iCloud sync available when it is enabled on your devices.'],
-  ['Can I track more than repairs?', 'Yes. You can track appliances, HVAC systems, roof details, tools, cars, electronics, furniture, warranties, receipts, files, reminders, photos, notes, and recurring home tasks.']
+  ['Can I track more than repairs?', 'Yes. You can track appliances, HVAC systems, roofs, decks, landscaping, other improvements, tools, electronics, furniture, jewelry, bicycles, collectibles, warranties, receipts, files, reminders, photos, notes, and recurring home tasks.']
 ];
 
 const structuredData = [
@@ -72,6 +72,9 @@ const structuredData = [
       'Receipts and warranty files',
       'Photos and notes',
       'Home maintenance reports and cost tracking',
+      'Personal property inventory and supporting documents',
+      'Home value history and insurance coverage overview',
+      'Documentation checks and estimated coverage gaps',
       'Warranty countdowns and home handoff reports',
       'Private iCloud sync'
     ],
@@ -101,7 +104,7 @@ const structuredData = [
 ---
 <BaseLayout
   title="Around The House — Home Maintenance App"
-  description="Track home repairs, reminders, receipts, warranties, photos, notes, service history, costs, and important house details in one private app."
+  description="Organize home maintenance, personal property, insurance coverage, receipts, photos, warranties, and important house records in one private app."
   ogTitle="Around The House — Home Maintenance App"
   ogDescription="Remember everything about your home: repairs, reminders, warranties, receipts, photos, notes, service history, costs, and important details."
   structuredData={structuredData}
@@ -206,6 +209,57 @@ const structuredData = [
       </div>
     </section>
 
+    <section class="section property-section soft-section" aria-labelledby="property-heading">
+      <div class="container">
+        <div class="section-header centered property-header">
+          <div class="kicker">Personal property and insurance coverage</div>
+          <h2 id="property-heading">Know what you own—and whether it’s documented.</h2>
+          <p>Keep your home, improvements, and personal property organized in one secure Binder. Record estimated values and insurance coverage, spot possible gaps, and see which belongings still need photos, receipts, or other documentation.</p>
+        </div>
+
+        <div class="feature-labels" aria-label="Personal property and coverage features">
+          <span>Personal Property Inventory</span>
+          <span>Home Value History</span>
+          <span>Insurance Coverage Overview</span>
+          <span>Documentation Check</span>
+          <span>One Organized Binder</span>
+        </div>
+
+        <div class="property-grid">
+          <div class="screenshot-card wide property-shot">
+            <img src="/assets/screenshots/new/ipad-personal-property-documentation.webp" width="2048" height="2732" alt="Binder coverage view showing personal property totals and items needing documentation" loading="lazy" decoding="async" />
+          </div>
+          <div>
+            <div class="kicker">Personal Property Inventory</div>
+            <h3 class="feature-heading">Keep the belongings that matter connected to their proof.</h3>
+            <p class="lead small-lead">Track jewelry, bicycles, tools, lawn equipment, electronics, furniture, collectibles, and other valuables—or create a custom personal-property item.</p>
+            <ul class="check-list">
+              <li>Keep photos, receipts, warranties, appraisals, and supporting documents with the corresponding item.</li>
+              <li>See which belongings still need a photo, receipt, model number, or serial number.</li>
+              <li>Keep personal-property records with the rest of your home, maintenance, project, and insurance documents.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="property-grid reverse">
+          <div class="screenshot-card wide property-shot">
+            <img src="/assets/screenshots/new/ipad-insurance-coverage-overview.webp" width="2048" height="2732" alt="Coverage overview comparing homeowner-entered home values and insurance limits" loading="lazy" decoding="async" />
+          </div>
+          <div>
+            <div class="kicker">Home Value History</div>
+            <h3 class="feature-heading">See your values, coverage, and records in context.</h3>
+            <p class="lead small-lead">Record your home’s estimated value and valuation date, then keep overall home insurance and personal-property coverage visible alongside it.</p>
+            <ul class="check-list">
+              <li>Include the roof, deck, landscaping, structures, and other improvements in your supporting records.</li>
+              <li>See estimated differences between the values and coverage amounts you enter.</li>
+              <li>Review property, personal-property, and documentation totals in one calm overview.</li>
+            </ul>
+            <p class="coverage-note">You enter and control every value. Around The House does not retrieve property estimates, value your home, provide insurance advice, or guarantee that coverage is adequate.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section class="section capability-section" aria-labelledby="reports-heading">
       <div class="container capability-grid">
         <div>
@@ -254,11 +308,11 @@ const structuredData = [
         <div class="section-header centered">
           <div class="kicker">Product preview</div>
           <h2>Calm records for busy homes.</h2>
-          <p>Track what is due, what happened, what it cost, and where the proof is saved.</p>
+          <p>Track what is due, what happened, what it cost, and where records for your home, maintenance, projects, insurance, and personal property are saved.</p>
         </div>
         <div class="screenshot-grid">
           <div class="screenshot-card"><img src="/assets/screenshots/new/iphone-schedule.webp" width="1206" height="2622" alt="Home maintenance calendar with overdue and upcoming recurring reminders" loading="lazy" decoding="async" /></div>
-          <div class="screenshot-card wide"><img src="/assets/screenshots/new/ipad-binder.webp" width="2048" height="2732" alt="Home document binder organizing receipts, manuals, and warranties by category and item" loading="lazy" decoding="async" /></div>
+          <div class="screenshot-card wide"><img src="/assets/screenshots/new/ipad-binder.webp" width="2048" height="2732" alt="Home Binder organizing records and documents by category and item" loading="lazy" decoding="async" /></div>
           <div class="screenshot-card"><img src="/assets/screenshots/new/iphone-home-handoff.webp" width="1206" height="2622" alt="Home handoff report summarizing assets, maintenance records, reminders, warranties, documents, and costs" loading="lazy" decoding="async" /></div>
         </div>
         <div class="gallery-link"><a class="button secondary" href="/screenshots/">Explore every app screen</a></div>

@@ -1,7 +1,7 @@
 {
   "name": "Around The House",
   "short_name": "Around The House",
-  "description": "A private home maintenance app for repairs, reminders, receipts, warranties, photos, notes, and important home details.",
+  "description": "A private home maintenance app for repairs, reminders, insurance coverage, personal property, receipts, photos, and important home records.",
   "start_url": "/",
   "scope": "/",
   "display": "standalone",
