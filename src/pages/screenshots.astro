@@ -9,6 +9,8 @@ const phoneScreens = [
   ['iphone-health-report.webp', 'Home maintenance report', 'Review a home health score, completed work, overdue items, costs, and service providers.'],
   ['iphone-cost-tracking.webp', 'Home maintenance cost tracking', 'Understand spending on maintenance, repairs, replacements, and future replacement exposure.'],
   ['iphone-warranty-countdown.webp', 'Warranty countdown', 'See expired and upcoming warranty dates across tracked appliances and home systems.'],
+  ['iphone-insurance-coverage-overview.webp', 'Insurance coverage overview', 'Keep homeowner-entered home values, valuation dates, and insurance policy limits visible together.', 1310, 2688],
+  ['iphone-personal-property-documentation.webp', 'Documentation check', 'See which tracked belongings still need a photo, receipt, model number, or serial number.', 1242, 2688],
   ['iphone-home-handoff.webp', 'Home handoff report', 'Prepare a maintenance packet with inventory, history, reminders, documents, warranties, and costs.'],
   ['iphone-item-history.webp', 'Item photos and service history', 'Keep cover photos, repair history, providers, and costs attached to the correct home item.']
 ];
@@ -55,9 +57,9 @@ const structuredData = {
       <div class="container">
         <div class="gallery-heading"><h2>On iPhone</h2><p>Capture information where the work happens, then pull up the answer when you need it.</p></div>
         <div class="gallery-grid">
-          {phoneScreens.map(([file, title, description], index) => (
+          {phoneScreens.map(([file, title, description, width = 1206, height = 2622], index) => (
             <figure class="gallery-figure">
-              <img src={`/assets/screenshots/new/${file}`} width="1206" height="2622" alt={`${title} in the Around The House iPhone app`} loading={index < 3 ? 'eager' : 'lazy'} decoding="async" />
+              <img src={`/assets/screenshots/new/${file}`} width={width} height={height} alt={`${title} in the Around The House iPhone app`} loading={index < 3 ? 'eager' : 'lazy'} decoding="async" />
               <figcaption><strong>{title}</strong><span>{description}</span></figcaption>
             </figure>
           ))}
