@@ -2,6 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 
 const siteUrl = 'https://aroundthehouseapp.com/';
+const appStoreUrl = 'https://apps.apple.com/us/app/around-the-house-binder/id6789646793';
 const appDescription = 'Around The House is a private home maintenance app for organizing home records, repairs, reminders, insurance coverage, personal property, receipts, photos, and important documents.';
 
 const answerCards = [
@@ -36,9 +37,8 @@ const peopleCards = [
 ];
 
 const pricingCards = [
-  ['Free', 'Start with a few real home items and see if Around The House fits your household.'],
-  ['Pro', 'Unlock unlimited items, exports, QR labels, advanced scheduling, and reports.'],
-  ['Lifetime', 'A one-time option for people who want long-term home records without a subscription.']
+  ['Monthly', '$0.99', 'per month', 'Unlock the complete Around The House experience with a simple monthly subscription.'],
+  ['Lifetime Unlock', '$9.99', 'one-time purchase', 'Pay once and keep every premium feature for the lifetime of the app—no subscription required.']
 ];
 
 const faqItems = [
@@ -80,8 +80,8 @@ const structuredData = [
     ],
     publisher: { '@id': `${siteUrl}#organization` },
     offers: [
-      { '@type': 'Offer', name: 'Free', price: '0', priceCurrency: 'USD' },
-      { '@type': 'Offer', name: 'Pro', priceCurrency: 'USD', availability: 'https://schema.org/PreOrder' }
+      { '@type': 'Offer', name: 'Monthly', price: '0.99', priceCurrency: 'USD', url: appStoreUrl },
+      { '@type': 'Offer', name: 'Lifetime Unlock', price: '9.99', priceCurrency: 'USD', url: appStoreUrl }
     ]
   },
   {
@@ -118,7 +118,7 @@ const structuredData = [
           <p class="lead">Around The House keeps repairs, reminders, warranties, receipts, photos, notes, and important home details in one simple place.</p>
           <p class="plain-line">Built for busy households, forgetful brains, detail people, and anyone tired of searching through texts, drawers, email, and camera rolls.</p>
           <div class="hero-actions">
-            <span class="button disabled" id="app-store" aria-disabled="true">App Store coming soon</span>
+            <a class="button" id="app-store" href={appStoreUrl} target="_blank" rel="noopener">Download on the App Store</a>
             <a class="button secondary" href="#how-it-works">See how it works</a>
           </div>
           <p class="microcopy">No Around The House account. Your data stays on your Apple devices and in your private iCloud when sync is enabled.</p>
@@ -323,12 +323,17 @@ const structuredData = [
       <div class="container">
         <div class="section-header centered">
           <div class="kicker">Pricing</div>
-          <h2>Start simple. Unlock more when you need it.</h2>
-          <p>Around The House will be free to try, with optional upgrades for larger homes and deeper record keeping.</p>
+          <h2>One low price. Your choice.</h2>
+          <p>Choose a flexible monthly plan or unlock Around The House for life. Purchases are handled securely through the App Store.</p>
         </div>
         <div class="pricing simple-pricing">
-          {pricingCards.map(([title, body]) => (
-            <article class="price-card"><h3>{title}</h3><p>{body}</p></article>
+          {pricingCards.map(([title, price, cadence, body]) => (
+            <article class="price-card">
+              <h3>{title}</h3>
+              <div class="price"><strong>{price}</strong><span>{cadence}</span></div>
+              <p>{body}</p>
+              <a class="price-link" href={appStoreUrl} target="_blank" rel="noopener">Get Around The House <span aria-hidden="true">→</span></a>
+            </article>
           ))}
         </div>
       </div>
@@ -354,10 +359,10 @@ const structuredData = [
 
     <section class="cta">
       <div class="container cta-inner">
-        <div class="kicker">Coming to the App Store</div>
+        <div class="kicker">Available on the App Store</div>
         <h2>Give your home a memory.</h2>
         <p class="lead">Start keeping the details now, before the next repair, warranty question, filter change, or mystery receipt.</p>
-        <div class="hero-actions center"><span class="button disabled" aria-disabled="true">App Store link coming soon</span><a class="button secondary" href="https://quiettoolsapps.com/">Visit Quiet Tools</a></div>
+        <div class="hero-actions center"><a class="button" href={appStoreUrl} target="_blank" rel="noopener">Download on the App Store</a><a class="button secondary" href="https://quiettoolsapps.com/">Visit Quiet Tools</a></div>
       </div>
     </section>
   </main>

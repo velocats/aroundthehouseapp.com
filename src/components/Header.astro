@@ -1,6 +1,7 @@
 ---
 const { page = 'home' } = Astro.props;
 const isHome = page === 'home';
+const appStoreUrl = 'https://apps.apple.com/us/app/around-the-house-binder/id6789646793';
 ---
 <header class="site-header">
   <nav class="container nav" aria-label="Main navigation">
@@ -15,7 +16,7 @@ const isHome = page === 'home';
         <a href="/screenshots/">Screenshots</a>
         <a href="#pricing">Pricing</a>
         <a href="/support/">Support</a>
-        <span class="button disabled" aria-disabled="true">App Store coming soon</span>
+        <a class="button" href={appStoreUrl} target="_blank" rel="noopener">App Store</a>
       </div>
     ) : (
       <div class="nav-links">
@@ -23,7 +24,7 @@ const isHome = page === 'home';
         <a href="/#features">What it tracks</a>
         <a href="/screenshots/">Screenshots</a>
         <a href="/support/">Support</a>
-        <a class="button secondary" href="/">Home</a>
+        <a class="button" href={appStoreUrl} target="_blank" rel="noopener">App Store</a>
       </div>
     )}
   </nav>

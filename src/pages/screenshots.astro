@@ -1,6 +1,8 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 
+const appStoreUrl = 'https://apps.apple.com/us/app/around-the-house-binder/id6789646793';
+
 const phoneScreens = [
   ['iphone-today.webp', 'Today dashboard', 'Overdue work, upcoming maintenance, documents, and home areas in one view.'],
   ['iphone-items.webp', 'Home item inventory', 'Search and filter appliances, systems, fixtures, and equipment with photos and service details.'],
@@ -86,7 +88,7 @@ const structuredData = {
         <div class="kicker">Home care for everyday household life</div>
         <h2>Stop rebuilding your home’s history from memory.</h2>
         <p class="lead">Keep the receipt, repair, reminder, warranty, photo, cost, and model number with the item it belongs to.</p>
-        <div class="hero-actions center"><span class="button disabled" aria-disabled="true">App Store link coming soon</span><a class="button secondary" href="/">Learn how it works</a></div>
+        <div class="hero-actions center"><a class="button" href={appStoreUrl} target="_blank" rel="noopener">Download on the App Store</a><a class="button secondary" href="/">Learn how it works</a></div>
       </div>
     </section>
   </main>
