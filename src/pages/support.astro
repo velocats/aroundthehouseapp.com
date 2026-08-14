@@ -15,7 +15,12 @@ import LegalArticle from '../components/LegalArticle.astro';
     <form class="support-form" id="supportForm" action="https://formsubmit.co/support@quiettoolsapps.com" method="POST">
       <input type="hidden" name="_subject" value="New Around The House support request" />
       <input type="hidden" name="_template" value="table" />
-      <input type="hidden" name="_captcha" value="false" />
+      <input type="hidden" name="_captcha" value="true" />
+      <input
+        type="hidden"
+        name="_autoresponse"
+        value="We received your Around The House support request. Thanks for reaching out — we’ll review it and reply as soon as we can."
+      />
       <input type="hidden" name="_next" value="https://aroundthehouseapp.com/support/?sent=1" />
       <input class="form-honeypot" type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true" />
 
