@@ -19,13 +19,13 @@ const links = [
     </a>
     <div class="nav-links desktop-links">
       {links.map(([label, href]) => <a href={href}>{label}</a>)}
-      <a class="nav-cta" href={appStoreUrl} target="_blank" rel="noopener">Download</a>
+      <a class="nav-badge" href={appStoreUrl} target="_blank" rel="noopener"><img src="/assets/app-store-badge.svg" width="120" height="40" alt="Download on the App Store" /></a>
     </div>
     <details class="nav-disclosure">
       <summary aria-label="Open menu">Menu</summary>
       <div class="nav-disclosure-panel">
         {links.map(([label, href]) => <a href={href}>{label}</a>)}
-        <a class="nav-cta" href={appStoreUrl} target="_blank" rel="noopener">Download</a>
+        <a class="nav-badge" href={appStoreUrl} target="_blank" rel="noopener"><img src="/assets/app-store-badge.svg" width="120" height="40" alt="Download on the App Store" /></a>
       </div>
     </details>
   </nav>

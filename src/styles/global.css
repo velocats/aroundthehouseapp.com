@@ -68,7 +68,7 @@ main:focus-visible {
 .brand img { width: 38px; height: 38px; border-radius: 12px; box-shadow: 0 8px 24px rgba(32, 63, 55, .12); }
 .nav-links { display: flex; align-items: center; gap: 22px; font-size: 14px; color: var(--muted); }
 .nav-links a:hover { color: var(--ink); }
-.nav-links a.nav-cta { color: var(--accent-dark); font-weight: 700; }
+.nav-badge { display: inline-flex; }
 .button, .app-button {
   display: inline-flex;
   align-items: center;
@@ -121,7 +121,7 @@ main:focus-visible {
   }
   .nav-disclosure-panel a { padding: 10px 12px; border-radius: var(--r-sm); color: var(--ink); font-size: 15px; }
   .nav-disclosure-panel a:hover { background: rgba(32, 63, 55, .06); }
-  .nav-disclosure-panel a.nav-cta { color: var(--accent-dark); font-weight: 700; }
+  .nav-disclosure-panel a.nav-badge { padding: 6px 12px; }
 }
 
 .hero { padding: 64px 0 36px; }
