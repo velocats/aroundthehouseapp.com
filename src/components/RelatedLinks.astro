@@ -1,0 +1,16 @@
+---
+// Contextual internal links. Rendered as a plain list with hairline rules rather
+// than a card grid, so deeper pages don't turn into feature-tile pages.
+const { heading = 'Related', items = [] } = Astro.props;
+---
+<aside class="related">
+  <h2>{heading}</h2>
+  <ul>
+    {items.map(({ path, label, blurb }) => (
+      <li>
+        <a href={path}>{label}</a>
+        {blurb && <span>{blurb}</span>}
+      </li>
+    ))}
+  </ul>
+</aside>

@@ -1,0 +1,23 @@
+---
+// An alternating copy/screenshot block. The screenshot is deliberately large:
+// these pages explain the product by showing it, not by describing it.
+//
+// device="iphone" -> 1206x2622 sources, device="ipad" -> 2048x2732 sources.
+const { src, alt, device = 'iphone', flip = false } = Astro.props;
+const dims = device === 'ipad' ? { width: 2048, height: 2732 } : { width: 1206, height: 2622 };
+---
+<div class:list={['product-block', device, flip && 'flip']}>
+  <div class="product-block-copy">
+    <slot />
+  </div>
+  <figure class="product-block-shot">
+    <img
+      src={src}
+      width={dims.width}
+      height={dims.height}
+      alt={alt}
+      loading="lazy"
+      decoding="async"
+    />
+  </figure>
+</div>

@@ -2,6 +2,14 @@
 const { page = 'home' } = Astro.props;
 const isHome = page === 'home';
 const appStoreUrl = 'https://apps.apple.com/us/app/around-the-house-binder/id6789646793';
+const prefix = isHome ? '' : '/';
+
+const links = [
+  ['Features', `${prefix}#features`],
+  ['Screenshots', '/screenshots/'],
+  ['Pricing', `${prefix}#pricing`],
+  ['Support', '/support/']
+];
 ---
 <header class="site-header">
   <nav class="container nav" aria-label="Main navigation">
@@ -9,23 +17,16 @@ const appStoreUrl = 'https://apps.apple.com/us/app/around-the-house-binder/id678
       <img src="/assets/icons/around-the-house-icon.png" width="512" height="512" alt="Around The House app icon" />
       <span>Around The House</span>
     </a>
-    {isHome ? (
-      <div class="nav-links">
-        <a href="#how-it-works">How it works</a>
-        <a href="#features">What it tracks</a>
-        <a href="/screenshots/">Screenshots</a>
-        <a href="#pricing">Pricing</a>
-        <a href="/support/">Support</a>
-        <a class="button" href={appStoreUrl} target="_blank" rel="noopener">App Store</a>
+    <div class="nav-links desktop-links">
+      {links.map(([label, href]) => <a href={href}>{label}</a>)}
+      <a class="nav-cta" href={appStoreUrl} target="_blank" rel="noopener">Download</a>
+    </div>
+    <details class="nav-disclosure">
+      <summary aria-label="Open menu">Menu</summary>
+      <div class="nav-disclosure-panel">
+        {links.map(([label, href]) => <a href={href}>{label}</a>)}
+        <a class="nav-cta" href={appStoreUrl} target="_blank" rel="noopener">Download</a>
       </div>
-    ) : (
-      <div class="nav-links">
-        <a href="/#how-it-works">How it works</a>
-        <a href="/#features">What it tracks</a>
-        <a href="/screenshots/">Screenshots</a>
-        <a href="/support/">Support</a>
-        <a class="button" href={appStoreUrl} target="_blank" rel="noopener">App Store</a>
-      </div>
-    )}
+    </details>
   </nav>
 </header>

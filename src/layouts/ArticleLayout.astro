@@ -1,0 +1,73 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import PageCta from '../components/PageCta.astro';
+import { siteUrl } from '../data/site';
+
+const { title, description, canonicalPath, h1, standfirst, published, updated, breadcrumbLabel } = Astro.props;
+
+const breadcrumbs = [
+  { name: 'Home', path: '/' },
+  { name: 'Resources', path: '/resources/' },
+  { name: breadcrumbLabel, path: canonicalPath }
+];
+
+const canonicalUrl = new URL(canonicalPath, siteUrl).toString();
+
+const structuredData = [
+  {
+    '@type': 'Article',
+    '@id': `${canonicalUrl}#article`,
+    headline: h1,
+    description,
+    datePublished: published,
+    dateModified: updated,
+    inLanguage: 'en-US',
+    mainEntityOfPage: { '@id': `${canonicalUrl}#webpage` },
+    author: { '@id': `${siteUrl}#organization` },
+    publisher: { '@id': `${siteUrl}#organization` }
+  }
+];
+
+const dateLabel = new Date(`${updated}T12:00:00Z`).toLocaleDateString('en-US', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+  timeZone: 'UTC'
+});
+---
+<BaseLayout
+  title={title}
+  description={description}
+  canonicalPath={canonicalPath}
+  page="resources"
+  ogTitle={title}
+  ogDescription={description}
+  ogType="article"
+  structuredData={structuredData}
+  breadcrumbs={breadcrumbs}
+>
+  <main id="main-content" tabindex="-1">
+    <div class="container">
+      <Breadcrumbs items={breadcrumbs} />
+    </div>
+
+    <article class="article">
+      <div class="container article-inner">
+        <header class="article-header">
+          <h1>{h1}</h1>
+          <p class="lead">{standfirst}</p>
+          <p class="article-meta">
+            Updated <time datetime={updated}>{dateLabel}</time>
+          </p>
+        </header>
+        <slot />
+      </div>
+    </article>
+
+    <PageCta
+      heading="Keep your home's history in one place."
+      body="Around The House keeps maintenance, repairs, documents, and home details together on iPhone, iPad, and Mac."
+    />
+  </main>
+</BaseLayout>

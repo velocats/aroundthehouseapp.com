@@ -1,0 +1,18 @@
+---
+// Visible breadcrumb trail. The matching BreadcrumbList schema is emitted by
+// BaseLayout when the same `items` array is passed to its `breadcrumbs` prop.
+const { items = [] } = Astro.props;
+---
+<nav class="breadcrumbs" aria-label="Breadcrumb">
+  <ol>
+    {items.map(({ name, path }, index) => (
+      <li>
+        {index < items.length - 1 ? (
+          <a href={path}>{name}</a>
+        ) : (
+          <span aria-current="page">{name}</span>
+        )}
+      </li>
+    ))}
+  </ol>
+</nav>

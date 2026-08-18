@@ -1,0 +1,118 @@
+---
+import LandingLayout from '../layouts/LandingLayout.astro';
+import ProductBlock from '../components/ProductBlock.astro';
+import RelatedLinks from '../components/RelatedLinks.astro';
+import { page } from '../data/site';
+
+const related = [
+  page('/home-maintenance-tracker/'),
+  page('/home-maintenance-records/'),
+  page('/home-maintenance-reminders/'),
+  page('/digital-home-binder/'),
+  page('/resources/how-to-keep-track-of-home-maintenance/')
+];
+---
+<LandingLayout
+  title="Home Maintenance App for Homeowners | Around the House"
+  description="Around The House is a home maintenance app for iPhone, iPad, and Mac. Track upcoming and recurring maintenance, repair history, service providers, costs, receipts, and important home information in one private app."
+  canonicalPath="/home-maintenance-app/"
+  breadcrumbLabel="Home maintenance app"
+  h1="A home maintenance app that keeps the details together"
+  intro="Most home maintenance information is scattered — a filter size in a photo, a receipt in email, a plumber's number in a text thread. Around The House keeps the schedule, the history, and the paperwork in one place, on your iPhone, iPad, and Mac."
+  ctaHeading="Start with one appliance."
+  ctaBody="Add the furnace, the water heater, or whatever broke most recently. The rest of the house can follow at your own pace."
+>
+  <section>
+    <h2>What the app is for</h2>
+    <p>
+      Owning a home means holding a lot of small facts: when the water heater was installed, which filter the
+      furnace takes, who fixed the dishwasher last time and what they charged. None of it is complicated. It is
+      just easy to lose, and it always seems to be needed at the worst moment.
+    </p>
+    <p>
+      Around The House gives every appliance, system, and fixture in the house its own record — with photos,
+      dates, documents, and a running service history. Once something is in the app, the answer is in one place
+      instead of five.
+    </p>
+    <ul class="qa-list">
+      <li><strong>When did I last service this?</strong><span>Maintenance history, listed by date on the item.</span></li>
+      <li><strong>When was it installed?</strong><span>Purchase and installation dates saved with the item.</span></li>
+      <li><strong>Who repaired it?</strong><span>The service provider is recorded on each maintenance entry.</span></li>
+      <li><strong>What did it cost?</strong><span>Cost is saved per entry and totalled in reports.</span></li>
+      <li><strong>Where is the manual?</strong><span>Manuals, receipts, and warranties live in the Binder.</span></li>
+      <li><strong>What is due next?</strong><span>Recurring reminders appear on the Schedule and on Today.</span></li>
+    </ul>
+  </section>
+
+  <ProductBlock
+    device="ipad"
+    src="/assets/screenshots/new/ipad-today.webp"
+    alt="The Today view in Around The House, showing counts for overdue work, upcoming work, and saved documents, a list of home areas, and items that need attention"
+  >
+    <h2>Start from what needs attention</h2>
+    <p>
+      The Today view opens on the things that are actually due: how much is overdue, what is coming up, and which
+      items need a look. Below that, your home is broken into areas — Kitchen, Exterior, Garage/Yard, Safety,
+      Utility, HVAC, Laundry, Bathroom — so you can browse the way you actually think about the house.
+    </p>
+    <p>
+      It is a starting point rather than a dashboard. Most days there is nothing to do, and the app says so.
+    </p>
+  </ProductBlock>
+
+  <ProductBlock
+    device="ipad"
+    flip
+    src="/assets/screenshots/new/ipad-item-record.webp"
+    alt="A complete item record in Around The House showing photos, maintenance history entries with dates and providers, maintenance reminders, and attached manuals and receipts"
+  >
+    <h2>One record per thing</h2>
+    <p>
+      Each item holds everything you know about it in one scrollable record: cover photo and additional photos,
+      model and serial numbers, filter sizes, purchase and installation dates, notes, attached documents, its
+      maintenance history, and any reminders set against it.
+    </p>
+    <p>
+      When the furnace acts up, you open the furnace — not a folder, a search, and three apps.
+    </p>
+  </ProductBlock>
+
+  <section>
+    <h2>What you can keep track of</h2>
+    <p>
+      Around The House is not limited to appliances. People use it for HVAC systems, water heaters, roofs, decks,
+      landscaping, and other improvements, along with tools, electronics, furniture, and other belongings worth
+      recording.
+    </p>
+    <h3>Maintenance and repairs</h3>
+    <p>
+      Recurring maintenance, upcoming and overdue work, completed maintenance history, the type of work done
+      (repair, replacement, cleaning, preventive maintenance), the service provider, notes, and cost.
+    </p>
+    <h3>Documents and details</h3>
+    <p>
+      Manuals, receipts, warranties, and other files, saved against the item they belong to. Model and serial
+      numbers, filter sizes, purchase and installation dates, and notes about how something is set up.
+    </p>
+    <h3>Reports</h3>
+    <p>
+      A home maintenance report pulls the records together into completed and overdue counts, spending over time,
+      a watchlist of items needing attention, and the service providers in your history. There is also a home
+      handoff report if you ever sell or hand the house over.
+    </p>
+  </section>
+
+  <section>
+    <h2>Private, and no account to create</h2>
+    <p>
+      There is no Around The House account and no web dashboard. Your records stay on your Apple devices and, if
+      you turn on iCloud sync, in your own private iCloud — the same account your photos use. Purchases are
+      handled by the App Store.
+    </p>
+    <p>
+      Around The House costs $0.99 a month, or $9.99 once for a lifetime unlock.
+    </p>
+  </section>
+
+  <RelatedLinks heading="Go deeper" items={related} />
+</LandingLayout>

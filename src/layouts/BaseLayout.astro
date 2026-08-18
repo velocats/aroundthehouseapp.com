@@ -11,7 +11,9 @@ const {
   compactFooter = false,
   ogTitle = 'Around The House — The Home Memory App',
   ogDescription = description,
-  structuredData = null
+  ogType = 'website',
+  structuredData = null,
+  breadcrumbs = null
 } = Astro.props;
 
 const canonicalUrl = new URL(canonicalPath, Astro.site ?? 'https://aroundthehouseapp.com').toString();
@@ -43,7 +45,27 @@ const baseSchema = [
     inLanguage: 'en-US'
   }
 ];
-const schemaGraph = [...baseSchema, ...(Array.isArray(structuredData) ? structuredData : structuredData ? [structuredData] : [])];
+// Breadcrumb schema is emitted only when the page also renders a visible trail.
+const breadcrumbSchema = Array.isArray(breadcrumbs) && breadcrumbs.length
+  ? [
+      {
+        '@type': 'BreadcrumbList',
+        '@id': `${canonicalUrl}#breadcrumbs`,
+        itemListElement: breadcrumbs.map(({ name, path }, index) => ({
+          '@type': 'ListItem',
+          position: index + 1,
+          name,
+          item: new URL(path, Astro.site ?? 'https://aroundthehouseapp.com').toString()
+        }))
+      }
+    ]
+  : [];
+
+const schemaGraph = [
+  ...baseSchema,
+  ...breadcrumbSchema,
+  ...(Array.isArray(structuredData) ? structuredData : structuredData ? [structuredData] : [])
+];
 ---
 <!doctype html>
 <html lang="en">
@@ -63,7 +85,7 @@ const schemaGraph = [...baseSchema, ...(Array.isArray(structuredData) ? structur
     <meta property="og:image:alt" content="Around The House app for home maintenance records, reminders, receipts, warranties, and repairs." />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
-    <meta property="og:type" content="website" />
+    <meta property="og:type" content={ogType} />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={ogTitle} />
     <meta name="twitter:description" content={ogDescription} />

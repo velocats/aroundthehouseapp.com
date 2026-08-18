@@ -1,0 +1,17 @@
+---
+import { appStoreUrl } from '../data/site';
+const {
+  heading = 'Keep the details where you can find them.',
+  body = 'Around The House is available on the App Store for iPhone, iPad, and Mac.'
+} = Astro.props;
+---
+<section class="page-cta">
+  <div class="container">
+    <h2>{heading}</h2>
+    <p>{body}</p>
+    <p class="page-cta-actions">
+      <a href={appStoreUrl} target="_blank" rel="noopener"><img class="app-store-badge" src="/assets/app-store-badge.svg" width="170" height="57" alt="Download on the App Store" /></a>
+    </p>
+    <p class="microcopy">No Around The House account. Your records stay on your Apple devices and in your private iCloud when sync is enabled.</p>
+  </div>
+</section>

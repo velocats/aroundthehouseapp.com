@@ -1,0 +1,96 @@
+---
+import LandingLayout from '../layouts/LandingLayout.astro';
+import ProductBlock from '../components/ProductBlock.astro';
+import RelatedLinks from '../components/RelatedLinks.astro';
+import { page } from '../data/site';
+
+const related = [
+  page('/home-maintenance-records/'),
+  page('/home-maintenance-reminders/'),
+  page('/resources/how-to-keep-track-of-home-maintenance/')
+];
+---
+<LandingLayout
+  title="Home Maintenance Tracker | Around the House"
+  description="Track home maintenance from due to done. Around The House shows what is upcoming and overdue, records the completion with provider and cost, keeps the history, and schedules the next occurrence."
+  canonicalPath="/home-maintenance-tracker/"
+  breadcrumbLabel="Home maintenance tracker"
+  h1="Keep track of home maintenance without a spreadsheet"
+  intro="A spreadsheet can tell you a task is due. What it cannot easily do is remember that you finished it in October, that it cost $189, that the technician noticed the flame sensor was dirty — and then quietly put the next one on the calendar. That loop is what Around The House is built around."
+  ctaHeading="Track one recurring task first."
+  ctaBody="Furnace filters are a good place to start. Once you complete one, the pattern of the app becomes obvious."
+>
+  <section>
+    <h2>The loop: due, done, remembered, scheduled again</h2>
+    <p>
+      Most home maintenance is not a one-time project. It is the same handful of tasks coming back around —
+      filters, gutters, water heater flush, smoke detector batteries, HVAC service. Tracking it well means
+      handling the whole cycle, not just the reminder.
+    </p>
+    <ul class="qa-list">
+      <li><strong>1. It becomes due</strong><span>A recurring reminder surfaces on the Schedule and in the Today view.</span></li>
+      <li><strong>2. It goes overdue if you miss it</strong><span>Overdue work stays visible instead of silently disappearing.</span></li>
+      <li><strong>3. You complete it</strong><span>Mark it done and record what was actually done, by whom, and what it cost.</span></li>
+      <li><strong>4. The completion is kept</strong><span>The entry joins that item's maintenance history permanently.</span></li>
+      <li><strong>5. The next one is tracked</strong><span>The recurrence continues, so the task comes back on schedule.</span></li>
+    </ul>
+    <p>
+      The important step is the fourth one. A reminder app handles steps one through three and then throws the
+      information away. A year later you know the task exists but not when you last did it.
+    </p>
+  </section>
+
+  <ProductBlock
+    device="iphone"
+    src="/assets/screenshots/new/iphone-schedule.webp"
+    alt="The Schedule view in Around The House, showing a month calendar with a selected day and a reminder marked overdue, including the item it belongs to and its recurrence"
+  >
+    <h2>See what is due, and what slipped</h2>
+    <p>
+      The Schedule shows maintenance on a calendar, with the day's reminders listed underneath. Each reminder
+      carries the item it belongs to and how often it repeats, so a line like "Degrease screen — Range Hood —
+      every 3 months" tells you what to do without opening anything.
+    </p>
+    <p>
+      Anything you miss is marked overdue and stays on the list. Reminders can be completed, snoozed, edited,
+      or removed.
+    </p>
+  </ProductBlock>
+
+  <ProductBlock
+    device="iphone"
+    flip
+    src="/assets/screenshots/new/iphone-item-history.webp"
+    alt="Maintenance history on an item in Around The House, listing completed entries with dates, the type of work, the service provider, and the cost"
+  >
+    <h2>Completing something writes it down</h2>
+    <p>
+      When you record maintenance, you can save the type of work — repair, replacement, cleaning, preventive
+      maintenance — along with the date, the service provider, notes, and the cost. Photos can be attached if
+      there is something worth showing later.
+    </p>
+    <p>
+      That entry stays on the item. The next time anyone asks when the freezer was last serviced, the answer is
+      a list of dates rather than a guess.
+    </p>
+  </ProductBlock>
+
+  <section>
+    <h2>Tracking more than one property</h2>
+    <p>
+      Items, reminders, and history are grouped by property, so a second home, a rental, or a family member's
+      house can be tracked separately without the lists running together.
+    </p>
+  </section>
+
+  <section>
+    <h2>Where tracking turns into history</h2>
+    <p>
+      Tracking answers "what do I need to do?" Over time the same records answer a different and more useful
+      question: "what has actually happened to this house?" That accumulated record is worth reading about
+      separately — it is what makes the tracking worth doing.
+    </p>
+  </section>
+
+  <RelatedLinks heading="Related" items={related} />
+</LandingLayout>

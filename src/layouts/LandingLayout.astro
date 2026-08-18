@@ -1,0 +1,65 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import PageCta from '../components/PageCta.astro';
+import { siteUrl, appStoreUrl } from '../data/site';
+
+const {
+  title,
+  description,
+  canonicalPath,
+  h1,
+  intro,
+  breadcrumbLabel,
+  ctaHeading,
+  ctaBody
+} = Astro.props;
+
+const breadcrumbs = [
+  { name: 'Home', path: '/' },
+  { name: breadcrumbLabel, path: canonicalPath }
+];
+
+// One SoftwareApplication node lives on the homepage. Deeper pages reference it
+// rather than redeclaring the app, so the graph stays consistent.
+const structuredData = [
+  {
+    '@type': 'WebPage',
+    '@id': `${new URL(canonicalPath, siteUrl).toString()}#about`,
+    about: { '@id': `${siteUrl}#app` }
+  }
+];
+---
+<BaseLayout
+  title={title}
+  description={description}
+  canonicalPath={canonicalPath}
+  page="landing"
+  ogTitle={title}
+  ogDescription={description}
+  structuredData={structuredData}
+  breadcrumbs={breadcrumbs}
+>
+  <main id="main-content" tabindex="-1">
+    <div class="container">
+      <Breadcrumbs items={breadcrumbs} />
+    </div>
+
+    <section class="landing-hero">
+      <div class="container">
+        <h1>{h1}</h1>
+        <p class="lead">{intro}</p>
+        <p class="landing-hero-actions">
+          <a href={appStoreUrl} target="_blank" rel="noopener"><img class="app-store-badge" src="/assets/app-store-badge.svg" width="170" height="57" alt="Download on the App Store" /></a>
+          <a class="quiet-link" href="/screenshots/">See every app screen</a>
+        </p>
+      </div>
+    </section>
+
+    <div class="container landing-body">
+      <slot />
+    </div>
+
+    <PageCta heading={ctaHeading} body={ctaBody} />
+  </main>
+</BaseLayout>
