@@ -22,7 +22,7 @@ const quickUses = [
 
 const pricingCards = [
   ['Monthly', '$0.99', 'per month', 'Unlock the complete Around The House experience with a simple monthly subscription.'],
-  ['Lifetime Unlock', '$9.99', 'one-time purchase', 'Pay once and keep every premium feature for the lifetime of the app. No subscription required.']
+  ['Lifetime Unlock', '$14.99', 'one-time purchase', 'Pay once and keep every premium feature for the lifetime of the app. No subscription required.', 'Introductory price', 'Available through October 31. Price increases to $24.99 on November 1, 2026.']
 ];
 
 const faqItems = [
@@ -65,7 +65,7 @@ const structuredData = [
     publisher: { '@id': `${siteUrl}#organization` },
     offers: [
       { '@type': 'Offer', name: 'Monthly', price: '0.99', priceCurrency: 'USD', url: appStoreUrl },
-      { '@type': 'Offer', name: 'Lifetime Unlock', price: '9.99', priceCurrency: 'USD', url: appStoreUrl }
+      { '@type': 'Offer', name: 'Lifetime Unlock', price: '14.99', priceCurrency: 'USD', url: appStoreUrl }
     ]
   },
   {
@@ -212,15 +212,18 @@ const structuredData = [
           <p>Choose a flexible monthly plan or unlock Around The House for life. Purchases are handled securely through the App Store.</p>
         </div>
         <div class="pricing simple-pricing">
-          {pricingCards.map(([title, price, cadence, body]) => (
+          {pricingCards.map(([title, price, cadence, body, promotion, deadline]) => (
             <article class="price-card">
+              {promotion && <span class="price-promotion">{promotion}</span>}
               <h3>{title}</h3>
               <div class="price"><strong>{price}</strong><span>{cadence}</span></div>
               <p>{body}</p>
+              {deadline && <p class="price-deadline">{deadline}</p>}
               <a class="price-link" href={appStoreUrl} target="_blank" rel="noopener">Get Around The House <span aria-hidden="true">→</span></a>
             </article>
           ))}
         </div>
+        <p class="pricing-note">Both options include the same complete feature set.</p>
       </div>
     </section>
 
