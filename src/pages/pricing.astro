@@ -1,0 +1,47 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+const appStoreUrl = 'https://apps.apple.com/us/app/around-the-house-binder/id6789646793';
+const plans = [
+  { name: 'Monthly', price: '$0.99', cadence: 'per month', description: 'Unlock the complete Around The House experience with a simple monthly subscription.' },
+  { name: 'Lifetime Unlock', price: '$14.99', cadence: 'one-time purchase', description: 'Pay once and keep every premium feature for the lifetime of the app. No subscription required.', label: 'Introductory price', note: 'Available through October 31. Price increases to $24.99 on November 1, 2026.' }
+];
+const pricingSchema = {
+  '@type': 'SoftwareApplication', name: 'Around The House', applicationCategory: 'LifestyleApplication', operatingSystem: 'iOS, iPadOS, macOS',
+  offers: plans.map((plan) => ({ '@type': 'Offer', name: plan.name, price: plan.price.replace('$', ''), priceCurrency: 'USD', url: appStoreUrl }))
+};
+---
+<BaseLayout
+  title="Around The House Pricing — Monthly or Lifetime"
+  description="Choose a $0.99 monthly plan or unlock Around The House for life. Both options include the complete home maintenance app."
+  canonicalPath="/pricing/"
+  page="pricing"
+  structuredData={pricingSchema}
+>
+  <main id="main-content" tabindex="-1">
+    <section class="pricing-hero">
+      <div class="container pricing-hero-grid">
+        <div><div class="kicker">Simple, honest pricing</div><h1>One low price.<br />Your choice.</h1></div>
+        <p>Choose a flexible monthly plan or unlock Around The House for life. Purchases are handled securely through the App Store.</p>
+      </div>
+    </section>
+    <section class="pricing-page-section">
+      <div class="container">
+        <div class="pricing pricing-page-cards">
+          {plans.map((plan) => <article class="price-card">
+            {plan.label && <span class="price-promotion">{plan.label}</span>}
+            <h2>{plan.name}</h2>
+            <div class="price"><strong>{plan.price}</strong><span>{plan.cadence}</span></div>
+            <p>{plan.description}</p>
+            {plan.note && <p class="price-deadline">{plan.note}</p>}
+            <a class="price-link" href={appStoreUrl} target="_blank" rel="noopener">Get Around The House <span aria-hidden="true">→</span></a>
+          </article>)}
+        </div>
+        <p class="pricing-note">Both options include the same complete feature set.</p>
+      </div>
+    </section>
+    <section class="pricing-details"><div class="container pricing-detail-grid">
+      <div><div class="kicker">Included either way</div><h2>Your whole home history, together.</h2></div>
+      <ul><li>Maintenance schedules and reminders</li><li>Repairs, costs, receipts and warranties</li><li>Home items and personal property</li><li>Reports and home handoff records</li><li>Private iCloud sync across your Apple devices</li></ul>
+    </div></section>
+  </main>
+</BaseLayout>
