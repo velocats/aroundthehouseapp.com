@@ -14,18 +14,18 @@ const links = [
 <header class="site-header">
   <nav class="container nav" aria-label="Main navigation">
     <a class="brand" href="/" aria-label="Around The House home">
-      <img src="/assets/icons/around-the-house-icon.png" width="512" height="512" alt="Around The House app icon" />
+      <svg class="brand-mark" viewBox="0 0 24 24" aria-hidden="true"><path d="m3 11 9-8 9 8v10H3z"/><path d="M9 21v-7h6v7"/></svg>
       <span>Around The House</span>
     </a>
     <div class="nav-links desktop-links">
       {links.map(([label, href]) => <a href={href}>{label}</a>)}
-      <a class="nav-badge" href={appStoreUrl} target="_blank" rel="noopener"><img src="/assets/app-store-badge.svg" width="120" height="40" alt="Download on the App Store" /></a>
+      <a class="nav-download" href={appStoreUrl} target="_blank" rel="noopener">Download on the App Store</a>
     </div>
     <details class="nav-disclosure">
       <summary aria-label="Open menu">Menu</summary>
       <div class="nav-disclosure-panel">
         {links.map(([label, href]) => <a href={href}>{label}</a>)}
-        <a class="nav-badge" href={appStoreUrl} target="_blank" rel="noopener"><img src="/assets/app-store-badge.svg" width="120" height="40" alt="Download on the App Store" /></a>
+        <a class="nav-download" href={appStoreUrl} target="_blank" rel="noopener">Download on the App Store</a>
       </div>
     </details>
   </nav>
