@@ -422,7 +422,7 @@ h1, h2, h3, .brand { font-family: Georgia, 'Times New Roman', serif; font-weight
 .site-header { position: relative; background: transparent; border: 0; backdrop-filter: none; }
 .nav { min-height: 76px; }
 .brand { gap: 9px; font-size: 19px; color: #101d18; }
-.brand-mark { width: 24px; height: 24px; fill: none; stroke: currentColor; stroke-width: 1.7; }
+.brand img.brand-mark { width: 30px; height: 30px; border-radius: 7px; object-fit: cover; }
 .brand img { box-shadow: none; }
 .nav-links { gap: 34px; font-size: 13px; color: #25342e; }
 .nav-download { display: inline-flex; padding: 11px 17px; border-radius: 7px; background: #142a22; color: #fff !important; font-size: 12px; font-weight: 600; }
@@ -507,7 +507,7 @@ h1, h2, h3, .brand { font-family: Georgia, 'Times New Roman', serif; font-weight
 .price-card, .legal-page article, .support-form, .article-example { border-radius: 8px; box-shadow:none; background:#f9f7f2; }
 .footer { background:#172820; color:#c8d0ca; border:0; padding:64px 0; }
 .footer h4, .footer .brand { color:#fff; }
-.footer .brand-mark { stroke:#fff; }
+.footer .brand img.brand-mark { width:34px; height:34px; }
 .footer a:hover { color:#fff; }
 
 @media (max-width: 980px) {
