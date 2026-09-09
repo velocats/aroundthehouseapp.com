@@ -1,0 +1,171 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import RelatedLinks from '../components/RelatedLinks.astro';
+import { page, siteUrl } from '../data/site';
+
+const breadcrumbs = [{ name: 'Home', path: '/' }, { name: 'Annual home maintenance checklist', path: '/annual-home-maintenance-checklist/' }];
+const groups = [
+  {
+    id: 'monthly',
+    title: 'Every month',
+    note: 'Repeat these checks throughout the year.',
+    tasks: [
+      ['Test smoke alarms', 'Use each alarm’s test button and manufacturer instructions.'],
+      ['Test carbon monoxide alarms', 'Confirm the expected sound and status indicators.'],
+      ['Inspect the HVAC filter', 'Clean or replace it when dirty using the permitted size and rating.'],
+      ['Look for water leaks', 'Check visible plumbing, appliances, ceilings, and equipment areas.'],
+      ['Review urgent and overdue work', 'Prioritize safety, active water, electrical, gas, and structural concerns.']
+    ]
+  },
+  {
+    id: 'spring', title: 'Spring', note: 'Prepare for rain, cooling, and outdoor use.', tasks: [
+      ['Schedule cooling-system service', 'Book qualified service before sustained hot weather.'],
+      ['Test the sump pump and backup', 'Observe at least two complete pumping cycles.'],
+      ['Inspect roof drainage', 'Check gutters, downspouts, grading, and signs of winter damage.'],
+      ['Check exterior plumbing', 'Look for freeze damage at hose bibs and irrigation components.'],
+      ['Inspect decks, steps, and railings', 'Escalate movement, rot, corrosion, or structural concerns.'],
+      ['Check window and door screens', 'Repair damage before peak ventilation and insect season.']
+    ]
+  },
+  {
+    id: 'summer', title: 'Summer', note: 'Watch cooling, ventilation, drainage, and high-use appliances.', tasks: [
+      ['Check cooling performance and condensate drainage', 'Note weak airflow, short cycling, water, or unusual sounds.'],
+      ['Clear the outdoor HVAC unit', 'Maintain the clearance required by its manufacturer.'],
+      ['Clean bathroom exhaust fan grilles', 'Disconnect power and clean only user-serviceable parts.'],
+      ['Inspect dryer exhaust performance', 'Act on long drying times, excess heat, or weak exterior airflow.'],
+      ['Review refrigerator maintenance', 'Check whether the model requires user-cleanable coil care.'],
+      ['Review storm or wildfire preparation', 'Adapt the task to local seasonal risks and official guidance.']
+    ]
+  },
+  {
+    id: 'fall', title: 'Fall', note: 'Prepare heating, drainage, and the building envelope for winter.', tasks: [
+      ['Schedule heating-system service', 'Book qualified service before sustained cold weather.'],
+      ['Inspect and clean gutters', 'Use ground-based methods or a professional when ladder access is unsafe.'],
+      ['Prepare exterior plumbing for freezes', 'Follow local and equipment-specific winterization guidance.'],
+      ['Inspect weather stripping and exterior seals', 'Look for gaps, deterioration, and signs of water entry.'],
+      ['Check smoke and CO alarm ages', 'Record manufacture dates and replace expired units.'],
+      ['Review snow and ice equipment', 'Service seasonal equipment before it is urgently needed.']
+    ]
+  },
+  {
+    id: 'winter', title: 'Winter', note: 'Monitor freeze, combustion, roof, and year-end record risks.', tasks: [
+      ['Confirm the main water shutoff is accessible', 'Make sure responsible occupants know its location.'],
+      ['Monitor vulnerable pipes and spaces', 'Respond to freeze risk using qualified local guidance.'],
+      ['Keep combustion and HVAC openings clear', 'Follow equipment instructions after snow or drifting.'],
+      ['Watch for roof and drainage trouble', 'Use a professional for ice, height, or active leakage risks.'],
+      ['Review annual repair and maintenance costs', 'Connect totals to the work, items, and invoices behind them.'],
+      ['Update the home handoff record', 'Refresh important contacts, documents, warranties, and operating notes.']
+    ]
+  }
+];
+const taskCount = groups.reduce((sum, group) => sum + group.tasks.length, 0);
+const structuredData = {
+  '@type': 'ItemList',
+  '@id': `${siteUrl}annual-home-maintenance-checklist/#list`,
+  name: 'Annual home maintenance checklist',
+  numberOfItems: taskCount,
+  itemListElement: groups.flatMap((group) => group.tasks).map(([name], index) => ({ '@type': 'ListItem', position: index + 1, name }))
+};
+const related = [page('/home-maintenance-calendar/'), page('/home-maintenance-reminders/'), page('/resources/seasonal-home-maintenance-checklist/')];
+---
+<BaseLayout
+  title="Free Annual Home Maintenance Checklist | Printable Planner"
+  description="Use a free interactive annual home maintenance checklist. Track monthly and seasonal tasks, save progress locally, print the plan, or download it as a CSV."
+  canonicalPath="/annual-home-maintenance-checklist/"
+  page="resources"
+  structuredData={structuredData}
+  breadcrumbs={breadcrumbs}
+>
+  <main id="main-content" tabindex="-1" class="checklist-page">
+    <div class="container"><Breadcrumbs items={breadcrumbs} /></div>
+    <header class="checklist-hero container">
+      <p class="kicker">Free interactive planner</p>
+      <h1>Annual home maintenance checklist</h1>
+      <p class="lead">A focused plan for monthly and seasonal home care. Check off tasks, print a clean copy, or download the list for your own system.</p>
+      <p class="checklist-privacy">Your checkmarks stay in this browser. Nothing is sent to Around The House.</p>
+    </header>
+
+    <section class="checklist-toolbar-wrap" aria-label="Checklist progress and actions">
+      <div class="container checklist-toolbar">
+        <div>
+          <strong id="progress-label">0 of {taskCount} complete</strong>
+          <div class="progress-track" aria-hidden="true"><span id="progress-bar"></span></div>
+        </div>
+        <div class="checklist-actions">
+          <button class="button secondary" type="button" id="print-checklist">Print</button>
+          <a class="button secondary" href="/downloads/annual-home-maintenance-checklist.csv" download>Download CSV</a>
+          <button class="quiet-button" type="button" id="reset-checklist">Clear checkmarks</button>
+        </div>
+      </div>
+    </section>
+
+    <div class="container checklist-layout">
+      <form class="maintenance-checklist" id="maintenance-checklist">
+        {groups.map((group) => (
+          <section class="checklist-group" aria-labelledby={`${group.id}-heading`}>
+            <div class="checklist-group-heading">
+              <h2 id={`${group.id}-heading`}>{group.title}</h2>
+              <p>{group.note}</p>
+            </div>
+            <ul>
+              {group.tasks.map(([name, detail], index) => {
+                const id = `${group.id}-${index + 1}`;
+                return (
+                  <li>
+                    <input type="checkbox" id={id} name={id} data-season={group.title} data-task={name} />
+                    <label for={id}><strong>{name}</strong><span>{detail}</span></label>
+                  </li>
+                );
+              })}
+            </ul>
+          </section>
+        ))}
+      </form>
+
+      <aside class="checklist-guidance">
+        <h2>Adapt this checklist to your home</h2>
+        <p>Equipment manuals, climate, age, use, observed condition, warranties, and local requirements should determine your actual tasks and intervals.</p>
+        <p>Electrical, gas, combustion, structural, roofing, high-ladder, refrigerant, and active water-damage work may require a qualified professional.</p>
+        <h3>Record after completion</h3>
+        <ul><li>Actual completion date</li><li>What you observed or changed</li><li>Provider and cost</li><li>Photos, invoice, or receipt</li><li>Next due date</li></ul>
+      </aside>
+    </div>
+
+    <section class="container checklist-next">
+      <RelatedLinks heading="Turn the checklist into a home history" items={related} />
+    </section>
+  </main>
+
+  <script>
+    const form = document.querySelector('#maintenance-checklist');
+    const boxes = [...form.querySelectorAll('input[type="checkbox"]')];
+    const progressLabel = document.querySelector('#progress-label');
+    const progressBar = document.querySelector('#progress-bar');
+    const storageKey = 'ath-annual-maintenance-checklist-v1';
+
+    function readState() {
+      try { return JSON.parse(localStorage.getItem(storageKey) || '{}'); } catch { return {}; }
+    }
+    function updateProgress() {
+      const done = boxes.filter((box) => box.checked).length;
+      progressLabel.textContent = `${done} of ${boxes.length} complete`;
+      progressBar.style.width = `${(done / boxes.length) * 100}%`;
+    }
+    const saved = readState();
+    boxes.forEach((box) => { box.checked = Boolean(saved[box.name]); });
+    updateProgress();
+
+    form.addEventListener('change', () => {
+      const state = Object.fromEntries(boxes.map((box) => [box.name, box.checked]));
+      localStorage.setItem(storageKey, JSON.stringify(state));
+      updateProgress();
+    });
+    document.querySelector('#print-checklist').addEventListener('click', () => window.print());
+    document.querySelector('#reset-checklist').addEventListener('click', () => {
+      boxes.forEach((box) => { box.checked = false; });
+      localStorage.removeItem(storageKey);
+      updateProgress();
+    });
+  </script>
+</BaseLayout>

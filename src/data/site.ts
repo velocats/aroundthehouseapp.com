@@ -307,6 +307,7 @@ export const articles: Article[] = [
 /** Pages that existed before the SEO build-out. */
 export const corePages: PageRef[] = [
   { path: '/', label: 'Home', blurb: '', changefreq: 'weekly', priority: 1.0, lastmod: '2026-08-18' },
+  { path: '/annual-home-maintenance-checklist/', label: 'Annual home maintenance checklist', blurb: 'An interactive, printable checklist for recurring monthly and seasonal home care.', changefreq: 'monthly', priority: 0.9, lastmod: '2026-09-09' },
   { path: '/screenshots/', label: 'Screenshots', blurb: '', changefreq: 'monthly', priority: 0.8, lastmod: '2026-07-19' },
   { path: '/pricing/', label: 'Pricing', blurb: 'Monthly and lifetime purchase options for Around The House.', changefreq: 'monthly', priority: 0.8, lastmod: '2026-08-18' },
   { path: '/resources/', label: 'Resources', blurb: '', changefreq: 'monthly', priority: 0.8, lastmod: '2026-08-18' },

@@ -22,6 +22,7 @@ function routeFor(file) {
 const files = await filesUnder(dist.pathname);
 const htmlFiles = files.filter((file) => file.endsWith('.html'));
 const routes = new Set(htmlFiles.map(routeFor));
+const publicFiles = new Set(files.map((file) => `/${relative(dist.pathname, file).split(sep).join('/')}`));
 const errors = [];
 
 for (const file of htmlFiles) {
@@ -38,7 +39,7 @@ for (const file of htmlFiles) {
     const target = href.split(/[?#]/)[0];
     if (!target || target.startsWith('/assets/')) continue;
     const normalized = target.endsWith('/') ? target : `${target}/`;
-    if (!routes.has(normalized)) errors.push(`${route}: broken internal link ${href}`);
+    if (!routes.has(normalized) && !publicFiles.has(target)) errors.push(`${route}: broken internal link ${href}`);
   }
 }
 
