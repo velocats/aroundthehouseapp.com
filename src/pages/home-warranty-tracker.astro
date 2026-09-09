@@ -1,0 +1,39 @@
+---
+import LandingLayout from '../layouts/LandingLayout.astro';
+import ProductBlock from '../components/ProductBlock.astro';
+import RelatedLinks from '../components/RelatedLinks.astro';
+import { page } from '../data/site';
+const related = [page('/digital-home-binder/'), page('/appliance-maintenance-records/'), page('/home-inventory-app/')];
+---
+<LandingLayout
+  title="Home Warranty Tracker App for Apple Devices | Around the House"
+  description="Track home and appliance warranty dates with receipts, documents, photos, model numbers, and repair history in one private app for iPhone, iPad, and Mac."
+  canonicalPath="/home-warranty-tracker/"
+  breadcrumbLabel="Home warranty tracker"
+  h1="A home warranty tracker that keeps the proof nearby"
+  intro="A warranty date is only part of the record. Around The House keeps the expiration, receipt, warranty document, identifying details, and service history connected to the appliance or home item the coverage belongs to."
+  ctaHeading="Add the warranty you would hate to miss."
+  ctaBody="Save its dates, receipt, and covered item now, while the paperwork is still easy to find."
+>
+  <section>
+    <h2>What to save with a home warranty</h2>
+    <ul class="qa-list">
+      <li><strong>Coverage dates</strong><span>Purchase, effective, registration, and expiration dates when applicable.</span></li>
+      <li><strong>Proof of purchase</strong><span>The receipt or invoice and the retailer or installer.</span></li>
+      <li><strong>The warranty document</strong><span>Coverage terms, exclusions, claim steps, and contact information.</span></li>
+      <li><strong>Item identity</strong><span>Model number, serial number, photos, and installation date.</span></li>
+      <li><strong>Service history</strong><span>Previous repairs, providers, costs, and notes that may affect the next conversation.</span></li>
+    </ul>
+  </section>
+  <ProductBlock device="iphone" src="/assets/screenshots/new/iphone-warranty-countdown.webp" alt="Home and appliance warranty countdowns in Around The House on iPhone">
+    <h2>See what is expiring before you need it</h2>
+    <p>Warranty records show remaining coverage time instead of leaving the important date buried inside a document. Expired and upcoming coverage can be reviewed together.</p>
+    <p>The app organizes information you enter; the warranty provider's current terms determine whether a repair or replacement is covered.</p>
+  </ProductBlock>
+  <ProductBlock device="ipad" flip src="/assets/screenshots/new/ipad-item-record.webp" alt="An appliance record in Around The House on iPad with warranty documents, identifying details, reminders, and service history">
+    <h2>Open the item and find the whole context</h2>
+    <p>When a claim or service question arises, open the covered item to find its identifying numbers, documents, photos, maintenance history, and reminders. The record stays useful after the warranty ends.</p>
+  </ProductBlock>
+  <section><h2>Private warranty records, without another account</h2><p>Around The House runs on iPhone, iPad, and Mac without a separate company account. Records remain on your devices and, when enabled, in your private iCloud.</p></section>
+  <RelatedLinks heading="Related records" items={related} />
+</LandingLayout>

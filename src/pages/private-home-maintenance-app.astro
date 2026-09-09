@@ -1,0 +1,27 @@
+---
+import LandingLayout from '../layouts/LandingLayout.astro';
+import ProductBlock from '../components/ProductBlock.astro';
+import RelatedLinks from '../components/RelatedLinks.astro';
+import { page } from '../data/site';
+const related = [page('/home-maintenance-app/'), page('/digital-home-binder/'), page('/homezada-alternative/')];
+---
+<LandingLayout
+  title="Private Home Maintenance App Without an Account | Around the House"
+  description="Keep maintenance, repairs, inventory, warranties, receipts, photos, and home documents on Apple devices and in your private iCloud—without creating another company account."
+  canonicalPath="/private-home-maintenance-app/"
+  breadcrumbLabel="Private home maintenance app"
+  h1="A private home maintenance app without another account"
+  intro="Home records can reveal what you own, where important systems are, and how much work has cost. Around The House is designed to keep that information under your control on iPhone, iPad, Mac, and your private iCloud."
+  ctaHeading="Keep the home's memory close to home."
+  ctaBody="Organize one important record without opening another online account or building another advertising profile."
+>
+  <section><h2>No Around The House login</h2><p>The app does not require an Around The House username, password, or web dashboard. Purchases are handled through the App Store. If iCloud synchronization is enabled, records use your Apple account rather than a separate Around The House cloud account.</p></section>
+  <ProductBlock device="ipad" src="/assets/screenshots/new/ipad-binder.webp" alt="Private home documents organized in the Around The House Binder on iPad">
+    <h2>Home documents remain in your control</h2><p>Manuals, receipts, warranties, photos, notes, and maintenance records can stay connected to the home items they describe without being uploaded to an Around The House web service.</p>
+  </ProductBlock>
+  <ProductBlock device="iphone" flip src="/assets/screenshots/new/iphone-today.webp" alt="Private home maintenance overview in Around The House on iPhone">
+    <h2>No ads and no behavioral tracking</h2><p>Around The House is a paid tool rather than an advertising surface. The product does not need to profile how you use your home records in order to monetize your attention.</p>
+  </ProductBlock>
+  <section><h2>Privacy still depends on device and sharing choices</h2><p>Protect access to your Apple devices and Apple account, understand your iCloud settings, and review every record before exporting or sharing it. No storage design removes the need to handle sensitive home information deliberately.</p></section>
+  <RelatedLinks heading="Explore the private home record" items={related} />
+</LandingLayout>

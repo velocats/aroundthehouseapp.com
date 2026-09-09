@@ -1,0 +1,47 @@
+---
+import LandingLayout from '../layouts/LandingLayout.astro';
+import RelatedLinks from '../components/RelatedLinks.astro';
+import { page } from '../data/site';
+const related = [page('/private-home-maintenance-app/'), page('/home-maintenance-app/'), page('/digital-home-binder/'), page('/home-inventory-app/')];
+---
+<LandingLayout
+  title="Around The House vs HomeZada: A Private Apple Alternative"
+  description="Compare Around The House and HomeZada by product scope, platforms, account and storage model, maintenance, inventory, documents, home finances, sharing, and price."
+  canonicalPath="/homezada-alternative/"
+  breadcrumbLabel="HomeZada alternative"
+  h1="Around The House and HomeZada solve different versions of home management"
+  intro="HomeZada is a broad cloud platform for inventory, maintenance, projects, finances, AI tools, and multiple users. Around The House is a focused home-record app for Apple devices with no separate account. The right choice depends on which tradeoff you want."
+  ctaHeading="Prefer a focused, private home record?"
+  ctaBody="Around The House keeps maintenance, inventory, warranties, receipts, costs, and home details together on iPhone, iPad, and Mac."
+>
+  <section>
+    <p class="comparison-date"><strong>Comparison checked:</strong> September 9, 2026. Features and prices can change; confirm them on each product's official site before purchasing.</p>
+    <div class="comparison-scroll">
+      <table class="comparison-table">
+        <caption>Feature and product-model comparison</caption>
+        <thead><tr><th scope="col">Consideration</th><th scope="col">Around The House</th><th scope="col">HomeZada</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">Best fit</th><td>A focused, private record of a home's items, maintenance, documents, and costs</td><td>A broad home-management platform with projects, finances, AI, and professional-facing options</td></tr>
+          <tr><th scope="row">Access model</th><td>Native app on iPhone, iPad, and Mac</td><td>Account-based service accessed from mobile, tablet, and desktop</td></tr>
+          <tr><th scope="row">Separate company account</th><td>No</td><td>Yes; individual family members can have their own login</td></tr>
+          <tr><th scope="row">Storage model</th><td>Records stay on Apple devices and in the customer's private iCloud when sync is enabled</td><td>HomeZada says customer data is stored in its AWS-hosted environment rather than locally</td></tr>
+          <tr><th scope="row">Maintenance</th><td>Recurring reminders connected to item history, provider, notes, cost, photos, and documents</td><td>Automatic plans, reminders, cost forecasting, climate priorities, AI help, and calendar/email integrations</td></tr>
+          <tr><th scope="row">Inventory and documents</th><td>Home items and personal property with photos, receipts, warranties, manuals, and identifying details</td><td>Inventory, home documents, templates, scanning, video, recognition AI, and exports</td></tr>
+          <tr><th scope="row">Projects and home finances</th><td>Project records and recorded costs; not a connected financial-management service</td><td>Dedicated remodeling projects, home finances, dashboards, and optional financial integrations</td></tr>
+          <tr><th scope="row">Household sharing</th><td>Uses the customer's Apple and iCloud environment; verify the app's current sharing behavior for your household</td><td>HomeZada says the account owner can invite family members with separate logins</td></tr>
+          <tr><th scope="row">Published homeowner price</th><td>$0.99 monthly or a $14.99 introductory lifetime unlock through October 31, 2026; the stated lifetime price becomes $24.99 November 1</td><td>Free Essentials; Premium $99/year or $15.95/month; Deluxe $189/year, according to its pricing page</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section><h2>Choose Around The House when focus and data location matter most</h2><p>Around The House is the stronger fit if you want a native Apple app, do not want another company account, and primarily need a dependable record of items, maintenance, warranties, receipts, service providers, reminders, and costs.</p><p>Its narrower scope is intentional. It does not try to become a connected banking, contractor marketplace, visual-design, or broad AI platform.</p></section>
+
+  <section><h2>Choose HomeZada when you want a broader shared platform</h2><p>HomeZada is likely the stronger fit when several people need separate logins, you want a web-accessible account, or you need its remodeling, financial, forecasting, professional, AI, or multi-property capabilities. Its free Essentials tier also provides an entry point for inventory and documents.</p></section>
+
+  <section><h2>The privacy tradeoff is architectural</h2><p>HomeZada says it encrypts customer data in transit and at rest, uses AWS hosting and backups, offers optional two-factor authentication, and does not sell customer data. It also states that no customer data is stored locally and that its privacy policy covers account, uploaded home, analytics, cookie, and optional AI processing data.</p><p>Around The House takes a different approach: no Around-and-manage account exists. Records remain inside the customer's Apple environment. Neither model is universally correct; choose based on the access, collaboration, feature, and data-location requirements of your household.</p></section>
+
+  <section class="comparison-sources"><h2>Sources used for this comparison</h2><ul><li><a href="https://www.homezada.com/homeowners/pricing" rel="noopener">HomeZada homeowner pricing</a></li><li><a href="https://www.homezada.com/security" rel="noopener">HomeZada security</a></li><li><a href="https://www.homezada.com/privacy" rel="noopener">HomeZada privacy policy</a></li><li><a href="https://www.homezada.com/homeowners/home-maintenance" rel="noopener">HomeZada maintenance features</a></li><li><a href="/pricing/">Around The House pricing</a></li><li><a href="/privacy/">Around The House privacy policy</a></li></ul></section>
+
+  <RelatedLinks heading="Explore" items={related} />
+</LandingLayout>

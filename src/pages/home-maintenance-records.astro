@@ -1,0 +1,95 @@
+---
+import LandingLayout from '../layouts/LandingLayout.astro';
+import ProductBlock from '../components/ProductBlock.astro';
+import RelatedLinks from '../components/RelatedLinks.astro';
+import { page } from '../data/site';
+
+const related = [
+  page('/home-maintenance-tracker/'),
+  page('/home-maintenance-reminders/'),
+  page('/digital-home-binder/'),
+  page('/appliance-maintenance-records/'),
+  page('/home-repair-cost-tracker/'),
+  page('/home-contractor-records/'),
+  page('/resources/home-maintenance-records-to-keep/')
+];
+---
+<LandingLayout
+  title="Home Maintenance Records and Repair History App | Around the House"
+  description="Keep home maintenance records and repair history by appliance or system. Record dates, work performed, service providers, costs, photos, receipts, and what needs to happen next."
+  canonicalPath="/home-maintenance-records/"
+  breadcrumbLabel="Home maintenance records"
+  h1="Home maintenance records that become more useful over time"
+  intro="When something breaks, the useful questions are usually historical: When was it last serviced? What was replaced? Who did the work? What did it cost? Around The House keeps those answers with the part of the home they describe."
+  ctaHeading="Write down the last repair you remember."
+  ctaBody="Add its date, provider, cost, and one useful note. That is enough to begin a dependable history."
+>
+  <section>
+    <h2>What to record after maintenance or a repair</h2>
+    <p>
+      A good maintenance log does not need to become a diary. Capture the facts that will change a future
+      decision, make the next service call easier, or explain the home's condition to someone else.
+    </p>
+    <ul class="qa-list">
+      <li><strong>Date</strong><span>When the work was completed, not merely when it was scheduled.</span></li>
+      <li><strong>Type of work</strong><span>Repair, replacement, cleaning, inspection, or preventive maintenance.</span></li>
+      <li><strong>What was done</strong><span>A short description of the work and any parts that were replaced.</span></li>
+      <li><strong>Service provider</strong><span>The person or company you may need to contact again.</span></li>
+      <li><strong>Cost</strong><span>The amount paid, including enough context to compare future work.</span></li>
+      <li><strong>Evidence</strong><span>Photos, receipts, invoices, or notes that may matter for a warranty or resale.</span></li>
+    </ul>
+  </section>
+
+  <ProductBlock
+    device="iphone"
+    src="/assets/screenshots/new/iphone-item-history.webp"
+    alt="Maintenance history for a home item in Around The House on iPhone, with completed work, dates, providers, and costs"
+  >
+    <h2>Keep one running history for each item</h2>
+    <p>
+      A furnace should have its own history. So should a roof, water heater, dishwasher, deck, or other part of
+      the home worth maintaining. Each completed entry appears in date order on that item's record.
+    </p>
+    <p>
+      This makes it possible to see patterns: a repair that keeps returning, an appliance that is becoming more
+      expensive, or a system that has not received preventive service in several years.
+    </p>
+  </ProductBlock>
+
+  <ProductBlock
+    device="ipad"
+    flip
+    src="/assets/screenshots/new/ipad-item-record.webp"
+    alt="A complete home item record in Around The House on iPad with photos, identifying details, maintenance history, reminders, and documents"
+  >
+    <h2>The history sits beside the identifying details</h2>
+    <p>
+      Repair notes are easier to use when the model number, serial number, installation date, photos, manual,
+      and warranty are nearby. Around The House keeps those details on one item record instead of splitting them
+      among a calendar, spreadsheet, photo library, and document folder.
+    </p>
+    <p>
+      When a technician asks what happened last time, the answer does not depend on remembering which app holds it.
+    </p>
+  </ProductBlock>
+
+  <section>
+    <h2>See costs without losing the story behind them</h2>
+    <p>
+      Each maintenance entry can include a cost, allowing reports to summarize spending over time. The total is
+      useful, but the underlying history remains available: which item required the expense, what kind of work it
+      was, and who performed it.
+    </p>
+  </section>
+
+  <section>
+    <h2>Records make the next reminder smarter</h2>
+    <p>
+      Maintenance history answers what happened. A recurring reminder carries that knowledge forward by putting
+      the next filter change, inspection, or service visit back on the schedule. Together they form a continuous
+      record instead of a collection of disconnected alerts.
+    </p>
+  </section>
+
+  <RelatedLinks heading="Continue organizing maintenance" items={related} />
+</LandingLayout>

@@ -1,0 +1,54 @@
+---
+import LandingLayout from '../layouts/LandingLayout.astro';
+import ProductBlock from '../components/ProductBlock.astro';
+import RelatedLinks from '../components/RelatedLinks.astro';
+import { page } from '../data/site';
+
+const related = [page('/digital-home-binder/'), page('/home-warranty-tracker/'), page('/appliance-maintenance-records/'), page('/new-homeowner-app/')];
+---
+<LandingLayout
+  title="Home Inventory App for iPhone, iPad, and Mac | Around the House"
+  description="Create a private home inventory with photos, receipts, values, model and serial numbers, warranties, documents, and maintenance history on iPhone, iPad, and Mac."
+  canonicalPath="/home-inventory-app/"
+  breadcrumbLabel="Home inventory app"
+  h1="A home inventory for the things you own and the home they belong to"
+  intro="A useful home inventory records more than a list of possessions. Around The House keeps appliances, systems, fixtures, equipment, and personal property connected to their photos, identifying details, documents, value, and history."
+  ctaHeading="Start with one room or one valuable item."
+  ctaBody="A useful inventory grows item by item. Photograph what matters now and add details when you have them."
+>
+  <section>
+    <h2>What should a home inventory include?</h2>
+    <p>Record enough information to identify an item, understand its value, find its paperwork, and explain its condition or history later.</p>
+    <ul class="qa-list">
+      <li><strong>Clear photos</strong><span>Show the item and any identifying labels or distinguishing details.</span></li>
+      <li><strong>Model and serial numbers</strong><span>Useful for service, recalls, warranty requests, and replacement research.</span></li>
+      <li><strong>Purchase details</strong><span>Purchase date, cost, retailer, receipt, and warranty information when available.</span></li>
+      <li><strong>Location and category</strong><span>Keep the item connected to its property and area of the home.</span></li>
+      <li><strong>Documents and history</strong><span>Manuals, receipts, repairs, replacements, and maintenance records.</span></li>
+    </ul>
+  </section>
+
+  <ProductBlock device="ipad" src="/assets/screenshots/new/ipad-items.webp" alt="A searchable home inventory in Around The House on iPad with item photos, locations, service dates, and document counts">
+    <h2>Organize the inventory the way you see your home</h2>
+    <p>Items are grouped by property and area, making it possible to browse the kitchen, utility room, garage, exterior, or other parts of the home. Search and filters help when you know the item but not where its record lives.</p>
+    <p>The same inventory can include permanent home assets and personal property without flattening everything into one undifferentiated list.</p>
+  </ProductBlock>
+
+  <ProductBlock device="iphone" flip src="/assets/screenshots/new/iphone-personal-property-documentation.webp" alt="Personal property documentation in Around The House on iPhone showing which inventory items still need photos, receipts, model numbers, or serial numbers">
+    <h2>See which records are still incomplete</h2>
+    <p>Inventory is easiest to maintain when missing information is visible. Documentation reports show which personal-property records still need a photo, receipt, model number, or serial number.</p>
+    <p>That lets you improve the inventory gradually instead of treating it as an all-or-nothing weekend project.</p>
+  </ProductBlock>
+
+  <section>
+    <h2>Useful for insurance preparation without being insurance software</h2>
+    <p>Photos, receipts, identifying numbers, purchase details, and values can make an inventory more useful when discussing coverage or documenting a loss. Around The House helps organize the information you enter; it does not estimate coverage needs, interpret a policy, or replace guidance from an insurer.</p>
+  </section>
+
+  <section>
+    <h2>Private records on your Apple devices</h2>
+    <p>Around The House does not require a separate account. Your inventory stays on your devices and, if enabled, in your private iCloud. The app is available on iPhone, iPad, and Mac.</p>
+  </section>
+
+  <RelatedLinks heading="Related ways to organize your home" items={related} />
+</LandingLayout>

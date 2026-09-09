@@ -1,0 +1,30 @@
+---
+import LandingLayout from '../layouts/LandingLayout.astro';
+import ProductBlock from '../components/ProductBlock.astro';
+import RelatedLinks from '../components/RelatedLinks.astro';
+import { page } from '../data/site';
+const related = [page('/home-maintenance-records/'), page('/home-warranty-tracker/'), page('/home-repair-cost-tracker/'), page('/home-document-organizer/'), page('/home-maintenance-reminders/')];
+---
+<LandingLayout
+  title="Appliance Maintenance Records App | Around the House"
+  description="Keep appliance model and serial numbers, manuals, receipts, warranties, repair history, service providers, costs, photos, and recurring maintenance together."
+  canonicalPath="/appliance-maintenance-records/"
+  breadcrumbLabel="Appliance maintenance records"
+  h1="One maintenance record for every appliance"
+  intro="The next appliance problem is easier when you can see what happened last time. Around The House keeps identifying details, documents, repairs, costs, providers, and recurring care on one item record."
+  ctaHeading="Create a record for the appliance that gets serviced most."
+  ctaBody="Add its model, serial number, manual, and last repair. The useful history can grow from there."
+>
+  <section><h2>Keep the information a service call usually needs</h2><p>Record the model and serial number, purchase and installation dates, capacity or filter details, photos, manual, receipt, warranty, and a short note about anything unusual in the setup.</p></section>
+  <ProductBlock device="ipad" src="/assets/screenshots/new/ipad-qr-item-details.webp" alt="Appliance specifications in Around The House on iPad with model number, serial number, filter size, dates, cost, notes, and QR code">
+    <h2>Identifying details stay readable</h2>
+    <p>Save information while the label is accessible instead of waiting until the appliance is installed against a wall or the print has worn away. A photo can preserve the original label alongside searchable fields.</p>
+  </ProductBlock>
+  <ProductBlock device="iphone" flip src="/assets/screenshots/new/iphone-item-history.webp" alt="Appliance repair and service history in Around The House on iPhone with dates, providers, and costs">
+    <h2>Repairs form a running history</h2>
+    <p>Record cleaning, preventive maintenance, repairs, and replacements with the actual date, provider, notes, cost, and supporting photos. Repeated problems and growing costs become easier to recognize.</p>
+  </ProductBlock>
+  <section><h2>Connect completed work to what comes next</h2><p>Recurring reminders can stay attached to the same appliance. Completing the work adds it to the history and keeps the next occurrence on the schedule.</p></section>
+  <section><h2>Use records to inform—not replace—professional judgment</h2><p>A history gives technicians useful context but does not diagnose equipment or override manufacturer instructions. Follow the appliance documentation and use a qualified professional for hazardous or unfamiliar work.</p></section>
+  <RelatedLinks heading="Related maintenance tools" items={related} />
+</LandingLayout>

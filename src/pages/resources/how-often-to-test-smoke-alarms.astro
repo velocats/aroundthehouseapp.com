@@ -1,0 +1,21 @@
+---
+import ArticleLayout from '../../layouts/ArticleLayout.astro';
+import RelatedLinks from '../../components/RelatedLinks.astro';
+import { page } from '../../data/site';
+const article = page('/resources/how-often-to-test-smoke-alarms/');
+const related = [page('/resources/how-to-change-carbon-monoxide-detector-battery/'), page('/home-maintenance-reminders/'), page('/home-maintenance-records/')];
+---
+<ArticleLayout title="How Often Should You Test and Replace Smoke Alarms?" description="Follow a smoke alarm schedule for monthly testing, model-specific battery replacement, ten-year alarm replacement, and room-by-room recordkeeping." canonicalPath={article.path} h1="How Often Should You Test and Replace Smoke Alarms?" standfirst="Test every smoke alarm monthly. Battery care depends on the model, and the entire alarm generally needs replacement ten years after its manufacture date or sooner when its instructions require it." published="2026-09-09" updated="2026-09-09" breadcrumbLabel={article.label}>
+  <h2>The basic smoke alarm schedule</h2>
+  <ul><li><strong>Monthly:</strong> test each alarm using its test button and the manufacturer's instructions.</li><li><strong>Battery:</strong> replace removable batteries on the manufacturer's schedule and whenever the low-battery signal occurs. A sealed long-life unit is replaced rather than opened.</li><li><strong>Ten years:</strong> the U.S. Fire Administration recommends replacing smoke alarms ten years from the manufacture date. Replace sooner if the model instructions or fault signal require it.</li></ul>
+  <h2>Test the whole home, not one device</h2>
+  <ol><li>Tell other occupants you are beginning a test, including anyone sensitive to loud sounds.</li><li>At each alarm, verify its location and manufacture date, then press and hold the test button as directed.</li><li>Confirm the expected sound and lights. In an interconnected system, verify that the other alarms sound.</li><li>Confirm everyone can hear or receive the alert in sleeping areas; consider listed alert devices for people who are deaf or hard of hearing.</li><li>Record the result by room. Replace or service any unit that does not pass.</li></ol>
+  <p>Never use an open flame or improvised smoke source. Never remove a battery to manage cooking nuisance alarms; use the hush feature and follow manufacturer guidance. Hardwired installation and electrical repair belong with a qualified electrician.</p>
+  <h2>Check coverage when the home changes</h2>
+  <p>USFA recommends alarms inside every bedroom, outside each separate sleeping area, and on every level, including the basement, with interconnected alarms for better notification. Check current local codes and manufacturer placement rules after remodeling or changing how rooms are used.</p>
+  <h2>Create a room-by-room alarm record</h2>
+  <p>For every unit, save its room, type, power source, model, manufacture date, install date, battery type, test history, and replace-by date. A single recurring task can link to the individual alarm records.</p>
+  <h2>Source</h2>
+  <ul><li><a href="https://www.usfa.fema.gov/prevention/home-fires/prepare-for-fire/smoke-alarms/">U.S. Fire Administration: Smoke alarms</a></li></ul>
+  <RelatedLinks heading="Keep life-safety checks visible" items={related} />
+</ArticleLayout>

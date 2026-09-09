@@ -296,6 +296,14 @@ h3 { font-size: 21px; }
 .landing-body ul:not(.plain-list):not(.related ul) { margin: 18px 0 0; padding-left: 22px; color: var(--muted); font-size: 17px; max-width: 66ch; }
 .landing-body li + li { margin-top: 8px; }
 .landing-body strong { color: var(--ink); }
+.comparison-date { padding: 16px 18px; border-left: 3px solid var(--accent); background: rgba(255, 250, 242, .72); }
+.comparison-scroll { margin-top: 24px; overflow-x: auto; }
+.comparison-table { width: 100%; min-width: 760px; border-collapse: collapse; color: var(--muted); font-size: 15px; line-height: 1.5; }
+.comparison-table caption { text-align: left; color: var(--ink); font-weight: 700; margin-bottom: 12px; }
+.comparison-table th, .comparison-table td { padding: 15px; border: 1px solid var(--line); text-align: left; vertical-align: top; }
+.comparison-table thead th, .comparison-table tbody th { color: var(--ink); background: rgba(255, 250, 242, .58); }
+.comparison-table thead th { font-size: 16px; }
+.comparison-sources a { color: var(--accent-dark); text-decoration: underline; text-underline-offset: 3px; }
 
 /* Copy beside a large screenshot. */
 .product-block { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; }
@@ -452,6 +460,8 @@ h1, h2, h3, .brand { font-family: Georgia, 'Times New Roman', serif; font-weight
 .line-icon { color: #8a6c3d; font: 38px/1 Georgia,serif; }
 .value-columns h3, .benefit-columns h3 { font-size: 20px; }
 .value-columns p, .benefit-columns p { margin: 8px 0 0; color: var(--muted); line-height: 1.5; }
+.value-columns h3 a, .benefit-columns h3 a { color: inherit; text-decoration: underline; text-decoration-color: rgba(23, 40, 32, .22); text-underline-offset: 5px; }
+.value-columns h3 a:hover, .benefit-columns h3 a:hover { text-decoration-color: currentColor; }
 
 .forest-showcase { background: #162d24; color: #f8f5ec; overflow: hidden; }
 .forest-grid { display: grid; grid-template-columns: .8fr 1.2fr; align-items: center; min-height: 500px; }

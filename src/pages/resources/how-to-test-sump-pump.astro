@@ -1,0 +1,27 @@
+---
+import ArticleLayout from '../../layouts/ArticleLayout.astro';
+import RelatedLinks from '../../components/RelatedLinks.astro';
+import { page } from '../../data/site';
+const article = page('/resources/how-to-test-sump-pump/');
+const related = [page('/home-maintenance-reminders/'), page('/home-maintenance-records/'), page('/resources/seasonal-home-maintenance-checklist/')];
+---
+<ArticleLayout title="How to Test a Sump Pump Before the Next Storm" description="Test a sump pump's discharge, float, pumping cycle, and backup safely before heavy rain, and record warning signs that need a plumber." canonicalPath={article.path} h1="How to Test a Sump Pump Before the Next Storm" standfirst="The useful test is not merely hearing the motor. Confirm that water enters the pit, activates the float, leaves through the discharge, and does not immediately flow back." published="2026-09-09" updated="2026-09-09" breadcrumbLabel={article.label}>
+  <h2>Inspect the system first</h2>
+  <ol>
+    <li>Find the model instructions and confirm the pump is connected to its intended powered outlet.</li>
+    <li>Check the exterior discharge point for blockage, freezing, or damage and verify that it sends water away from the foundation in a locally permitted location.</li>
+    <li>From a safe position, inspect the pit for debris and make sure the float can move without striking the pump, wall, pipes, or cover.</li>
+    <li>Check visible pipe joints and the check valve for leakage or damage.</li>
+  </ol>
+  <p>Do not reach into water around energized equipment. If the cord, plug, outlet, or pump is damaged—or water has reached electrical components—stop and call a qualified professional.</p>
+  <h2>Run a water test</h2>
+  <p>North Dakota State University Extension recommends slowly adding water to simulate normal inflow. Use clean water and the quantity permitted by the manufacturer. Watch the float rise, the pump start, the water level fall, and the pump stop. Repeat so you observe at least two complete cycles.</p>
+  <p>Listen for grinding or unusual vibration. After shutoff, watch for water rushing back into the pit, which can point to a check-valve issue. Confirm that water is actually leaving at the exterior discharge.</p>
+  <h2>Test the backup separately</h2>
+  <p>If you have a battery or secondary pump, follow its own test instructions. Record the battery type, installation date, test result, alarm result, and replacement schedule. A primary pump test does not prove that backup power will work during an outage.</p>
+  <h2>When to test</h2>
+  <p>Test before the wet season, before forecast heavy rain, after a long dry period, after service, and on the manufacturer's schedule. Monthly testing may be appropriate for systems protecting high-risk spaces. Call a plumber if either cycle fails, the float sticks, the breaker trips, discharge is blocked, or you are new to the system and cannot verify its configuration.</p>
+  <h2>Sources</h2>
+  <ul><li><a href="https://www.ag.ndsu.edu/news/newsreleases/2019/feb-25-2019/now-is-the-time-to-check-your-sump-pump">NDSU Extension: Check your sump pump</a></li><li><a href="https://www.superiorwi.gov/DocumentCenter/View/12276">City of Superior: Sump pump maintenance guidance (PDF)</a></li></ul>
+  <RelatedLinks heading="Prepare for the next wet season" items={related} />
+</ArticleLayout>

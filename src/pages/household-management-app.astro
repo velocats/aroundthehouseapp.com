@@ -1,0 +1,42 @@
+---
+import LandingLayout from '../layouts/LandingLayout.astro';
+import ProductBlock from '../components/ProductBlock.astro';
+import RelatedLinks from '../components/RelatedLinks.astro';
+import { page } from '../data/site';
+const related = [page('/home-maintenance-app/'), page('/digital-home-binder/'), page('/home-inventory-app/'), page('/home-handoff-report/')];
+---
+<LandingLayout
+  title="Household Management App for Home Records | Around the House"
+  description="A private household management app for Apple devices. Organize home items, maintenance, repairs, reminders, documents, costs, warranties, and contacts."
+  canonicalPath="/household-management-app/"
+  breadcrumbLabel="Household management app"
+  h1="Household management without the household admin sprawl"
+  intro="Running a home creates a trail of dates, decisions, documents, costs, and people. Around The House connects those details to the appliance, room, system, or property they belong to."
+  ctaHeading="Start with the facts you repeatedly search for."
+  ctaBody="Add a few important items, their identifying details, and the next work that needs attention. The household record can grow as real life gives you a reason."
+>
+  <section>
+    <h2>What belongs in a household management app?</h2>
+    <ul class="qa-list">
+      <li><strong>Home items</strong><span>Appliances, systems, fixtures, exterior components, and possessions worth documenting.</span></li>
+      <li><strong>Maintenance</strong><span>Upcoming work, overdue tasks, completion notes, and recurring schedules.</span></li>
+      <li><strong>Repairs</strong><span>What failed, what changed, who handled it, and what it cost.</span></li>
+      <li><strong>Documents</strong><span>Manuals, receipts, invoices, warranties, and useful photos.</span></li>
+      <li><strong>Contacts</strong><span>The contractors and service providers connected to actual work history.</span></li>
+    </ul>
+  </section>
+  <ProductBlock device="ipad" src="/assets/screenshots/new/ipad-front-page.webp" alt="Around The House household overview on iPad showing home information and records">
+    <h2>Organize around the home, not around file types</h2>
+    <p>A furnace record can hold its model number, filter size, service history, next reminder, contractor, invoice, and warranty. That is more useful than placing each fact in a different generic app.</p>
+    <p>Properties keep their own items and histories, so information remains understandable when you manage more than one home.</p>
+  </ProductBlock>
+  <ProductBlock device="iphone" flip src="/assets/screenshots/new/iphone-today.webp" alt="Around The House Today view on iPhone with home maintenance work">
+    <h2>See what needs attention without losing what already happened</h2>
+    <p>The Today and schedule views make current work visible. Completing maintenance adds to the item's history, where the note, provider, cost, and evidence remain available later.</p>
+  </ProductBlock>
+  <section>
+    <h2>A focused home record—not a financial or social platform</h2>
+    <p>Around The House is built for home memory and maintenance on iPhone, iPad, and Mac. It does not require an Around The House account. Records stay on your Apple devices and in your private iCloud when synchronization is enabled.</p>
+  </section>
+  <RelatedLinks heading="Choose the part of household management you need" items={related} />
+</LandingLayout>

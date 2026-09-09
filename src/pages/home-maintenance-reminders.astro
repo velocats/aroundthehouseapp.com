@@ -1,0 +1,91 @@
+---
+import LandingLayout from '../layouts/LandingLayout.astro';
+import ProductBlock from '../components/ProductBlock.astro';
+import RelatedLinks from '../components/RelatedLinks.astro';
+import { page } from '../data/site';
+
+const related = [
+  page('/home-maintenance-tracker/'),
+  page('/home-maintenance-records/'),
+  page('/home-maintenance-app/'),
+  page('/home-maintenance-calendar/'),
+  page('/resources/how-to-keep-track-of-home-maintenance/')
+];
+---
+<LandingLayout
+  title="Home Maintenance Reminders for iPhone, iPad, and Mac"
+  description="Set recurring home maintenance reminders and keep overdue work visible. Connect each reminder to an appliance or home system, then save the completed work in its maintenance history."
+  canonicalPath="/home-maintenance-reminders/"
+  breadcrumbLabel="Home maintenance reminders"
+  h1="Home maintenance reminders that remember what happened"
+  intro="A reminder is useful on the day a task is due. A home record is useful for years. Around The House connects the two: recurring work appears on your schedule, and completing it adds the result to that item's maintenance history."
+  ctaHeading="Schedule one task that always comes back."
+  ctaBody="Choose a filter change, safety check, or seasonal job and let the next due date take care of itself."
+>
+  <section>
+    <h2>Recurring maintenance needs a complete loop</h2>
+    <p>
+      Many household tasks repeat every month, season, or year. Putting them on a general to-do list can produce
+      an alert, but it rarely preserves the completed work or connects it to the appliance or system involved.
+    </p>
+    <ul class="qa-list">
+      <li><strong>Choose the item</strong><span>Attach the reminder to the furnace, water heater, detector, roof, or other part of the home.</span></li>
+      <li><strong>Set the date and recurrence</strong><span>Schedule it once or repeat it on the interval that fits the task.</span></li>
+      <li><strong>Keep missed work visible</strong><span>An overdue task remains overdue instead of disappearing with yesterday's notification.</span></li>
+      <li><strong>Complete or snooze it</strong><span>Act on the task now or move it to a more realistic date.</span></li>
+      <li><strong>Save the result</strong><span>Record the work, provider, notes, cost, and photos in the item's history.</span></li>
+    </ul>
+  </section>
+
+  <ProductBlock
+    device="iphone"
+    src="/assets/screenshots/new/iphone-schedule.webp"
+    alt="The Around The House maintenance reminder calendar on iPhone with a recurring task marked overdue"
+  >
+    <h2>See upcoming and overdue work together</h2>
+    <p>
+      The Schedule combines a calendar with the maintenance due on the selected day. Each reminder names the task,
+      the item it belongs to, and its recurrence, so you can understand it without reconstructing the context.
+    </p>
+    <p>
+      Missed work remains visible as overdue. You can complete it, snooze it, edit it, or remove it when it no
+      longer applies.
+    </p>
+  </ProductBlock>
+
+  <ProductBlock
+    device="ipad"
+    flip
+    src="/assets/screenshots/new/ipad-today.webp"
+    alt="The Today view in Around The House on iPad showing overdue work, upcoming maintenance, home areas, and items needing attention"
+  >
+    <h2>Start with what needs attention</h2>
+    <p>
+      Today summarizes overdue and upcoming work before showing the rest of the home. It is designed to answer a
+      simple question: is there anything I need to deal with now?
+    </p>
+    <p>
+      On quiet days, the answer may be no. The app does not need to invent activity to justify being opened.
+    </p>
+  </ProductBlock>
+
+  <section>
+    <h2>Useful reminders are specific</h2>
+    <p>
+      “Change filter” is less useful than a reminder connected to the furnace record containing the correct size,
+      a photo of the installation direction, the last completion date, and the replacement receipt. The item
+      supplies the context; the reminder supplies the timing.
+    </p>
+  </section>
+
+  <section>
+    <h2>Private reminders across your Apple devices</h2>
+    <p>
+      Around The House requires no separate account. Your home information remains on your devices and, when
+      iCloud synchronization is enabled, in your private iCloud. The app runs on iPhone, iPad, and Mac so the
+      same schedule and history can be available where you need them.
+    </p>
+  </section>
+
+  <RelatedLinks heading="Related maintenance tools" items={related} />
+</LandingLayout>

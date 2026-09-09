@@ -1,0 +1,56 @@
+---
+import ArticleLayout from '../../layouts/ArticleLayout.astro';
+import RelatedLinks from '../../components/RelatedLinks.astro';
+import { page } from '../../data/site';
+
+const article = page('/resources/how-to-change-carbon-monoxide-detector-battery/');
+const related = [page('/home-maintenance-reminders/'), page('/home-maintenance-records/'), page('/resources/how-to-keep-track-of-home-maintenance/')];
+---
+<ArticleLayout
+  title="How to Change a Carbon Monoxide Detector Battery Safely"
+  description="Learn how to replace a carbon monoxide detector battery, test the alarm, recognize an end-of-life signal, and record the maintenance safely."
+  canonicalPath={article.path}
+  h1="How to Change a Carbon Monoxide Detector Battery Safely"
+  standfirst="A chirp can mean a low battery, a fault, or the end of the alarm's service life. Identify the signal before replacing anything, and always follow the instructions for your exact model."
+  published="2026-09-09"
+  updated="2026-09-09"
+  breadcrumbLabel={article.label}
+>
+  <h2>First, identify what the sound means</h2>
+  <p>Do not assume every chirp means “replace the battery.” Find the model number and check the manufacturer's manual or label for its sound and light patterns. An alarm pattern may indicate carbon monoxide; a periodic chirp may indicate a low battery, a malfunction, or end of life.</p>
+  <p><strong>If the unit is sounding a carbon monoxide alarm, leave for fresh air and call emergency services.</strong> Do not remove the battery to silence an active alarm. Follow the alarm manufacturer's emergency instructions.</p>
+
+  <h2>Check whether the battery is replaceable</h2>
+  <p>Some alarms use replaceable batteries. Others have a sealed battery designed to last for the life of the unit. A sealed alarm should be replaced according to its instructions rather than opened. Also check the manufacture or replace-by date: a new battery cannot renew an expired sensor.</p>
+
+  <h2>Replace the battery</h2>
+  <ol>
+    <li>Read the model-specific instructions and obtain the specified battery type.</li>
+    <li>If the alarm is hardwired, follow the manual's power-disconnection procedure before removing it. Do not alter household wiring.</li>
+    <li>Open the battery compartment and note the old battery's orientation.</li>
+    <li>Remove the old battery and inspect the compartment for corrosion or damage. Replace the alarm if the manual calls for it; do not improvise a repair.</li>
+    <li>Install a fresh battery with the positive and negative terminals positioned as marked, then close the compartment fully.</li>
+    <li>Reinstall the alarm if it was removed.</li>
+    <li>Press and hold the test button as directed by the manufacturer. Confirm the expected sound and indicator lights.</li>
+  </ol>
+  <p>If the chirp continues after correct replacement and testing, consult the troubleshooting instructions. The alarm may be expired or faulty.</p>
+
+  <h2>Test monthly and respect the replacement date</h2>
+  <p>The U.S. Fire Administration recommends testing carbon monoxide alarms at least monthly and replacing them according to the manufacturer's instructions or when the end-of-life signal sounds. Placement and replacement life vary, so keep the model manual with the home record.</p>
+
+  <h2>Record what you changed</h2>
+  <div class="article-example">
+    <dl>
+      <dt>Item</dt><dd>Upstairs hallway CO alarm</dd>
+      <dt>Record</dt><dd>Model, manufacture date, battery type, replacement date</dd>
+      <dt>Result</dt><dd>Test passed and normal status light confirmed</dd>
+      <dt>Next step</dt><dd>Monthly test reminder and manufacturer replace-by date</dd>
+    </dl>
+  </div>
+
+  <h2>Sources</h2>
+  <ul>
+    <li><a href="https://apps.usfa.fema.gov/ax/sm/sm_0635.pdf">U.S. Fire Administration: Carbon Monoxide Alarms fact sheet (PDF)</a></li>
+  </ul>
+  <RelatedLinks heading="Keep safety maintenance visible" items={related} />
+</ArticleLayout>

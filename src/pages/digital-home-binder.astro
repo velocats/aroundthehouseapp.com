@@ -1,0 +1,98 @@
+---
+import LandingLayout from '../layouts/LandingLayout.astro';
+import ProductBlock from '../components/ProductBlock.astro';
+import RelatedLinks from '../components/RelatedLinks.astro';
+import { page } from '../data/site';
+
+const related = [
+  page('/home-maintenance-records/'),
+  page('/home-maintenance-app/'),
+  page('/home-inventory-app/'),
+  page('/home-warranty-tracker/'),
+  page('/home-document-organizer/'),
+  page('/resources/how-to-create-a-digital-home-binder/')
+];
+---
+<LandingLayout
+  title="Digital Home Binder App for Apple Devices | Around the House"
+  description="Create a private digital home binder on iPhone, iPad, and Mac. Keep manuals, warranties, receipts, photos, notes, maintenance history, and important home details with the items they belong to."
+  canonicalPath="/digital-home-binder/"
+  breadcrumbLabel="Digital home binder"
+  h1="A digital home binder organized around your actual home"
+  intro="A useful home binder is more than a folder of PDFs. It connects every manual, receipt, warranty, photo, date, and note to the appliance, system, room, or project it describes — so the answer is where you expect it when you need it."
+  ctaHeading="Build your binder one item at a time."
+  ctaBody="Start with the furnace, water heater, or one appliance whose manual and warranty you never want to hunt for again."
+>
+  <section>
+    <h2>What belongs in a digital home binder?</h2>
+    <p>
+      A traditional home binder often combines emergency information, appliance paperwork, repair invoices,
+      paint colors, contractor details, warranties, and maintenance notes. The challenge is not deciding whether
+      those details matter. It is keeping them current and finding the right one quickly.
+    </p>
+    <ul class="qa-list">
+      <li><strong>Appliance and system details</strong><span>Model and serial numbers, filter sizes, installation dates, photos, and notes.</span></li>
+      <li><strong>Manuals and documents</strong><span>Owner manuals, estimates, invoices, inspection reports, and other files.</span></li>
+      <li><strong>Receipts and warranties</strong><span>Proof of purchase, coverage documents, purchase dates, and expiration dates.</span></li>
+      <li><strong>Repair and maintenance history</strong><span>What happened, when it happened, who did the work, and what it cost.</span></li>
+      <li><strong>People worth calling again</strong><span>Contractors and service providers kept with the work they performed.</span></li>
+    </ul>
+  </section>
+
+  <ProductBlock
+    device="ipad"
+    src="/assets/screenshots/new/ipad-binder.webp"
+    alt="The digital home Binder in Around The House on iPad, showing organized manuals, receipts, warranties, and other home documents"
+  >
+    <h2>Documents stay connected to their context</h2>
+    <p>
+      Around The House includes a Binder for browsing saved documents, but files do not have to live as an
+      anonymous list. Attach a furnace manual to the furnace, a roofing invoice to the roof, or a warranty to the
+      appliance it covers. You can find the file through the Binder or by opening the item itself.
+    </p>
+    <p>
+      That connection is what turns a collection of scans into a usable record of the home.
+    </p>
+  </ProductBlock>
+
+  <ProductBlock
+    device="iphone"
+    flip
+    src="/assets/screenshots/new/iphone-warranty-countdown.webp"
+    alt="A warranty record in Around The House on iPhone showing its expiration date and the remaining coverage time"
+  >
+    <h2>Keep the date with the warranty</h2>
+    <p>
+      A warranty is most useful before it expires. Save its purchase or coverage dates with the document so you
+      can see how much time remains without opening a PDF and searching for the fine print.
+    </p>
+    <p>
+      Receipts, photos, and notes can stay alongside the same item, giving you the evidence and identifying
+      details you are likely to need for a claim or service call.
+    </p>
+  </ProductBlock>
+
+  <section>
+    <h2>Private by design, without another account</h2>
+    <p>
+      Around The House does not require a separate web account. Records remain on your Apple devices and, when
+      you enable synchronization, in your own private iCloud. There is no advertising profile and no web
+      dashboard holding a second copy of your home information.
+    </p>
+    <p>
+      The app is available on iPhone, iPad, and Mac, so details can be captured where the work happens and
+      reviewed later on a larger screen.
+    </p>
+  </section>
+
+  <section>
+    <h2>A binder that can leave the house with you</h2>
+    <p>
+      Over time, the same records can support insurance documentation, maintenance planning, a service call, or
+      a home handoff. The goal is not to document everything in a weekend. It is to keep each useful detail once,
+      in the place where you will look for it later.
+    </p>
+  </section>
+
+  <RelatedLinks heading="Related home records" items={related} />
+</LandingLayout>

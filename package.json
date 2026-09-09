@@ -6,12 +6,11 @@
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
-    "build": "astro build",
-    "preview": "astro preview"
+    "build": "astro build && node scripts/generate-sitemap.mjs",
+    "preview": "astro preview",
+    "check": "npm run build && node scripts/validate-site.mjs"
   },
   "dependencies": {
-    "@astrojs/sitemap": "^3.2.1",
     "astro": "^4.16.18"
-  },
-  "devDependencies": {}
+  }
 }

@@ -1,11 +1,13 @@
 ---
 const { page = 'home' } = Astro.props;
 const isHome = page === 'home';
-const appStoreUrl = 'https://apps.apple.com/us/app/around-the-house-binder/id6789646793';
+import { appStoreUrl } from '../data/site';
 const prefix = isHome ? '' : '/';
 
 const links = [
   ['Features', `${prefix}#features`],
+  ['How it works', '/home-maintenance-app/'],
+  ['Guides', '/resources/'],
   ['Screenshots', '/screenshots/'],
   ['Pricing', '/pricing/'],
   ['Support', '/support/']

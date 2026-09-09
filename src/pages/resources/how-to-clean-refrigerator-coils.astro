@@ -1,0 +1,46 @@
+---
+import ArticleLayout from '../../layouts/ArticleLayout.astro';
+import RelatedLinks from '../../components/RelatedLinks.astro';
+import { page } from '../../data/site';
+
+const article = page('/resources/how-to-clean-refrigerator-coils/');
+const related = [page('/appliance-maintenance-records/'), page('/home-warranty-tracker/'), page('/home-maintenance-reminders/')];
+---
+<ArticleLayout
+  title="How to Clean Refrigerator Coils Without Damage"
+  description="Determine whether your refrigerator coils need user cleaning, then safely disconnect power, vacuum accessible dust, and record the maintenance."
+  canonicalPath={article.path}
+  h1="How to Clean Refrigerator Coils Without Damaging the Appliance"
+  standfirst="Not every refrigerator has user-cleanable condenser coils. Your first step is to identify the model and check its care instructions—not to pull off a panel and start brushing."
+  published="2026-09-09"
+  updated="2026-09-09"
+  breadcrumbLabel={article.label}
+>
+  <h2>Confirm that your model calls for coil cleaning</h2>
+  <p>Locate the model number and read the manufacturer's care guide. Some refrigerators do not require routine condenser cleaning, and some designs should be serviced only by a certified technician. Follow those instructions even if a generic video shows a different arrangement.</p>
+
+  <h2>Prepare without damaging connections</h2>
+  <p>If the manual permits user cleaning, gather a vacuum with a narrow attachment and the soft brush recommended for the appliance. Disconnect electrical power before removing an access grille. Protect the floor and avoid pulling the refrigerator far enough to strain, kink, or disconnect a water line.</p>
+
+  <h2>Clean accessible coils carefully</h2>
+  <ol>
+    <li>Remove the base grille or access cover exactly as the manual describes.</li>
+    <li>Vacuum loose dust from the grille, surrounding floor, and accessible condenser area.</li>
+    <li>Use a soft brush gently if permitted, then vacuum the loosened debris. Do not force a tool into the fan or bend delicate fins or tubing.</li>
+    <li>Replace every cover and grille before restoring power.</li>
+    <li>Return the appliance to position without pinching its cord or water line and confirm normal operation.</li>
+  </ol>
+  <p>Stop and call for service if you find damaged tubing, an oily residue, a failing fan, electrical damage, or a component the manual says is not user-serviceable.</p>
+
+  <h2>Choose an interval for the actual refrigerator</h2>
+  <p>Whirlpool says cleaning needs vary by model and environment; homes with pets, dust, or grease may need inspection or cleaning every three to six months on models that require it. Treat that as an example, not a rule for every brand. Save the model-specific interval and reassess if the area stays clean.</p>
+
+  <h2>Record the maintenance</h2>
+  <p>Save the model and serial number, manual, cleaning date, condition observed, and any service invoice with the refrigerator. A photo before reattaching the grille can establish what was accessible and how much dust had accumulated.</p>
+
+  <h2>Source</h2>
+  <ul>
+    <li><a href="https://producthelp.whirlpool.com/Refrigeration/Full-Size_Refrigerators/Product_Info/Cleaning_and_Care/How_and_When_to_Safely_Clean_the_Condenser_Coils">Whirlpool: How and when to safely clean condenser coils</a></li>
+  </ul>
+  <RelatedLinks heading="Build a useful appliance history" items={related} />
+</ArticleLayout>

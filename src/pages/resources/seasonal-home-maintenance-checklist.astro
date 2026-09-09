@@ -1,0 +1,24 @@
+---
+import ArticleLayout from '../../layouts/ArticleLayout.astro';
+import RelatedLinks from '../../components/RelatedLinks.astro';
+import { page } from '../../data/site';
+const article = page('/resources/seasonal-home-maintenance-checklist/');
+const related = [page('/home-maintenance-tracker/'), page('/home-maintenance-reminders/'), page('/resources/how-to-keep-track-of-home-maintenance/')];
+---
+<ArticleLayout title="Seasonal Home Maintenance Checklist | Spring to Winter" description="Use a practical spring, summer, fall, and winter home maintenance checklist focused on safety, water, HVAC, and the exterior—and preserve the history." canonicalPath={article.path} h1="Seasonal Home Maintenance Checklist That Builds a Useful History" standfirst="A seasonal checklist should surface risks at the right time, not become an impossible catalog of chores. Adapt this starting point to your climate, equipment manuals, property, and local professional advice." published="2026-09-09" updated="2026-09-09" breadcrumbLabel={article.label}>
+  <h2>Tasks for every month</h2>
+  <ul><li>Test smoke and carbon monoxide alarms according to their instructions.</li><li>Inspect the HVAC filter and clean or replace it when dirty.</li><li>Review leaks, unusual sounds, odors, warning lights, and overdue high-priority maintenance.</li><li>Confirm critical systems such as sump pumps or leak alarms are ready when current weather makes failure likely.</li></ul>
+  <h2>Spring checklist</h2>
+  <ul><li>Schedule cooling-system service before hot weather.</li><li>Test the sump pump and backup before the wet season.</li><li>Inspect gutters, downspouts, grading, foundation, roof edges, and exterior penetrations after winter.</li><li>Check hose bibs and irrigation for freeze damage or leakage.</li><li>Inspect decks, steps, railings, screens, and exterior safety lighting.</li></ul>
+  <h2>Summer checklist</h2>
+  <ul><li>Watch cooling performance, condensate drainage, and outdoor-unit clearance.</li><li>Inspect bathroom and kitchen exhaust airflow and clean user-serviceable grilles.</li><li>Review tree limbs, vegetation, drainage, and wildfire or storm preparation relevant to your area.</li><li>Inspect refrigerator care needs and dryer exhaust performance.</li></ul>
+  <h2>Fall checklist</h2>
+  <ul><li>Schedule heating-system service before cold weather.</li><li>Inspect and clear gutters after leaf fall when access is safe.</li><li>Prepare exterior plumbing, irrigation, and seasonal equipment for freezing conditions.</li><li>Inspect weather stripping, roof drainage, and the building envelope before winter storms.</li><li>Confirm smoke and CO alarm ages, batteries, locations, and test history.</li></ul>
+  <h2>Winter checklist</h2>
+  <ul><li>Monitor pipes and vulnerable spaces during freezes; know the main water shutoff location.</li><li>Keep combustion-air and exterior HVAC openings clear according to equipment instructions.</li><li>Watch for ice dams, unsafe icicles, drainage backups, and interior signs of roof leakage.</li><li>Review warranties, receipts, annual costs, and major repairs while the year's history is fresh.</li></ul>
+  <h2>Make every inspection produce a record</h2>
+  <p>For each task, record the actual date, what you observed, photos, provider, cost, action taken, and next due date. Escalate electrical, gas, combustion, roofing, structural, high-ladder, and active water-damage work to qualified professionals.</p>
+  <h2>Source</h2>
+  <ul><li><a href="https://www.energystar.gov/sites/default/files/tools/13040-ES%20Homeowner%20Manual_2018_No%20CoBrand_Final-v1_REVISED.pdf">ENERGY STAR Certified Homes maintenance guide (PDF)</a></li></ul>
+  <RelatedLinks heading="Turn the checklist into a system" items={related} />
+</ArticleLayout>

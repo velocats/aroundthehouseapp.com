@@ -1,0 +1,27 @@
+---
+import LandingLayout from '../layouts/LandingLayout.astro';
+import ProductBlock from '../components/ProductBlock.astro';
+import RelatedLinks from '../components/RelatedLinks.astro';
+import { page } from '../data/site';
+const related = [page('/new-homeowner-app/'), page('/digital-home-binder/'), page('/home-maintenance-records/'), page('/home-contractor-records/'), page('/household-management-app/')];
+---
+<LandingLayout
+  title="Home Handoff Report for Buyers and Owners | Around the House"
+  description="Prepare a home handoff report with assets, appliance details, maintenance history, upcoming reminders, documents, warranties, service providers, and home costs."
+  canonicalPath="/home-handoff-report/"
+  breadcrumbLabel="Home handoff report"
+  h1="Turn years of home records into a useful handoff"
+  intro="A new owner needs more than a stack of manuals. Around The House can bring the home's assets, maintenance history, upcoming work, warranties, documents, service providers, and costs into one organized report."
+  ctaHeading="Build the handoff while you still own the history."
+  ctaBody="Each item and maintenance entry you save today makes a future home summary more useful."
+>
+  <section><h2>What belongs in a home handoff</h2><ul class="qa-list"><li><strong>Major assets and systems</strong><span>Names, locations, identifying details, installation dates, and photos.</span></li><li><strong>Maintenance and repairs</strong><span>Completed work, dates, providers, notes, and costs.</span></li><li><strong>Upcoming work</strong><span>Recurring maintenance and overdue or future reminders.</span></li><li><strong>Documents and warranties</strong><span>Manuals, receipts, invoices, coverage details, and related files.</span></li><li><strong>Useful service contacts</strong><span>People and companies with relevant history at the property.</span></li></ul></section>
+  <ProductBlock device="ipad" src="/assets/screenshots/new/ipad-home-handoff.webp" alt="A detailed home handoff report in Around The House on iPad with inventory, maintenance, reminders, documents, warranties, providers, and costs">
+    <h2>Summarize the home without flattening its history</h2><p>The report provides a broad view while the underlying records remain organized by item. A future reader can understand the scope of the home and still trace details back to the system or appliance involved.</p>
+  </ProductBlock>
+  <ProductBlock device="iphone" flip src="/assets/screenshots/new/iphone-home-handoff.webp" alt="Home handoff report overview in Around The House on iPhone">
+    <h2>Useful before a sale, move, or change in responsibility</h2><p>A handoff can help a buyer, family member, property caretaker, or anyone newly responsible for the home. Decide what is appropriate to share and remove personal or sensitive records first.</p>
+  </ProductBlock>
+  <section><h2>A report is only as useful as the records behind it</h2><p>The easiest time to record a repair is when it happens. Save details during normal ownership, then review names, dates, documents, and privacy before producing a handoff.</p></section>
+  <RelatedLinks heading="Build the record behind the report" items={related} />
+</LandingLayout>

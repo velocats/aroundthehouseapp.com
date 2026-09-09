@@ -1,0 +1,14 @@
+---
+import LandingLayout from '../layouts/LandingLayout.astro';
+import ProductBlock from '../components/ProductBlock.astro';
+import RelatedLinks from '../components/RelatedLinks.astro';
+import { page } from '../data/site';
+const related = [page('/home-maintenance-reminders/'), page('/home-maintenance-tracker/'), page('/home-maintenance-records/'), page('/resources/seasonal-home-maintenance-checklist/')];
+---
+<LandingLayout title="Home Maintenance Calendar and Recurring Schedule App" description="Plan a home maintenance calendar with upcoming, overdue, recurring, and completed work linked to each appliance, system, and home record." canonicalPath="/home-maintenance-calendar/" breadcrumbLabel="Home maintenance calendar" h1="A home maintenance calendar connected to completed history" intro="A date on a calendar tells you when to act. Around The House also keeps the item, instructions, completion note, provider, cost, and document that make the task useful before and after it is due." ctaHeading="Schedule one task that repeatedly surprises you." ctaBody="Choose the real interval for your equipment, link the task to its item, and add the detail you need when the reminder arrives.">
+  <section><h2>Build the calendar from real equipment</h2><p>Start with safety checks, water-risk equipment, HVAC care, manufacturer-required appliance maintenance, and seasonal exterior inspections. Use the manual, climate, observed condition, and qualified professional advice to choose intervals instead of copying a universal list.</p></section>
+  <ProductBlock device="ipad" src="/assets/screenshots/new/ipad-schedule.webp" alt="Home maintenance calendar and schedule in Around The House on iPad"><h2>See upcoming and overdue work together</h2><p>The schedule makes future tasks visible while overdue work remains present. Tasks stay associated with the correct property and item rather than becoming ambiguous calendar events.</p></ProductBlock>
+  <ProductBlock device="iphone" flip src="/assets/screenshots/new/iphone-today.webp" alt="Today's home maintenance tasks in Around The House on iPhone"><h2>Focus on what matters today</h2><p>A shorter current view helps keep the larger maintenance plan from becoming noise. When the work is complete, record the actual date and result instead of simply deleting the event.</p></ProductBlock>
+  <section><h2>Use recurrence carefully</h2><p>Some work repeats on a fixed date; other work depends on use, condition, weather, or a professional inspection. Review intervals after each completion. If a filter was still clean or a gutter filled early, adjust the next reminder using what the history shows.</p></section>
+  <RelatedLinks heading="Build a maintenance system around the calendar" items={related} />
+</LandingLayout>

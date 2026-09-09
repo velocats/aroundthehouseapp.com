@@ -1,0 +1,49 @@
+---
+import ArticleLayout from '../../layouts/ArticleLayout.astro';
+import RelatedLinks from '../../components/RelatedLinks.astro';
+import { page } from '../../data/site';
+
+const article = page('/resources/how-to-clean-dryer-vent/');
+const related = [page('/appliance-maintenance-records/'), page('/home-maintenance-reminders/'), page('/home-maintenance-records/')];
+---
+<ArticleLayout
+  title="How to Clean a Dryer Vent Safely | Home Guide"
+  description="Learn how to clean an accessible dryer vent connection safely, spot airflow warning signs, and know when to hire a professional."
+  canonicalPath={article.path}
+  h1="How to Clean a Dryer Vent and Know When to Call a Professional"
+  standfirst="Start with the lint screen every load. For the exhaust system, follow the dryer manual, disconnect power, protect gas and electrical connections, and stop when the duct route is not safely accessible."
+  published="2026-09-09"
+  updated="2026-09-09"
+  breadcrumbLabel={article.label}
+>
+  <h2>Watch for restricted airflow</h2>
+  <p>Longer drying times, unusually hot loads or cabinets, a burning smell, lint around connections, or weak flow at the exterior hood can indicate a restriction. Stop using a dryer that smells hot, overheats, or shows a damaged power cord, gas connection, or exhaust duct until it has been evaluated.</p>
+
+  <h2>Clean the lint screen first</h2>
+  <p>Remove lint from the screen before or after every load, following the manufacturer's instructions. Periodically inspect the screen and its housing for residue or damage. Never run the dryer without its lint screen.</p>
+
+  <h2>Clean an accessible exhaust connection</h2>
+  <ol>
+    <li>Read the dryer and duct instructions. Turn the dryer off and unplug it before moving or cleaning it.</li>
+    <li>For a gas dryer, close the gas supply valve as directed. If moving the appliance could stress the flexible gas connector—or if you are unsure—hire a qualified technician.</li>
+    <li>Move the dryer only far enough to access the connection without damaging the floor, cord, vent, or utility line.</li>
+    <li>Disconnect the exhaust duct using the specified method and vacuum lint from the accessible dryer outlet and duct opening.</li>
+    <li>Clean only as far into the duct as your equipment instructions and safe access permit. Long, concealed, rooftop, damaged, or heavily blocked runs are jobs for a qualified vent-cleaning professional.</li>
+    <li>Inspect the duct and exterior hood. Replace crushed, torn, or unsuitable material according to current appliance and local requirements.</li>
+    <li>Reconnect and secure the duct without crushing it, return the dryer to position, restore utilities, and check for normal exhaust flow.</li>
+  </ol>
+  <p>If a gas connection was disconnected, it must be reconnected and leak-tested by a qualified person under applicable instructions and codes.</p>
+
+  <h2>How often should the vent be cleaned?</h2>
+  <p>There is no single interval for every dryer and duct. Whirlpool consumer guidance says the vent may need cleaning at least every two years depending on use, while its care guidance also recommends annual attention or cleaning when performance drops. The safer rule is to follow your model instructions, inspect airflow and connections regularly, and act sooner when warning signs appear.</p>
+
+  <h2>Keep a service record</h2>
+  <p>Record the date, who performed the work, the duct condition, observations at the exterior hood, and any parts replaced. Attach a professional invoice and set the next inspection reminder based on the manual, usage, and what the cleaning revealed.</p>
+
+  <h2>Sources</h2>
+  <ul>
+    <li><a href="https://www.whirlpool.com/blog/washers-and-dryers/how-to-clean-a-dryer-vent.html">Whirlpool: How to clean a dryer vent</a></li>
+    <li><a href="https://producthelp.whirlpool.com/Laundry/Dryers/Product_Info/Dryer_Cleaning_and_Care/Cleaning_the_Dryer_Drum">Whirlpool: Dryer cleaning and care</a></li>
+  </ul>
+  <RelatedLinks heading="Track the appliance and its maintenance" items={related} />
+</ArticleLayout>

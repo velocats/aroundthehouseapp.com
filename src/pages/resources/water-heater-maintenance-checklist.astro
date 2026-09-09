@@ -1,0 +1,28 @@
+---
+import ArticleLayout from '../../layouts/ArticleLayout.astro';
+import RelatedLinks from '../../components/RelatedLinks.astro';
+import { page } from '../../data/site';
+const article = page('/resources/water-heater-maintenance-checklist/');
+const related = [page('/appliance-maintenance-records/'), page('/home-warranty-tracker/'), page('/home-maintenance-reminders/')];
+---
+<ArticleLayout title="Water Heater Maintenance Checklist for Homeowners" description="Use this water heater maintenance checklist to inspect leaks, follow the correct flushing schedule, preserve records, and know when to hire a plumber." canonicalPath={article.path} h1="Water Heater Maintenance Checklist for Homeowners" standfirst="Water heaters combine very hot water with electricity, gas, combustion, or high pressure. Begin with the manual for your exact model and keep homeowner work within the limits it defines." published="2026-09-09" updated="2026-09-09" breadcrumbLabel={article.label}>
+  <h2>Identify the equipment before maintaining it</h2>
+  <p>Record whether the unit is a tank or tankless model, its fuel, model and serial number, capacity, installation date, warranty, and shutoff locations. Download the manual. Tank and tankless systems use different maintenance procedures, and instructions vary even within a brand.</p>
+  <h2>Homeowner inspection checklist</h2>
+  <ul>
+    <li>Look around the tank, fittings, drain pan, valves, and nearby pipes for moisture, corrosion, staining, or mineral deposits.</li>
+    <li>Keep the area clear. Never block a gas unit's air intake, burner access, or venting.</li>
+    <li>Check that the temperature-and-pressure relief discharge pipe is present, unobstructed, and terminates as required. Never cap it.</li>
+    <li>Listen for new popping, rumbling, or ignition noises and note changes in hot-water quantity, temperature, color, or odor.</li>
+    <li>For a gas unit, visually check accessible venting for displacement or obvious damage without disassembling it.</li>
+  </ul>
+  <p>Water near electrical parts, a gas odor, combustion concerns, a leaking tank, or discharge from a relief valve needs prompt professional attention. If you smell gas, leave the area and follow your gas utility's emergency instructions.</p>
+  <h2>Plan flushing and professional service</h2>
+  <p>A. O. Smith describes annual tank flushing, relief-valve inspection, and anode assessment as common maintenance, while Rheem notes that hard water or heavy use can shorten a flushing interval. Your manual and local water conditions control. Tankless systems typically use a model-specific descaling process instead of a tank drain.</p>
+  <p>Flushing can expose people and property to scalding water, and an old drain valve may fail to reseal. Hire a qualified plumber if the unit has not been maintained, the instructions are unclear, safe drainage is unavailable, or gas, wiring, venting, an anode rod, or a relief valve is involved. Never energize an electric tank until it is completely full.</p>
+  <h2>Build the service record</h2>
+  <p>Save inspection and flush dates, observed sediment, temperature setting, technician, cost, replaced parts, invoices, and before-and-after photos. Record the next interval recommended for this unit.</p>
+  <h2>Sources</h2>
+  <ul><li><a href="https://www.hotwater.com/info-center/water-heater-maintenance.html">A. O. Smith: Water heater maintenance guide</a></li><li><a href="https://www.rheem.com/water-heating/articles/how-often-to-flush-your-water-heater-and-how-to-do-it/">Rheem: Water heater flushing guidance</a></li></ul>
+  <RelatedLinks heading="Organize your water heater records" items={related} />
+</ArticleLayout>

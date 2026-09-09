@@ -1,0 +1,60 @@
+---
+import ArticleLayout from '../../layouts/ArticleLayout.astro';
+import RelatedLinks from '../../components/RelatedLinks.astro';
+import { page } from '../../data/site';
+
+const article = page('/resources/home-maintenance-records-to-keep/');
+const related = [page('/home-maintenance-records/'), page('/digital-home-binder/'), page('/resources/how-to-keep-track-of-home-maintenance/')];
+---
+<ArticleLayout
+  title="What Home Maintenance Records Should You Keep?"
+  description="A practical guide to the maintenance, repair, contractor, cost, warranty, receipt, and appliance records worth keeping for your home."
+  canonicalPath={article.path}
+  h1="What Home Maintenance Records Should You Keep?"
+  standfirst="Keep the facts that could change a future repair, warranty claim, budget decision, insurance conversation, or home handoff. Skip the details you will never use again."
+  published="2026-08-18"
+  updated="2026-09-09"
+  breadcrumbLabel={article.label}
+>
+  <h2>Keep a record when the information will matter later</h2>
+  <p>Not every wiped counter needs a permanent entry. A maintenance record earns its place when it establishes a date, explains a change, identifies a part or provider, proves a purchase, or helps someone understand the condition of the home.</p>
+
+  <h2>The core record for completed work</h2>
+  <ul>
+    <li><strong>Completion date:</strong> when the work actually happened.</li>
+    <li><strong>Item or area:</strong> the appliance, system, fixture, room, or exterior component involved.</li>
+    <li><strong>Work type:</strong> inspection, cleaning, preventive maintenance, repair, or replacement.</li>
+    <li><strong>Description:</strong> what was done and what changed.</li>
+    <li><strong>Provider:</strong> the person or company that performed the work.</li>
+    <li><strong>Cost:</strong> labor, parts, or total paid.</li>
+    <li><strong>Evidence:</strong> invoice, receipt, report, or useful before-and-after photo.</li>
+    <li><strong>Next step:</strong> follow-up work or the next recurring date.</li>
+  </ul>
+
+  <h2>Records worth retaining by category</h2>
+  <h3>Major systems and appliances</h3>
+  <p>Keep model and serial numbers, installation or purchase dates, manuals, warranty terms, service history, replacement parts, and invoices. These records can shorten a service call and help distinguish a recurring failure from a new problem.</p>
+  <h3>Roof, exterior, and water management</h3>
+  <p>Retain inspection reports, repairs, material details, installer information, warranties, and dated photos. Water intrusion and exterior changes are easier to understand when previous conditions are documented.</p>
+  <h3>Electrical, plumbing, and HVAC work</h3>
+  <p>Keep the scope of work, provider, invoice, installed equipment or parts, permit or inspection information when applicable, and any operating or maintenance instructions provided afterward.</p>
+  <h3>Projects and improvements</h3>
+  <p>Keep contracts, final invoices, warranties, finish details, paint colors, product specifications, and photos of concealed work before walls or surfaces are closed.</p>
+  <h3>Safety equipment</h3>
+  <p>Record installation, test, service, and replacement dates for equipment such as alarms and extinguishers. Follow manufacturer instructions and applicable local guidance rather than relying on a generic interval.</p>
+
+  <h2>What can usually be skipped?</h2>
+  <p>Routine cleaning that does not affect condition, safety, warranty, or recurring service rarely needs a permanent record. Avoid collecting documents without context, duplicating the same file in several places, or writing long narratives when one precise sentence will do.</p>
+
+  <h2>Keep the record with the thing it describes</h2>
+  <p>A folder named “receipts” becomes difficult to use after several years. A receipt attached to the dishwasher record remains understandable. Organize by property, area, and item; then let document type and date provide additional ways to find information.</p>
+
+  <div class="article-note">
+    <p><strong>A maintenance log is not a substitute for professional records.</strong> Retain original permits, inspections, contracts, tax documents, insurance records, and other formal documents for the period recommended by the relevant authority or professional adviser.</p>
+  </div>
+
+  <h2>Use the history to make decisions</h2>
+  <p>Review an item's history before authorizing another repair. Repeated costs, shortening intervals between failures, or recurring notes may suggest that replacement deserves consideration. The record cannot make that decision for you, but it can replace guesswork with evidence.</p>
+
+  <RelatedLinks heading="Organize the records" items={related} />
+</ArticleLayout>

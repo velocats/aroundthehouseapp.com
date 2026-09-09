@@ -1,0 +1,45 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import RelatedLinks from '../../components/RelatedLinks.astro';
+import { articles, landingPages, siteUrl } from '../../data/site';
+
+const breadcrumbs = [{ name: 'Home', path: '/' }, { name: 'Resources', path: '/resources/' }];
+const structuredData = {
+  '@type': 'CollectionPage',
+  '@id': `${siteUrl}resources/#collection`,
+  name: 'Home maintenance and recordkeeping resources',
+  description: 'Practical guides for organizing home maintenance, repair records, warranties, receipts, manuals, and important house information.',
+  hasPart: articles.map((article) => ({ '@type': 'Article', url: new URL(article.path, siteUrl).toString(), name: article.title }))
+};
+const relatedProducts = landingPages.filter(({ path }) => ['/home-maintenance-app/', '/digital-home-binder/', '/home-maintenance-records/'].includes(path));
+---
+<BaseLayout
+  title="Home Maintenance and Recordkeeping Guides | Around the House"
+  description="Practical guides for tracking home maintenance, keeping repair records, and creating a digital home binder for warranties, receipts, manuals, and important house details."
+  canonicalPath="/resources/"
+  page="resources"
+  structuredData={structuredData}
+  breadcrumbs={breadcrumbs}
+>
+  <main id="main-content" tabindex="-1">
+    <div class="container"><Breadcrumbs items={breadcrumbs} /></div>
+    <section class="resources-hero">
+      <div class="container">
+        <h1>Practical guides for remembering how your home works</h1>
+        <p class="lead">Clear ways to organize maintenance, repairs, documents, and the small details that become important later.</p>
+      </div>
+    </section>
+    <section class="container">
+      <ul class="resource-list">
+        {articles.map((article) => (
+          <li>
+            <h2><a href={article.path}>{article.title}</a></h2>
+            <p>{article.blurb}</p>
+          </li>
+        ))}
+      </ul>
+      <RelatedLinks heading="See how the app handles these records" items={relatedProducts} />
+    </section>
+  </main>
+</BaseLayout>

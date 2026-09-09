@@ -1,0 +1,54 @@
+---
+import LandingLayout from '../layouts/LandingLayout.astro';
+import ProductBlock from '../components/ProductBlock.astro';
+import RelatedLinks from '../components/RelatedLinks.astro';
+import { page } from '../data/site';
+
+const related = [page('/home-maintenance-app/'), page('/digital-home-binder/'), page('/home-inventory-app/'), page('/home-handoff-report/')];
+---
+<LandingLayout
+  title="Home Organization App for New Homeowners | Around the House"
+  description="Organize a new home's maintenance, appliances, shutoffs, filter sizes, warranties, receipts, service providers, and repair history in one private app for Apple devices."
+  canonicalPath="/new-homeowner-app/"
+  breadcrumbLabel="For new homeowners"
+  h1="Learn your new home without trying to memorize it"
+  intro="A new home arrives with unfamiliar systems, small mysteries, and a steady stream of details. Around The House gives you one private place to save what you learn — from shutoffs and filter sizes to warranties, service visits, and upcoming maintenance."
+  ctaHeading="Begin with the things you would need in a hurry."
+  ctaBody="Add the main water shutoff, electrical panel, furnace filter, and one trusted service provider. The rest can grow as you learn the house."
+>
+  <section>
+    <h2>What should a new homeowner record first?</h2>
+    <p>You do not need a complete inventory on moving day. Start with details that prevent confusion, support routine care, or would be difficult to reconstruct during a problem.</p>
+    <ul class="qa-list">
+      <li><strong>Emergency controls</strong><span>Main water and gas shutoffs, electrical panels, and other important controls.</span></li>
+      <li><strong>Filters and recurring supplies</strong><span>Sizes, types, installation direction, and replacement frequency.</span></li>
+      <li><strong>Major systems and appliances</strong><span>Model numbers, serial numbers, installation dates, manuals, and warranties.</span></li>
+      <li><strong>Recent work</strong><span>Inspection findings, repairs, improvements, invoices, and contractor information.</span></li>
+      <li><strong>What comes next</strong><span>Seasonal work, upcoming service, and warranty expiration dates.</span></li>
+    </ul>
+  </section>
+
+  <ProductBlock device="iphone" src="/assets/screenshots/new/iphone-items.webp" alt="Home areas and item records in Around The House on iPhone for organizing the systems and appliances in a new home">
+    <h2>Build a map of the house as you go</h2>
+    <p>Create records for the appliances, systems, fixtures, and areas you encounter. Save a cover photo and the few details that would help you recognize, service, or replace each one later.</p>
+    <p>There is no requirement to finish the whole house before the app becomes useful. Every reliable record replaces one future search.</p>
+  </ProductBlock>
+
+  <ProductBlock device="ipad" flip src="/assets/screenshots/new/ipad-qr-item-details.webp" alt="A detailed home item record in Around The House on iPad with filter size, model and serial numbers, dates, notes, costs, and a QR label">
+    <h2>Keep the small facts that are easiest to lose</h2>
+    <p>Filter sizes, model and serial numbers, paint details, installation dates, settings, and notes rarely feel important when you first see them. They become important later, usually when you are standing in a store or talking to a technician.</p>
+    <p>Attach those details to the item instead of relying on a camera roll or somebody's memory.</p>
+  </ProductBlock>
+
+  <section>
+    <h2>Turn the inspection and closing paperwork into a living record</h2>
+    <p>Save useful documents and convert actionable findings into item notes, maintenance history, or reminders. The goal is not to preserve a pile of closing files untouched; it is to carry the important information into the way you care for the home.</p>
+  </section>
+
+  <section>
+    <h2>Keep the history for whoever owns the home next</h2>
+    <p>Records accumulated during ownership can support service calls, future projects, insurance documentation, and a clearer home handoff. Around The House includes reports that bring the inventory, maintenance, reminders, documents, warranties, and costs together.</p>
+  </section>
+
+  <RelatedLinks heading="A practical place to begin" items={related} />
+</LandingLayout>

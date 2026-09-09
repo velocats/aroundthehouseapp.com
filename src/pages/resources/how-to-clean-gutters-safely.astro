@@ -1,0 +1,21 @@
+---
+import ArticleLayout from '../../layouts/ArticleLayout.astro';
+import RelatedLinks from '../../components/RelatedLinks.astro';
+import { page } from '../../data/site';
+const article = page('/resources/how-to-clean-gutters-safely/');
+const related = [page('/home-maintenance-reminders/'), page('/home-maintenance-records/'), page('/resources/seasonal-home-maintenance-checklist/')];
+---
+<ArticleLayout title="How to Clean Gutters Safely—and When Not To" description="Plan safer gutter cleaning around ladder condition, power lines, weather, downspout drainage, and the situations that call for a professional." canonicalPath={article.path} h1="How to Clean Gutters Safely—and When Not to Use a Ladder" standfirst="Gutter cleaning is simple debris removal in a high-risk location. Treat ladder setup as the main job, and hire a professional when the height, roof, terrain, weather, or nearby electricity makes access unsafe." published="2026-09-09" updated="2026-09-09" breadcrumbLabel={article.label}>
+  <h2>Choose ground-based or professional cleaning when possible</h2>
+  <p>Do not climb if the ground is soft or sloped, surfaces are wet or icy, wind is strong, the roof is steep, the gutter is beyond comfortable reach, or power lines are nearby. Ground-operated tools may handle light debris. Multi-story homes, difficult rooflines, gutter repairs, and uncertainty about safe access favor an insured professional.</p>
+  <h2>Prepare the ladder and work area</h2>
+  <ul><li>Choose the correct ladder type, height, and duty rating; inspect it for damage before use.</li><li>Place it on a firm, level, non-slippery surface away from doors, traffic, and electrical hazards.</li><li>Follow the ladder label and manufacturer instructions. Do not rest it on the gutter.</li><li>Use a helper, keep three points of contact while climbing, and move the ladder instead of overreaching.</li><li>Wear eye protection and durable gloves. Keep tools arranged so you do not climb while carrying loose items.</li></ul>
+  <h2>Clear and check the drainage path</h2>
+  <ol><li>Remove loose debris in short sections without leaning sideways.</li><li>Check gutter seams, hangers, corrosion, and sagging while staying within safe reach.</li><li>Clear the downspout from a safe access point. Do not force a tool into a concealed obstruction.</li><li>If conditions permit, use a controlled amount of water to verify flow and watch for leaks.</li><li>Confirm the outlet directs water away from the foundation and does not discharge onto a walkway or prohibited area.</li></ol>
+  <p>Stop if the ladder shifts, the gutter is unstable, you find electrical contact risk, or clearing requires roof walking or dismantling. Avoid pressure that can separate joints or force water into the building.</p>
+  <h2>Set the next inspection from local conditions</h2>
+  <p>ENERGY STAR's homeowner guide recommends checking gutters in spring and fall. Trees, storms, wildfire debris, snow, and known drainage trouble may justify additional checks. Record the date, problem areas, downspout result, repairs, photos, and who performed the work.</p>
+  <h2>Sources</h2>
+  <ul><li><a href="https://www.cpsc.gov/s3fs-public/Home_Safe_Outdoor-Repairs_checklist_COVID19_FINAL_0.pdf">U.S. CPSC: Outdoor repair and ladder safety checklist (PDF)</a></li><li><a href="https://www.cdc.gov/niosh/falls/ladder/ladder-safety-app.html">CDC/NIOSH: Ladder safety</a></li></ul>
+  <RelatedLinks heading="Track seasonal drainage work" items={related} />
+</ArticleLayout>

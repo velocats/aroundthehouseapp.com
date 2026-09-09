@@ -1,6 +1,6 @@
 ---
+import { appStoreUrl, supportEmail } from '../data/site';
 const { compact = false } = Astro.props;
-const appStoreUrl = 'https://apps.apple.com/us/app/around-the-house-binder/id6789646793';
 ---
 <footer class="footer">
   {compact ? (
@@ -18,8 +18,16 @@ const appStoreUrl = 'https://apps.apple.com/us/app/around-the-house-binder/id678
       </div>
       <div>
         <h4>Product</h4>
-        <a href="/#how-it-works">How it works</a>
-        <a href="/#features">What it tracks</a>
+        <a href="/home-maintenance-app/">Home maintenance app</a>
+        <a href="/home-maintenance-tracker/">Maintenance tracker</a>
+        <a href="/home-maintenance-records/">Maintenance records</a>
+        <a href="/home-maintenance-reminders/">Maintenance reminders</a>
+        <a href="/digital-home-binder/">Digital home binder</a>
+        <a href="/home-inventory-app/">Home inventory</a>
+        <a href="/new-homeowner-app/">For new homeowners</a>
+        <a href="/home-warranty-tracker/">Warranty tracker</a>
+        <a href="/home-handoff-report/">Home handoff report</a>
+        <a href="/homezada-alternative/">Compare with HomeZada</a>
         <a href="/screenshots/">App screenshots</a>
         <a href="/pricing/">Pricing</a>
         <a href={appStoreUrl} target="_blank" rel="noopener">Download on the App Store</a>
@@ -27,13 +35,14 @@ const appStoreUrl = 'https://apps.apple.com/us/app/around-the-house-binder/id678
       <div>
         <h4>Support</h4>
         <a href="/support/">Support</a>
+        <a href="/resources/">Homeowner guides</a>
         <a href="/privacy/">Privacy</a>
         <a href="/terms/">Terms</a>
       </div>
       <div>
         <h4>Company</h4>
         <a href="https://quiettoolsapps.com/">Quiet Tools</a>
-        <a href="mailto:support@quiettoolsapps.com">support@quiettoolsapps.com</a>
+        <a href={`mailto:${supportEmail}`}>{supportEmail}</a>
         <p>© 2026 Around The House.</p>
       </div>
     </div>

@@ -1,0 +1,46 @@
+---
+import ArticleLayout from '../../layouts/ArticleLayout.astro';
+import RelatedLinks from '../../components/RelatedLinks.astro';
+import { page } from '../../data/site';
+
+const article = page('/resources/how-to-clean-bathroom-exhaust-fan/');
+const related = [page('/home-maintenance-reminders/'), page('/home-maintenance-tracker/'), page('/resources/how-to-keep-track-of-home-maintenance/')];
+---
+<ArticleLayout
+  title="How to Clean a Bathroom Exhaust Fan | Safe Checklist"
+  description="Clean a bathroom exhaust fan grille and accessible components safely, check its performance, and know when repair or replacement needs a professional."
+  canonicalPath={article.path}
+  h1="How to Clean a Bathroom Exhaust Fan"
+  standfirst="Dust on the grille and inside the housing can restrict airflow. A careful surface clean is manageable for many homeowners, but electrical work, duct repairs, and persistent moisture problems need more expertise."
+  published="2026-09-09"
+  updated="2026-09-09"
+  breadcrumbLabel={article.label}
+>
+  <h2>Before you begin</h2>
+  <p>Find the model number and read its maintenance instructions. Turn the fan off and disconnect power as directed—typically at the circuit breaker—before removing the grille. Confirm the fan cannot start, use a stable step stool, and allow the unit to cool if it has a light or heater.</p>
+  <p>Stop if you see damaged wiring, scorch marks, a loose housing, water near electrical parts, or a component that the manual does not identify as user-serviceable.</p>
+
+  <h2>Clean the grille and accessible fan parts</h2>
+  <ol>
+    <li>Support the grille as you lower it. Many covers use two spring clips; other models use screws or a different fastener.</li>
+    <li>Disconnect any grille-mounted light plug only if the manual explains how.</li>
+    <li>Wash a washable grille with warm water and mild dish soap. Keep motors, wiring, plugs, and other electrical parts dry.</li>
+    <li>Use a vacuum wand or soft brush to remove loose dust from accessible blades and the housing. Do not bend the blades.</li>
+    <li>For residue the manufacturer permits you to reach, wipe gently with a barely damp cloth.</li>
+    <li>Let every cleaned part dry completely, reinstall the grille, restore power, and run the fan.</li>
+  </ol>
+
+  <h2>Check whether cleaning solved the problem</h2>
+  <p>Listen for scraping, rattling, or a motor that struggles to start. After a shower, notice whether humidity clears normally. Persistent fogging, musty odors, peeling paint, or condensation can point to a weak fan, blocked or disconnected duct, poor exterior termination, or a larger moisture problem.</p>
+  <p>Have a qualified professional investigate if the fan still moves little air, vents into an attic, trips a breaker, smells hot, or requires wiring or duct access.</p>
+
+  <h2>Turn the cleanup into useful maintenance history</h2>
+  <p>Record the model number, cleaning date, observations, and a photo of the label. Set the next reminder based on the manual and how quickly dust returns in your home rather than relying on one universal interval.</p>
+
+  <h2>Sources</h2>
+  <ul>
+    <li><a href="https://broan-nutone.com/en-us/home/learn/spring-indoor-air-quality-checklist">Broan-NuTone: Spring indoor air quality checklist</a></li>
+    <li><a href="https://iaq.na.panasonic.com/resources/resource-center/exhaust-fan-maintenance">Panasonic: Bathroom exhaust fan maintenance</a></li>
+  </ul>
+  <RelatedLinks heading="Schedule and record the next cleaning" items={related} />
+</ArticleLayout>

@@ -1,7 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-
-const appStoreUrl = 'https://apps.apple.com/us/app/around-the-house-binder/id6789646793';
+import { appStoreUrl, siteUrl } from '../data/site';
 
 const phoneScreens = [
   ['iphone-today.webp', 'Today dashboard', 'Overdue work, upcoming maintenance, documents, and home areas in one view.'],
@@ -32,7 +31,6 @@ const tabletScreens = [
   ['ipad-qr-item-details.webp', 'Specifications and QR labels', 'Save filter sizes, model and serial numbers, costs, notes, and a scannable QR code.']
 ];
 
-const siteUrl = 'https://aroundthehouseapp.com/';
 const structuredData = {
   '@type': 'CollectionPage',
   name: 'Around The House App Screenshots',

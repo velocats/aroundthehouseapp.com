@@ -1,0 +1,27 @@
+---
+import ArticleLayout from '../../layouts/ArticleLayout.astro';
+import RelatedLinks from '../../components/RelatedLinks.astro';
+import { page } from '../../data/site';
+const article = page('/resources/annual-hvac-maintenance-checklist/');
+const related = [page('/resources/how-often-to-change-furnace-filter/'), page('/appliance-maintenance-records/'), page('/home-maintenance-reminders/')];
+---
+<ArticleLayout title="Annual HVAC Maintenance Checklist for Homeowners" description="Use an annual HVAC maintenance checklist that separates safe homeowner checks from professional electrical, refrigerant, combustion, and performance work." canonicalPath={article.path} h1="Annual HVAC Maintenance Checklist: Homeowner and Contractor Tasks" standfirst="The best HVAC checklist is divided by responsibility: homeowners can observe, clear, and document; qualified technicians should test electrical, refrigerant, combustion, and safety systems." published="2026-09-09" updated="2026-09-09" breadcrumbLabel={article.label}>
+  <h2>Homeowner checks throughout the year</h2>
+  <ul>
+    <li>Inspect the filter monthly and clean or replace it when dirty, using the size and rating allowed by the manufacturer.</li>
+    <li>Keep supply and return vents open and unobstructed.</li>
+    <li>Keep the outdoor unit clear of leaves, snow, vegetation, and stored objects while preserving manufacturer-required clearance.</li>
+    <li>Watch for water around the indoor unit or condensate drain, unusual sounds or smells, short cycling, weak airflow, or an unexplained change in energy use.</li>
+    <li>Confirm thermostat schedules and replace thermostat batteries if applicable.</li>
+  </ul>
+  <p>Turn the system off and request service for burning odors, smoke, repeated breaker trips, suspected gas or refrigerant leaks, or abnormal combustion. Do not open electrical compartments or handle refrigerant.</p>
+  <h2>Schedule professional pre-season service</h2>
+  <p>ENERGY STAR recommends annual pre-season checkups—cooling in spring and heating in fall. Depending on the system, a qualified contractor should check controls and operating cycles, electrical connections, motors, condensate drainage, coils, airflow, refrigerant performance, and gas or oil connections, pressure, combustion, and heat exchangers.</p>
+  <h2>Questions to put on the work order</h2>
+  <ol><li>Did the technician measure performance and document readings?</li><li>Were safety controls and startup/shutdown cycles tested?</li><li>Was the condensate path checked?</li><li>Were any developing problems found, and how urgent are they?</li><li>What homeowner interval should be used for this filter and system?</li></ol>
+  <h2>Keep evidence, not just a reminder</h2>
+  <p>Store the equipment model and serial number, filter specification, service date, technician, readings, observations, parts, costs, and invoice. A multi-year record makes recurring problems and warranty coverage easier to see.</p>
+  <h2>Source</h2>
+  <ul><li><a href="https://www.energystar.gov/saveathome/heating-cooling/maintenance-checklist">ENERGY STAR: Heating and cooling maintenance checklist</a></li></ul>
+  <RelatedLinks heading="Keep HVAC work connected" items={related} />
+</ArticleLayout>

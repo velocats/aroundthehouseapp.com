@@ -1,0 +1,63 @@
+---
+import ArticleLayout from '../../layouts/ArticleLayout.astro';
+import RelatedLinks from '../../components/RelatedLinks.astro';
+import { page } from '../../data/site';
+
+const article = page('/resources/how-to-create-a-digital-home-binder/');
+const related = [page('/digital-home-binder/'), page('/home-inventory-app/'), page('/resources/home-maintenance-records-to-keep/')];
+---
+<ArticleLayout
+  title="How to Create a Digital Home Binder | Around the House"
+  description="Build a useful digital home binder for appliances, warranties, receipts, manuals, repairs, contractors, emergency details, projects, and home handoff records."
+  canonicalPath={article.path}
+  h1="How to Create a Digital Home Binder"
+  standfirst="Start with information you already need, organize it around the home itself, and let the binder grow through normal repairs, purchases, and maintenance."
+  published="2026-08-18"
+  updated="2026-09-09"
+  breadcrumbLabel={article.label}
+>
+  <h2>Decide what the binder must help you do</h2>
+  <p>A home binder should make common homeowner questions easier: Which filter fits? Is this appliance still under warranty? Who repaired the leak? Where is the invoice? When was the roof installed? What information would someone else need to care for this home?</p>
+  <p>Use those questions to shape the binder. A system built only around file types often becomes a digital version of a crowded drawer.</p>
+
+  <h2>Create a simple hierarchy</h2>
+  <p>Begin with the property, then organize by areas and items. A useful structure might look like this:</p>
+  <div class="article-example">
+    <dl>
+      <dt>Property</dt><dd>Main home</dd>
+      <dt>Area</dt><dd>Utility</dd>
+      <dt>Item</dt><dd>Water heater</dd>
+      <dt>Details</dt><dd>Model, serial number, capacity, installation date</dd>
+      <dt>Documents</dt><dd>Manual, purchase receipt, warranty, service invoices</dd>
+      <dt>History</dt><dd>Flushes, inspections, repairs, provider, and cost</dd>
+    </dl>
+  </div>
+
+  <h2>Add the most useful categories first</h2>
+  <ol>
+    <li><strong>Emergency and control information:</strong> shutoffs, panels, contacts, and clear identifying photos.</li>
+    <li><strong>Major systems:</strong> HVAC, water heater, electrical, plumbing, roof, and other expensive components.</li>
+    <li><strong>Appliances:</strong> models, serial numbers, manuals, receipts, warranties, and repairs.</li>
+    <li><strong>Recurring maintenance:</strong> filters, inspections, service intervals, and seasonal work.</li>
+    <li><strong>Projects and finishes:</strong> contractors, costs, product details, paint colors, and warranties.</li>
+    <li><strong>Personal property:</strong> photos, purchase information, receipts, values, and identifying numbers for items worth documenting.</li>
+  </ol>
+
+  <h2>Use consistent file names and descriptions</h2>
+  <p>Name documents for the item, document type, and date when possible. “Water heater – installation invoice – 2025-04-12” is easier to understand than “IMG_4821.pdf.” If your binder connects documents directly to items, the item relationship can carry part of that context.</p>
+
+  <h2>Do not wait until everything is scanned</h2>
+  <p>Add the manual when you look it up. Save the receipt when you purchase something. Record the provider after the service visit. Photograph the serial number when you are already standing beside the appliance. This event-based approach is more sustainable than attempting to document an entire house at once.</p>
+
+  <h2>Handle sensitive information deliberately</h2>
+  <p>A home binder can reveal addresses, possessions, security details, costs, and the location of important controls. Choose storage and sharing methods intentionally. Protect device access, review who can reach shared folders or accounts, and avoid collecting sensitive information that the binder does not need.</p>
+
+  <h2>Plan for backup, export, and handoff</h2>
+  <p>Understand where the binder is stored, how it synchronizes, what happens when a device is lost, and how records can be shared or exported when necessary. Periodically confirm that the files you care about remain readable.</p>
+  <p>A well-maintained binder can eventually support a household member, service professional, insurer, estate representative, buyer, or the next owner without requiring you to reconstruct years of history.</p>
+
+  <h2>Review the binder once a year</h2>
+  <p>Archive replaced items, confirm important contacts, remove duplicate files, update warranties and recurring dates, and look for major systems with no recent record. The review should improve the binder—not turn into a complete rewrite.</p>
+
+  <RelatedLinks heading="Build a useful home record" items={related} />
+</ArticleLayout>

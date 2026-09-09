@@ -1,0 +1,64 @@
+---
+import ArticleLayout from '../../layouts/ArticleLayout.astro';
+import RelatedLinks from '../../components/RelatedLinks.astro';
+import { page } from '../../data/site';
+
+const article = page('/resources/how-to-keep-track-of-home-maintenance/');
+const related = [page('/home-maintenance-tracker/'), page('/home-maintenance-records/'), page('/resources/home-maintenance-records-to-keep/')];
+---
+<ArticleLayout
+  title="How to Keep Track of Home Maintenance | Around the House"
+  description="Compare paper checklists, calendars, spreadsheets, task apps, and dedicated home maintenance trackers—and build a system that keeps both upcoming work and completed history."
+  canonicalPath={article.path}
+  h1="How to Keep Track of Home Maintenance Without Losing the History"
+  standfirst="The best system does two jobs: it tells you what needs attention next, and it preserves enough detail about completed work to help you years later."
+  published="2026-08-18"
+  updated="2026-09-09"
+  breadcrumbLabel={article.label}
+>
+  <h2>Start with the two questions a maintenance system must answer</h2>
+  <p>A schedule answers, “What do I need to do?” A record answers, “What has already happened?” Many systems handle only the first question. They send an alert, you complete the task, and the useful information disappears.</p>
+  <p>A durable system keeps the due date and the result together. After completing a task, you should be able to record the actual date, the work performed, the provider, the cost, useful notes, and any receipt or photo.</p>
+
+  <h2>Choose a method you will continue using</h2>
+  <h3>Paper checklist</h3>
+  <p>Paper is visible, quick, and easy to share. It works well for a short seasonal checklist. It becomes less useful when you need search, attachments, recurring dates, or several years of history.</p>
+  <h3>Calendar</h3>
+  <p>A calendar is good at dates and recurrence. It can remind you to replace a filter every three months, but a completed event may not preserve the filter size, receipt, cost, or the note that explains what happened.</p>
+  <h3>Spreadsheet</h3>
+  <p>A spreadsheet is flexible and exportable. It can hold dates, costs, and providers, but recurring scheduling and document storage require extra work. Long notes and photos also make the sheet harder to scan.</p>
+  <h3>General reminder app</h3>
+  <p>A task app makes due work hard to miss. It is usually organized around tasks rather than the furnace, roof, appliance, or property those tasks belong to, so the long-term item history remains fragmented.</p>
+  <h3>Dedicated home maintenance tracker</h3>
+  <p>A dedicated tool can connect the schedule, completion, item record, costs, provider, and documents. It is the strongest fit when you want a history of the home rather than only a recurring checklist.</p>
+
+  <h2>Build the system around items, not an endless task list</h2>
+  <p>Create a record for each major appliance, system, fixture, or exterior component worth caring for. Attach maintenance and reminders to that record. This produces one place to look when the water heater leaks or the furnace needs service.</p>
+  <div class="article-example">
+    <dl>
+      <dt>Item</dt><dd>Furnace</dd>
+      <dt>Useful details</dt><dd>Model, serial number, filter size, installation date</dd>
+      <dt>Recurring work</dt><dd>Filter replacement and seasonal service</dd>
+      <dt>History</dt><dd>Completion dates, technician, notes, cost, invoices</dd>
+    </dl>
+  </div>
+
+  <h2>Begin with a small maintenance set</h2>
+  <p>Do not start by scheduling every conceivable household chore. Choose five to ten tasks that protect safety, prevent expensive damage, or repeatedly catch you by surprise. Add less important tasks after the system proves useful.</p>
+  <p>Good starting categories include life-safety devices, HVAC filters and service, water-management equipment, dryer exhaust, major appliance care, and seasonal exterior inspections. Use the manufacturer's instructions and qualified professional guidance to choose intervals for your specific equipment and home.</p>
+
+  <h2>Use a consistent completion habit</h2>
+  <ol>
+    <li>Open the reminder before or after doing the work.</li>
+    <li>Record the actual completion date.</li>
+    <li>Write one sentence describing what changed or what you observed.</li>
+    <li>Add the provider and cost when someone else performed the work.</li>
+    <li>Attach the receipt, invoice, or a useful photo.</li>
+    <li>Confirm the next date if the task repeats.</li>
+  </ol>
+
+  <h2>Review monthly, not constantly</h2>
+  <p>Once a month, check overdue work and the next several weeks. Once a year, review major systems, confirm that recurring intervals still make sense, and remove reminders that no longer apply. A maintenance system should reduce mental overhead rather than create daily administration.</p>
+
+  <RelatedLinks heading="Put the system into practice" items={related} />
+</ArticleLayout>
