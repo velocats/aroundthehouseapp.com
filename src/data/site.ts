@@ -1,6 +1,8 @@
 export const siteUrl = 'https://aroundthehouseapp.com/';
 export const appStoreUrl = 'https://apps.apple.com/us/app/around-the-house-binder/id6789646793';
 export const supportEmail = 'support@quiettoolsapps.com';
+export const publisherName = 'Quiet Tools Support Team';
+export const publisherLocation = 'Colorado, United States';
 
 export type PageRef = {
   /** Path with leading and trailing slash, e.g. '/home-maintenance-app/' */
@@ -312,6 +314,8 @@ export const corePages: PageRef[] = [
   { path: '/pricing/', label: 'Pricing', blurb: 'Monthly and lifetime purchase options for Around The House.', changefreq: 'monthly', priority: 0.8, lastmod: '2026-08-18' },
   { path: '/resources/', label: 'Resources', blurb: '', changefreq: 'monthly', priority: 0.8, lastmod: '2026-08-18' },
   { path: '/support/', label: 'Support', blurb: '', changefreq: 'monthly', priority: 0.6, lastmod: '2026-07-18' },
+  { path: '/about/', label: 'About the Quiet Tools Support Team', blurb: 'Meet the Colorado-based team behind Around The House and its homeowner resources.', changefreq: 'yearly', priority: 0.6, lastmod: '2026-09-09' },
+  { path: '/editorial-standards/', label: 'Editorial standards', blurb: 'How the Quiet Tools Support Team researches, reviews, sources, and corrects homeowner guidance.', changefreq: 'yearly', priority: 0.5, lastmod: '2026-09-09' },
   { path: '/privacy/', label: 'Privacy', blurb: '', changefreq: 'yearly', priority: 0.4, lastmod: '2026-07-18' },
   { path: '/terms/', label: 'Terms', blurb: '', changefreq: 'yearly', priority: 0.4, lastmod: '2026-07-18' }
 ];

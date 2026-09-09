@@ -24,7 +24,31 @@ const baseSchema = [
     '@type': 'Organization',
     '@id': `${siteUrl}#organization`,
     name: 'Quiet Tools',
-    url: 'https://quiettoolsapps.com/'
+    url: 'https://quiettoolsapps.com/',
+    address: {
+      '@type': 'PostalAddress',
+      addressRegion: 'CO',
+      addressCountry: 'US'
+    },
+    contactPoint: {
+      '@type': 'ContactPoint',
+      contactType: 'customer support',
+      email: 'support@quiettoolsapps.com',
+      areaServed: 'US',
+      availableLanguage: 'English'
+    }
+  },
+  {
+    '@type': 'Organization',
+    '@id': `${siteUrl}#support-team`,
+    name: 'Quiet Tools Support Team',
+    url: `${siteUrl}about/`,
+    parentOrganization: { '@id': `${siteUrl}#organization` },
+    address: {
+      '@type': 'PostalAddress',
+      addressRegion: 'CO',
+      addressCountry: 'US'
+    }
   },
   {
     '@type': 'WebSite',

@@ -1,0 +1,26 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import LegalArticle from '../components/LegalArticle.astro';
+import { siteUrl } from '../data/site';
+const structuredData = {
+  '@type': 'AboutPage',
+  '@id': `${siteUrl}about/#about`,
+  name: 'About the Quiet Tools Support Team',
+  about: { '@id': `${siteUrl}#support-team` }
+};
+---
+<BaseLayout title="About the Quiet Tools Support Team | Around The House" description="Learn about the Colorado-based Quiet Tools Support Team behind Around The House and its practical homeowner resources." canonicalPath="/about/" page="legal" structuredData={structuredData}>
+  <LegalArticle kicker="About" title="The Quiet Tools Support Team">
+    <p>The Quiet Tools Support Team is based in Colorado, United States. We build and support Around The House and maintain the homeowner guidance published on this website.</p>
+    <h2>What we work on</h2>
+    <p>Our focus is practical home recordkeeping: maintenance history, reminders, repairs, appliance information, warranties, receipts, documents, service providers, costs, and useful home handoffs. We design the app and its resources around the details homeowners commonly need to recover later.</p>
+    <h2>How our product experience informs the guides</h2>
+    <p>Support questions and product work help us understand where household information becomes difficult to organize. We use those recurring problems to shape clearer workflows, checklists, and examples. We do not present the team as a substitute for a licensed trade professional, building official, emergency service, equipment manufacturer, or other qualified authority.</p>
+    <h2>How we handle safety-sensitive topics</h2>
+    <p>For safety, equipment, and maintenance guidance, we prefer current primary sources such as government agencies, recognized public-safety organizations, and manufacturer instructions. Guides identify important limits and direct readers to model-specific documentation or qualified professionals when conditions vary.</p>
+    <h2>Our relationship to Around The House</h2>
+    <p>This site is not an independent review publication. It is the official product and resource website for Around The House, a Quiet Tools app. Pages may explain how the app can help organize the records discussed in an article. We aim to keep those product references clear and separate from sourced safety guidance.</p>
+    <h2>Contact the team</h2>
+    <p>Questions, corrections, and support requests can be sent to <a href="mailto:support@quiettoolsapps.com">support@quiettoolsapps.com</a> or through the <a href="/support/">support page</a>.</p>
+  </LegalArticle>
+</BaseLayout>

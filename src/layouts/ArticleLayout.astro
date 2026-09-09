@@ -24,7 +24,7 @@ const structuredData = [
     dateModified: updated,
     inLanguage: 'en-US',
     mainEntityOfPage: { '@id': `${canonicalUrl}#webpage` },
-    author: { '@id': `${siteUrl}#organization` },
+    author: { '@id': `${siteUrl}#support-team` },
     publisher: { '@id': `${siteUrl}#organization` }
   }
 ];
@@ -58,7 +58,11 @@ const dateLabel = new Date(`${updated}T12:00:00Z`).toLocaleDateString('en-US', {
           <h1>{h1}</h1>
           <p class="lead">{standfirst}</p>
           <p class="article-meta">
+            By <a href="/about/" rel="author">Quiet Tools Support Team</a> in Colorado, United States
+            <span aria-hidden="true"> · </span>
             Updated <time datetime={updated}>{dateLabel}</time>
+            <span aria-hidden="true"> · </span>
+            <a href="/editorial-standards/">Editorial standards</a>
           </p>
         </header>
         <slot />

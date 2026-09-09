@@ -5,7 +5,7 @@ const { compact = false } = Astro.props;
 <footer class="footer">
   {compact ? (
     <div class="container">
-      <p>© 2026 Around The House. Built by <a href="https://quiettoolsapps.com/">Quiet Tools</a></p>
+      <p>© 2026 Around The House. Built and supported by the <a href="/about/">Quiet Tools Support Team</a> in Colorado, United States.</p>
     </div>
   ) : (
     <div class="container footer-grid">
@@ -42,7 +42,10 @@ const { compact = false } = Astro.props;
       <div>
         <h4>Company</h4>
         <a href="https://quiettoolsapps.com/">Quiet Tools</a>
+        <a href="/about/">About the support team</a>
+        <a href="/editorial-standards/">Editorial standards</a>
         <a href={`mailto:${supportEmail}`}>{supportEmail}</a>
+        <p>Colorado, United States</p>
         <p>© 2026 Around The House.</p>
       </div>
     </div>
