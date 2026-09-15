@@ -523,7 +523,7 @@ h1, h2, h3, .brand { font-family: Georgia, 'Times New Roman', serif; font-weight
 .device img { width: 100%; }
 .device-ipad { position: absolute; width: 385px; height: 510px; left: 195px; top: 20px; border-radius: 28px; transform: rotate(2deg); }
 .device-iphone { position: absolute; width: 205px; height: 442px; left: 65px; top: 82px; border-radius: 34px; transform: rotate(2deg); z-index: 2; }
-.hand-note { position: absolute; right: -20px; top: 310px; transform: rotate(-7deg); font: italic 21px/1.5 'Bradley Hand', 'Comic Sans MS', cursive; color: #26352f; }
+.hand-note { margin: 30px 0 0; transform: rotate(-2.5deg); transform-origin: left center; font: italic 21px/1.5 'Bradley Hand', 'Comic Sans MS', cursive; color: #3d4c44; }
 
 .memory-section { padding: 78px 0 72px; background: #f8f6f1; }
 .memory-section h2 { max-width: 760px; line-height: 1.03; }
@@ -611,7 +611,7 @@ h1, h2, h3, .brand { font-family: Georgia, 'Times New Roman', serif; font-weight
   .device-stage { height: 410px; }
   .device-ipad { width: 290px; height: 385px; left: 24%; }
   .device-iphone { width: 155px; height: 335px; left: 2%; top:65px; border-radius:25px; border-width:6px; }
-  .hand-note { display:none; }
+  .hand-note { margin-top: 24px; font-size: 19px; }
   .home-page h2 { font-size: 43px; }
   .value-columns, .benefit-columns { grid-template-columns:1fr; gap:0; }
   .value-columns article, .benefit-columns article, .value-columns article:first-child { border-left:0; border-top:1px solid var(--line); padding:24px 0; }
