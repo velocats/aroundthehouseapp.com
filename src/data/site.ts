@@ -118,7 +118,7 @@ export const landingPages: PageRef[] = [
   {
     path: '/household-management-app/',
     label: 'Household management app',
-    blurb: 'Keep the practical operating details of a home—items, work, documents, costs, and contacts—in one private place.',
+    blurb: 'Keep the practical operating details of a home in one private place, including items, work, documents, costs, and contacts.',
     changefreq: 'monthly',
     priority: 0.8,
     lastmod: '2026-09-09'
@@ -190,7 +190,7 @@ export const articles: Article[] = [
   {
     path: '/resources/how-to-clean-gutters-safely/',
     label: 'How to clean gutters safely',
-    title: 'How to Clean Gutters Safely—and When Not to Use a Ladder',
+    title: 'How to Clean Gutters Safely and When Not to Use a Ladder',
     blurb: 'Plan the job around ladder safety, power lines, weather, drainage, and the conditions that make professional cleaning the better choice.',
     published: '2026-09-09', updated: '2026-09-09', changefreq: 'yearly', priority: 0.7, lastmod: '2026-09-09'
   },
@@ -273,7 +273,7 @@ export const articles: Article[] = [
     label: 'How to keep track of home maintenance',
     title: 'How to Keep Track of Home Maintenance Without Losing the History',
     blurb:
-      'Paper, calendars, spreadsheets, reminder apps, and dedicated tools — what each one is good at, and where each one tends to fall down.',
+      'Paper, calendars, spreadsheets, reminder apps, and dedicated tools: what each one is good at, and where each one tends to fall down.',
     published: '2026-08-18',
     updated: '2026-09-09',
     changefreq: 'yearly',
@@ -285,7 +285,7 @@ export const articles: Article[] = [
     label: 'What home maintenance records should you keep?',
     title: 'What Home Maintenance Records Should You Keep?',
     blurb:
-      'A practical list of what is worth writing down after a repair or service visit — and what you can safely skip.',
+      'A practical list of what is worth writing down after a repair or service visit, plus what you can safely skip.',
     published: '2026-08-18',
     updated: '2026-09-09',
     changefreq: 'yearly',
