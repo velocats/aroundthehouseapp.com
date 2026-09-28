@@ -92,6 +92,14 @@ export const landingPages: PageRef[] = [
     lastmod: '2026-09-09'
   },
   {
+    path: '/paint-color-tracker/',
+    label: 'Paint color tracker',
+    blurb: 'Save the color name, code, brand, finish, and date painted with the room each paint went on.',
+    changefreq: 'monthly',
+    priority: 0.8,
+    lastmod: '2026-09-28'
+  },
+  {
     path: '/home-handoff-report/',
     label: 'Home handoff report',
     blurb: 'Bring assets, maintenance history, reminders, documents, warranties, and costs into a useful home summary.',

@@ -1,0 +1,72 @@
+---
+import LandingLayout from '../layouts/LandingLayout.astro';
+import ProductBlock from '../components/ProductBlock.astro';
+import RelatedLinks from '../components/RelatedLinks.astro';
+import { page } from '../data/site';
+const related = [page('/home-inventory-app/'), page('/new-homeowner-app/'), page('/digital-home-binder/')];
+// The paint screenshots are 921x2000 iPhone captures.
+const shot = { width: 921, height: 2000 };
+---
+<LandingLayout
+  title="Home Paint Color Tracker | Around the House"
+  description="Save the paint color name, color code, brand, finish, surface, and date painted with the room it went on, using the Paint & Finishes templates in Around The House."
+  canonicalPath="/paint-color-tracker/"
+  breadcrumbLabel="Paint color tracker"
+  h1="Remember exactly which paint you used."
+  intro="The label on the can in the garage is half peeled off, and the receipt went out with the recycling. Around The House keeps the color name, code, brand, and finish with the room it went on, so the next touch-up starts with the details instead of a guess."
+  ctaHeading="Start with the room you painted last."
+  ctaBody="It's the one you still have the can for."
+>
+  <figure slot="hero-media" class="product-block-shot">
+    <img
+      src="/assets/screenshots/new/iphone-paint-details.webp"
+      width={shot.width}
+      height={shot.height}
+      alt="New Item form in Around The House on iPhone for Interior Wall Paint in the Living Room at 123 Main Street, with six paint details switched on: Color Name (e.g. Repose Gray), Color Code (e.g. SW 7015), Brand (e.g. Sherwin-Williams), Finish (e.g. Eggshell), Surface (e.g. Walls), and Date Painted (e.g. 2026)."
+      fetchpriority="high"
+      decoding="async"
+    />
+  </figure>
+
+  <ProductBlock src="/assets/screenshots/new/iphone-paint-templates.webp" width={shot.width} height={shot.height} alt="Around The House template picker on iPhone with the Paint & Finishes category open, listing Interior Wall Paint, Trim & Door Paint, Ceiling Paint, Cabinet Paint, Exterior Paint, and Deck / Fence Stain.">
+    <h2>Pick the kind of paint job</h2>
+    <p>When you add a new item, the Paint &amp; Finishes category has six starting points: interior wall paint, trim and door paint, ceiling paint, cabinet paint, exterior paint, and deck or fence stain.</p>
+    <p>Choosing one fills in the name and a likely area for you. Both are ordinary text, so "Interior Wall Paint" can become "Hallway walls" if that's how you think of it.</p>
+    <p>It's worth making a separate record for each surface that got its own color. The walls and trim in one room are usually two different paints, and you'll want to find each without digging.</p>
+  </ProductBlock>
+
+  <section>
+    <h2>What gets written down</h2>
+    <p>A paint record comes with six fields ready to fill in. They're the same details shown in the screenshot at the top of this page.</p>
+    <ul class="qa-list">
+      <li><strong>Color name</strong><span>What's printed on the chip or the lid. Handy for recognizing it, but not always enough to buy it again.</span></li>
+      <li><strong>Color code</strong><span>The number the paint counter uses to mix it. If you only save one thing, save this.</span></li>
+      <li><strong>Brand</strong><span>A color code only means something alongside the brand that made it.</span></li>
+      <li><strong>Finish</strong><span>Flat, eggshell, satin, semi-gloss. The same color in a different sheen won't look the same on the wall.</span></li>
+      <li><strong>Surface</strong><span>Walls, trim, ceiling, siding, or whatever the paint actually went on.</span></li>
+      <li><strong>Date painted</strong><span>A plain text field, so "2026" and "June 2023" both work.</span></li>
+    </ul>
+    <p>These are text fields you fill in yourself. The app doesn't look colors up, read them from a photo, or check a code against a brand's catalog. It keeps what you type.</p>
+    <p>Anything that doesn't have a field of its own, like how many coats it took or which shelf the leftover can is on, can go in the item's notes. You can also add your own fields later, such as the store you bought it from.</p>
+  </section>
+
+  <ProductBlock flip src="/assets/screenshots/new/iphone-paint-new-item.webp" width={shot.width} height={shot.height} alt="Top of the New Item form in Around The House on iPhone, showing an Add Photo area, the name Interior Wall Paint, category Paint & Finishes, area Living Room, property 123 Main Street, and the Includes with this item section listing 6 details.">
+    <h2>Put it in the right room</h2>
+    <p>This is the top of the same form, before you scroll down to the paint details. The Area field holds the room, and the Property field matters if you keep records for more than one home.</p>
+    <p>Each of the six paint details has its own switch. Leave on the ones you care about and they're added as blank fields, so you can save the record now and fill in the code later, when you're in the garage holding the can.</p>
+    <p>There's a place for a photo right at the top. Once the record is saved it can hold up to ten, which is enough for the wall, the lid, and the paint chip that's been stuck to the fridge since you picked it.</p>
+  </ProductBlock>
+
+  <section>
+    <h2>When a wall gets scuffed</h2>
+    <p>A dragged chair leaves a mark in the dining room, or a picture comes down and leaves nail holes to patch. You open the room's paint record and read off the brand, code, and finish instead of hunting for the can.</p>
+    <p>Having the exact code gets you the same color formula, but it can't promise an invisible repair. Older paint on the wall fades, and sheen and application change how a patch looks. For anything bigger than a small spot, painting to the nearest corner usually blends better.</p>
+  </section>
+
+  <section>
+    <h2>Kept with the rest of the house</h2>
+    <p>Paint records live in Around The House alongside your appliances, repairs, and documents, on iPhone, iPad, and Mac, without a separate company account. They stay on your devices and, when you turn it on, in your private iCloud.</p>
+  </section>
+
+  <RelatedLinks heading="Related records" items={related} />
+</LandingLayout>

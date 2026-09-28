@@ -15,6 +15,9 @@ const {
   ctaBody
 } = Astro.props;
 
+// Optional product screenshot beside the h1, passed as slot="hero-media".
+const hasHeroMedia = Astro.slots.has('hero-media');
+
 const breadcrumbs = [
   { name: 'Home', path: '/' },
   { name: breadcrumbLabel, path: canonicalPath }
@@ -46,13 +49,16 @@ const structuredData = [
     </div>
 
     <section class="landing-hero">
-      <div class="container">
-        <h1>{h1}</h1>
-        <p class="lead">{intro}</p>
-        <p class="landing-hero-actions">
-          <a href={appStoreUrl} target="_blank" rel="noopener"><img class="app-store-badge" src="/assets/app-store-badge.svg" width="170" height="57" alt="Download on the App Store" /></a>
-          <a class="quiet-link" href="/screenshots/">See every app screen</a>
-        </p>
+      <div class:list={['container', hasHeroMedia && 'landing-hero-grid']}>
+        <div class="landing-hero-copy">
+          <h1>{h1}</h1>
+          <p class="lead">{intro}</p>
+          <p class="landing-hero-actions">
+            <a href={appStoreUrl} target="_blank" rel="noopener"><img class="app-store-badge" src="/assets/app-store-badge.svg" width="170" height="57" alt="Download on the App Store" /></a>
+            <a class="quiet-link" href="/screenshots/">See every app screen</a>
+          </p>
+        </div>
+        {hasHeroMedia && <slot name="hero-media" />}
       </div>
     </section>
 

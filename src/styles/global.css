@@ -290,6 +290,9 @@ h3 { font-size: 21px; }
 .landing-hero h1 { font-size: clamp(36px, 4.6vw, 58px); line-height: 1.08; max-width: 17ch; }
 .landing-hero .lead { max-width: 62ch; }
 .landing-hero-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 18px; margin: 30px 0 0; }
+/* Landing hero with one iPhone screenshot beside the copy. */
+.landing-hero-grid { display: grid; grid-template-columns: minmax(0, 1fr) 320px; gap: 64px; align-items: center; }
+.landing-hero-grid .product-block-shot { max-width: 320px; }
 .quiet-link { color: var(--accent-dark); font-weight: 700; text-decoration: underline; text-underline-offset: 4px; }
 
 .landing-body { padding-bottom: 8px; }
@@ -458,6 +461,8 @@ h3 { font-size: 21px; }
 @media (max-width: 860px) {
   .product-block { grid-template-columns: 1fr; gap: 28px; }
   .product-block.flip .product-block-copy { order: initial; }
+  .landing-hero-grid { grid-template-columns: 1fr; gap: 36px; }
+  .landing-hero-grid .product-block-shot { max-width: 300px; }
   .product-block.ipad .product-block-shot,
   .product-block.iphone .product-block-shot { max-width: 460px; justify-self: start; }
   .landing-body > * + * { margin-top: 48px; }
@@ -561,6 +566,11 @@ h1, h2, h3, .brand { font-family: Georgia, 'Times New Roman', serif; font-weight
 .phone-duo img { width: 235px; border: 8px solid #111; border-radius: 32px; box-shadow: var(--shadow); }
 .phone-duo img:nth-child(2) { margin-top: 65px; }
 .story-copy p { font-size: 18px; color: var(--muted); max-width: 500px; }
+.paint-section { padding: 90px 0; }
+.paint-grid { display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: 90px; }
+.paint-shot { margin: 0; justify-self: center; }
+.paint-shot img { width: 260px; border: 8px solid #111; border-radius: 34px; box-shadow: var(--shadow); }
+.paint-copy p { font-size: 18px; color: var(--muted); max-width: 500px; }
 .final-cta { background: #ebe5da; }
 .final-cta-grid { display: grid; grid-template-columns: 1.1fr .9fr; min-height: 400px; align-items: center; }
 .final-product-shot { align-self: stretch; height:400px; overflow:hidden; background:#1a3027; }
@@ -598,7 +608,9 @@ h1, h2, h3, .brand { font-family: Georgia, 'Times New Roman', serif; font-weight
   .editorial-hero-copy { padding-bottom: 30px; }
   .device-stage { width: min(650px,100%); margin:auto; }
   .memory-section { padding-top: 64px; }
-  .forest-grid, .story-grid, .final-cta-grid { grid-template-columns: 1fr; }
+  .forest-grid, .story-grid, .paint-grid, .final-cta-grid { grid-template-columns: 1fr; }
+  .paint-grid { gap: 44px; }
+  .paint-shot { justify-self: start; }
   .feature-device { margin-left: 0; }
   .final-product-shot { min-height:300px; height:300px; }
   .final-cta-grid > div:last-child { padding:55px 0; }

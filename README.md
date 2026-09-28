@@ -55,6 +55,7 @@ The generated site is written to `dist/`.
 | `/new-homeowner-app/` | New-homeowner use-case page |
 | `/home-warranty-tracker/` | Warranty tracking landing page |
 | `/appliance-maintenance-records/` | Appliance recordkeeping landing page |
+| `/paint-color-tracker/` | Paint color and finish tracking landing page |
 | `/home-handoff-report/` | Home handoff reporting landing page |
 | `/private-home-maintenance-app/` | Privacy-focused landing page |
 | `/homezada-alternative/` | Dated HomeZada comparison page |
