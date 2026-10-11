@@ -1,6 +1,6 @@
 ---
 const isHome = Astro.url.pathname === '/';
-import { appStoreUrl } from '../data/site';
+import AppStoreLink from './AppStoreLink.astro';
 const prefix = isHome ? '' : '/';
 
 const links = [
@@ -20,9 +20,9 @@ const links = [
     </a>
     <div class="nav-links desktop-links">
       {links.map(([label, href]) => <a href={href}>{label}</a>)}
-      <a class="nav-download" href={appStoreUrl} target="_blank" rel="noopener">Download Free</a>
+      <AppStoreLink compact />
     </div>
-    <a class="nav-download mobile-download" href={appStoreUrl} target="_blank" rel="noopener">Download Free</a>
+    <AppStoreLink compact className="mobile-download" />
     <details class="nav-disclosure">
       <summary aria-label="Open menu">Menu</summary>
       <div class="nav-disclosure-panel">

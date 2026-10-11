@@ -47,16 +47,16 @@ try {
    // Remove navigation-restored focus from visual captures; keyboard QA uses a fresh page below.
    await page.evaluate(()=>document.activeElement instanceof HTMLElement&&document.activeElement.blur());
    if(route==='/') {
-    const action=page.locator(width<=980?'.mobile-download':'.desktop-links .nav-download');
+    const action=page.locator(width<=980?'.mobile-download':'.desktop-links .store-link');
     if(!await action.isVisible())errors.push(`${label}: header download hidden`);
     const bounds=await action.boundingBox();
     const brand=await page.locator('.site-header .brand').boundingBox();
     if(bounds&&brand&&brand.x+brand.width>bounds.x)errors.push(`${label}: brand overlaps download`);
     if(!bounds||bounds.width<44||bounds.height<44||bounds.x<0||bounds.x+bounds.width>width)errors.push(`${label}: header download target does not fit`);
-    if(await action.textContent()!=='Download Free')errors.push(`${label}: wrong visible header CTA`);
-    if(!await page.locator('.hero-actions .download-button').isVisible())errors.push(`${label}: hero download missing`);
+    if(await action.locator('img').getAttribute('alt')!=='Download on the App Store')errors.push(`${label}: wrong visible header CTA`);
+    if(!await page.locator('.hero-actions .store-link').isVisible())errors.push(`${label}: hero download missing`);
     if(await page.locator('.hero-actions .text-action').getAttribute('href')!=='#how-it-works')errors.push(`${label}: secondary CTA destination`);
-    for(const el of await page.locator('.download-button,.nav-download').all()) {
+    for(const el of await page.locator('.store-link').all()) {
      if(await el.getAttribute('href')!=='https://apps.apple.com/us/app/around-the-house-binder/id6789646793')errors.push(`${label}: download destination changed`);
     }
     if(await page.locator('.question-list li').count()!==4)errors.push(`${label}: homeowner questions incomplete`);
@@ -110,7 +110,7 @@ try {
  if(await page.locator('link[rel="canonical"]').getAttribute('href')!=='https://aroundthehouseapp.com/home-inventory-app/')errors.push('Campaign query changes canonical');
  await page.close();
 } finally {await browser.close();}
-const report={date:'2026-10-10',checks,viewports:sizes.map(([label,width,height])=>({label,width,height})),routes:routes.length,errors,interactions:['visible mobile and desktop download targets','hero and secondary CTA destinations','four homeowner questions','insurance campaign anchor and canonical','keyboard skip link','mobile anchor menu','Escape menu close','checklist persistence, progress, reset, print, CSV','support required fields and success state (no submission)','FAQ disclosure']};
+const report={date:'2026-10-11',checks,viewports:sizes.map(([label,width,height])=>({label,width,height})),routes:routes.length,errors,interactions:['visible mobile and desktop download targets','hero and secondary CTA destinations','four homeowner questions','insurance campaign anchor and canonical','keyboard skip link','mobile anchor menu','Escape menu close','checklist persistence, progress, reset, print, CSV','support required fields and success state (no submission)','FAQ disclosure']};
 await writeFile(new URL(process.env.QA_REPORT || 'browser-qa.json',output),JSON.stringify(report,null,2)+'\n');
 console.log(JSON.stringify(report,null,2));
 if(errors.length)process.exit(1);

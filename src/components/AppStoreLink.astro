@@ -1,7 +1,7 @@
 ---
 import { appStoreUrl } from '../data/site';
-const { variant = 'button' } = Astro.props;
+const { compact = false, className = '' } = Astro.props;
 ---
-<a class:list={[variant === 'badge' ? 'store-link' : 'button download-button']} href={appStoreUrl} target="_blank" rel="noopener">
-  {variant === 'badge' ? <img class="app-store-badge" src="/assets/app-store-badge.svg" width="170" height="57" alt="Download on the App Store" /> : 'Download Free'}
+<a class:list={['store-link', compact && 'compact', className]} href={appStoreUrl} target="_blank" rel="noopener">
+  <img class="app-store-badge" src="/assets/app-store-badge.svg" width="170" height="57" alt="Download on the App Store" />
 </a>

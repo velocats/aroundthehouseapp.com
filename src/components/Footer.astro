@@ -1,5 +1,6 @@
 ---
-import { appStoreUrl, supportEmail } from '../data/site';
+import { supportEmail } from '../data/site';
+import AppStoreLink from './AppStoreLink.astro';
 const { compact = false } = Astro.props;
 const records = [
   ['/home-records-app/', 'What you can save'],
@@ -36,7 +37,7 @@ const more = [
 <footer class="footer">
   {compact ? <div class="container"><p>© 2026 Around The House. Built and supported by the <a href="/about/">Quiet Tools Support Team</a> in Colorado, United States.</p></div> :
     <div class="container footer-grid">
-      <div><a class="brand" href="/"><img class="brand-mark" src="/assets/icons/around-the-house-icon.png" width="512" height="512" alt="" /><span>Around The House</span></a><p>Your home has a history. Keep it.</p><a href={appStoreUrl} target="_blank" rel="noopener">Download on the App Store →</a><p><a href="https://quiettoolsapps.com/">A Quiet Tools app</a><br />Colorado, United States<br />© 2026 Around The House.</p></div>
+      <div><a class="brand" href="/"><img class="brand-mark" src="/assets/icons/around-the-house-icon.png" width="512" height="512" alt="" /><span>Around The House</span></a><p>Your home has a history. Keep it.</p><AppStoreLink /><p><a href="https://quiettoolsapps.com/">A Quiet Tools app</a><br />Colorado, United States<br />© 2026 Around The House.</p></div>
       <div><h2>Home records</h2>{records.map(([href, label]) => <a href={href}>{label}</a>)}</div>
       <div><h2>Maintenance &amp; guides</h2>{maintenance.map(([href, label]) => <a href={href}>{label}</a>)}</div>
       <div><h2>App &amp; support</h2>{more.map(([href, label]) => <a href={href}>{label}</a>)}<a href={`mailto:${supportEmail}`}>{supportEmail}</a></div>
