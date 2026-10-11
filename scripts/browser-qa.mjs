@@ -11,7 +11,7 @@ async function htmlFiles(dir) {
   return (await Promise.all(entries.map(entry=>entry.isDirectory()?htmlFiles(join(dir,entry.name)):[join(dir,entry.name)]))).flat().filter(file=>file.endsWith('.html'));
 }
 const root=new URL('../dist/',import.meta.url).pathname;
-const routes=(await htmlFiles(root)).map(file=> '/' + relative(root,file).replace(/index\.html$/,''));
+const routes=(await htmlFiles(root)).map(file=> '/' + relative(root,file).replace(/index\.html$/,'')).filter(route=>!process.env.QA_ROUTES||process.env.QA_ROUTES.split(',').includes(route));
 const sizes=[['desktop',1440,1000],['iphone',390,844],['ipad',834,1194],['narrow',320,740]];
 const browser=await chromium.launch({channel:'chrome',headless:true});
 const errors=[];
@@ -44,6 +44,8 @@ try {
     return issues;
    });
    errors.push(...issues.map(issue=>`${label} ${route}: ${issue}`));
+   // Remove navigation-restored focus from visual captures; keyboard QA uses a fresh page below.
+   await page.evaluate(()=>document.activeElement instanceof HTMLElement&&document.activeElement.blur());
    if(route==='/') {
     const action=page.locator(width<=980?'.mobile-download':'.desktop-links .nav-download');
     if(!await action.isVisible())errors.push(`${label}: header download hidden`);
@@ -109,6 +111,6 @@ try {
  await page.close();
 } finally {await browser.close();}
 const report={date:'2026-10-10',checks,viewports:sizes.map(([label,width,height])=>({label,width,height})),routes:routes.length,errors,interactions:['visible mobile and desktop download targets','hero and secondary CTA destinations','four homeowner questions','insurance campaign anchor and canonical','keyboard skip link','mobile anchor menu','Escape menu close','checklist persistence, progress, reset, print, CSV','support required fields and success state (no submission)','FAQ disclosure']};
-await writeFile(new URL('browser-qa.json',output),JSON.stringify(report,null,2)+'\n');
+await writeFile(new URL(process.env.QA_REPORT || 'browser-qa.json',output),JSON.stringify(report,null,2)+'\n');
 console.log(JSON.stringify(report,null,2));
 if(errors.length)process.exit(1);
