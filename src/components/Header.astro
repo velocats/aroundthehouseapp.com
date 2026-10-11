@@ -1,5 +1,4 @@
 ---
-const { page = 'home' } = Astro.props;
 const isHome = Astro.url.pathname === '/';
 import { appStoreUrl } from '../data/site';
 const prefix = isHome ? '' : '/';
@@ -21,13 +20,13 @@ const links = [
     </a>
     <div class="nav-links desktop-links">
       {links.map(([label, href]) => <a href={href}>{label}</a>)}
-      <a class="nav-download" href={appStoreUrl} target="_blank" rel="noopener">Download on the App Store</a>
+      <a class="nav-download" href={appStoreUrl} target="_blank" rel="noopener">Download Free</a>
     </div>
+    <a class="nav-download mobile-download" href={appStoreUrl} target="_blank" rel="noopener">Download Free</a>
     <details class="nav-disclosure">
       <summary aria-label="Open menu">Menu</summary>
       <div class="nav-disclosure-panel">
         {links.map(([label, href]) => <a href={href}>{label}</a>)}
-        <a class="nav-download" href={appStoreUrl} target="_blank" rel="noopener">Download on the App Store</a>
       </div>
     </details>
   </nav>

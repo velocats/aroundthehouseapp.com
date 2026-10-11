@@ -4,7 +4,7 @@ import { readdir, mkdir, writeFile } from 'node:fs/promises';
 import { join, relative } from 'node:path';
 const { chromium } = await import(process.argv[2] || process.env.PLAYWRIGHT_MODULE || 'playwright');
 const origin = process.env.PREVIEW_URL || 'http://127.0.0.1:4321';
-const output = new URL('../docs/design/home-records/', import.meta.url);
+const output = new URL(process.env.QA_OUTPUT || '../docs/design/home-records/', import.meta.url);
 await mkdir(output, { recursive:true });
 async function htmlFiles(dir) {
   const entries=await readdir(dir,{withFileTypes:true});
@@ -15,7 +15,7 @@ const routes=(await htmlFiles(root)).map(file=> '/' + relative(root,file).replac
 const sizes=[['desktop',1440,1000],['iphone',390,844],['ipad',834,1194],['narrow',320,740]];
 const browser=await chromium.launch({channel:'chrome',headless:true});
 const errors=[];
-const screenshots=new Set(['/','/home-records-app/','/pricing/','/paint-color-tracker/','/support/','/resources/','/resources/how-to-create-a-digital-home-binder/']);
+const screenshots=new Set(['/','/home-records-app/','/pricing/','/paint-color-tracker/','/home-inventory-app/','/home-warranty-tracker/','/home-handoff-report/','/support/','/resources/','/resources/how-to-create-a-digital-home-binder/']);
 let checks=0;
 try {
  for(const [label,width,height] of sizes) {
@@ -44,6 +44,26 @@ try {
     return issues;
    });
    errors.push(...issues.map(issue=>`${label} ${route}: ${issue}`));
+   if(route==='/') {
+    const action=page.locator(width<=980?'.mobile-download':'.desktop-links .nav-download');
+    if(!await action.isVisible())errors.push(`${label}: header download hidden`);
+    const bounds=await action.boundingBox();
+    const brand=await page.locator('.site-header .brand').boundingBox();
+    if(bounds&&brand&&brand.x+brand.width>bounds.x)errors.push(`${label}: brand overlaps download`);
+    if(!bounds||bounds.width<44||bounds.height<44||bounds.x<0||bounds.x+bounds.width>width)errors.push(`${label}: header download target does not fit`);
+    if(await action.textContent()!=='Download Free')errors.push(`${label}: wrong visible header CTA`);
+    if(!await page.locator('.hero-actions .download-button').isVisible())errors.push(`${label}: hero download missing`);
+    if(await page.locator('.hero-actions .text-action').getAttribute('href')!=='#how-it-works')errors.push(`${label}: secondary CTA destination`);
+    for(const el of await page.locator('.download-button,.nav-download').all()) {
+     if(await el.getAttribute('href')!=='https://apps.apple.com/us/app/around-the-house-binder/id6789646793')errors.push(`${label}: download destination changed`);
+    }
+    if(await page.locator('.question-list li').count()!==4)errors.push(`${label}: homeowner questions incomplete`);
+    if(screenshots.has(route)&&label!=='narrow') {
+     await page.locator('.site-header').screenshot({path:new URL(`header-${label}.png`,output).pathname});
+     await page.locator('.home-hero').screenshot({path:new URL(`hero-${label}.png`,output).pathname});
+     await page.locator('.demo-section').screenshot({path:new URL(`demo-${label}.png`,output).pathname});
+    }
+   }
    if(screenshots.has(route)&&label!=='narrow'){
     const name=route==='/'?'home':route.split('/').filter(Boolean).at(-1);
     await page.screenshot({path:new URL(`${name}-${label}.png`,output).pathname,fullPage:true});
@@ -83,9 +103,12 @@ try {
  await page.goto(origin+'/');
  await page.locator('.faq-list summary').first().click();
  if(!await page.locator('.faq-list details').first().getAttribute('open').then(value=>value!==null))errors.push('FAQ disclosure failed');
+ await page.goto(origin+'/home-inventory-app/?utm_source=instagram&utm_medium=paid_social&utm_campaign=insurance_2026q4#insurance-records');
+ if(!await page.locator('#insurance-records').isVisible())errors.push('Insurance campaign anchor missing');
+ if(await page.locator('link[rel="canonical"]').getAttribute('href')!=='https://aroundthehouseapp.com/home-inventory-app/')errors.push('Campaign query changes canonical');
  await page.close();
 } finally {await browser.close();}
-const report={date:'2026-10-10',checks,viewports:sizes.map(([label,width,height])=>({label,width,height})),routes:routes.length,errors,interactions:['keyboard skip link','mobile anchor menu','Escape menu close','checklist persistence, progress, reset, print, CSV','support required fields and success state (no submission)','FAQ disclosure']};
+const report={date:'2026-10-10',checks,viewports:sizes.map(([label,width,height])=>({label,width,height})),routes:routes.length,errors,interactions:['visible mobile and desktop download targets','hero and secondary CTA destinations','four homeowner questions','insurance campaign anchor and canonical','keyboard skip link','mobile anchor menu','Escape menu close','checklist persistence, progress, reset, print, CSV','support required fields and success state (no submission)','FAQ disclosure']};
 await writeFile(new URL('browser-qa.json',output),JSON.stringify(report,null,2)+'\n');
 console.log(JSON.stringify(report,null,2));
 if(errors.length)process.exit(1);

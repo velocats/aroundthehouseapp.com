@@ -2,7 +2,8 @@
 import BaseLayout from './BaseLayout.astro';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
 import PageCta from '../components/PageCta.astro';
-import { siteUrl, appStoreUrl } from '../data/site';
+import AppStoreLink from '../components/AppStoreLink.astro';
+import { siteUrl } from '../data/site';
 
 const {
   title,
@@ -54,9 +55,10 @@ const structuredData = [
           <h1>{h1}</h1>
           <p class="lead">{intro}</p>
           <p class="landing-hero-actions">
-            <a href={appStoreUrl} target="_blank" rel="noopener"><img class="app-store-badge" src="/assets/app-store-badge.svg" width="170" height="57" alt="Download on the App Store" /></a>
+            <AppStoreLink />
             <a class="quiet-link" href="/screenshots/">See inside the app</a>
           </p>
+          <p class="microcopy">iPhone, iPad &amp; Mac · Up to five owned home items free. Documents and reports require Pro.</p>
         </div>
         {hasHeroMedia && <slot name="hero-media" />}
       </div>

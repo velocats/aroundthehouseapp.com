@@ -66,10 +66,10 @@ export const landingPages: PageRef[] = [
   {
     path: '/home-maintenance-reminders/',
     label: 'Maintenance reminders',
-    blurb: 'Recurring reminders for filters, inspections, and seasonal work, with overdue work kept visible.',
+    blurb: 'One-time, weekly, and monthly reminders free; Pro adds advanced schedules, connected to item history.',
     changefreq: 'monthly',
     priority: 0.8,
-    lastmod: '2026-08-18'
+    lastmod: '2026-10-10'
   },
   {
     path: '/new-homeowner-app/',
@@ -82,42 +82,42 @@ export const landingPages: PageRef[] = [
   {
     path: '/home-inventory-app/',
     label: 'Home inventory',
-    blurb: 'Record what you own and keep photos, receipts, and serial numbers attached to each item.',
+    blurb: 'Record belongings, photos, values, and identifying details; organize insurance evidence and prepare a Pro PDF summary.',
     changefreq: 'monthly',
     priority: 0.8,
-    lastmod: '2026-08-18'
+    lastmod: '2026-10-10'
   },
   {
     path: '/home-warranty-tracker/',
     label: 'Home warranty tracker',
-    blurb: 'Keep warranty dates, receipts, documents, and covered items together before coverage expires.',
+    blurb: 'Track entered expiration dates; Pro adds warranty documents and warranty-countdown PDF reports.',
     changefreq: 'monthly',
     priority: 0.8,
-    lastmod: '2026-09-09'
+    lastmod: '2026-10-10'
   },
   {
     path: '/appliance-maintenance-records/',
     label: 'Appliance maintenance records',
-    blurb: 'Record model numbers, manuals, service history, parts, providers, costs, and recurring care by appliance.',
+    blurb: 'Keep appliance details, filter sizes, repair history, and reminders together. Start with five home items free.',
     changefreq: 'monthly',
     priority: 0.8,
-    lastmod: '2026-09-09'
+    lastmod: '2026-10-10'
   },
   {
     path: '/paint-color-tracker/',
     label: 'Paint color tracker',
-    blurb: 'Save the color name, code, brand, finish, and date painted with the room each paint went on.',
+    blurb: 'Remember the color, code, brand, finish, and room for your next paint touch-up.',
     changefreq: 'monthly',
     priority: 0.8,
-    lastmod: '2026-09-28'
+    lastmod: '2026-10-10'
   },
   {
     path: '/home-handoff-report/',
     label: 'Home handoff report',
-    blurb: 'Bring assets, maintenance history, reminders, documents, warranties, and costs into a useful home summary.',
+    blurb: 'Pro creates a Home Handoff PDF summary of items, repairs, warranties, and upcoming maintenance.',
     changefreq: 'monthly',
     priority: 0.8,
-    lastmod: '2026-09-09'
+    lastmod: '2026-10-10'
   },
   {
     path: '/private-home-maintenance-app/',

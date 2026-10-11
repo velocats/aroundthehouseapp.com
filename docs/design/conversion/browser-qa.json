@@ -1,0 +1,40 @@
+{
+  "date": "2026-10-10",
+  "checks": 172,
+  "viewports": [
+    {
+      "label": "desktop",
+      "width": 1440,
+      "height": 1000
+    },
+    {
+      "label": "iphone",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "label": "ipad",
+      "width": 834,
+      "height": 1194
+    },
+    {
+      "label": "narrow",
+      "width": 320,
+      "height": 740
+    }
+  ],
+  "routes": 43,
+  "errors": [],
+  "interactions": [
+    "visible mobile and desktop download targets",
+    "hero and secondary CTA destinations",
+    "four homeowner questions",
+    "insurance campaign anchor and canonical",
+    "keyboard skip link",
+    "mobile anchor menu",
+    "Escape menu close",
+    "checklist persistence, progress, reset, print, CSV",
+    "support required fields and success state (no submission)",
+    "FAQ disclosure"
+  ]
+}
