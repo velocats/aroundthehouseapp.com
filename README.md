@@ -1,6 +1,6 @@
 # Around The House website
 
-Marketing and support website for [Around The House](https://aroundthehouseapp.com), a private home-maintenance and home-record app for iPhone, iPad, and Mac. The site is built with Astro, generated as static HTML, and deployed to GitHub Pages.
+Marketing and support website for [Around The House](https://aroundthehouseapp.com), a private home information organizer and home records app for iPhone, iPad, and Mac. The site is built with Astro, generated as static HTML, and deployed to GitHub Pages.
 
 ## Quick start
 
@@ -45,7 +45,8 @@ The generated site is written to `dist/`.
 
 | Route | Purpose |
 |---|---|
-| `/` | Product homepage |
+| `/` | Capture, Find, Remember product homepage |
+| `/home-records-app/` | Home records and home information organizer overview |
 | `/home-maintenance-app/` | Primary product-intent landing page |
 | `/home-maintenance-tracker/` | Maintenance tracking landing page |
 | `/home-maintenance-records/` | Maintenance and repair history landing page |
@@ -118,3 +119,9 @@ rg "apps.apple.com|support@|0.99|14.99|24.99|2026" src public
 ```
 
 Centralizing all mutable product information in `src/data/site.ts` is recommended.
+
+## Home records redesign
+
+See [docs/WEBSITE_REDESIGN.md](docs/WEBSITE_REDESIGN.md) for the audit, changed pages, feature evidence, screenshot inventory, and verification limits. Proposed app work is recorded separately in [docs/APP_RECOMMENDATIONS.md](docs/APP_RECOMMENDATIONS.md).
+
+For optional browser QA, start `npm run preview -- --host 127.0.0.1 --port 4321` after a successful build. `scripts/browser-qa.mjs` uses Playwright and installed Chrome to check every route at four viewport sizes, exercise existing interactions, and save representative screenshots. Use `PLAYWRIGHT_MODULE` to point to a bundled Playwright ESM entry point if it is not installed in the project. `PREVIEW_URL` overrides the preview origin. Browser QA does not submit the support form.

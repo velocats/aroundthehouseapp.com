@@ -1,12 +1,12 @@
 ---
 const { page = 'home' } = Astro.props;
-const isHome = page === 'home';
+const isHome = Astro.url.pathname === '/';
 import { appStoreUrl } from '../data/site';
 const prefix = isHome ? '' : '/';
 
 const links = [
-  ['Features', `${prefix}#features`],
-  ['How it works', '/home-maintenance-app/'],
+  ['What you can save', '/home-records-app/'],
+  ['How it works', `${prefix}#how-it-works`],
   ['Guides', '/resources/'],
   ['Screenshots', '/screenshots/'],
   ['Pricing', '/pricing/'],
@@ -32,3 +32,15 @@ const links = [
     </details>
   </nav>
 </header>
+<script>
+  const menu = document.querySelector<HTMLDetailsElement>('.nav-disclosure');
+  menu?.addEventListener('click', event => {
+    if ((event.target as Element).closest('a')) menu.open = false;
+  });
+  menu?.addEventListener('keydown', event => {
+    if (event.key === 'Escape') {
+      menu.open = false;
+      menu.querySelector('summary')?.focus();
+    }
+  });
+</script>

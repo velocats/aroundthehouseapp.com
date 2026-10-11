@@ -1,35 +1,92 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { appStoreUrl, siteUrl } from '../data/site';
-const appDescription = 'Around The House is a private home maintenance app for organizing home records, repairs, reminders, insurance coverage, personal property, receipts, photos, and important documents.';
-const values = [
-  ['⌁', 'What happened', 'Repairs, maintenance, projects and service history.', '/home-maintenance-records/'],
-  ['▤', 'What you own', 'Appliances, equipment, valuables, warranties and documents.', '/digital-home-binder/'],
-  ['□', "What’s next", 'Recurring maintenance, expiration dates and upcoming work.', '/home-maintenance-reminders/']
-];
-const benefits = [
-  ['⌂', 'Maintain', 'Stay ahead of problems.', "Get reminders for routine maintenance and important dates, so small issues don’t become big ones.", '/home-maintenance-tracker/'],
-  ['▥', 'Understand', 'See what you own.', "Document personal property and the appliances and systems that make up the home.", '/home-inventory-app/'],
-  ['▤', 'Remember', 'Find it when you need it.', 'Receipts, warranties, manuals and photos, right where you expect them.', '/digital-home-binder/']
-];
+import AppStoreLink from '../components/AppStoreLink.astro';
+import ProductScreenshot from '../components/ProductScreenshot.astro';
+import { appStoreUrl, siteUrl, pricing } from '../data/site';
+const description = 'A private home information organizer for paint colors, appliances, receipts, manuals, contractors, and repair history. Your home records, with maintenance reminders built in.';
 const faqItems = [
-  ['What is Around The House?', 'Around The House is a home maintenance app that keeps home, maintenance, project, insurance, and personal-property records and documents organized in one private Binder.'],
-  ['Does Around The House require an account?', 'No. Around The House does not require a separate web account. Your records stay on your Apple devices and in your private iCloud account when iCloud sync is enabled.']
+  ['What can I save in Around The House?', 'Paint colors and finishes, appliance details, photos, receipts, warranties, manuals, repairs, service providers, projects, and important household notes. Records are organized by property, area, and item.'],
+  ['How is it different from Notes, spreadsheets, or Reminders?', 'Around The House provides a structure for your home. An item keeps its details, photos, documents, service history, and reminders together, so you can open the appliance or room instead of searching several places.'],
+  ['Can I try it before adding my home?', 'Yes. Demo Mode lets you explore an example home before entering your own information. You can also start your own home with up to five items for free. Pro unlocks unlimited items, document attachments, and PDF exports.'],
+  ['What does Pro cost?', `Your first five items are free. In the US App Store, monthly Pro is $${pricing[0].amount} per month and lifetime Pro is a $${pricing[1].amount} one-time purchase. Both unlock unlimited items, document attachments, and PDF exports. Check the app’s purchase screen for current local pricing.`],
+  ['Do I need another account?', 'No Around The House account is required. Your records live on your Apple devices and sync through your private iCloud account when enabled. The app is available on iPhone, iPad, and Mac.']
 ];
-const structuredData = [{ '@type': 'SoftwareApplication', '@id': `${siteUrl}#app`, name: 'Around The House', url: siteUrl, applicationCategory: 'LifestyleApplication', operatingSystem: 'iOS, iPadOS, macOS', description: appDescription, image: `${siteUrl}assets/og/around-the-house-og-v2.png`, publisher: { '@id': `${siteUrl}#organization` }, offers: [{ '@type': 'Offer', price: '0.99', priceCurrency: 'USD', url: appStoreUrl }] }, { '@type': 'FAQPage', mainEntity: faqItems.map(([question, answer]) => ({ '@type': 'Question', name: question, acceptedAnswer: { '@type': 'Answer', text: answer } })) }];
+const structuredData = [
+  { '@type': 'SoftwareApplication', '@id': `${siteUrl}#app`, name: 'Around The House', url: siteUrl, applicationCategory: 'LifestyleApplication', operatingSystem: 'iOS, iPadOS, macOS', description, image: `${siteUrl}assets/og/around-the-house-og-v2.png`, publisher: { '@id': `${siteUrl}#organization` }, offers: [{ '@type': 'Offer', name: 'Free: up to five items', price: '0', priceCurrency: 'USD', url: appStoreUrl }, ...pricing.map(plan => ({ '@type': 'Offer', name: plan.name, price: plan.amount, priceCurrency: 'USD', url: appStoreUrl }))] },
+  { '@type': 'FAQPage', mainEntity: faqItems.map(([question, answer]) => ({ '@type': 'Question', name: question, acceptedAnswer: { '@type': 'Answer', text: answer } })) }
+];
 ---
-<BaseLayout title="Around The House: Home Maintenance App" description="Organize home maintenance, personal property, insurance coverage, receipts, photos, warranties, and important house records in one private app." structuredData={structuredData}>
+<BaseLayout title="Home Records & Home Information Organizer | Around The House" description={description} structuredData={structuredData}>
   <main id="main-content" tabindex="-1" class="home-page">
-    <section class="editorial-hero"><div class="container editorial-hero-grid">
-      <div class="editorial-hero-copy"><div class="kicker">A Quiet Tools app</div><h1>Your home<br />has a history.<br />Keep it.</h1><p class="hero-lead">Repairs, maintenance, warranties, receipts, costs and reminders, all in one private place.</p><div class="hero-actions"><a href={appStoreUrl} target="_blank" rel="noopener"><img class="app-store-badge" src="/assets/app-store-badge.svg" width="170" height="57" alt="Download on the App Store" /></a><a class="text-action" href="#features">See how it works <span aria-hidden="true">→</span></a></div><p class="hand-note">A more organized home for whatever’s next.</p></div>
-      <div class="device-stage" aria-label="Around The House shown on iPhone and iPad"><div class="device device-ipad"><img src="/assets/screenshots/new/ipad-front-page.webp" width="1200" height="1600" alt="Around The House home maintenance report on iPad" fetchpriority="high" decoding="async" /></div><div class="device device-iphone"><img src="/assets/screenshots/new/iphone-items.webp" width="1206" height="2622" alt="Around The House home items on iPhone" decoding="async" /></div></div>
-    </div></section>
-    <section class="memory-section" id="features"><div class="container"><div class="kicker">Everything your home forgets</div><h2>Everything you’ll wish<br />you remembered later.</h2><div class="value-columns">{values.map(([symbol, title, body, href]) => <article><span class="line-icon" aria-hidden="true">{symbol}</span><div><h3><a href={href}>{title}</a></h3><p>{body}</p></div></article>)}</div></div></section>
-    <section class="forest-showcase"><div class="container forest-grid"><div class="forest-copy"><div class="kicker">A complete picture</div><h2>See your home<br />in one place.</h2><p>From the big systems to the small stuff, Around The House helps you keep track of what you have, what it’s cost, who worked on it, and what’s next.</p><a class="light-button" href="/screenshots/">Explore the features</a></div><div class="feature-device"><img src="/assets/screenshots/new/ipad-schedule.webp" alt="Around The House maintenance schedule on iPad" loading="lazy" /></div></div></section>
-    <section class="benefit-section"><div class="container benefit-columns">{benefits.map(([symbol, label, title, body, href]) => <article><span class="line-icon" aria-hidden="true">{symbol}</span><div class="kicker">{label}</div><h3><a href={href}>{title}</a></h3><p>{body}</p></article>)}</div></section>
-    <section class="privacy-strip"><div class="container privacy-grid"><span class="privacy-lock" aria-hidden="true">⌑</span><div><div class="kicker">Your data, yours</div><h2>Private by design.</h2></div><div><p>Your home information stays on your devices and in your control. No ads. No tracking. Just a simple tool for homeowners.</p><a href="/privacy/">Learn more about privacy →</a></div></div></section>
-    <section class="story-section"><div class="container story-grid"><div class="story-visual phone-duo"><img src="/assets/screenshots/new/iphone-warranty-countdown.webp" alt="Warranty countdown in Around The House" loading="lazy" /><img src="/assets/screenshots/new/iphone-cost-tracking.webp" alt="Home cost tracking in Around The House" loading="lazy" /></div><div class="story-copy"><div class="kicker">Know what matters</div><h2>Details you can find when life asks for them.</h2><p>Keep warranties, receipts, maintenance history and costs connected to the things they belong to instead of scattered through drawers, inboxes and photo libraries.</p><a class="text-action" href="/digital-home-binder/">Explore the digital home binder <span aria-hidden="true">→</span></a></div></div></section>
-    <section class="paint-section"><div class="container paint-grid"><div class="paint-copy"><div class="kicker">Paint &amp; finishes</div><h2>Which white was on the trim again?</h2><p>Add a paint record for a room, the cabinets, or the fence, and it comes with fields for the color name, color code, brand, finish, surface, and when it was painted. Fill them in once and they're there the next time a wall gets scuffed.</p><a class="text-action" href="/paint-color-tracker/">How paint tracking works <span aria-hidden="true">→</span></a></div><figure class="paint-shot"><img src="/assets/screenshots/new/iphone-paint-details.webp" width="921" height="2000" alt="Around The House on iPhone adding Interior Wall Paint for the Living Room, with paint details for Color Name, Color Code, Brand, Finish, Surface, and Date Painted switched on" loading="lazy" decoding="async" /></figure></div></section>
-    <section class="final-cta"><div class="container final-cta-grid"><div class="final-product-shot"><img src="/assets/screenshots/new/ipad-home-handoff.webp" width="2048" height="2732" alt="Around The House home handoff report on iPad" loading="lazy" /></div><div><div class="kicker">A more organized tomorrow</div><h2>A home well kept<br />is a home well lived.</h2><p>Download Around The House and start building your home’s history today.</p><a href={appStoreUrl} target="_blank" rel="noopener"><img class="app-store-badge" src="/assets/app-store-badge.svg" width="170" height="57" alt="Download on the App Store" /></a></div></div></section>
+    <section class="home-hero">
+      <div class="container home-hero-grid">
+        <div class="home-hero-copy">
+          <p class="kicker">Your home information, together</p>
+          <h1>Everything about your home. <span>Without the spreadsheets.</span></h1>
+          <p class="hero-lead">One place for everything you need to remember about your home, with reminders built in.</p>
+          <p class="hero-specifics">Paint colors. Filter sizes. Receipts and manuals. Repairs and the people who did them. All kept with the things they belong to.</p>
+          <div class="hero-actions"><AppStoreLink /><a class="text-action" href="#how-it-works">See how it works <span aria-hidden="true">↓</span></a></div>
+          <p class="microcopy">iPhone, iPad &amp; Mac · Start with five items free</p>
+        </div>
+        <div class="home-hero-media">
+          <ProductScreenshot file="ipad-item-record.webp" device="ipad" alt="Furnace item record on iPad with a photo, maintenance history, reminders, manual, and receipt" eager />
+          <ProductScreenshot file="iphone-paint-details.webp" alt="Real iPhone New Item form with paint color name, code, brand, finish, surface, and date fields" eager />
+          <p class="hero-media-caption">A place for the whole record, down to the paint finish.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="memory-intro" id="features">
+      <div class="container intro-grid">
+        <h2>The answer belongs <br />with the item.</h2>
+        <div><p>Notes for the paint. A spreadsheet for the appliances. A binder for the receipts. Around The House brings those details together in a structure that already makes sense: your property, its areas, and the things in them.</p><a class="text-action" href="/home-records-app/">Explore what you can save <span aria-hidden="true">→</span></a></div>
+      </div>
+      <nav class="container narrative-nav" id="how-it-works" aria-label="How Around The House works">
+        <a href="#capture"><span>01</span> Capture it. <span aria-hidden="true">↘</span></a>
+        <a href="#find"><span>02</span> Find it. <span aria-hidden="true">↘</span></a>
+        <a href="#remember"><span>03</span> Remember it. <span aria-hidden="true">↘</span></a>
+      </nav>
+    </section>
+
+    <section class="capture-section narrative-section" id="capture">
+      <div class="container capture-grid">
+        <div class="narrative-copy">
+          <p class="kicker">01 / Capture it</p><h2>That exact shade.<br />For the next touch-up.</h2>
+          <p class="narrative-lead">Save the little details while they’re right in front of you.</p>
+          <p>Photograph the paint can. Add the brand, color code, and finish to a paint record in the right room. When it’s time to touch up the trim, you have the information you need to buy it again.</p>
+          <p>A new appliance, a repair invoice, a project photo: each can join the record of the home as it happens. Start with one useful thing and add more as you go.</p>
+          <a class="text-action" href="/paint-color-tracker/">Keep your paint colors <span aria-hidden="true">→</span></a>
+          <div class="example-note"><span class="kicker">A useful first record</span><p>Living room trim: brand, color code, satin finish, and a photo of the lid.</p></div>
+        </div>
+        <div class="paint-composition">
+          <div class="paint-swatch swatch-one" aria-hidden="true"></div><div class="paint-swatch swatch-two" aria-hidden="true"></div>
+          <ProductScreenshot file="iphone-paint-details.webp" alt="Paint details offered by the real iPhone New Item form: color name, color code, brand, finish, surface, and date painted" caption="Paint & Finishes fields in the app. Fill in the details you want to keep." />
+        </div>
+      </div>
+    </section>
+
+    <section class="find-section narrative-section" id="find">
+      <div class="container find-heading"><p class="kicker">02 / Find it</p><h2>At the store.<br />On a service call.<br />Right when you need it.</h2><p class="narrative-lead">Open the item. The details are already together.</p></div>
+      <div class="container find-grid">
+        <ProductScreenshot file="ipad-qr-item-details.webp" device="ipad" alt="Furnace and air filter specifications on iPad showing filter size, model, serial number, purchase date, and notes" caption="The furnace’s specifications, including its filter size, in one item record." />
+        <div class="narrative-copy"><h3>“Which air filter do we buy?”</h3><p>Keep the filter size and a label photo on the furnace record. The next trip to the hardware store starts with a quick look, rather than a guess.</p><a class="text-action" href="/appliance-maintenance-records/">Save appliance details <span aria-hidden="true">→</span></a><h3>“Where’s the receipt?”</h3><p>The manual, purchase receipt, and warranty belong to the same appliance. Open its record to find them, or browse your home’s documents in the Binder.</p><a class="text-action" href="/home-document-organizer/">Keep the paperwork together <span aria-hidden="true">→</span></a><p class="find-search">Global Search also finds items, documents, notes, service providers, and the details you’ve saved.</p></div>
+      </div>
+      <div class="container binder-detail"><ProductScreenshot file="iphone-binder.webp" alt="The real Binder screen on iPhone with documents organized into appliance, kitchen, HVAC, plumbing, electrical, and project categories" /><div><p class="kicker">A home record, with context</p><h3>More useful than a folder called “House.”</h3><p>Your dishwasher’s receipt lives beside its model number and repair history. A roof invoice stays with the roof. You don’t have to build the filing system yourself.</p><a class="text-action" href="/digital-home-binder/">Explore the digital home binder <span aria-hidden="true">→</span></a></div></div>
+    </section>
+
+    <section class="remember-section narrative-section" id="remember">
+      <div class="container remember-grid">
+        <div class="narrative-copy"><p class="kicker">03 / Remember it</p><h2>Your home has a history. Keep it.</h2><h3>“When did we replace that?”</h3><p>Purchase and installation dates, repair notes, invoices, and completed maintenance stay with the appliance or system. A year later, you can see what happened.</p><h3>“Who fixed it last time?”</h3><p>Keep the provider with the work they did, then find their contact details when you need them again.</p><a class="text-action" href="/home-contractor-records/">Remember the people worth calling <span aria-hidden="true">→</span></a><div class="reminder-copy"><h3>And a reminder for what comes next.</h3><p>Set a recurring filter change or service visit against the same item. Today and Schedule show upcoming and overdue work. The completed work becomes part of its history.</p><a class="text-action" href="/home-maintenance-reminders/">See maintenance reminders <span aria-hidden="true">→</span></a></div></div>
+        <div class="history-composition"><ProductScreenshot file="iphone-item-history.webp" alt="Garage Deep Freezer item on iPhone with photos and dated maintenance history including provider and cost" caption="What happened: an item’s service history." /><ProductScreenshot file="iphone-schedule.webp" alt="Real iPhone Schedule screen showing a recurring range hood reminder and its due date" caption="What’s next: recurring work on the schedule." /></div>
+      </div>
+    </section>
+
+    <section class="demo-section"><div class="container demo-grid"><div><p class="kicker">Explore an example home</p><h2>See how it works before you set up a thing.</h2></div><div><p>Open Demo Mode in the app to explore an example home. See how items, documents, and maintenance history fit together before you start your own records.</p><AppStoreLink label="Download Around The House to explore Demo Mode" /><p class="microcopy">Or start with your own home: your first five items are free.</p></div></div></section>
+
+    <section class="home-trust"><div class="container trust-grid"><div><p class="kicker">Private by design</p><h2>Your home.<br />Your information.</h2></div><div><p>No Around The House account. No advertising trackers. Your records live on your Apple devices, with private iCloud sync when enabled.</p><p>Keep the details close at hand on iPhone, iPad, and Mac.</p><a class="text-action" href="/privacy/">Read about privacy <span aria-hidden="true">→</span></a></div></div></section>
+
+    <section class="home-faq"><div class="container faq-grid"><div><p class="kicker">Before you begin</p><h2>A few useful answers.</h2><a class="text-action" href="/pricing/">Free &amp; Pro pricing <span aria-hidden="true">→</span></a></div><div class="faq-list">{faqItems.map(([question, answer]) => <details><summary>{question}</summary><p>{answer}</p></details>)}</div></div></section>
+
+    <section class="home-closing"><div class="container"><p class="kicker">Start with something you want to remember</p><h2>The paint you just used.<br />The repair you just paid for.<br /><span>A little history starts here.</span></h2><AppStoreLink /><p class="microcopy">Free for up to five items. Pro from $0.99/month. <a href="/pricing/">See pricing</a>.</p></div></section>
   </main>
 </BaseLayout>

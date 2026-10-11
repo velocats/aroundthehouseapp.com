@@ -1,54 +1,45 @@
 ---
 import { appStoreUrl, supportEmail } from '../data/site';
 const { compact = false } = Astro.props;
+const records = [
+  ['/home-records-app/', 'What you can save'],
+  ['/paint-color-tracker/', 'Paint colors & finishes'],
+  ['/appliance-maintenance-records/', 'Appliance records'],
+  ['/digital-home-binder/', 'Digital home binder'],
+  ['/home-document-organizer/', 'Documents & manuals'],
+  ['/home-contractor-records/', 'Contractor records'],
+  ['/home-inventory-app/', 'Home inventory'],
+  ['/new-homeowner-app/', 'For new homeowners'],
+  ['/home-handoff-report/', 'Home handoff report']
+];
+const maintenance = [
+  ['/home-maintenance-app/', 'Home maintenance app'],
+  ['/home-maintenance-tracker/', 'Maintenance tracker'],
+  ['/home-maintenance-records/', 'Maintenance & repair history'],
+  ['/home-maintenance-reminders/', 'Maintenance reminders'],
+  ['/home-maintenance-calendar/', 'Maintenance calendar'],
+  ['/home-repair-cost-tracker/', 'Repair costs'],
+  ['/annual-home-maintenance-checklist/', 'Free annual checklist'],
+  ['/resources/', 'Homeowner guides']
+];
+const more = [
+  ['/pricing/', 'Free & Pro pricing'],
+  ['/screenshots/', 'App screenshots'],
+  ['/support/', 'Support'],
+  ['/privacy/', 'Privacy'],
+  ['/terms/', 'Terms'],
+  ['/about/', 'About Quiet Tools'],
+  ['/editorial-standards/', 'Editorial standards'],
+  ['/homezada-alternative/', 'Compare with HomeZada']
+];
 ---
 <footer class="footer">
-  {compact ? (
-    <div class="container">
-      <p>© 2026 Around The House. Built and supported by the <a href="/about/">Quiet Tools Support Team</a> in Colorado, United States.</p>
-    </div>
-  ) : (
+  {compact ? <div class="container"><p>© 2026 Around The House. Built and supported by the <a href="/about/">Quiet Tools Support Team</a> in Colorado, United States.</p></div> :
     <div class="container footer-grid">
-      <div>
-        <a class="brand" href="/">
-          <img class="brand-mark" src="/assets/icons/around-the-house-icon.png" width="512" height="512" alt="" />
-          <span>Around The House</span>
-        </a>
-        <p>The home memory app for repairs, reminders, warranties, receipts, photos, notes, and important home details.</p>
-      </div>
-      <div>
-        <h4>Product</h4>
-        <a href="/home-maintenance-app/">Home maintenance app</a>
-        <a href="/home-maintenance-tracker/">Maintenance tracker</a>
-        <a href="/home-maintenance-records/">Maintenance records</a>
-        <a href="/home-maintenance-reminders/">Maintenance reminders</a>
-        <a href="/digital-home-binder/">Digital home binder</a>
-        <a href="/home-inventory-app/">Home inventory</a>
-        <a href="/new-homeowner-app/">For new homeowners</a>
-        <a href="/home-warranty-tracker/">Warranty tracker</a>
-        <a href="/paint-color-tracker/">Paint color tracker</a>
-        <a href="/home-handoff-report/">Home handoff report</a>
-        <a href="/homezada-alternative/">Compare with HomeZada</a>
-        <a href="/screenshots/">App screenshots</a>
-        <a href="/pricing/">Pricing</a>
-        <a href={appStoreUrl} target="_blank" rel="noopener">Download on the App Store</a>
-      </div>
-      <div>
-        <h4>Support</h4>
-        <a href="/support/">Support</a>
-        <a href="/resources/">Homeowner guides</a>
-        <a href="/privacy/">Privacy</a>
-        <a href="/terms/">Terms</a>
-      </div>
-      <div>
-        <h4>Company</h4>
-        <a href="https://quiettoolsapps.com/">Quiet Tools</a>
-        <a href="/about/">About the support team</a>
-        <a href="/editorial-standards/">Editorial standards</a>
-        <a href={`mailto:${supportEmail}`}>{supportEmail}</a>
-        <p>Colorado, United States</p>
-        <p>© 2026 Around The House.</p>
-      </div>
+      <div><a class="brand" href="/"><img class="brand-mark" src="/assets/icons/around-the-house-icon.png" width="512" height="512" alt="" /><span>Around The House</span></a><p>Your home has a history. Keep it.</p><a href={appStoreUrl} target="_blank" rel="noopener">Download on the App Store →</a><p><a href="https://quiettoolsapps.com/">A Quiet Tools app</a><br />Colorado, United States<br />© 2026 Around The House.</p></div>
+      <div><h2>Home records</h2>{records.map(([href, label]) => <a href={href}>{label}</a>)}</div>
+      <div><h2>Maintenance &amp; guides</h2>{maintenance.map(([href, label]) => <a href={href}>{label}</a>)}</div>
+      <div><h2>App &amp; support</h2>{more.map(([href, label]) => <a href={href}>{label}</a>)}<a href={`mailto:${supportEmail}`}>{supportEmail}</a></div>
     </div>
-  )}
+  }
 </footer>

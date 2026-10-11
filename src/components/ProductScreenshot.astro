@@ -1,0 +1,10 @@
+---
+const { file, alt, device = 'iphone', caption, eager = false } = Astro.props;
+const paint = file.includes('paint');
+const width = device === 'ipad' ? 2048 : paint ? 921 : 1206;
+const height = device === 'ipad' ? 2732 : paint ? 2000 : 2622;
+---
+<figure class:list={['product-capture', device]}>
+  <div class="capture-frame"><img src={`/assets/screenshots/new/${file}`} width={width} height={height} alt={alt} loading={eager ? 'eager' : 'lazy'} fetchpriority={eager ? 'high' : 'auto'} decoding="async" /></div>
+  {caption && <figcaption>{caption}</figcaption>}
+</figure>

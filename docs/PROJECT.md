@@ -14,7 +14,7 @@ The website is not the product itself. There is no web account, authenticated da
 
 ## Product positioning
 
-Around The House is a private home-memory app for recording appliances and home systems, repairs, completed and recurring maintenance, service providers, costs, manuals, warranties, receipts, photos, notes, and home reports.
+Around The House is one place for everything homeowners need to remember about their home, with reminders built in. It keeps paint colors, appliances and home systems, photos, receipts, warranties, manuals, repairs, service providers, projects, household notes, and maintenance organized by property, area, and item.
 
 Its primary differentiation is a focused native Apple experience with no Around The House account. Records remain on the customer's devices and, when enabled, in the customer's private iCloud.
 
@@ -52,7 +52,7 @@ Schema is supporting metadata, not a substitute for visible content. Every struc
 
 Product assets live under `public/assets/` and are served without transformation by GitHub Pages. Large source images must therefore be optimized before commit.
 
-The homepage's `ipad-front-page.png` is approximately 1.8 MB and loaded at high priority. Replacing it with responsive AVIF/WebP variants is the highest-value current performance improvement.
+The homepage uses genuine WebP paint and item-record captures. Screens have explicit dimensions; the hero loads eagerly while narrative images load lazily. Preserve the original UI when adding new captures.
 
 Image-generation scripts under `scripts/` produce App Store or social assets. Generated files should be visually inspected before replacing production images.
 
@@ -71,8 +71,8 @@ After deployment, verify:
 
 ## Known technical debt
 
-1. Pricing and promotional details are not yet centralized with the shared URLs.
-2. Comparison facts and promotional prices need scheduled review because they are time-sensitive.
+1. Shared prices now live in `src/data/site.ts`; changes still need verification against the App Store.
+2. Competitor comparison facts need periodic review because they are time-sensitive.
 3. Additional task-level content from the SEO roadmap still needs implementation.
 
 Recommended follow-up work:

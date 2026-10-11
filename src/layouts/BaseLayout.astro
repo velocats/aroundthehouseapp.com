@@ -4,12 +4,12 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 
 const {
-  title = 'Around The House — The Home Memory App',
-  description = 'Around The House is a private home maintenance app for tracking repairs, reminders, warranties, receipts, photos, notes, and important home details.',
+  title = 'Around The House | Home Records App',
+  description = 'Keep paint colors, appliance details, receipts, manuals, repairs, contractors, and home history together, with reminders built in.',
   canonicalPath = '/',
   page = 'home',
   compactFooter = false,
-  ogTitle = 'Around The House — The Home Memory App',
+  ogTitle = title,
   ogDescription = description,
   ogType = 'website',
   structuredData = null,
@@ -106,7 +106,7 @@ const schemaGraph = [
     <meta property="og:url" content={canonicalUrl} />
     <meta property="og:site_name" content="Around The House" />
     <meta property="og:image" content={ogImageUrl} />
-    <meta property="og:image:alt" content="Around The House app for home maintenance records, reminders, receipts, warranties, and repairs." />
+    <meta property="og:image:alt" content="Around The House: private home records for iPhone, iPad, and Mac." />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
     <meta property="og:type" content={ogType} />

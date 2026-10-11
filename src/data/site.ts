@@ -1,6 +1,12 @@
 export const siteUrl = 'https://aroundthehouseapp.com/';
 export const appStoreUrl = 'https://apps.apple.com/us/app/around-the-house-binder/id6789646793';
 export const supportEmail = 'support@quiettoolsapps.com';
+// US App Store prices checked October 10, 2026. The listing controls local pricing.
+export const pricing = [
+  { name: 'Monthly Pro', amount: '0.99', cadence: 'per month', description: 'Keep adding to your home record with a monthly subscription.' },
+  { name: 'Lifetime Pro', amount: '14.99', cadence: 'one-time purchase', description: 'Unlock Pro with one purchase, for the lifetime of the app.' }
+];
+
 export const publisherName = 'Quiet Tools Support Team';
 export const publisherLocation = 'Colorado, United States';
 
@@ -19,6 +25,12 @@ export type PageRef = {
 
 /** Product / use-case landing pages. Order is the order shown in the footer. */
 export const landingPages: PageRef[] = [
+  {
+    path: '/home-records-app/',
+    label: 'Home records app',
+    blurb: 'Paint colors, appliance details, documents, contractors, projects, and home history, with reminders built in.',
+    changefreq: 'monthly', priority: 0.9, lastmod: '2026-10-10'
+  },
   {
     path: '/home-maintenance-app/',
     label: 'Home maintenance app',
