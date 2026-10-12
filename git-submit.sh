@@ -1,36 +1,89 @@
+
 #!/bin/bash
 
-set -e
+set -euo pipefail
 
-echo "Around the House website Git submit"
+# Around the House Website Publisher
+# Commits local changes and publishes to GitHub Pages via main.
+
+cd "$(dirname "$0")"
+
+echo "========================================"
+echo "  Around the House Website Publisher"
+echo "========================================"
 echo
 
-if [ ! -d ".git" ]; then
-  echo "Error: This directory is not a Git repository."
-  echo "Run this script from:"
-  echo "/Users/home/Documents/personal/websites/aroundthehouseapp"
-  exit 1
+if ! git rev-parse --is-inside-work-tree >/dev/null 2>&1; then
+    echo "ERROR: Not a Git repository."
+    exit 1
 fi
 
-echo "Current changes:"
-git status --short
+# Ensure GitHub is reachable and synchronize remote information.
+echo "Checking GitHub..."
+git fetch origin main
+
+# Always work on the publishing branch.
+if [ "$(git branch --show-current)" != "main" ]; then
+    echo "Switching to publishing branch..."
+
+    # Preserve uncommitted changes while switching branches.
+    if [ -n "$(git status --porcelain)" ]; then
+        git stash push -u -m "git-submit temporary changes"
+        RESTORE_STASH=true
+    else
+        RESTORE_STASH=false
+    fi
+
+    git switch main
+
+    if [ "$RESTORE_STASH" = true ]; then
+        git stash pop
+    fi
+fi
+
+# Update main before publishing.
+echo "Synchronizing with GitHub..."
+git pull --ff-only origin main
+
+# Include completed website redesign commits from the old branch,
+# if they have not already been merged.
+if git show-ref --verify --quiet \
+    refs/heads/codex/website-marketing-redesign; then
+
+    if ! git merge-base --is-ancestor \
+        codex/website-marketing-redesign HEAD; then
+
+        echo "Including completed website redesign..."
+        git merge --no-edit codex/website-marketing-redesign
+    fi
+fi
+
+# Stage all website changes.
+git add -A
+
+if ! git diff --cached --quiet; then
+    echo
+    echo "Committing website changes..."
+
+    git commit -m "Website update $(date '+%Y-%m-%d %H:%M:%S')"
+else
+    echo "No new local changes to commit."
+fi
+
+echo
+echo "Publishing website to GitHub..."
+
+git push origin main
+
+echo
+echo "========================================"
+echo "  SUCCESS: Pushed to GitHub!"
+echo "========================================"
+echo
+echo "GitHub Pages should deploy automatically"
+echo "if configured to publish from main."
+echo
+echo "Website: https://aroundthehouseapp.com"
+echo "Deployment: https://github.com/velocats/aroundthehouseapp.com/actions"
 echo
 
-if [ -z "$(git status --porcelain)" ]; then
-  echo "Nothing to commit. Your working tree is clean."
-  exit 0
-fi
-
-read -r -p "Enter commit message: " commit_message
-
-if [ -z "$commit_message" ]; then
-  echo "Commit message cannot be empty."
-  exit 1
-fi
-
-git add .
-git commit -m "$commit_message"
-git push
-
-echo
-echo "Successfully committed and pushed to GitHub."
