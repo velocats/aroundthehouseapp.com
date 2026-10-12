@@ -2,6 +2,7 @@
 const isHome = Astro.url.pathname === '/';
 import AppStoreLink from './AppStoreLink.astro';
 const prefix = isHome ? '' : '/';
+const current = (href: string) => (href === Astro.url.pathname ? 'page' : undefined);
 
 const links = [
   ['What you can save', '/home-records-app/'],
@@ -19,14 +20,14 @@ const links = [
       <span>Around The House</span>
     </a>
     <div class="nav-links desktop-links">
-      {links.map(([label, href]) => <a href={href}>{label}</a>)}
+      {links.map(([label, href]) => <a href={href} aria-current={current(href)}>{label}</a>)}
       <AppStoreLink compact />
     </div>
     <AppStoreLink compact className="mobile-download" />
     <details class="nav-disclosure">
-      <summary aria-label="Open menu">Menu</summary>
+      <summary>Menu</summary>
       <div class="nav-disclosure-panel">
-        {links.map(([label, href]) => <a href={href}>{label}</a>)}
+        {links.map(([label, href]) => <a href={href} aria-current={current(href)}>{label}</a>)}
       </div>
     </details>
   </nav>
@@ -41,5 +42,12 @@ const links = [
       menu.open = false;
       menu.querySelector('summary')?.focus();
     }
+  });
+  // An open panel must not stay over the page once focus or attention moves on.
+  menu?.addEventListener('focusout', event => {
+    if (event.relatedTarget && !menu.contains(event.relatedTarget as Node)) menu.open = false;
+  });
+  document.addEventListener('click', event => {
+    if (menu?.open && !menu.contains(event.target as Node)) menu.open = false;
   });
 </script>

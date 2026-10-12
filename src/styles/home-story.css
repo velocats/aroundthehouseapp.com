@@ -30,7 +30,7 @@
 .story-controls { display:flex; align-items:center; flex:none; }
 .story-selectors { display:flex; }
 .story-dot,.story-play { border:0; background:none; min-width:44px; height:44px; padding:0; color:var(--story-ink); cursor:pointer; display:inline-flex; justify-content:center; align-items:center; }
-.story-dot span { height:6px; width:17px; background:#aaa292; border-radius:5px; transition:width .3s ease,background .3s ease; }
+.story-dot span { height:6px; width:17px; background:#7d7666; border-radius:5px; transition:width .3s ease,background .3s ease; }
 .story-dot[aria-pressed=true] span { width:30px; background:var(--story-green); }
 .story-play { border-left:1px solid var(--story-line); margin-left:5px; }
 .story-play:disabled { opacity:.55; cursor:default; }
@@ -89,6 +89,8 @@
   .story-copy { width:49%; padding:36px 30px; }
   .story-copy h1 { font-size:46px; }
   .story-photographs { min-height:650px; }
+  /* The copy column is wider here, so the scrim reaches further to keep the headline at 3:1 or better over the photograph. */
+  .story-scrim { background:linear-gradient(90deg,rgba(244,240,232,.99) 0%,rgba(244,240,232,.97) 36%,rgba(244,240,232,.9) 49%,rgba(244,240,232,0) 66%); }
   .story-underlay { grid-template-columns:1fr; gap:12px; padding-inline:30px; }
   .story-reminder { max-width:none; }
   .story-how .story-content-width,.story-close-inner { gap:40px; }

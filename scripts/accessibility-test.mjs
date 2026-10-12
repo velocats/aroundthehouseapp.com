@@ -11,6 +11,7 @@
 // A11Y_ROUTES=/,/support/   limit the per-page scans to some routes
 // PREVIEW_URL=http://...    test a running server instead of dist/
 // A11Y_REPORT=path.json     also write the results as JSON
+// A11Y_DEBUG=1              print hero text-over-photograph contrast ratios below 7:1
 import { createServer } from 'node:http';
 import { readdir, readFile, writeFile } from 'node:fs/promises';
 import { extname, join, relative, sep } from 'node:path';
@@ -153,7 +154,10 @@ function textSpacingChecks() {
 }
 
 // Describes the focused element: its focus indicator, and whether it is visible.
-function focusState() {
+async function focusState() {
+  // Let the (near-instant, reduced-motion) focus transitions settle before measuring.
+  await new Promise(resolve => requestAnimationFrame(resolve));
+  await Promise.all(document.getAnimations().map(animation => animation.finished.catch(() => {})));
   const element = document.activeElement;
   if (!element || element === document.body || element === document.documentElement) return null;
   const parse = color => (color.match(/[\d.]+/g) ?? []).map(Number);
@@ -275,6 +279,7 @@ async function skipLink(context) {
     await page.keyboard.press('Tab');
     const link = page.locator('.skip-link');
     if (!await isFocused(link)) fail('skip link', route, 'not the first Tab stop');
+    await page.evaluate(async () => { await new Promise(resolve => requestAnimationFrame(resolve)); await Promise.all(document.getAnimations().map(animation => animation.finished.catch(() => {}))); });
     const box = await link.boundingBox();
     if (!box || box.y < 0) fail('skip link', route, 'not visible when focused');
     await page.keyboard.press('Enter');
@@ -309,7 +314,7 @@ async function mobileMenu(context) {
   for (let i = 0; i <= linkCount; i++) await page.keyboard.press('Tab');
   if (await isOpen()) fail('menu', where, 'menu stays open, covering the page, after focus leaves it');
   await summary.click();
-  await page.locator('h1').click();
+  await page.mouse.click(20, 700);
   if (await isOpen()) fail('menu', where, 'menu does not close when the page behind it is clicked');
   await open(page, '/pricing/');
   if (await page.locator('.nav-disclosure-panel a[aria-current="page"]').getAttribute('href') !== '/pricing/') fail('menu', 'iphone /pricing/', 'current page is not marked with aria-current');
@@ -371,7 +376,10 @@ async function heroTextContrast() {
         const colors = [...new Set([element, ...element.querySelectorAll('*')].map(node => getComputedStyle(node).color))];
         return [...range.getClientRects()].map(({ x, y, width, height }) => ({ x, y, width, height, large, colors, text: element.textContent.trim().slice(0, 30) }));
       }));
-      const shot = (await page.screenshot({ style: '.story-copy, .skip-link { visibility:hidden !important; }' })).toString('base64');
+      const hideCopy = await page.addStyleTag({ content: '.story-copy, .story-copy *, .skip-link { visibility:hidden !important; transition:none !important; }' });
+      await page.evaluate(() => new Promise(resolve => requestAnimationFrame(() => requestAnimationFrame(resolve))));
+      const shot = (await page.screenshot()).toString('base64');
+      await hideCopy.evaluate(element => element.remove());
       const worst = await page.evaluate(async ({ shot, lines }) => {
         const bitmap = await createImageBitmap(await (await fetch(`data:image/png;base64,${shot}`)).blob());
         const canvas = new OffscreenCanvas(bitmap.width, bitmap.height);
@@ -396,6 +404,7 @@ async function heroTextContrast() {
         }).filter(Boolean);
       }, { shot, lines });
       for (const { text, large, ratio } of worst) {
+        if (process.env.A11Y_DEBUG && ratio < 7) console.log(width, scene + 1, text, ratio.toFixed(2));
         if (ratio < (large ? 3 : 4.5)) fail('contrast', `/ at ${width}px, scene ${scene + 1}`, `1.4.3: "${text}…" over the photograph is ${ratio.toFixed(2)}:1`);
       }
       ran('text-over-photograph contrast samples');

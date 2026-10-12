@@ -3,5 +3,5 @@ import { appStoreUrl } from '../data/site';
 const { compact = false, className = '' } = Astro.props;
 ---
 <a class:list={['store-link', compact && 'compact', className]} href={appStoreUrl} target="_blank" rel="noopener">
-  <img class="app-store-badge" src="/assets/app-store-badge.svg" width="170" height="57" alt="Download on the App Store" />
+  <img class="app-store-badge" src="/assets/app-store-badge.svg" width="170" height="57" alt="Download on the App Store" /><span class="visually-hidden"> (opens in a new tab)</span>
 </a>
