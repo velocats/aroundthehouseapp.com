@@ -1,0 +1,34 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import LegalArticle from '../components/LegalArticle.astro';
+import { supportEmail } from '../data/site';
+---
+<BaseLayout
+  title="Accessibility | Around The House"
+  description="Read how Quiet Tools LLC works to make the Around The House website accessible, the standard we aim for, and how to report a barrier or ask for help."
+  canonicalPath="/accessibility/"
+  page="legal"
+  compactFooter={true}
+>
+  <LegalArticle kicker="Accessibility" title="Accessibility" effectiveDate="October 12, 2026">
+    <p>Quiet Tools LLC wants everyone to be able to use the Around The House website, including people who use a screen reader, a keyboard, voice control, magnification, or larger text.</p>
+    <h2>What we aim for</h2>
+    <p>Our target for this website is the Web Content Accessibility Guidelines (WCAG) 2.2 at Level AA. We use it as the standard when we design, write, and test pages.</p>
+    <h2>What we have done</h2>
+    <ul>
+      <li>Pages use headings, landmarks, and a “Skip to main content” link so they are easier to navigate.</li>
+      <li>Menus, forms, the annual checklist, and the Home Health Check work with a keyboard and show where focus is.</li>
+      <li>Text and controls are checked for color contrast, and meaning is not carried by color alone.</li>
+      <li>Pages reflow for small screens and browser zoom up to 400%.</li>
+      <li>App screenshots have text descriptions.</li>
+      <li>Animation is reduced when your device asks for reduced motion.</li>
+    </ul>
+    <p>We test pages with automated tools and manual checks. Testing does not catch everything, and some parts of the site may still be harder to use than they should be.</p>
+    <h2>Tell us about a barrier</h2>
+    <p>If something on this website does not work for you, please tell us. Email <a href={`mailto:${supportEmail}`}>{supportEmail}</a> or use the <a href="/support/">support form</a>. It helps to include the page address, what you were trying to do, and the browser or assistive technology you were using.</p>
+    <h2>Ask for help with information</h2>
+    <p>If you cannot get to information on this website, contact us the same way and we will provide it in a format that works for you.</p>
+    <h2>The app</h2>
+    <p>This statement covers the website at aroundthehouseapp.com. For accessibility questions about the Around The House app on iPhone, iPad, or Mac, contact us through the same support channels.</p>
+  </LegalArticle>
+</BaseLayout>

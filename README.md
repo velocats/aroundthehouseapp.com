@@ -66,6 +66,7 @@ The generated site is written to `dist/`.
 | `/pricing/` | Monthly and lifetime pricing |
 | `/support/` | Customer support and common troubleshooting |
 | `/privacy/` | Privacy policy |
+| `/accessibility/` | Accessibility statement |
 | `/terms/` | Terms of use |
 
 `src/data/site.ts` is the registry used for labels, descriptions, and related-link modules. Add an entry only when its route is implemented in the same change.
@@ -102,6 +103,7 @@ Both `CNAME` and `public/CNAME` identify `aroundthehouseapp.com`; `public/CNAME`
 ## Pre-deployment checklist
 
 - `npm run build` succeeds.
+- `npm run test:a11y` passes (see Accessibility checks below).
 - Navigation and related links do not point to missing routes.
 - New pages appear in the sitemap.
 - Titles, descriptions, canonicals, and structured data are correct.
@@ -109,6 +111,18 @@ Both `CNAME` and `public/CNAME` identify `aroundthehouseapp.com`; `public/CNAME`
 - Images have useful alt text, explicit dimensions, and appropriate lazy loading.
 - Large screenshots have responsive WebP or AVIF variants.
 - Production and App Store links are tested after deployment.
+
+## Accessibility checks
+
+The site targets WCAG 2.2 Level AA. After a production build, run:
+
+```bash
+npm run test:a11y
+```
+
+`scripts/accessibility-test.mjs` serves `dist/` itself and drives installed Google Chrome through `playwright-core`. It scans every built route with axe-core at six viewport sizes, tabs through every page checking focus visibility, and exercises the menu, support form (without submitting), checklist, slideshow, and Home Health Check. New pages are included automatically. Fix failures instead of excluding them.
+
+A passing run is a regression gate, not proof of conformance. [docs/ACCESSIBILITY_AUDIT.md](docs/ACCESSIBILITY_AUDIT.md) lists the audit findings and the manual screen-reader checks that still need a person.
 
 ## Product configuration
 

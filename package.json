@@ -9,9 +9,14 @@
     "build": "astro build && node scripts/generate-sitemap.mjs",
     "preview": "astro preview",
     "check": "npm run build && node scripts/validate-site.mjs",
-    "test:quiz": "node scripts/home-health-check-test.mjs"
+    "test:quiz": "node scripts/home-health-check-test.mjs",
+    "test:a11y": "node scripts/accessibility-test.mjs"
   },
   "dependencies": {
     "astro": "^4.16.18"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "^4.13.0",
+    "playwright-core": "^1.64.0"
   }
 }

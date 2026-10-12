@@ -76,6 +76,8 @@ if (widget) {
     stage.replaceChildren(card);
     if (afterAnswer) focusHeading(stage.querySelector<HTMLElement>('.hhc-feedback')!);
     else if (focus) focusHeading(heading);
+    // Screen-reader users hear their place in the quiz when the question changes.
+    if (focus) status.textContent = `Question ${index + 1} of 6: ${question.short}`;
   }
   function renderResults() {
     generation++; widget!.dataset.phase = 'results'; delete widget!.dataset.question;
@@ -84,7 +86,7 @@ if (widget) {
     card.append(node('span', 'hhc-eyebrow', 'Your score'));
     const score = node('div', 'hhc-score'); score.append(node('span', 'hhc-num', String(result.score)), node('span', 'hhc-of', 'out of 12')); score.dataset.score = String(result.score); card.append(score);
     const lights = node('div', 'hhc-lights'); lights.setAttribute('aria-hidden', 'true'); result.entries.forEach(e => lights.append(dot(e.tone))); card.append(lights);
-    card.append(node('p', 'hhc-counts', `${result.entries.filter(e => e.tone === 'r').length} red · ${result.entries.filter(e => e.tone === 'y').length} yellow · ${result.entries.filter(e => e.tone === 'g').length} green`));
+    card.append(node('p', 'hhc-counts', (['r', 'y', 'g'] as Tone[]).map(tone => `${result.entries.filter(e => e.tone === tone).length} ${tones[tone].label}`).join(' · ')));
     const band = node('h2', 'hhc-band', result.band.name); band.id = 'hhc-band';
     card.append(band, node('p', 'hhc-band-description', result.band.description));
     if (result.safety.length) {
@@ -139,6 +141,7 @@ if (widget) {
     const actions = node('div', 'hhc-actions');
     actions.append(button('Review answers', () => { state = previousQuestion(state, 5); status.textContent = ''; renderQuestion(true); }, 'hhc-btn ghost', 'hhc-review'), button('Take it again', () => { state = initialState(); status.textContent = ''; renderQuestion(true); }, 'hhc-btn ghost', 'hhc-restart'));
     share.append(label, row, fallback, shareStatus, actions); stage.replaceChildren(card, cta, share); focusHeading(band);
+    status.textContent = `Your score is ${result.score} out of 12: ${result.band.name}.`;
   }
   renderQuestion(); stage.hidden = false; widget.dataset.enhanced = 'true';
 }

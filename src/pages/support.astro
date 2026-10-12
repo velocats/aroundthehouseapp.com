@@ -73,7 +73,7 @@ import LegalArticle from '../components/LegalArticle.astro';
 
       <button class="button" type="submit">Send support request</button>
       <p class="form-help">Your message will be sent directly to the Around The House support inbox.</p>
-      <p class="form-success" id="formSuccess" role="status" aria-live="polite" hidden>Thanks! Your support request was sent. We’ll reply by email.</p>
+      <p class="form-success" id="formSuccess" role="status" tabindex="-1" hidden>Thanks! Your support request was sent. We’ll reply by email.</p>
     </form>
 
     <h2>Getting started</h2>
@@ -96,7 +96,10 @@ import LegalArticle from '../components/LegalArticle.astro';
     const success = document.getElementById('formSuccess');
     if (params.get('sent') === '1' && success) {
       success.hidden = false;
-      success.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      success.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'center' });
+      // Focus the confirmation so screen readers announce it after the redirect.
+      success.focus({ preventScroll: true });
     }
   </script>
 </BaseLayout>

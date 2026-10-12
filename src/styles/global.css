@@ -746,3 +746,37 @@ button:focus-visible,summary:focus-visible,input:focus-visible,select:focus-visi
 @media print {
   .checklist-page .container { width:100%; }
 }
+
+/* ---------------------------------------------------------------------------
+   Accessibility. See docs/ACCESSIBILITY_AUDIT.md; `npm run test:a11y` guards
+   these rules against regressions.
+   --------------------------------------------------------------------------- */
+.visually-hidden { position:absolute; width:1px; height:1px; margin:-1px; padding:0; overflow:hidden; clip-path:inset(50%); white-space:nowrap; border:0; }
+/* Links inside running text are underlined so they never rely on colour alone. */
+:is(main, .footer) :is(p, dd, td, figcaption) a:not([class]) { text-decoration:underline; text-underline-offset:3px; }
+/* The blue focus ring disappears on dark and saturated surfaces; use a light one there. */
+:is(.footer, .find-section, .pricing-details, .story-quiz) :is(a, button, summary):focus-visible { outline-color:#fff; }
+.hhc-page .hhc-cta :is(a, button):focus-visible { outline-color:var(--hhc-accent-ink); }
+.home-story-page .story-quiz :is(a, button):focus-visible { outline-color:#fff; }
+/* Field boundaries need 3:1 against the form, and a focus ring that does not depend on a tint. */
+.form-field input, .form-field select, .form-field textarea { border-color:#6f7a70; }
+.form-field input:focus-visible, .form-field select:focus-visible, .form-field textarea:focus-visible { outline:3px solid #0f6fcb; outline-offset:2px; border-color:#0f6fcb; }
+.form-field ::placeholder { color:var(--muted); opacity:1; }
+.form-success:focus-visible { outline:3px solid #0f6fcb; outline-offset:3px; }
+/* Decorative generated glyphs get empty alternative text where the syntax is supported. */
+.nav-disclosure summary::after { content:"\2630" / ""; }
+.nav-disclosure[open] summary::after { content:"\2715" / ""; }
+.faq-list summary::after { content:"+" / ""; }
+.faq-list details[open] summary::after { content:"\2212" / ""; }
+.check-list li:before { content:"✓" / ""; }
+.breadcrumbs li + li:before { content:"/" / ""; }
+.nav-links a[aria-current="page"] { color:var(--ink); }
+.footer-grid ul { list-style:none; margin:0; padding:0; }
+.footer-grid li a { display:block; }
+.footer-links { display:flex; flex-wrap:wrap; gap:4px 22px; list-style:none; margin:14px 0 0; padding:0; font-size:14px; }
+.footer-links a { display:inline-block; padding-block:8px; text-decoration:underline; text-underline-offset:3px; }
+/* Keep keyboard focus clear of the sticky checklist toolbar. */
+.checklist-group input { scroll-margin-top:190px; }
+/* A definite width lets a lazy screenshot reserve its height before it loads, so
+   the page does not jump under a keyboard user's focus (and CLS stays at zero). */
+.product-block-shot { width:100%; }
