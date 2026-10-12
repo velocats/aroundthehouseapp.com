@@ -1,0 +1,23 @@
+---
+// These are a preview of the supplied quiz, not saved answers or an interactive quiz.
+import { questions } from '../data/homeHealthCheck';
+const sample = questions[0];
+const answers = sample.choices.map(choice => choice.text);
+---
+<section class="story-quiz" id="quiz" aria-labelledby="story-quiz-title">
+  <div class="story-quiz-inner">
+    <div class="story-question-card">
+      <div class="story-question-head"><b>Home Health Check</b><span>Question 1 of 6</span></div>
+      <div class="story-question-track" aria-hidden="true">{Array.from({length: 6}, () => <span></span>)}</div>
+      <h2>{sample.question}</h2>
+      <div class="story-answer-previews" role="group" aria-label="Preview answer choices">{answers.map(answer => <span>{answer}</span>)}</div>
+      <p class="story-preview-note">A peek at the quiz. Choose your answers when you begin.</p>
+    </div>
+    <div class="story-quiz-copy">
+      <p class="story-eyebrow">Free · About 2 minutes</p>
+      <h2 id="story-quiz-title">How well do you <em>really</em> know your house?</h2>
+      <p>Six quick questions. One honest score. A little healthy panic. No account, no email.</p>
+      <a class="story-quiz-link" href="/home-health-check/">Take the quiz now <span aria-hidden="true">→</span></a>
+    </div>
+  </div>
+</section>

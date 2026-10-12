@@ -59,6 +59,17 @@ for (const file of htmlFiles) {
     if (attr(tag, 'alt') === undefined) errors.push(`${route}: image is missing alt text: ${src}`);
     if (!(Number(attr(tag, 'width')) > 0 && Number(attr(tag, 'height')) > 0)) errors.push(`${route}: image is missing intrinsic dimensions: ${src}`);
   }
+  // Validate every responsive candidate, not only the browser's selected image.
+  for (const match of html.matchAll(/\bsrcset="([^"]+)"/g)) {
+    for (const candidate of match[1].split(',')) {
+      const asset = candidate.trim().split(/\s+/)[0];
+      if (asset.startsWith('/') && !publicFiles.has(asset)) errors.push(`${route}: missing responsive image ${asset}`);
+    }
+  }
+  for (const match of html.matchAll(/<(?:script|link)\b[^>]*>/g)) {
+    const asset = attr(match[0], 'src') || attr(match[0], 'href');
+    if (asset?.startsWith('/') && !publicFiles.has(asset)) errors.push(`${route}: missing script/style/icon ${asset}`);
+  }
   for (const match of html.matchAll(/<script\b[^>]*type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/g)) {
     try {
       const schema = JSON.parse(match[1]);
@@ -82,6 +93,13 @@ for (const file of htmlFiles) {
     if (!target || target.startsWith('/assets/')) continue;
     const normalized = target.endsWith('/') ? target : `${target}/`;
     if (!routes.has(normalized) && !publicFiles.has(target)) errors.push(`${route}: broken internal link ${href}`);
+  }
+}
+
+for (const file of files.filter(file => file.endsWith('.css'))) {
+  const css = await readFile(file, 'utf8');
+  for (const match of css.matchAll(/url\(["']?(\/[^)"']+)["']?\)/g)) {
+    if (!publicFiles.has(match[1])) errors.push(`Missing CSS asset ${match[1]}`);
   }
 }
 

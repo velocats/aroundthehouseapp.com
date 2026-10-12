@@ -1,0 +1,62 @@
+---
+import AppStoreLink from './AppStoreLink.astro';
+const scenes = [
+  { id: 'filter', name: 'Furnace filter maintenance', question: 'Can’t remember when you changed the furnace filter?', answer: 'It’s right on your phone.', alt: 'A hand holding an iPhone with the real Around The House furnace record open in a store aisle of air filters.', screenAlt: 'Approved Around The House iPhone furnace record, with a filter replacement task and maintenance history.' },
+  { id: 'smoke', name: 'Smoke alarm maintenance', question: 'Can’t remember when you tested the smoke alarms?', answer: 'Get a reminder.', alt: 'A hand holding an iPhone with the real Around The House smoke detector record open beneath a ceiling smoke alarm.', screenAlt: 'Approved Around The House iPhone Main Hall Smoke Detector record, with a monthly testing task and maintenance history.' },
+  { id: 'heater', name: 'Water heater information', question: 'Need the age and model of your water heater?', answer: 'Keep its details close.', alt: 'A hand holding an iPhone with the real Around The House water heater record open in a laundry room beside the heater.', screenAlt: 'Approved Around The House iPhone water heater record, with an upcoming maintenance task and maintenance history.' }
+];
+const asset = '/assets/home-story/';
+const srcset = (id: string, kind: string, format: string) => (kind === 'mobile' ? [480, 755] : [768, 1200, 1680]).map(width => `${asset}${id}-${kind}-${width}.${format} ${width}w`).join(', ');
+---
+<section class="story-hero" aria-labelledby="story-title" data-story-hero>
+  <div class="story-stage">
+    <div class="story-copy">
+      <p class="story-eyebrow">Your home, at your fingertips</p>
+      <h1 id="story-title">Your home has a lot of moving parts. <em>Keep them at your fingertips.</em></h1>
+      <p class="story-sub">The details you need, the work you’ve done, and what’s coming next. All in one place, right on your phone.</p>
+      <div class="story-download"><AppStoreLink /></div>
+      <p class="story-trust">No separate account · Private on iPhone, iPad, and Mac</p>
+    </div>
+    <div class="story-photographs" role="group" aria-roledescription="carousel" aria-label="Around The House in everyday life">
+      {scenes.map((scene, index) => (
+        <div class:list={['story-slide', index === 0 && 'is-active']} id={`story-${scene.id}`} data-story-slide aria-hidden={index === 0 ? 'false' : 'true'} role="group" aria-roledescription="slide" aria-label={`${index + 1} of 3: ${scene.name}`}>
+          <picture>
+            <source media="(max-width: 599px)" type="image/avif" srcset={srcset(scene.id, 'mobile', 'avif')} sizes="100vw" width="755" height="944" />
+            <source media="(max-width: 599px)" type="image/webp" srcset={srcset(scene.id, 'mobile', 'webp')} sizes="100vw" width="755" height="944" />
+            <source media="(max-width: 599px)" srcset={`${asset}${scene.id}-mobile.jpg`} width="755" height="944" />
+            <source type="image/avif" srcset={srcset(scene.id, 'desktop', 'avif')} sizes="(min-width: 1680px) 1680px, 100vw" />
+            <source type="image/webp" srcset={srcset(scene.id, 'desktop', 'webp')} sizes="(min-width: 1680px) 1680px, 100vw" />
+            <img src={`${asset}${scene.id}-desktop.jpg`} width="1680" height="944" alt={scene.alt} loading={index === 0 ? 'eager' : 'lazy'} fetchpriority={index === 0 ? 'high' : 'low'} decoding="async" />
+          </picture>
+        </div>
+      ))}
+    </div>
+    <div class="story-scrim" aria-hidden="true"></div>
+  </div>
+  <div class="story-underlay">
+    <div class="story-scene-info">
+      <div class="story-controls" role="group" data-story-controls hidden aria-label="Photograph controls">
+        <div class="story-selectors" role="group" aria-label="Choose a homeowner scene">
+          {scenes.map((scene, index) => <button type="button" class="story-dot" data-story-select={index} aria-label={`Show scene ${index + 1}: ${scene.name}`} aria-pressed={index === 0 ? 'true' : 'false'} aria-controls={`story-${scene.id}`}><span aria-hidden="true"></span></button>)}
+        </div>
+        <button type="button" class="story-play" data-story-play aria-label="Pause the slideshow">
+          <svg data-story-pause-icon width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/></svg>
+          <svg data-story-play-icon width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" hidden><path d="M8 5v14l11-7z"/></svg>
+        </button>
+        <span class="story-count" data-story-count aria-hidden="true">01 / 03</span>
+      </div>
+      <div class="story-captions">
+        {scenes.map((scene, index) => <p class="story-caption" data-story-caption hidden={index !== 0}><strong>{scene.question}</strong> <em>{scene.answer}</em></p>)}
+      </div>
+    </div>
+    <p class="story-reminder">Paint color at the paint counter. Filter size in the aisle. A reminder on your phone when the smoke alarms are due.</p>
+    <div class="story-screen-previews">
+      {scenes.map((scene, index) => <details data-story-screen hidden={index !== 0} class="story-screen"><summary>See the app screen <span aria-hidden="true">↗</span></summary><figure><img src={`${asset}${scene.id}-capture.webp`} width="660" height="1434" alt={scene.screenAlt} loading="lazy" /><figcaption>The same genuine app capture shown in the photograph. Example home records.</figcaption></figure></details>)}
+    </div>
+    <p class="story-announcement" data-story-announcement role="status" aria-live="polite" aria-atomic="true"></p>
+    <noscript><div class="story-nojs"><p>More moments Around The House helps you remember:</p><ul><li>Smoke alarm testing and reminders.</li><li>Water heater information and maintenance history.</li></ul><a href="#how-it-works">See how it works</a></div></noscript>
+  </div>
+</section>
+<script>
+  import '../scripts/home-story-hero';
+</script>

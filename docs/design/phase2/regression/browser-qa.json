@@ -1,0 +1,41 @@
+{
+  "date": "2026-10-11",
+  "checks": 172,
+  "viewports": [
+    {
+      "label": "desktop",
+      "width": 1440,
+      "height": 1000
+    },
+    {
+      "label": "iphone",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "label": "ipad",
+      "width": 834,
+      "height": 1194
+    },
+    {
+      "label": "narrow",
+      "width": 320,
+      "height": 740
+    }
+  ],
+  "routes": 43,
+  "errors": [],
+  "interactions": [
+    "visible mobile and desktop download targets",
+    "hero download and quiz destination",
+    "three homeowner scenes",
+    "insurance campaign anchor and canonical",
+    "keyboard skip link",
+    "mobile anchor menu",
+    "Escape menu close",
+    "checklist persistence, progress, reset, print, CSV",
+    "support required fields and success state (no submission)",
+    "manual carousel selection",
+    "genuine screenshot disclosure"
+  ]
+}

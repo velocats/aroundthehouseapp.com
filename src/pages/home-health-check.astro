@@ -1,0 +1,26 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import HomeHealthCheck from '../components/HomeHealthCheck.astro';
+import { questions } from '../data/homeHealthCheck';
+import '../styles/home-health-check.css';
+const sources = questions.flatMap(question => question.source ? [question.source] : []);
+---
+<BaseLayout title="Home Health Check: Six Quick Questions | Around The House" description="How well do you really know your house? Take six quick questions, get a score out of 12, and find practical home maintenance reminders. No account or email." canonicalPath="/home-health-check/" page="home-health-check">
+  <main id="main-content" tabindex="-1" class="hhc-page">
+    <div class="hhc-wrap">
+      <p class="hhc-brand">From the makers of Around The House</p>
+      <header class="hhc-intro">
+        <span class="hhc-eyebrow">Home Health Check</span>
+        <h1>How well do you <em>really</em> know your house?</h1>
+        <p>Six quick questions about the things every house quietly needs. About two minutes. No judgment. Okay, a little judgment.</p>
+      </header>
+      <HomeHealthCheck />
+      <div class="hhc-notes">
+        <p>Your answers stay in this page’s memory. They aren’t saved, sent to a server, or used for analytics. Refreshing or leaving resets the quiz. Sharing sends only your score, category, and quiz link when you choose to share.</p>
+        <p>A quick reminder check, not a home inspection, safety certification, or complete assessment. General guidance, not professional advice. Always follow your manufacturer’s instructions.</p>
+        <p><a href="/privacy/">Website privacy</a> · <a href="/annual-home-maintenance-checklist/">Free annual checklist</a></p>
+        <details><summary>Sources behind the reminders</summary><ul>{sources.map(source => <li><a href={source.url}>{source.name}</a></li>)}</ul></details>
+      </div>
+    </div>
+  </main>
+</BaseLayout>

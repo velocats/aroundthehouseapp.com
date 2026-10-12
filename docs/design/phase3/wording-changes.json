@@ -1,0 +1,358 @@
+[
+  {
+    "question": 1,
+    "original": {
+      "q": "When did you last change your smoke alarm batteries?",
+      "short": "Smoke alarm batteries",
+      "a": [
+        [
+          "Within the last 3 months",
+          "g"
+        ],
+        [
+          "Within the last year",
+          "g"
+        ],
+        [
+          "No idea",
+          "r"
+        ],
+        [
+          "I took it down when it chirped",
+          "r"
+        ]
+      ],
+      "when": "Once a year. Replace the whole alarm every 10 years.",
+      "why": "Nearly 3 in 5 home fire deaths happen in homes where smoke alarms are missing or not working. Have 10-year sealed alarms? No batteries to change, just watch the date.",
+      "src": "NFPA",
+      "tip": "Pick one date a year, like your birthday, and change them all at once."
+    },
+    "revised": {
+      "id": "smoke",
+      "short": "Smoke alarm care",
+      "question": "When did you last test your smoke alarms?",
+      "choices": [
+        {
+          "text": "Within the last month, including my sealed-battery alarms",
+          "tone": "g"
+        },
+        {
+          "text": "A while ago. They’re due for a test",
+          "tone": "y"
+        },
+        {
+          "text": "No idea",
+          "tone": "r"
+        },
+        {
+          "text": "I took one down when it chirped",
+          "tone": "r"
+        }
+      ],
+      "rule": "Test monthly. Follow the alarm’s instructions for battery care and whole-alarm replacement, generally at 10 years.",
+      "why": "An alarm needs to work when it counts. Sealed-battery models still need testing, but their batteries aren’t replaceable. Replace the whole unit at the end of its service life.",
+      "tip": "Check the date and test each alarm. If one is disconnected or won’t work, restore working protection promptly; ask your local fire department or a qualified installer for help.",
+      "source": {
+        "name": "U.S. Fire Administration: smoke alarms",
+        "url": "https://www.usfa.fema.gov/prevention/home-fires/prepare-for-fire/smoke-alarms/"
+      },
+      "guide": "/resources/how-often-to-test-smoke-alarms/"
+    }
+  },
+  {
+    "question": 2,
+    "original": {
+      "q": "When did you last change your furnace filter?",
+      "short": "Furnace filter",
+      "a": [
+        [
+          "In the last 3 months",
+          "g"
+        ],
+        [
+          "Sometime this year",
+          "y"
+        ],
+        [
+          "Can’t remember",
+          "r"
+        ],
+        [
+          "Totally forgot I needed to do this",
+          "r"
+        ]
+      ],
+      "when": "At least every 90 days. More often if you have pets, heavy use, or a lot of dust.",
+      "why": "A dirty, clogged filter can raise your AC’s energy use by 5% to 15%.",
+      "src": "U.S. Department of Energy",
+      "tip": "Write the filter size down so the next store run takes two minutes."
+    },
+    "revised": {
+      "id": "filter",
+      "short": "Furnace filter",
+      "question": "How are you keeping up with your furnace filter?",
+      "choices": [
+        {
+          "text": "I check it and follow my system’s schedule",
+          "tone": "g"
+        },
+        {
+          "text": "Sometime this year. I should check the instructions",
+          "tone": "y"
+        },
+        {
+          "text": "Can’t remember",
+          "tone": "r"
+        },
+        {
+          "text": "Totally forgot I needed to do this",
+          "tone": "r"
+        }
+      ],
+      "rule": "Check it monthly. Clean or replace it on your filter and system’s schedule, sooner if it is dirty.",
+      "why": "A clogged filter restricts airflow and makes the system work harder. Filter type, dust, pets, and use can all change the schedule.",
+      "tip": "Save the filter size and your equipment’s instructions so the next store run is easier.",
+      "source": {
+        "name": "ENERGY STAR: maintenance checklist",
+        "url": "https://www.energystar.gov/saveathome/heating-cooling/maintenance-checklist"
+      },
+      "guide": "/resources/how-often-to-change-furnace-filter/"
+    }
+  },
+  {
+    "question": 3,
+    "original": {
+      "q": "When was your dryer vent last cleaned out?",
+      "short": "Dryer vent",
+      "a": [
+        [
+          "This year",
+          "g"
+        ],
+        [
+          "A while ago",
+          "y"
+        ],
+        [
+          "Never",
+          "r"
+        ],
+        [
+          "I thought the lint screen was the vent",
+          "r"
+        ]
+      ],
+      "when": "Clean the vent once a year. Clear the lint screen every load.",
+      "why": "Failure to clean is the leading cause of clothes dryer fires.",
+      "src": "U.S. Fire Administration",
+      "tip": "If drying takes longer than it used to, the vent is likely clogged."
+    },
+    "revised": {
+      "id": "dryer",
+      "short": "Dryer vent",
+      "question": "When was your dryer vent last cleaned out?",
+      "choices": [
+        {
+          "text": "This year, and I follow the dryer’s instructions",
+          "tone": "g"
+        },
+        {
+          "text": "A while ago",
+          "tone": "y"
+        },
+        {
+          "text": "Never",
+          "tone": "r"
+        },
+        {
+          "text": "I thought the lint screen was the vent",
+          "tone": "r"
+        }
+      ],
+      "rule": "Clear the lint screen each load. Plan a yearly vent check and cleaning; follow the manual and act sooner if airflow drops.",
+      "why": "Lint buildup matters: failure to clean was the leading ignition factor in reported U.S. home dryer fires in 2018–2020.",
+      "tip": "Longer drying can signal restricted airflow, though there are other causes. Check the instructions and arrange qualified cleaning or service when needed.",
+      "source": {
+        "name": "U.S. Fire Administration: appliance fire safety",
+        "url": "https://www.usfa.fema.gov/prevention/home-fires/prevent-fires/appliance-and-electrical/"
+      },
+      "guide": "/resources/how-to-clean-dryer-vent/"
+    }
+  },
+  {
+    "question": 4,
+    "original": {
+      "q": "Have you ever cleaned your dishwasher filter?",
+      "short": "Dishwasher filter",
+      "a": [
+        [
+          "In the last month or two",
+          "g"
+        ],
+        [
+          "Once, maybe",
+          "y"
+        ],
+        [
+          "Never",
+          "r"
+        ],
+        [
+          "Wait, there’s a filter?",
+          "r"
+        ]
+      ],
+      "when": "Every month or two. More often if you skip rinsing.",
+      "why": "Spoiler: it’s probably gross. A clogged filter is a common reason “clean” dishes come out gritty or smelly.",
+      "src": "",
+      "tip": "Twist it out from the bottom of the dishwasher and rinse it in warm, soapy water."
+    },
+    "revised": {
+      "id": "dishwasher",
+      "short": "Dishwasher filter",
+      "question": "How are you keeping up with your dishwasher filter?",
+      "choices": [
+        {
+          "text": "I follow the manual, including if mine is self-cleaning",
+          "tone": "g"
+        },
+        {
+          "text": "Once, maybe. I should check its schedule",
+          "tone": "y"
+        },
+        {
+          "text": "Never checked the instructions",
+          "tone": "r"
+        },
+        {
+          "text": "Wait, there’s a filter?",
+          "tone": "r"
+        }
+      ],
+      "rule": "Check your manual. If yours has a removable filter, clean it on its schedule and reinstall it correctly.",
+      "why": "Spoiler: a neglected removable filter can get gross. Trapped food can leave dishes gritty or smelly. Some models clean their filters differently.",
+      "tip": "Find the model’s cleaning instructions before removing anything. There’s no one-size-fits-all twist-and-rinse routine.",
+      "source": {
+        "name": "Whirlpool: dishwasher filter care",
+        "url": "https://producthelp.whirlpool.com/Dishwashers/Product_Info/Dishwasher_Cleaning_and_Care/How_to_Clean_the_Dishwasher_Filters"
+      },
+      "guide": "/resources/"
+    }
+  },
+  {
+    "question": 5,
+    "original": {
+      "q": "How old is your water heater?",
+      "short": "Water heater age",
+      "a": [
+        [
+          "I know exactly",
+          "g"
+        ],
+        [
+          "Roughly",
+          "y"
+        ],
+        [
+          "No idea",
+          "r"
+        ],
+        [
+          "It came with the house.",
+          "r"
+        ]
+      ],
+      "when": "Know its age. Most last 10 to 15 years.",
+      "why": "Knowing the age lets you replace it on your schedule, not after a leak floods the basement.",
+      "src": "U.S. Department of Energy",
+      "tip": "Check the label on the tank for the date, then save it somewhere you’ll find it."
+    },
+    "revised": {
+      "id": "heater",
+      "short": "Water heater age",
+      "question": "How old is your water heater?",
+      "choices": [
+        {
+          "text": "I know exactly",
+          "tone": "g"
+        },
+        {
+          "text": "Roughly",
+          "tone": "y"
+        },
+        {
+          "text": "No idea",
+          "tone": "r"
+        },
+        {
+          "text": "It came with the house.",
+          "tone": "r"
+        }
+      ],
+      "rule": "Know its age and type. Storage heaters often last 10 to 15 years; tankless can last over 20. Age isn’t a replacement deadline.",
+      "why": "Knowing its age helps you plan, without predicting a leak. Service life depends on the model, water conditions, care, and use.",
+      "tip": "Save the installation record or verify the manufacture date with the maker using the label and serial number. Those dates may differ.",
+      "source": {
+        "name": "U.S. Department of Energy: Energy Saver guide, water heating",
+        "url": "https://www.energy.gov/sites/default/files/2022-08/energy-saver-guide-2022.pdf#page=23"
+      },
+      "guide": "/resources/water-heater-maintenance-checklist/"
+    }
+  },
+  {
+    "question": 6,
+    "original": {
+      "q": "Could you find the last pro who fixed something in your house?",
+      "short": "Your last pro",
+      "a": [
+        [
+          "Yes, in under a minute",
+          "g"
+        ],
+        [
+          "With some digging",
+          "y"
+        ],
+        [
+          "No idea",
+          "r"
+        ],
+        [
+          "I just Google a new one every time",
+          "r"
+        ]
+      ],
+      "when": "Save the invoice, name, and number the day of the job.",
+      "why": "33% of homeowners say finding a reliable contractor is stressful. The good one is easy to lose.",
+      "src": "HomeServe 2025",
+      "tip": "Snap the invoice before it disappears into a drawer."
+    },
+    "revised": {
+      "id": "contractor",
+      "short": "Your last pro",
+      "question": "Could you find the last pro who fixed something in your house?",
+      "choices": [
+        {
+          "text": "Yes, in under a minute",
+          "tone": "g"
+        },
+        {
+          "text": "With some digging",
+          "tone": "y"
+        },
+        {
+          "text": "No idea",
+          "tone": "r"
+        },
+        {
+          "text": "I just Google a new one every time",
+          "tone": "r"
+        }
+      ],
+      "rule": "Save the invoice, name, and number the day of the job.",
+      "why": "A good contractor is worth remembering. The good one is easy to lose when the invoice disappears into a drawer.",
+      "tip": "Snap the invoice before it disappears into a drawer.",
+      "guide": "/home-contractor-records/"
+    }
+  }
+]

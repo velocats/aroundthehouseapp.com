@@ -1,12 +1,6 @@
 export const siteUrl = 'https://aroundthehouseapp.com/';
 export const appStoreUrl = 'https://apps.apple.com/us/app/around-the-house-binder/id6789646793';
 export const supportEmail = 'support@quiettoolsapps.com';
-// US App Store prices checked October 10, 2026. The listing controls local pricing.
-export const pricing = [
-  { name: 'Monthly Pro', amount: '0.99', cadence: 'per month', description: 'Keep adding to your home record with a monthly subscription.' },
-  { name: 'Lifetime Pro', amount: '14.99', cadence: 'one-time purchase', description: 'Unlock Pro with one purchase, for the lifetime of the app.' }
-];
-
 export const publisherName = 'Quiet Tools Support Team';
 export const publisherLocation = 'Colorado, United States';
 
@@ -66,7 +60,7 @@ export const landingPages: PageRef[] = [
   {
     path: '/home-maintenance-reminders/',
     label: 'Maintenance reminders',
-    blurb: 'One-time, weekly, and monthly reminders free; Pro adds advanced schedules, connected to item history.',
+    blurb: 'Recurring reminders connected to item history.',
     changefreq: 'monthly',
     priority: 0.8,
     lastmod: '2026-10-10'
@@ -82,7 +76,7 @@ export const landingPages: PageRef[] = [
   {
     path: '/home-inventory-app/',
     label: 'Home inventory',
-    blurb: 'Record belongings, photos, values, and identifying details; organize insurance evidence and prepare a Pro PDF summary.',
+    blurb: 'Record belongings, photos, values, and identifying details; organize insurance evidence and prepare a PDF summary.',
     changefreq: 'monthly',
     priority: 0.8,
     lastmod: '2026-10-10'
@@ -90,7 +84,7 @@ export const landingPages: PageRef[] = [
   {
     path: '/home-warranty-tracker/',
     label: 'Home warranty tracker',
-    blurb: 'Track entered expiration dates; Pro adds warranty documents and warranty-countdown PDF reports.',
+    blurb: 'Track entered expiration dates, save warranty documents, and prepare warranty-countdown PDF reports.',
     changefreq: 'monthly',
     priority: 0.8,
     lastmod: '2026-10-10'
@@ -98,7 +92,7 @@ export const landingPages: PageRef[] = [
   {
     path: '/appliance-maintenance-records/',
     label: 'Appliance maintenance records',
-    blurb: 'Keep appliance details, filter sizes, repair history, and reminders together. Start with five home items free.',
+    blurb: 'Keep appliance details, filter sizes, repair history, and reminders together. For iPhone, iPad, and Mac.',
     changefreq: 'monthly',
     priority: 0.8,
     lastmod: '2026-10-10'
@@ -114,7 +108,7 @@ export const landingPages: PageRef[] = [
   {
     path: '/home-handoff-report/',
     label: 'Home handoff report',
-    blurb: 'Pro creates a Home Handoff PDF summary of items, repairs, warranties, and upcoming maintenance.',
+    blurb: 'The app creates a Home Handoff PDF summary of items, repairs, warranties, and upcoming maintenance.',
     changefreq: 'monthly',
     priority: 0.8,
     lastmod: '2026-10-10'
@@ -328,10 +322,11 @@ export const articles: Article[] = [
 
 /** Pages that existed before the SEO build-out. */
 export const corePages: PageRef[] = [
+  { path: "/home-health-check/", label: "Home Health Check", blurb: "Six quick questions and practical home maintenance reminders. No account or email.", changefreq: "monthly", priority: 0.8, lastmod: "2026-10-11" },
   { path: '/', label: 'Home', blurb: '', changefreq: 'weekly', priority: 1.0, lastmod: '2026-08-18' },
   { path: '/annual-home-maintenance-checklist/', label: 'Annual home maintenance checklist', blurb: 'An interactive, printable checklist for recurring monthly and seasonal home care.', changefreq: 'monthly', priority: 0.9, lastmod: '2026-09-09' },
   { path: '/screenshots/', label: 'Screenshots', blurb: '', changefreq: 'monthly', priority: 0.8, lastmod: '2026-07-19' },
-  { path: '/pricing/', label: 'Pricing', blurb: 'Monthly and lifetime purchase options for Around The House.', changefreq: 'monthly', priority: 0.8, lastmod: '2026-08-18' },
+  { path: '/pricing/', label: 'Pricing', blurb: 'Find Around The House on the App Store and review current purchase options.', changefreq: 'monthly', priority: 0.8, lastmod: '2026-08-18' },
   { path: '/resources/', label: 'Resources', blurb: '', changefreq: 'monthly', priority: 0.8, lastmod: '2026-08-18' },
   { path: '/support/', label: 'Support', blurb: '', changefreq: 'monthly', priority: 0.6, lastmod: '2026-07-18' },
   { path: '/about/', label: 'About the Quiet Tools Support Team', blurb: 'Meet the Colorado-based team behind Around The House and its homeowner resources.', changefreq: 'yearly', priority: 0.6, lastmod: '2026-09-09' },

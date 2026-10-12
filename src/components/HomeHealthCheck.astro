@@ -1,0 +1,18 @@
+---
+import { questions } from '../data/homeHealthCheck';
+---
+<div class="hhc-widget" data-health-check>
+  <div data-quiz-stage hidden></div>
+  <p class="hhc-sr" data-quiz-status role="status" aria-live="polite" aria-atomic="true"></p>
+  <noscript>
+    <section class="hhc-card hhc-nojs" aria-labelledby="hhc-nojs-title">
+      <h2 id="hhc-nojs-title">A little less to remember.</h2>
+      <p>The interactive score needs JavaScript. The practical guidance is here either way, with no account or email required.</p>
+      <ul class="hhc-list">{questions.map(question => <li><div><h3>{question.short}</h3><p>{question.rule}</p><a href={question.guide}>Read the guide →</a></div></li>)}</ul>
+      <a class="hhc-btn" href="/annual-home-maintenance-checklist/">Get the free annual checklist</a>
+    </section>
+  </noscript>
+</div>
+<script>
+  import '../scripts/home-health-check';
+</script>

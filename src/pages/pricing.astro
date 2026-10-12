@@ -1,20 +1,23 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import AppStoreLink from '../components/AppStoreLink.astro';
-import { siteUrl, pricing } from '../data/site';
-const proFeatures = ['Unlimited owned home items', 'Document attachments: manuals, receipts, and warranties', 'Quarterly, six-month, yearly, and custom reminders', 'Supported PDF reports, including warranty countdowns and Home Handoff', 'CSV exports for items, history, and reminders', 'Full backup and restore', 'Printable QR label sheets'];
+import { siteUrl } from '../data/site';
 const pricingSchema = {
   '@type': 'WebPage', '@id': `${siteUrl}pricing/#pricing`, about: { '@id': `${siteUrl}#app` }
 };
 ---
-<BaseLayout title="Around The House Pricing | Free, Monthly & Lifetime Pro" description="Start your home record with five items free. Pro adds unlimited items, document attachments, and PDF exports for $0.99 monthly or $14.99 lifetime in the US App Store." canonicalPath="/pricing/" page="pricing" structuredData={pricingSchema}>
+<BaseLayout title="Around The House Pricing & Download" description="Download Around The House for iPhone, iPad, and Mac. Review current pricing, purchase options, and feature availability on the App Store and in the app." canonicalPath="/pricing/" page="pricing" structuredData={pricingSchema}>
   <main id="main-content" tabindex="-1">
-    <section class="pricing-hero"><div class="container pricing-hero-grid"><div><p class="kicker">Free to start</p><h1>Start small.<br />Keep adding.</h1></div><div><p>Your first five items are free. Save a paint color, an appliance label, or the details of a recent repair and build from there.</p><AppStoreLink /></div></div></section>
+    <section class="pricing-hero"><div class="container pricing-hero-grid"><div><p class="kicker">Around The House</p><h1>Start small.<br />Keep adding.</h1></div><div><p>Save a paint color, an appliance label, or the details of a recent repair and build from there. Around The House is available for iPhone, iPad, and Mac.</p><AppStoreLink /></div></div></section>
     <section class="pricing-page-section"><div class="container">
-      <div class="free-plan"><div><p class="kicker">Free</p><h2>Start with up to five home items free.</h2></div><div><p>Begin your own home record or explore a preloaded example home. No separate Around The House account to create.</p><ul class="plan-features"><li>Up to five owned items across the app</li><li>Core item details, photos, and repair history</li><li>One-time, weekly, and monthly reminders</li><li>Home organization, search, and service-provider records</li><li>Core offline use and private iCloud sync across your own devices</li></ul><p class="microcopy">Example-home items don’t use your allowance. Projects count as home items.</p></div></div>
-      <div class="pricing pricing-page-cards">{pricing.map(plan => <article class="price-card"><h2>{plan.name}</h2><div class="price"><strong>${plan.amount}</strong><span>{plan.cadence}</span></div><p>{plan.description}</p><ul class="plan-features">{proFeatures.map(feature => <li>{feature}</li>)}</ul><AppStoreLink /><p class="microcopy">Upgrade to Pro in the app when you need more.</p></article>)}</div>
-      <p class="pricing-note">Both Pro options unlock the same features. Monthly Pro renews until canceled; lifetime Pro is a one-time purchase for the lifetime of the app. Unlimited items does not mean unlimited file or iCloud storage. US App Store prices checked October 10, 2026. Prices and available offers vary by region; review the purchase screen in the app for current terms.</p>
+      <div class="free-plan"><div><p class="kicker">Pricing &amp; availability</p><h2>Review the current options.</h2></div><div><p>The App Store listing and the purchase screen in Around The House show current prices, available features, and purchase terms for your region. Review those details before choosing a purchase.</p><p>You can also <a href="/screenshots/">see the app screens</a> or <a href="/home-health-check/">take the free Home Health Check</a> here, without an account.</p></div></div>
     </div></section>
     <section class="pricing-details"><div class="container pricing-detail-grid"><div><p class="kicker">A record of your home</p><h2>All the details.<br />One place to look.</h2><a class="light-button" href="/home-records-app/">Explore what you can save</a></div><ul><li>Paint colors, finishes, and photos</li><li>Appliances, filter sizes, and installation dates</li><li>Repair history and trusted service providers</li><li>Projects and home improvements</li><li>Maintenance schedules and reminders</li><li>Private iCloud sync across your Apple devices</li></ul></div></section>
   </main>
 </BaseLayout>
+
+<style>
+  .pricing-page-section { padding-block:40px; }
+  .free-plan { padding-bottom:0; }
+  .free-plan p + p { margin-top:18px; }
+</style>

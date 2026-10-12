@@ -1,0 +1,587 @@
+{
+  "axeVersion": "4.14.0",
+  "audits": [
+    {
+      "name": "/about/",
+      "violations": [],
+      "incomplete": []
+    },
+    {
+      "name": "/annual-home-maintenance-checklist/",
+      "violations": [],
+      "incomplete": []
+    },
+    {
+      "name": "/appliance-maintenance-records/",
+      "violations": [],
+      "incomplete": []
+    },
+    {
+      "name": "/digital-home-binder/",
+      "violations": [],
+      "incomplete": []
+    },
+    {
+      "name": "/editorial-standards/",
+      "violations": [],
+      "incomplete": []
+    },
+    {
+      "name": "/home-contractor-records/",
+      "violations": [],
+      "incomplete": []
+    },
+    {
+      "name": "/home-document-organizer/",
+      "violations": [],
+      "incomplete": []
+    },
+    {
+      "name": "/home-handoff-report/",
+      "violations": [],
+      "incomplete": []
+    },
+    {
+      "name": "/home-health-check/",
+      "violations": [],
+      "incomplete": []
+    },
+    {
+      "name": "/home-inventory-app/",
+      "violations": [],
+      "incomplete": []
+    },
+    {
+      "name": "/home-maintenance-app/",
+      "violations": [],
+      "incomplete": []
+    },
+    {
+      "name": "/home-maintenance-calendar/",
+      "violations": [],
+      "incomplete": []
+    },
+    {
+      "name": "/home-maintenance-records/",
+      "violations": [],
+      "incomplete": []
+    },
+    {
+      "name": "/home-maintenance-reminders/",
+      "violations": [],
+      "incomplete": []
+    },
+    {
+      "name": "/home-maintenance-tracker/",
+      "violations": [],
+      "incomplete": []
+    },
+    {
+      "name": "/home-records-app/",
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "targets": [
+            [
+              "th[scope=\"col\"]:nth-child(2)"
+            ],
+            [
+              "tr:nth-child(1) > td"
+            ],
+            [
+              "tr:nth-child(2) > td"
+            ],
+            [
+              "tr:nth-child(3) > td"
+            ],
+            [
+              "tr:nth-child(4) > td"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "name": "/home-repair-cost-tracker/",
+      "violations": [],
+      "incomplete": []
+    },
+    {
+      "name": "/home-warranty-tracker/",
+      "violations": [],
+      "incomplete": []
+    },
+    {
+      "name": "/homezada-alternative/",
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "targets": [
+            [
+              "th[scope=\"col\"]:nth-child(3)"
+            ],
+            [
+              "tr:nth-child(1) > td:nth-child(2)"
+            ],
+            [
+              "tr:nth-child(1) > td:nth-child(3)"
+            ],
+            [
+              "tr:nth-child(2) > td:nth-child(2)"
+            ],
+            [
+              "tr:nth-child(2) > td:nth-child(3)"
+            ],
+            [
+              "tr:nth-child(3) > td:nth-child(3)"
+            ],
+            [
+              "tr:nth-child(4) > td:nth-child(2)"
+            ],
+            [
+              "tr:nth-child(4) > td:nth-child(3)"
+            ],
+            [
+              "tr:nth-child(5) > td:nth-child(2)"
+            ],
+            [
+              "tr:nth-child(5) > td:nth-child(3)"
+            ],
+            [
+              "tr:nth-child(6) > td:nth-child(2)"
+            ],
+            [
+              "tr:nth-child(6) > td:nth-child(3)"
+            ],
+            [
+              "tr:nth-child(7) > td:nth-child(2)"
+            ],
+            [
+              "tr:nth-child(7) > td:nth-child(3)"
+            ],
+            [
+              "tr:nth-child(8) > td:nth-child(2)"
+            ],
+            [
+              "tr:nth-child(8) > td:nth-child(3)"
+            ],
+            [
+              "tr:nth-child(9) > td:nth-child(2)"
+            ],
+            [
+              "tr:nth-child(9) > td:nth-child(3)"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "name": "/household-management-app/",
+      "violations": [],
+      "incomplete": []
+    },
+    {
+      "name": "/",
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "targets": [
+            [
+              ".story-quiz-link > span[aria-hidden=\"true\"]"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "name": "/new-homeowner-app/",
+      "violations": [],
+      "incomplete": []
+    },
+    {
+      "name": "/paint-color-tracker/",
+      "violations": [],
+      "incomplete": []
+    },
+    {
+      "name": "/pricing/",
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "targets": [
+            [
+              ".pricing-hero-grid > div:nth-child(1) > .kicker"
+            ],
+            [
+              "h1"
+            ],
+            [
+              ".pricing-hero-grid > div:nth-child(2) > p"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "name": "/privacy/",
+      "violations": [],
+      "incomplete": []
+    },
+    {
+      "name": "/private-home-maintenance-app/",
+      "violations": [],
+      "incomplete": []
+    },
+    {
+      "name": "/resources/annual-hvac-maintenance-checklist/",
+      "violations": [],
+      "incomplete": []
+    },
+    {
+      "name": "/resources/home-maintenance-records-to-keep/",
+      "violations": [],
+      "incomplete": []
+    },
+    {
+      "name": "/resources/how-often-to-change-furnace-filter/",
+      "violations": [],
+      "incomplete": []
+    },
+    {
+      "name": "/resources/how-often-to-test-smoke-alarms/",
+      "violations": [],
+      "incomplete": []
+    },
+    {
+      "name": "/resources/how-to-change-carbon-monoxide-detector-battery/",
+      "violations": [],
+      "incomplete": []
+    },
+    {
+      "name": "/resources/how-to-clean-bathroom-exhaust-fan/",
+      "violations": [],
+      "incomplete": []
+    },
+    {
+      "name": "/resources/how-to-clean-dryer-vent/",
+      "violations": [],
+      "incomplete": []
+    },
+    {
+      "name": "/resources/how-to-clean-gutters-safely/",
+      "violations": [],
+      "incomplete": []
+    },
+    {
+      "name": "/resources/how-to-clean-refrigerator-coils/",
+      "violations": [],
+      "incomplete": []
+    },
+    {
+      "name": "/resources/how-to-create-a-digital-home-binder/",
+      "violations": [],
+      "incomplete": []
+    },
+    {
+      "name": "/resources/how-to-keep-track-of-home-maintenance/",
+      "violations": [],
+      "incomplete": []
+    },
+    {
+      "name": "/resources/how-to-test-sump-pump/",
+      "violations": [],
+      "incomplete": []
+    },
+    {
+      "name": "/resources/",
+      "violations": [],
+      "incomplete": []
+    },
+    {
+      "name": "/resources/seasonal-home-maintenance-checklist/",
+      "violations": [],
+      "incomplete": []
+    },
+    {
+      "name": "/resources/water-heater-maintenance-checklist/",
+      "violations": [],
+      "incomplete": []
+    },
+    {
+      "name": "/screenshots/",
+      "violations": [],
+      "incomplete": []
+    },
+    {
+      "name": "/support/",
+      "violations": [],
+      "incomplete": []
+    },
+    {
+      "name": "/terms/",
+      "violations": [],
+      "incomplete": []
+    },
+    {
+      "name": "home scene 1",
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "targets": [
+            [
+              ".story-quiz-link > span[aria-hidden=\"true\"]"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "name": "home scene 2",
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "targets": [
+            [
+              ".story-quiz-link > span[aria-hidden=\"true\"]"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "name": "home scene 3",
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "targets": [
+            [
+              ".story-quiz-link > span[aria-hidden=\"true\"]"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "name": "quiz feedback 1",
+      "violations": [],
+      "incomplete": []
+    },
+    {
+      "name": "quiz feedback 2",
+      "violations": [],
+      "incomplete": []
+    },
+    {
+      "name": "quiz feedback 3",
+      "violations": [],
+      "incomplete": []
+    },
+    {
+      "name": "quiz feedback 4",
+      "violations": [],
+      "incomplete": []
+    },
+    {
+      "name": "quiz feedback 5",
+      "violations": [],
+      "incomplete": []
+    },
+    {
+      "name": "quiz feedback 6",
+      "violations": [],
+      "incomplete": []
+    },
+    {
+      "name": "mixed results light",
+      "violations": [],
+      "incomplete": []
+    },
+    {
+      "name": "200% zoom-equivalent reflow /",
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "targets": [
+            [
+              ".story-quiz-link > span[aria-hidden=\"true\"]"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "name": "200% zoom-equivalent reflow /home-health-check/",
+      "violations": [],
+      "incomplete": []
+    },
+    {
+      "name": "200% zoom-equivalent reflow /pricing/",
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "targets": [
+            [
+              ".pricing-hero-grid > div:nth-child(1) > .kicker"
+            ],
+            [
+              "h1"
+            ],
+            [
+              ".pricing-hero-grid > div:nth-child(2) > p"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "name": "400% zoom-equivalent reflow /",
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "targets": [
+            [
+              ".story-quiz-link > span[aria-hidden=\"true\"]"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "name": "400% zoom-equivalent reflow /home-health-check/",
+      "violations": [],
+      "incomplete": []
+    },
+    {
+      "name": "400% zoom-equivalent reflow /pricing/",
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "targets": [
+            [
+              ".pricing-hero-grid > div:nth-child(1) > .kicker"
+            ],
+            [
+              "h1"
+            ],
+            [
+              ".pricing-hero-grid > div:nth-child(2) > p"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "name": "desktop contrast /home-records-app/",
+      "violations": [],
+      "incomplete": []
+    },
+    {
+      "name": "desktop contrast /homezada-alternative/",
+      "violations": [],
+      "incomplete": []
+    },
+    {
+      "name": "desktop contrast /pricing/",
+      "violations": [],
+      "incomplete": [
+        {
+          "id": "color-contrast",
+          "targets": [
+            [
+              ".pricing-hero-grid > div:nth-child(1) > .kicker"
+            ],
+            [
+              "h1"
+            ],
+            [
+              ".pricing-hero-grid > div:nth-child(2) > p"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "name": "mixed results dark",
+      "violations": [],
+      "incomplete": []
+    }
+  ],
+  "manualContrast": [
+    {
+      "text": "Around The House",
+      "background": [
+        250,
+        247,
+        240
+      ],
+      "ratio": 8.725720570584018
+    },
+    {
+      "text": "Around The House",
+      "background": [
+        237,
+        232,
+        220
+      ],
+      "ratio": 7.636371558178498
+    },
+    {
+      "text": "Start small.Keep adding.",
+      "background": [
+        250,
+        247,
+        240
+      ],
+      "ratio": 11.939082243440641
+    },
+    {
+      "text": "Start small.Keep adding.",
+      "background": [
+        237,
+        232,
+        220
+      ],
+      "ratio": 10.448566091139668
+    },
+    {
+      "text": "Save a paint color, an appliance label, or the details of a recent repair and build from there. Around The House is available for iPhone, iPad, and Mac.",
+      "background": [
+        250,
+        247,
+        240
+      ],
+      "ratio": 5.891467324896285
+    },
+    {
+      "text": "Save a paint color, an appliance label, or the details of a recent repair and build from there. Around The House is available for iPhone, iPad, and Mac.",
+      "background": [
+        237,
+        232,
+        220
+      ],
+      "ratio": 5.155956250472134
+    }
+  ],
+  "interactions": [
+    "comparison region keyboard scroll",
+    "all routes: headings, visible purchase copy, axe; all carousel scenes",
+    "keyboard six questions, live feedback, visible focus and results focus",
+    "checklist navigation; returning reload resets quiz as disclosed",
+    "live orientation/resizing preserves score and avoids overflow",
+    "200/400% zoom-equivalent reflow at 640/320 CSS px; native browser zoom and OS text settings not tested",
+    "pricing gradient endpoint contrast; complete desktop comparison contrast",
+    "local fonts loaded; dark results axe"
+  ],
+  "errors": []
+}

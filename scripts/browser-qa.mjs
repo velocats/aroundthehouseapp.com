@@ -27,13 +27,13 @@ try {
    // Scroll normally so the browser requests every lazy-loaded screenshot.
    await page.evaluate(async()=>{
     for(let y=0;y<document.documentElement.scrollHeight;y+=700){window.scrollTo(0,y);await new Promise(resolve=>setTimeout(resolve,25));}
-    await Promise.all([...document.images].map(img=>img.decode().catch(()=>{})));
+    await Promise.all([...document.images].filter(img=>img.complete&&img.naturalWidth>0).map(img=>img.decode().catch(()=>{})));
     window.scrollTo(0,0);
    });
    const issues=await page.evaluate(()=>{
     const issues=[];
     if(document.documentElement.scrollWidth>innerWidth+1)issues.push('horizontal page overflow');
-    for(const img of document.images){if(!img.complete||!img.naturalWidth)issues.push(`image did not load: ${img.getAttribute('src')}`);}
+    for(const img of document.images){if(!img.closest('details:not([open])')&&img.getBoundingClientRect().height>0&&getComputedStyle(img).visibility!=='hidden'&&(!img.complete||!img.naturalWidth))issues.push(`image did not load: ${img.getAttribute('src')}`);}
     for(const el of document.querySelectorAll('a,button,summary')){
      if(!el.textContent.trim()&&!el.getAttribute('aria-label')&&!el.querySelector('img[alt]'))issues.push('interactive element without accessible name');
     }
@@ -54,21 +54,22 @@ try {
     if(bounds&&brand&&brand.x+brand.width>bounds.x)errors.push(`${label}: brand overlaps download`);
     if(!bounds||bounds.width<44||bounds.height<44||bounds.x<0||bounds.x+bounds.width>width)errors.push(`${label}: header download target does not fit`);
     if(await action.locator('img').getAttribute('alt')!=='Download on the App Store')errors.push(`${label}: wrong visible header CTA`);
-    if(!await page.locator('.hero-actions .store-link').isVisible())errors.push(`${label}: hero download missing`);
-    if(await page.locator('.hero-actions .text-action').getAttribute('href')!=='#how-it-works')errors.push(`${label}: secondary CTA destination`);
+    if(!await page.locator('.story-download .store-link').isVisible())errors.push(`${label}: hero download missing`);
+    if(!await page.locator('#how-it-works').count())errors.push(`${label}: how-it-works destination missing`);
     for(const el of await page.locator('.store-link').all()) {
      if(await el.getAttribute('href')!=='https://apps.apple.com/us/app/around-the-house-binder/id6789646793')errors.push(`${label}: download destination changed`);
     }
-    if(await page.locator('.question-list li').count()!==4)errors.push(`${label}: homeowner questions incomplete`);
+    if(await page.locator('[data-story-slide]').count()!==3)errors.push(`${label}: homeowner scenes incomplete`);
+    if(await page.locator('.story-quiz-link').getAttribute('href')!=='/home-health-check/')errors.push(`${label}: quiz teaser destination changed`);
     if(screenshots.has(route)&&label!=='narrow') {
      await page.locator('.site-header').screenshot({path:new URL(`header-${label}.png`,output).pathname});
-     await page.locator('.home-hero').screenshot({path:new URL(`hero-${label}.png`,output).pathname});
-     await page.locator('.demo-section').screenshot({path:new URL(`demo-${label}.png`,output).pathname});
+     await page.locator('.story-hero').screenshot({style:'.skip-link:not(:focus) { visibility:hidden; }',path:new URL(`hero-${label}.png`,output).pathname});
+     await page.locator('.story-quiz').screenshot({path:new URL(`quiz-teaser-${label}.png`,output).pathname});
     }
    }
    if(screenshots.has(route)&&label!=='narrow'){
     const name=route==='/'?'home':route.split('/').filter(Boolean).at(-1);
-    await page.screenshot({path:new URL(`${name}-${label}.png`,output).pathname,fullPage:true});
+    await page.screenshot({style:'.skip-link:not(:focus){visibility:hidden}',path:new URL(`${name}-${label}.png`,output).pathname,fullPage:true});
    }
    checks++;
   }
@@ -103,14 +104,17 @@ try {
  await page.goto(origin+'/support/?sent=1');
  if(!await page.locator('#formSuccess').isVisible())errors.push('Support success state failed');
  await page.goto(origin+'/');
- await page.locator('.faq-list summary').first().click();
- if(!await page.locator('.faq-list details').first().getAttribute('open').then(value=>value!==null))errors.push('FAQ disclosure failed');
+ await page.locator('[data-story-select="1"]').click();
+ await page.waitForFunction(()=>document.querySelector('[data-story-select="1"]').getAttribute('aria-pressed')==='true');
+ if(await page.locator('[data-story-select="1"]').getAttribute('aria-pressed')!=='true')errors.push('Manual story selection failed');
+ await page.locator('[data-story-screen]:not([hidden]) summary').click();
+ if(!await page.locator('[data-story-screen]:not([hidden])').getAttribute('open').then(value=>value!==null))errors.push('Genuine screenshot disclosure failed');
  await page.goto(origin+'/home-inventory-app/?utm_source=instagram&utm_medium=paid_social&utm_campaign=insurance_2026q4#insurance-records');
  if(!await page.locator('#insurance-records').isVisible())errors.push('Insurance campaign anchor missing');
  if(await page.locator('link[rel="canonical"]').getAttribute('href')!=='https://aroundthehouseapp.com/home-inventory-app/')errors.push('Campaign query changes canonical');
  await page.close();
 } finally {await browser.close();}
-const report={date:'2026-10-11',checks,viewports:sizes.map(([label,width,height])=>({label,width,height})),routes:routes.length,errors,interactions:['visible mobile and desktop download targets','hero and secondary CTA destinations','four homeowner questions','insurance campaign anchor and canonical','keyboard skip link','mobile anchor menu','Escape menu close','checklist persistence, progress, reset, print, CSV','support required fields and success state (no submission)','FAQ disclosure']};
+const report={date:'2026-10-11',checks,viewports:sizes.map(([label,width,height])=>({label,width,height})),routes:routes.length,errors,interactions:['visible mobile and desktop download targets','hero download and quiz destination','three homeowner scenes','insurance campaign anchor and canonical','keyboard skip link','mobile anchor menu','Escape menu close','checklist persistence, progress, reset, print, CSV','support required fields and success state (no submission)','manual carousel selection','genuine screenshot disclosure']};
 await writeFile(new URL(process.env.QA_REPORT || 'browser-qa.json',output),JSON.stringify(report,null,2)+'\n');
 console.log(JSON.stringify(report,null,2));
 if(errors.length)process.exit(1);
