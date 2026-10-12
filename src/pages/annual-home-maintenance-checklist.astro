@@ -95,7 +95,7 @@ const related = [page('/home-maintenance-calendar/'), page('/home-maintenance-re
         </div>
         <div class="checklist-actions">
           <button class="button secondary" type="button" id="print-checklist">Print</button>
-          <a class="button secondary" href="/downloads/annual-home-maintenance-checklist.csv" download>Download CSV</a>
+          <a class="button secondary" id="download-checklist" href="/downloads/annual-home-maintenance-checklist.csv" download>Download CSV</a>
           <button class="quiet-button" type="button" id="reset-checklist">Clear checkmarks</button>
         </div>
       </div>
@@ -139,6 +139,8 @@ const related = [page('/home-maintenance-calendar/'), page('/home-maintenance-re
   </main>
 
   <script>
+    import '../scripts/checklist-download-alert.js';
+
     const form = document.querySelector('#maintenance-checklist');
     const boxes = [...form.querySelectorAll('input[type="checkbox"]')];
     const progressLabel = document.querySelector('#progress-label');
