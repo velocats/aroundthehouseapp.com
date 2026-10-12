@@ -1,6 +1,6 @@
 # Accessibility audit and remediation
 
-Audit date: October 12, 2026. Branch: `accessibility-remediation`.
+Audit date: October 12, 2026.
 
 This records what was reviewed, what was found, what was changed, and what still needs a person to check. It is not a certification and makes no legal compliance claim. Passing automated checks does not prove WCAG conformance.
 
@@ -54,7 +54,7 @@ The site was already in good shape: a skip link, one `h1` per page, landmarks, l
 - `src/pages/accessibility.astro`: the statement (18).
 - `scripts/accessibility-test.mjs`, `package.json`: the regression suite and `npm run test:a11y`.
 
-Not changed: URLs, metadata, structured data, pricing, copy other than the quiz tally, screenshots, scoring logic, the App Store destinations, and the deploy workflow. No overlay, analytics, or third-party script was added.
+Not changed: URLs, metadata, structured data, pricing, copy other than the quiz tally, screenshots, scoring logic, and the App Store destinations. The deploy workflow gained one step that runs the accessibility suite. No overlay, analytics, or third-party script was added.
 
 The statement names “Quiet Tools LLC” because the project brief did. The rest of the site says “Quiet Tools”. Confirm the legal name before publishing.
 
@@ -140,4 +140,4 @@ npm run test:a11y
 - Give new dark sections a light focus ring by adding them to the selector list in the Accessibility section of `global.css`.
 - Repeat the manual checklist after any change to the header, quiz, forms, or hero, and at least twice a year.
 - Review the statement's date and content when the site changes materially.
-- Consider adding `npm run test:a11y` to `.github/workflows/deploy.yml` so a failing check blocks publication. GitHub's Ubuntu runners include Chrome. This was left out so the deploy pipeline is not changed without a decision.
+- `.github/workflows/deploy.yml` runs `npm run test:a11y` after the build, using the Chrome preinstalled on GitHub's Ubuntu runners. A failing check blocks publication.

@@ -96,7 +96,7 @@ See [docs/PROJECT.md](docs/PROJECT.md) for architecture and operating notes and 
 
 ## Deployment
 
-Pushes to `main` trigger `.github/workflows/deploy.yml`. The workflow installs dependencies on Node 20, builds and validates the site, uploads `dist/`, and deploys it to GitHub Pages.
+Pushes to `main` trigger `.github/workflows/deploy.yml`. The workflow installs dependencies on Node 20, builds and validates the site, runs the accessibility regression tests, uploads `dist/`, and deploys it to GitHub Pages.
 
 Both `CNAME` and `public/CNAME` identify `aroundthehouseapp.com`; `public/CNAME` is copied into the build output.
 
