@@ -4,7 +4,7 @@ Reviewed October 11, 2026 on `codex/website-marketing-redesign`. No deployment, 
 
 ## Release decision
 
-**Implementation is ready for release review, with publication conditional on confirming the supplied photographs’ usage rights.** No known code blocker remains in the tested Chromium environment. The approved source photography still limits resolution and hardware matching. Safari, physical Apple devices, native browser zoom, OS text-size settings, and VoiceOver/NVDA were not tested; this report does not certify those environments or complete accessibility compliance.
+**Photo-rights clearance recorded:** the project owner explicitly confirmed on October 11, 2026 that all three supplied marketing photographs are approved for use on the Around the House website. The photography-permission blocker is cleared. Remaining browser and assistive-technology release checks are recorded below. No known code blocker remains in the tested Chromium environment. The approved source photography still limits resolution and hardware matching. Safari, physical Apple devices, native browser zoom, OS text-size settings, and VoiceOver/NVDA were not tested; this report does not certify those environments or complete accessibility compliance.
 
 Current purchase products and entitlements remain unverified. The site now uses neutral download and purchase wording, so publication does not require advertising the planned annual/Professional offerings. Verify live configuration before adding any price, trial, free allowance, renewal promise, or paid feature gate.
 
@@ -54,7 +54,7 @@ All three source capture hashes still match the Phase 2 provenance manifest. No 
 - **Smoke:** slight photographed perspective and rounded display corners fit; the alarm and held phone survive the mobile crop. Maintenance task/history remain genuine.
 - **Heater:** alignment, hand occlusion and crop are sound. The photographed older notch partially overlaps the genuine capture’s Dynamic Island, leaving a small dark lip. Eliminating it would require altering screenshot camera content or photographed hardware; retain this documented source limitation. The full original capture remains available in the disclosure.
 
-The 1680×944 photographs retain JPEG softness, particularly when enlarged. No claim of higher-resolution masters is made. Usage-rights documentation was not supplied or independently established. Enlarged review details: [filter](design/phase4/filter-screen-review.png), [smoke](design/phase4/smoke-screen-review.png), [heater](design/phase4/heater-screen-review.png).
+The 1680×944 photographs retain JPEG softness, particularly when enlarged. No claim of higher-resolution masters is made. The project owner has explicitly approved all three supplied photographs for website use. Photography permission is resolved; no additional rights confirmation is required for this release. Enlarged review details: [filter](design/phase4/filter-screen-review.png), [smoke](design/phase4/smoke-screen-review.png), [heater](design/phase4/heater-screen-review.png).
 
 ## Quiz, guidance, accessibility and privacy
 
