@@ -128,6 +128,8 @@ A passing run is a regression gate, not proof of conformance. [docs/ACCESSIBILIT
 
 The annual checklist's Download CSV button sends a background alert through FormSubmit to `support@quiettoolsapps.com`. Alerts include only the document, fixed page/file URLs, and UTC request time; they do not include checkmarks or visitor contact details. The file download proceeds independently of email delivery. Alerts run only on the production domain (including `www`), and rapid repeat clicks are suppressed for 30 seconds within the page. Direct CSV URL requests and clicks with JavaScript disabled do not trigger alerts.
 
+Reaching the Home Health Check score sends a similar alert (`src/scripts/quiz-completion-alert.js`): the page URL and UTC completion time only, never answers or the score, once per page load, production domain only. Nothing is shown to the visitor; the privacy policy discloses it.
+
 FormSubmit may require inbox activation for this website. After deployment, click Download CSV on the production site, check the support inbox (including spam), and complete any FormSubmit activation email. Then click again after 30 seconds to verify delivery. Delivery is best effort and can be blocked by browsers or FormSubmit filtering. Local previews do not send alerts.
 
 Shared values currently live in `src/data/site.ts`, while some components contain their own App Store URL constants. Search for every occurrence before changing product details:

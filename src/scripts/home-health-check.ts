@@ -1,6 +1,7 @@
 import { appStoreUrl } from '../data/site';
 import { questions, tones, reactionFor, resultsFor, shareUrl, shareText, initialState, answerQuestion, nextQuestion, previousQuestion, changeAnswer } from '../data/homeHealthCheck';
 import type { Tone } from '../data/homeHealthCheck';
+import { alertQuizCompleted } from './quiz-completion-alert.js';
 
 const widget = document.querySelector<HTMLElement>('[data-health-check]');
 if (widget) {
@@ -142,6 +143,7 @@ if (widget) {
     actions.append(button('Review answers', () => { state = previousQuestion(state, 5); status.textContent = ''; renderQuestion(true); }, 'hhc-btn ghost', 'hhc-review'), button('Take it again', () => { state = initialState(); status.textContent = ''; renderQuestion(true); }, 'hhc-btn ghost', 'hhc-restart'));
     share.append(label, row, fallback, shareStatus, actions); stage.replaceChildren(card, cta, share); focusHeading(band);
     status.textContent = `Your score is ${result.score} out of 12: ${result.band.name}.`;
+    alertQuizCompleted();
   }
   renderQuestion(); stage.hidden = false; widget.dataset.enhanced = 'true';
 }
