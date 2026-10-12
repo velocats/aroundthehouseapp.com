@@ -7,3 +7,6 @@ dist/
 !.env.example
 images/
 .claude/
+docs/design/phase2/
+docs/design/phase3/
+images/old/
