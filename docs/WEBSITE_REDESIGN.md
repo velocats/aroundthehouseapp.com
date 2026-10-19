@@ -64,6 +64,8 @@ All 43 current pages receive refreshed navigation, footer, typography, spacing, 
 
 ## Authentic screenshots
 
+> **Update, October 19, 2026:** the three paint captures listed below (`iphone-paint-details.webp`, `iphone-paint-templates.webp`, and `iphone-paint-new-item.webp`) were replaced by three captures of a saved, populated paint record: `iphone-paint-record.webp` (color, brand, code, finish, location, labeled photo, tint formula), `iphone-paint-purchase-application.webp` (locations, purchase, application), and `iphone-paint-history-documents.webp` (touch-up notes, paint history, documents). They are used on `/paint-color-tracker/` and `/screenshots/`. The notes below describe the earlier set.
+
 All reused production captures live in `public/assets/screenshots/new/`. New homepage usage:
 
 | File | Purpose |

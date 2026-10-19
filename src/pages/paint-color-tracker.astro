@@ -19,42 +19,41 @@ const shot = { width: 921, height: 2000 };
 >
   <figure slot="hero-media" class="product-block-shot">
     <img
-      src="/assets/screenshots/new/iphone-paint-details.webp"
+      src="/assets/screenshots/new/iphone-paint-record.webp"
       width={shot.width}
       height={shot.height}
-      alt="New Item form in Around The House on iPhone for Interior Wall Paint in the Living Room at 123 Main Street, with six paint details switched on: Color Name (e.g. Repose Gray), Color Code (e.g. SW 7015), Brand (e.g. Sherwin-Williams), Finish (e.g. Eggshell), Surface (e.g. Walls), and Date Painted (e.g. 2026)."
+      alt="Example exterior paint record in Around The House on iPhone: Oakwood Meadow by Harborline, color code HL-7420, Satin finish, used on the whole exterior's fiber cement siding, with an approximate color preview, a Copy Paint Details button, a photo labeled Paint Can, and the product line, base, and tint formula."
       fetchpriority="high"
       decoding="async"
     />
   </figure>
 
-  <ProductBlock src="/assets/screenshots/new/iphone-paint-templates.webp" width={shot.width} height={shot.height} alt="Around The House template picker on iPhone with the Paint & Finishes category open, listing Interior Wall Paint, Trim & Door Paint, Ceiling Paint, Cabinet Paint, Exterior Paint, and Deck / Fence Stain.">
-    <h2>Pick the kind of paint job</h2>
-    <p>When you add a new item, the Paint &amp; Finishes category has six starting points: interior wall paint, trim and door paint, ceiling paint, cabinet paint, exterior paint, and deck or fence stain.</p>
-    <p>Choosing one fills in the name and a likely area for you. Both are ordinary text, so "Interior Wall Paint" can become "Hallway walls" if that's how you think of it.</p>
-    <p>It's worth making a separate record for each surface that got its own color. The walls and trim in one room are usually two different paints, and you'll want to find each without digging.</p>
-  </ProductBlock>
-
   <section>
-    <h2>What gets written down</h2>
-    <p>A paint record comes with six fields ready to fill in. They're the same details shown in the screenshot at the top of this page.</p>
+    <h2>What a paint record holds</h2>
+    <p>The top of a paint record answers the question you have at the paint counter. The screenshot above is an example exterior paint, Oakwood Meadow.</p>
     <ul class="qa-list">
-      <li><strong>Color name</strong><span>What's printed on the chip or the lid. Handy for recognizing it, but not always enough to buy it again.</span></li>
-      <li><strong>Color code</strong><span>The number the paint counter uses to mix it. If you only save one thing, save this.</span></li>
-      <li><strong>Brand</strong><span>A color code only means something alongside the brand that made it.</span></li>
+      <li><strong>Color name, brand, and code</strong><span>The name is how you recognize it. The code, with the brand that made it, is what the paint counter needs to mix it again.</span></li>
       <li><strong>Finish</strong><span>Flat, eggshell, satin, semi-gloss. The same color in a different sheen won't look the same on the wall.</span></li>
-      <li><strong>Surface</strong><span>Walls, trim, ceiling, siding, or whatever the paint actually went on.</span></li>
-      <li><strong>Date painted</strong><span>A plain text field, so "2026" and "June 2023" both work.</span></li>
+      <li><strong>Where it's used</strong><span>The area and surface, such as the whole exterior on fiber cement siding, shown right under the name.</span></li>
+      <li><strong>Product line, base, and tint formula</strong><span>The details printed on the store's mixing label. With the formula, a store can tint the same base the same way.</span></li>
+      <li><strong>Photos</strong><span>A picture of the can or its label, with a label of its own, such as Paint Can, so you know what each photo shows.</span></li>
     </ul>
-    <p>These are text fields you fill in yourself. The app doesn't look colors up, read them from a photo, or check a code against a brand's catalog. It keeps what you type.</p>
-    <p>Anything that doesn't have a field of its own, like how many coats it took or which shelf the leftover can is on, can go in the item's notes. You can also add your own fields later, such as the store you bought it from.</p>
+    <p>The swatch is marked as an approximate color preview. A screen can't show true paint color, so use it to recognize the record, not to match the paint.</p>
+    <p>Copy Paint Details copies the record's details so you can paste them where you need them, like a message to a painter or a note for the store.</p>
   </section>
 
-  <ProductBlock flip src="/assets/screenshots/new/iphone-paint-new-item.webp" width={shot.width} height={shot.height} alt="Top of the New Item form in Around The House on iPhone, showing an Add Photo area, the name Interior Wall Paint, category Paint & Finishes, area Living Room, property 123 Main Street, and the Includes with this item section listing 6 details.">
-    <h2>Put it in the right room</h2>
-    <p>This is the top of the same form, before you scroll down to the paint details. The Area field holds the room, and the Property field matters if you keep records for more than one home.</p>
-    <p>Each of the six paint details has its own switch. Leave on the ones you care about and they're added as blank fields, so you can save the record now and fill in the code later, when you're in the garage holding the can.</p>
-    <p>There's a place for a photo right at the top. Once the record is saved it can hold up to ten, which is enough for the wall, the lid, and the paint chip that's been stuck to the fridge since you picked it.</p>
+  <ProductBlock src="/assets/screenshots/new/iphone-paint-purchase-application.webp" width={shot.width} height={shot.height} alt="Middle of the same example paint record on iPhone. Where It's Used lists Whole Exterior, Fiber cement siding, painted Jun 17, 2023, with Add Another Location. Purchase shows Dockside Paint &amp; Supply, purchased Jun 9, 2023, $389.00, 5 gallons, and about 1 gallon left on the garage shelf. Application shows 2 coats, spot-primed bare boards, painted by ProCoat Painters.">
+    <h2>Where it went and what it took</h2>
+    <p>One paint can cover more than one place. Each location keeps its own area, surface, and painted date, and you can add another when the same color goes on a second room.</p>
+    <p>The purchase section keeps the store, date, price, and quantity, plus how much is left and where it is, like "about 1 gallon, garage shelf."</p>
+    <p>The application section records when it was painted, how many coats, the primer, and who did the work, so the next job can start from what worked last time.</p>
+  </ProductBlock>
+
+  <ProductBlock flip src="/assets/screenshots/new/iphone-paint-history-documents.webp" width={shot.width} height={shot.height} alt="Lower part of the same example paint record on iPhone. Touch-Up Notes say body, trim, and front door colors are recorded so touch-ups match without guessing. Paint History lists Touched up front door trim on Jun 21, 2026, with Log Paint Work. Documents holds an exterior paint receipt PDF, with Add Document and a note that document attachments are included with Around the House Pro. More offers Add Reminder.">
+    <h2>Touch-ups, history, and the receipt</h2>
+    <p>Touch-up notes hold the advice you'd give yourself, like which colors go on the body, trim, and front door.</p>
+    <p>Each touch-up or repaint can be logged as paint work, so the record shows what was done and when. The receipt can sit with the paint it paid for. Document attachments are part of Around The House Pro.</p>
+    <p>You can also add a reminder from the same record, for a recoat or a seasonal check.</p>
   </ProductBlock>
 
   <section>
