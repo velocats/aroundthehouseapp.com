@@ -1,12 +1,12 @@
 ---
-const { kicker, title, effectiveDate } = Astro.props;
+const { kicker, title, effectiveDate, dateLabel = 'Effective date' } = Astro.props;
 ---
 <main class="legal-page" id="main-content" tabindex="-1">
   <div class="container">
     <article>
       <div class="kicker">{kicker}</div>
       <h1>{title}</h1>
-      {effectiveDate && <p><strong>Effective date:</strong> {effectiveDate}</p>}
+      {effectiveDate && <p><strong>{dateLabel}:</strong> {effectiveDate}</p>}
       <slot />
     </article>
   </div>

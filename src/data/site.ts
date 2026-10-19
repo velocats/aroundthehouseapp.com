@@ -331,7 +331,7 @@ export const corePages: PageRef[] = [
   { path: '/support/', label: 'Support', blurb: '', changefreq: 'monthly', priority: 0.6, lastmod: '2026-07-18' },
   { path: '/about/', label: 'About the Quiet Tools Support Team', blurb: 'Meet the Colorado-based team behind Around The House and its homeowner resources.', changefreq: 'yearly', priority: 0.6, lastmod: '2026-09-09' },
   { path: '/editorial-standards/', label: 'Editorial standards', blurb: 'How the Quiet Tools Support Team researches, reviews, sources, and corrects homeowner guidance.', changefreq: 'yearly', priority: 0.5, lastmod: '2026-09-09' },
-  { path: '/privacy/', label: 'Privacy', blurb: '', changefreq: 'yearly', priority: 0.4, lastmod: '2026-07-18' },
+  { path: '/privacy/', label: 'Privacy', blurb: '', changefreq: 'yearly', priority: 0.4, lastmod: '2026-10-19' },
   { path: '/terms/', label: 'Terms', blurb: '', changefreq: 'yearly', priority: 0.4, lastmod: '2026-07-18' }
 ];
 

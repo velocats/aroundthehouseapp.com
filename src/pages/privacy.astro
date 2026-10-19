@@ -4,29 +4,76 @@ import LegalArticle from '../components/LegalArticle.astro';
 ---
 <BaseLayout
   title="Privacy Policy | Around The House"
-  description="Read the Around The House privacy policy for home maintenance records, iCloud sync, support requests, purchases, app analytics, and data collection."
+  description="Read the Around The House privacy policy for home records, iCloud sync, anonymous app analytics and crash reporting, purchases, support requests, and your privacy rights."
   canonicalPath="/privacy/"
   page="legal"
   compactFooter={true}
 >
-  <LegalArticle kicker="Privacy" title="Privacy Policy" effectiveDate="October 12, 2026">
-    <p>Around The House is designed to keep your home records under your control. Your home items, service history, reminders, photos, documents, warranty details, costs, and reports live on your Apple devices and, when enabled, in your private iCloud account.</p>
+  <LegalArticle kicker="Privacy" title="Privacy Policy" dateLabel="Last updated" effectiveDate="October 19, 2026">
+    <p>Around The House is designed to keep your home records under your control. Your home items, service history, reminders, photos, documents, warranty details, costs, and reports live on your Apple devices and, when enabled, in your private iCloud account. Quiet Tools, the developer of Around The House, cannot see them.</p>
+    <p>The app does collect a small amount of anonymous usage and crash information so we can see which features are used and fix problems. This policy explains exactly what that includes, what it never includes, and how to turn it off.</p>
+
+    <h2>What stays private</h2>
+    <p>Your records, photos, and documents never leave your devices and your private iCloud. Nothing you type or attach in the app is sent to us or to our analytics provider.</p>
+
     <h2>No Around The House account</h2>
-    <p>Around The House does not require an Around The House web account or login. Quiet Tools does not operate an Around The House web dashboard for your home records.</p>
-    <h2>iCloud sync</h2>
-    <p>If iCloud is enabled on your device, Around The House may use Apple iCloud and CloudKit to sync your records privately across devices signed into the same Apple Account. Personal sync uses your Apple Account. Review the home information you choose to export or share, and who can access those copies. Maintenance reminders can also be synced to Apple Calendar, where calendar sharing is controlled through Apple.</p>
-    <h2>Data collection</h2>
-    <p>Quiet Tools does not sell your Around The House data and does not use your Around The House records for advertising. We do not collect your home maintenance records on our own servers.</p>
+    <p>You don’t need an account to use Around The House. There is no Around The House login, and Quiet Tools does not operate a web dashboard for your home records.</p>
+
+    <h2>iCloud sync and family sharing</h2>
+    <p>If iCloud is enabled on your device, Around The House uses Apple iCloud and CloudKit to sync your records across devices signed into your Apple Account. Your records are stored in your own CloudKit private database, which Quiet Tools cannot access. If you invite family members, Around The House uses CloudKit sharing so the people you invite can see the shared records through their own Apple Accounts. You decide who is invited and can stop sharing at any time.</p>
+    <p>Maintenance reminders can also be synced to Apple Calendar, where calendar sharing is controlled through Apple.</p>
+
+    <h2>Exports and backups</h2>
+    <p>Reports, CSV exports, and backups you create are files you choose where to keep. Once you save or send one somewhere else, that copy is handled by the place you put it. Review the home information you choose to export or share, and who can access those copies.</p>
+
+    <h2>Anonymous analytics and crash reporting</h2>
+    <p>Around The House uses <a href="https://posthog.com">PostHog</a> for anonymous product analytics and crash reporting. This data is processed on PostHog’s servers in the United States.</p>
+    <h3>What we collect</h3>
+    <ul>
+      <li><strong>Which features are used.</strong> For example: onboarding completed, item added, reminder created or completed, calendar sync, maintenance export, and app opened or moved to the background. Some of these events include a few non-identifying details, such as the item’s category, how often a reminder repeats, whether a photo was attached, how many reminders or custom fields an item has, and whether the item is linked to a reminder.</li>
+      <li><strong>Purchase history.</strong> Which Around The House Pro product was bought (annual or lifetime) and whether a restore found a purchase. We never receive payment details; Apple handles all payments.</li>
+      <li><strong>Crash data and other diagnostics.</strong> Crash and error reports, plus a few technical log lines about loading the in-app purchase catalog.</li>
+      <li><strong>A random identifier.</strong> The app creates a random ID the first time it launches, so we can count unique installs. It is not Apple’s advertising identifier (IDFA) or vendor identifier, and it is not tied to your name, email address, or Apple Account. Deleting and reinstalling the app creates a new one.</li>
+      <li><strong>Device and app basics.</strong> Device model, operating system and version, app version, language and region format, time zone, and screen size.</li>
+    </ul>
+    <h3>What we never collect</h3>
+    <ul>
+      <li>Names, notes, addresses, photos, documents, amounts, or anything else you type or attach in the app.</li>
+      <li>Your contacts.</li>
+      <li>Your location, precise or approximate. IP-based location lookup is turned off.</li>
+      <li>Advertising identifiers.</li>
+    </ul>
+    <h3>How we use it</h3>
+    <p>We use this information only to understand which features are used, fix crashes, and improve the app. We don’t use it for advertising, we don’t sell it, and we don’t share it with data brokers. We don’t combine it with data from other companies’ apps or websites, so Around The House does not track you.</p>
+    <h3>Not linked to you</h3>
+    <p>We never associate analytics with your identity. We don’t know whose device a given set of events came from.</p>
+    <h3>Your choice</h3>
+    <p>In the European Union, the European Economic Area (including Iceland, Liechtenstein, and Norway), the United Kingdom, and Switzerland, analytics are off until you agree. The app asks during setup, and people who installed an earlier version are asked once. The app decides whether to ask based on your App Store country and your device’s region setting.</p>
+    <p>You can change your answer at any time in <strong>Settings → Privacy → Share Anonymous Analytics</strong>.</p>
+    <p>Analytics are always off while you are exploring the example (demo) data.</p>
+    <h3>How long we keep it</h3>
+    <p>Analytics and crash data are kept for 365 days and then deleted.</p>
+
+    <h2>Your rights in the EU, EEA, UK, and Switzerland</h2>
+    <p><strong>Legal basis.</strong> We process analytics data only with your consent (Article 6(1)(a) GDPR and the UK GDPR, and the equivalent Swiss rules). You can withdraw consent at any time in Settings → Privacy. Withdrawing doesn’t affect processing that happened before you withdrew.</p>
+    {/* TODO: Confirm the transfer mechanism in PostHog's current DPA (posthog.com/dpa). Third-party sources say PostHog relies on the EU Standard Contractual Clauses for transfers to its US environment; check whether PostHog is also certified under the EU-U.S. Data Privacy Framework and UK/Swiss extensions, and update this sentence if so. */}
+    <p><strong>International transfer.</strong> Analytics data is processed by PostHog in the United States under PostHog’s data processing agreement, which relies on the European Commission’s Standard Contractual Clauses (with the UK and Swiss equivalents) to protect data transferred from Europe.</p>
+    <p><strong>Your rights.</strong> You have the right to access, delete, and receive a copy of your data (portability), and to object to its processing. You also have the right to complain to your local data protection supervisory authority.</p>
+    <p>Because analytics are not linked to your identity, we may not be able to find your data from your name or email address alone. To make a request, we may need your device’s anonymous ID. Deleting and reinstalling the app also resets that ID, so later events can’t be connected to earlier ones.</p>
+
     <h2>Apple services</h2>
-    <p>Purchases, subscriptions, family sharing behavior, iCloud, crash diagnostics, and app analytics may be handled by Apple according to your device settings and Apple’s policies.</p>
+    <p>Purchases, subscriptions, Family Sharing, and iCloud are handled by Apple according to your device settings and Apple’s policies. Apple may also collect its own diagnostics, separate from ours, depending on your device settings.</p>
+
     <h2>Support requests</h2>
     <p>If you email support, we receive the information you choose to send, such as your email address, message, screenshots, or diagnostic details. We use that information only to respond to your request and improve the app.</p>
+
     <h2>Website and support form</h2>
     <p>This website is hosted on GitHub Pages. Your browser connects to the hosting service to load its pages. We have not added marketing analytics scripts or advertising pixels to this website.</p>
     <p>The website support form sends the name, email address, and message you submit through FormSubmit to our support inbox. You can instead email support directly. Support submissions are separate from your locally stored and privately synced app home records; only send information you intend to share with support.</p>
     <p>When you click the annual checklist’s Download CSV button, the website sends the document name, page, and request time through FormSubmit to our support inbox so we can understand use of this resource. This alert does not request your name or email address, include your checklist checkmarks, or use a visitor identifier. FormSubmit receives the technical information needed to handle the browser request. A button click does not confirm that a file was saved.</p>
     <p>When you finish the Home Health Check and see your score, the website sends the page and completion time through FormSubmit to our support inbox so we can understand use of the quiz. This alert does not include your answers or score, request your name or email address, or use a visitor identifier. FormSubmit receives the technical information needed to handle the browser request.</p>
+
     <h2>Contact</h2>
-    <p>Questions about this policy can be sent to <a href="mailto:support@quiettoolsapps.com">support@quiettoolsapps.com</a>.</p>
+    <p>Privacy questions and requests can be sent to <a href="mailto:support@quiettoolsapps.com">support@quiettoolsapps.com</a>.</p>
   </LegalArticle>
 </BaseLayout>
