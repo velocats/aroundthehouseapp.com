@@ -1,0 +1,67 @@
+---
+import ArticleLayout from '../../layouts/ArticleLayout.astro';
+import RelatedLinks from '../../components/RelatedLinks.astro';
+import { page } from '../../data/site';
+const article = page('/resources/how-to-winterize-sprinkler-system/');
+const related = [page('/home-maintenance-reminders/'), page('/home-maintenance-tracker/'), page('/home-contractor-records/'), page('/resources/seasonal-home-maintenance-checklist/')];
+---
+<ArticleLayout title="How to Winterize a Sprinkler System Before the First Freeze" description="Shut off and drain an irrigation system, protect the backflow preventer, and decide whether a compressed-air blowout is a job for you or a professional." canonicalPath={article.path} h1="How to Winterize a Sprinkler System Before the First Freeze" standfirst="Sprinkler systems are built differently, so there is no single correct method. Start by identifying the parts of your system, then follow the steps that match it, and know when to hand the job to a professional." published="2026-10-20" updated="2026-10-20" breadcrumbLabel={article.label}>
+  <h2>Why it matters</h2>
+  <p>Water left in irrigation pipes expands when it freezes. That can crack pipes, split sprinkler heads and valves, and damage the backflow preventer. The damage usually stays hidden until the system is turned back on in spring.</p>
+  <p>Colorado State University Extension notes that deciding when to shut down is a tradeoff between the risk of freeze damage and a dry landscape that still needs water. Watch the overnight lows in your forecast rather than picking a date from the calendar, and finish before the first hard freeze.</p>
+
+  <h2>First, identify your system</h2>
+  <p>Answer these three questions before you start. If you cannot, hire an irrigation professional this year and ask them to show you each part so you know it next time.</p>
+  <ol>
+    <li><strong>Where is the irrigation shutoff?</strong> It is often a stop-and-waste valve between the water supply and the backflow preventer, in a basement, crawl space, or underground valve box. CSU Extension says some boxes are about five feet deep and warns not to force the valve.</li>
+    <li><strong>What kind of backflow preventer do you have?</strong> Common residential types include the pressure vacuum breaker (PVB), the reduced pressure (RP) assembly, and the atmospheric vacuum breaker (AVB). The model and type are usually printed on the device.</li>
+    <li><strong>How does the system drain?</strong> Some systems have manual drain valves, some have spring-loaded automatic drains, and many have neither and must be cleared with compressed air.</li>
+  </ol>
+
+  <h2>Shut off the water and drain the backflow preventer</h2>
+  <ol>
+    <li>Close the shutoff for the irrigation system only. The City of Brighton, Colorado, reminds homeowners not to close the main shutoff for the house.</li>
+    <li>Drain the backflow preventer. For many residential devices, that means opening the two small test cocks so water can run out of the device and the pipe around it.</li>
+    <li>Leave the ball valves on either side of the device about halfway open, at roughly 45 degrees. CSU Extension explains that ball valves left fully open or fully closed tend to trap water, which expands and causes damage.</li>
+    <li>Insulate the backflow preventer and the exposed pipe down to ground level. CSU Extension suggests wrapping insulation, covering it with plastic, and securing it with duct tape.</li>
+  </ol>
+  <p>RP assemblies have more parts to drain, and the steps differ by model. Follow the manufacturer's instructions or have a backflow technician do it.</p>
+
+  <h2>Then clear the lines</h2>
+  <h3>Manual drain valves</h3>
+  <p>Rain Bird advises wearing eye protection, because the system can still be under pressure. With the shutoff closed, open one zone valve to relieve pressure, then slowly open each manual drain valve on the mainline.</p>
+  <h3>Automatic drain valves</h3>
+  <p>These spring-loaded valves release water whenever the system shuts off. Rain Bird suggests checking for heavy puddling near a drain, which can mean a valve is stuck open.</p>
+  <h3>Why drains alone may not be enough</h3>
+  <p>CSU Extension does not recommend relying on gravity drains in Colorado. Buried pipe can settle into low spots that hold water, and you cannot see whether the lines are empty. It also says systems with electric valves must be blown out, because there is no other way to clear water from above the valve diaphragm.</p>
+
+  <h2>Compressed-air blowout: know the risks before you try it</h2>
+  <p>A blowout pushes the remaining water out of each zone with an air compressor. CSU Extension recommends having it done by a professional. A homeowner can do it with the right compressor, pressure regulation, and knowledge, but too much pressure or heat can damage the system, and flying debris can cause injury.</p>
+  <ul>
+    <li><strong>Never blow air through a PVB or RP backflow device.</strong> CSU Extension warns that the heat can melt the rubber seals inside.</li>
+    <li><strong>Keep the pressure low.</strong> Rain Bird says air pressure in the system should not exceed 50 psi. CSU Extension lists 80 psi as the maximum for rigid PVC pipe and 50 psi for polyethylene. If you do not know what pipe you have, stay at or below 50 psi.</li>
+    <li><strong>Have enough air volume.</strong> A small compressor may not keep the heads up long enough to clear a zone. CSU Extension's rule of thumb: if the heads stay popped up while air flows after the water is gone, the compressor is large enough.</li>
+    <li><strong>Always open a zone before adding air,</strong> and work one zone at a time, starting with the one farthest from the air connection.</li>
+    <li><strong>Keep cycles short.</strong> Rain Bird says not to blow any zone for more than two minutes at a time. Two short passes per zone are better than one long one, and a zone that is already clear should not be blown again, because dry pipe heats up quickly.</li>
+    <li><strong>Protect yourself.</strong> Wear eye protection, and do not stand over heads, valves, or valve boxes while air is flowing.</li>
+  </ul>
+  <p>A zone is done when only a fine mist comes from the heads. If any of this is unfamiliar, a blowout is a common fall service from irrigation and landscape companies.</p>
+
+  <h2>The controller</h2>
+  <p>CSU Extension recommends leaving the controller plugged in over winter, because the heat from its transformer helps reduce moisture and corrosion inside. Check your controller's manual for its winter or off setting.</p>
+
+  <h2>In spring</h2>
+  <p>Close the test cocks and drain valves. Then open the backflow ball valves and the irrigation shutoff slowly, because opening them quickly can cause water hammer that damages the system. Run each zone and look for broken heads or leaks. Some cities and water providers require a yearly backflow test, so check with yours.</p>
+
+  <h2>Keep a record for next year</h2>
+  <p>Write down the date, who did the work, what it cost, the type of backflow preventer, where the shutoff is, and anything that needed repair. Next fall you will know what your system needs and who to call. In Around The House, add the sprinkler system as an item, set a yearly fall reminder to winterize it and a spring reminder to start it up, and keep the backflow test report and service invoices with it.</p>
+
+  <h2>Sources</h2>
+  <ul>
+    <li><a href="https://extension.colostate.edu/topic-areas/yard-garden/home-sprinkler-systems-preparing-your-sprinkler-system-for-winter-4-719">Colorado State University Extension: Preparing your sprinkler system for winter (fact sheet 4.719)</a></li>
+    <li><a href="https://planttalk.colostate.edu/topics/water-considerations/2205-winterizing-sprinkler-systems/">CSU Extension PlantTalk Colorado: Winterizing sprinkler systems</a></li>
+    <li><a href="https://www.rainbird.com/homeowners/blog/blow-out-your-sprinkler-system">Rain Bird: Tips for winterizing your sprinkler system</a></li>
+    <li><a href="https://brightonco.gov/m/faq?cat=23">City of Brighton, Colorado: How to winterize your irrigation backflow device</a></li>
+  </ul>
+  <RelatedLinks heading="Plan the rest of your fall upkeep" items={related} />
+</ArticleLayout>

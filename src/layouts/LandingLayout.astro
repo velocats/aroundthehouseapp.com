@@ -13,7 +13,8 @@ const {
   intro,
   breadcrumbLabel,
   ctaHeading,
-  ctaBody
+  ctaBody,
+  extraStructuredData = []
 } = Astro.props;
 
 // Optional product screenshot beside the h1, passed as slot="hero-media".
@@ -31,7 +32,8 @@ const structuredData = [
     '@type': 'WebPage',
     '@id': `${new URL(canonicalPath, siteUrl).toString()}#about`,
     about: { '@id': `${siteUrl}#app` }
-  }
+  },
+  ...extraStructuredData
 ];
 ---
 <BaseLayout

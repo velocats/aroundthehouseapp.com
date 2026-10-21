@@ -4,6 +4,21 @@ export const supportEmail = 'support@quiettoolsapps.com';
 export const publisherName = 'Quiet Tools Support Team';
 export const publisherLocation = 'Colorado, United States';
 
+/** US App Store prices. The App Store shows the local price in other regions. */
+export const pricing = {
+  freeItemLimit: 15,
+  proAnnual: '29.99',
+  proLifetime: '69.99',
+  currency: 'USD'
+};
+
+/** Offer nodes for the SoftwareApplication schema on the homepage. */
+export const appOffers = [
+  { '@type': 'Offer', name: 'Free', price: '0', priceCurrency: pricing.currency, description: `Up to ${pricing.freeItemLimit} items` },
+  { '@type': 'Offer', name: 'Pro (yearly)', price: pricing.proAnnual, priceCurrency: pricing.currency },
+  { '@type': 'Offer', name: 'Pro (lifetime)', price: pricing.proLifetime, priceCurrency: pricing.currency }
+];
+
 export type PageRef = {
   /** Path with leading and trailing slash, e.g. '/home-maintenance-app/' */
   path: string;
@@ -39,7 +54,7 @@ export const landingPages: PageRef[] = [
     blurb: 'Track what is due, mark it complete, and keep the completion in your history.',
     changefreq: 'monthly',
     priority: 0.9,
-    lastmod: '2026-08-18'
+    lastmod: '2026-10-20'
   },
   {
     path: '/home-maintenance-records/',
@@ -127,7 +142,7 @@ export const landingPages: PageRef[] = [
     blurb: 'Compare a broad cloud home-management platform with a focused, private Apple home-record app.',
     changefreq: 'monthly',
     priority: 0.7,
-    lastmod: '2026-09-09'
+    lastmod: '2026-10-20'
   },
   {
     path: '/household-management-app/',
@@ -180,6 +195,13 @@ export type Article = PageRef & {
 
 /** Resource articles. Order is the order shown on /resources/. */
 export const articles: Article[] = [
+  {
+    path: '/resources/how-to-winterize-sprinkler-system/',
+    label: 'How to winterize a sprinkler system',
+    title: 'How to Winterize a Sprinkler System Before the First Freeze',
+    blurb: 'Find the shutoff, identify your backflow preventer and drain type, and decide whether a compressed-air blowout is a job for you or a professional.',
+    published: '2026-10-20', updated: '2026-10-20', changefreq: 'yearly', priority: 0.7, lastmod: '2026-10-20'
+  },
   {
     path: '/resources/water-heater-maintenance-checklist/',
     label: 'Water heater maintenance checklist',
@@ -323,10 +345,10 @@ export const articles: Article[] = [
 /** Pages that existed before the SEO build-out. */
 export const corePages: PageRef[] = [
   { path: "/home-health-check/", label: "Home Health Check", blurb: "Six quick questions and practical home maintenance reminders. No account or email.", changefreq: "monthly", priority: 0.8, lastmod: "2026-10-11" },
-  { path: '/', label: 'Home', blurb: '', changefreq: 'weekly', priority: 1.0, lastmod: '2026-08-18' },
+  { path: '/', label: 'Home', blurb: '', changefreq: 'weekly', priority: 1.0, lastmod: '2026-10-20' },
   { path: '/annual-home-maintenance-checklist/', label: 'Annual home maintenance checklist', blurb: 'An interactive, printable checklist for recurring monthly and seasonal home care.', changefreq: 'monthly', priority: 0.9, lastmod: '2026-09-09' },
   { path: '/screenshots/', label: 'Screenshots', blurb: '', changefreq: 'monthly', priority: 0.8, lastmod: '2026-07-19' },
-  { path: '/pricing/', label: 'Pricing', blurb: 'Find Around The House on the App Store and review current purchase options.', changefreq: 'monthly', priority: 0.8, lastmod: '2026-08-18' },
+  { path: '/pricing/', label: 'Pricing', blurb: 'Free for up to 15 items. Pro is $29.99 a year or $69.99 once.', changefreq: 'monthly', priority: 0.8, lastmod: '2026-10-20' },
   { path: '/resources/', label: 'Resources', blurb: '', changefreq: 'monthly', priority: 0.8, lastmod: '2026-08-18' },
   { path: '/support/', label: 'Support', blurb: '', changefreq: 'monthly', priority: 0.6, lastmod: '2026-07-18' },
   { path: '/about/', label: 'About the Quiet Tools Support Team', blurb: 'Meet the Colorado-based team behind Around The House and its homeowner resources.', changefreq: 'yearly', priority: 0.6, lastmod: '2026-09-09' },

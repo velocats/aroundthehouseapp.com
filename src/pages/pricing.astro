@@ -1,16 +1,22 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import AppStoreLink from '../components/AppStoreLink.astro';
-import { siteUrl } from '../data/site';
+import { siteUrl, pricing, appOffers } from '../data/site';
 const pricingSchema = {
-  '@type': 'WebPage', '@id': `${siteUrl}pricing/#pricing`, about: { '@id': `${siteUrl}#app` }
+  '@type': 'WebPage', '@id': `${siteUrl}pricing/#pricing`, about: { '@id': `${siteUrl}#app`, '@type': 'SoftwareApplication', name: 'Around The House', offers: appOffers }
 };
 ---
-<BaseLayout title="Around The House Pricing & Download" description="Download Around The House for iPhone, iPad, and Mac. Review current pricing, purchase options, and feature availability on the App Store and in the app." canonicalPath="/pricing/" page="pricing" structuredData={pricingSchema}>
+<BaseLayout title="Around The House Pricing & Download" description="Around The House is free for up to 15 items. Around The House Pro is $29.99 a year or $69.99 once, on iPhone, iPad, and Mac." canonicalPath="/pricing/" page="pricing" structuredData={pricingSchema}>
   <main id="main-content" tabindex="-1">
     <section class="pricing-hero"><div class="container pricing-hero-grid"><div><p class="kicker">Around The House</p><h1>Start small.<br />Keep adding.</h1></div><div><p>Save a paint color, an appliance label, or the details of a recent repair and build from there. Around The House is available for iPhone, iPad, and Mac.</p><AppStoreLink /></div></div></section>
-    <section class="pricing-page-section"><div class="container">
-      <div class="free-plan"><div><p class="kicker">Pricing &amp; availability</p><h2>Review the current options.</h2></div><div><p>The App Store listing and the purchase screen in Around The House show current prices, available features, and purchase terms for your region. Review those details before choosing a purchase.</p><p>You can also <a href="/screenshots/">see the app screens</a> or <a href="/home-health-check/">take the free Home Health Check</a> here, without an account.</p></div></div>
+    <section class="pricing-page-section" aria-labelledby="plans-title"><div class="container">
+      <p class="kicker">Pricing</p><h2 id="plans-title">Free to start. One upgrade when you need more.</h2>
+      <ul class="plan-grid">
+        <li><h3>Free</h3><p class="plan-price">$0</p><p>Up to {pricing.freeItemLimit} items, with their reminders and maintenance history.</p></li>
+        <li><h3>Pro, yearly</h3><p class="plan-price">${pricing.proAnnual}<span> / year</span></p><p>Unlimited items and document attachments. Billed through your Apple Account each year.</p></li>
+        <li><h3>Pro, lifetime</h3><p class="plan-price">${pricing.proLifetime}<span> once</span></p><p>Unlimited items and document attachments with a single purchase. No subscription.</p></li>
+      </ul>
+      <p class="plan-note">US prices. The App Store shows the price for your region before you buy. You can also <a href="/screenshots/">see the app screens</a> or <a href="/home-health-check/">take the free Home Health Check</a> here, without an account.</p>
     </div></section>
     <section class="pricing-details"><div class="container pricing-detail-grid"><div><p class="kicker">A record of your home</p><h2>All the details.<br />One place to look.</h2><a class="light-button" href="/home-records-app/">Explore what you can save</a></div><ul><li>Paint colors, finishes, and photos</li><li>Appliances, filter sizes, and installation dates</li><li>Repair history and trusted service providers</li><li>Projects and home improvements</li><li>Maintenance schedules and reminders</li><li>Private iCloud sync across your Apple devices</li></ul></div></section>
   </main>
@@ -18,6 +24,10 @@ const pricingSchema = {
 
 <style>
   .pricing-page-section { padding-block:40px; }
-  .free-plan { padding-bottom:0; }
-  .free-plan p + p { margin-top:18px; }
+  .plan-grid { list-style:none; margin:24px 0 0; padding:0; display:grid; gap:16px; grid-template-columns:repeat(auto-fit, minmax(220px, 1fr)); }
+  .plan-grid li { padding:22px; border:1px solid var(--line); border-radius:12px; background:rgba(255, 250, 242, .72); }
+  .plan-grid h3 { margin:0; }
+  .plan-price { margin-top:8px; font-size:32px; font-weight:700; color:var(--ink); }
+  .plan-price span { font-size:16px; font-weight:400; color:var(--muted); }
+  .plan-note { margin-top:20px; max-width:66ch; }
 </style>

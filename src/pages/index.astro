@@ -4,13 +4,13 @@ import AppStoreLink from '../components/AppStoreLink.astro';
 import HomeStoryHero from '../components/HomeStoryHero.astro';
 import HomeHealthCheckTeaser from '../components/HomeHealthCheckTeaser.astro';
 import '../styles/home-story.css';
-import { siteUrl } from '../data/site';
+import { siteUrl, appOffers } from '../data/site';
 const description = 'The details you need, the work you’ve done, and what’s coming next. Keep your home records at your fingertips with Around The House for iPhone, iPad, and Mac.';
 const structuredData = {
   '@type': 'SoftwareApplication', '@id': `${siteUrl}#app`, name: 'Around The House', url: siteUrl,
   applicationCategory: 'LifestyleApplication', operatingSystem: 'iOS, iPadOS, macOS', description,
-  image: `${siteUrl}assets/og/around-the-house-og-v2.png`, publisher: { '@id': `${siteUrl}#organization` }
-  // Live purchase configuration is not verified. No pricing/trial Offer claims.
+  image: `${siteUrl}assets/og/around-the-house-og-v2.png`, publisher: { '@id': `${siteUrl}#organization` },
+  offers: appOffers
 };
 ---
 <BaseLayout title="Home Records at Your Fingertips | Around The House" description={description} structuredData={structuredData}>
@@ -28,7 +28,7 @@ const structuredData = {
       </div>
     </section>
     <section class="story-close" aria-labelledby="story-close-title">
-      <div class="story-content-width story-close-inner"><div><p class="story-eyebrow">Your home. Your information.</p><h2 id="story-close-title">Keep a little history<br />close at hand.</h2><p>No separate Around The House account. Your records stay on your Apple devices and, when enabled, sync through your private iCloud.</p><AppStoreLink /></div><nav class="story-useful-links" aria-label="More for your home"><a href="/paint-color-tracker/">Remember the paint color <span aria-hidden="true">↗</span></a><a href="/annual-home-maintenance-checklist/">Plan the next bit of upkeep <span aria-hidden="true">↗</span></a><a href="/resources/">Read the homeowner guides <span aria-hidden="true">↗</span></a><a href="/privacy/">Read about privacy <span aria-hidden="true">↗</span></a></nav></div>
+      <div class="story-content-width story-close-inner"><div><p class="story-eyebrow">Your home. Your information.</p><h2 id="story-close-title">Keep a little history<br />close at hand.</h2><p>No separate Around The House account. Your records stay on your Apple devices and, when enabled, sync through your private iCloud.</p><AppStoreLink /></div><nav class="story-useful-links" aria-label="More for your home"><a href="/home-maintenance-tracker/">Track home maintenance from due to done <span aria-hidden="true">↗</span></a><a href="/paint-color-tracker/">Remember the paint color <span aria-hidden="true">↗</span></a><a href="/annual-home-maintenance-checklist/">Plan the next bit of upkeep <span aria-hidden="true">↗</span></a><a href="/resources/">Read the homeowner guides <span aria-hidden="true">↗</span></a><a href="/privacy/">Read about privacy <span aria-hidden="true">↗</span></a></nav></div>
     </section>
   </main>
 </BaseLayout>

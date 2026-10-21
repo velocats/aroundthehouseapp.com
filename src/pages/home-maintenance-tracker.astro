@@ -2,7 +2,7 @@
 import LandingLayout from '../layouts/LandingLayout.astro';
 import ProductBlock from '../components/ProductBlock.astro';
 import RelatedLinks from '../components/RelatedLinks.astro';
-import { page } from '../data/site';
+import { page, pricing, siteUrl } from '../data/site';
 
 const related = [
   page('/home-maintenance-app/'),
@@ -11,16 +11,59 @@ const related = [
   page('/home-maintenance-calendar/'),
   page('/resources/how-to-keep-track-of-home-maintenance/')
 ];
+
+// Rendered as the visible FAQ and as FAQPage schema, so the two always match.
+const faq = [
+  {
+    q: 'What is a home maintenance tracker?',
+    a: 'A home is usually the largest purchase a household makes, and it keeps running only if dozens of parts get regular care. A home maintenance tracker keeps two lists for your house: the recurring work that is coming up, and the work that has already been done. A good one connects both to the item they belong to, such as the furnace, water heater, or roof, so the next reminder and the last service visit sit in the same place.'
+  },
+  {
+    q: 'Is Around The House free?',
+    a: `Yes, for up to ${pricing.freeItemLimit} items, including their reminders and maintenance history. Around The House Pro removes the item limit for $${pricing.proAnnual} a year or $${pricing.proLifetime} as a one-time purchase (US prices).`
+  },
+  {
+    q: 'Do I need to create an account?',
+    a: 'No. There is no separate Around The House account. Your records stay on your Apple devices and, when you turn it on, sync through your own private iCloud.'
+  },
+  {
+    q: 'Which devices does it work on?',
+    a: 'Around The House runs on iPhone, iPad, and Mac.'
+  },
+  {
+    q: 'Can I track maintenance for more than one property?',
+    a: 'Yes. Items, reminders, and history are grouped by property, so a second home, a rental, or a parent’s house stays separate from your own.'
+  },
+  {
+    q: 'Why not just use a spreadsheet or my calendar?',
+    a: 'A calendar handles the date but forgets what was done. A spreadsheet holds the history but will not remind you. A dedicated tracker does both and keeps the cost, provider, notes, and documents with the item.'
+  },
+  {
+    q: 'What should I track first?',
+    a: 'Start with the tasks that repeat and matter most: furnace or HVAC filters, smoke and carbon monoxide alarms, the water heater, gutters, and the dryer vent. The annual home maintenance checklist lists the rest by season.'
+  }
+];
+
+const faqSchema = {
+  '@type': 'FAQPage',
+  '@id': `${siteUrl}home-maintenance-tracker/#faq`,
+  mainEntity: faq.map(({ q, a }) => ({
+    '@type': 'Question',
+    name: q,
+    acceptedAnswer: { '@type': 'Answer', text: a }
+  }))
+};
 ---
 <LandingLayout
-  title="Home Maintenance Tracker | Around the House"
-  description="Track home maintenance from due to done. Around The House shows what is upcoming and overdue, records the completion with provider and cost, keeps the history, and schedules the next occurrence."
+  title="Home Maintenance Tracker for iPhone, iPad & Mac | Around the House"
+  description="Track home maintenance from due to done. See what is upcoming and overdue, record each job with provider and cost, and schedule the next one. Free for up to 15 items."
   canonicalPath="/home-maintenance-tracker/"
   breadcrumbLabel="Home maintenance tracker"
   h1="Keep track of home maintenance without a spreadsheet"
-  intro="Keep upcoming maintenance and completed work on the same item. Record the date, cost, provider, and useful notes after a service visit, then set the next reminder without building your own spreadsheet."
+  intro="Your home is likely the most expensive thing you will ever buy, and it has a lot of moving parts. Keep upcoming maintenance and completed work on the same item. Record the date, cost, provider, and useful notes after a service visit, then set the next reminder without building your own spreadsheet."
   ctaHeading="Track one recurring task first."
   ctaBody="Furnace filters are a good place to start. Once you complete one, the pattern of the app becomes obvious."
+  extraStructuredData={[faqSchema]}
 >
   <section>
     <h2>The loop: due, done, remembered, scheduled again</h2>
@@ -78,6 +121,36 @@ const related = [
   </ProductBlock>
 
   <section>
+    <h2>The paperwork stays with the work, down to the paint</h2>
+    <p>
+      Reminders tell you what to do. They rarely keep the proof that it was done. In Around The House, the
+      receipt, invoice, warranty, manual, and photos are attached to the same item as its maintenance history,
+      so the paperwork does not end up in a drawer or an email folder.
+    </p>
+    <p>
+      That includes paint. Each paint record keeps the brand, color name and code, finish, and the room it went on,
+      along with touch-up notes and the receipt. The next touch-up starts from the record, not a peeling label on a
+      can in the garage. <a href="/paint-color-tracker/">See how paint records work</a>.
+    </p>
+    <p>Document attachments are included with Around The House Pro.</p>
+  </section>
+
+  <ProductBlock
+    device="iphone"
+    flip
+    src="/assets/screenshots/new/iphone-home-handoff.webp"
+    alt="Home handoff report overview in Around The House on iPhone"
+  >
+    <h2>Hand the history to the next owner</h2>
+    <p>
+      Years of tracked maintenance become something you can pass on. The Home Handoff report gathers the home's
+      items, maintenance history, upcoming work, warranties, documents, service providers, and costs into one
+      PDF for a buyer, a family member, or whoever looks after the house next.
+    </p>
+    <p><a href="/home-handoff-report/">Learn about the Home Handoff report</a>.</p>
+  </ProductBlock>
+
+  <section>
     <h2>Tracking more than one property</h2>
     <p>
       Items, reminders, and history are grouped by property, so a second home, a rental, or a family member's
@@ -92,6 +165,53 @@ const related = [
       question: "what has actually happened to this house?" That accumulated record is worth reading about
       separately, because it is what makes the tracking worth doing.
     </p>
+  </section>
+
+  <section>
+    <h2>How a tracker compares with a checklist, calendar, or spreadsheet</h2>
+    <p>
+      Most people start with whatever they already have. Each option handles part of the job. The gap is usually
+      the history: what was done, by whom, and what it cost.
+    </p>
+    <div class="comparison-scroll" tabindex="0" role="region" aria-label="Scrollable comparison of maintenance tracking methods">
+      <table class="comparison-table">
+        <caption>Ways to track home maintenance</caption>
+        <thead><tr><th scope="col">What you need</th><th scope="col">Paper checklist</th><th scope="col">Calendar</th><th scope="col">Spreadsheet</th><th scope="col">Around The House</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">Reminds you when work is due</th><td>No</td><td>Yes</td><td>No</td><td>Yes</td></tr>
+          <tr><th scope="row">Keeps overdue work visible</th><td>If you look</td><td>No; past events scroll away</td><td>If you sort for it</td><td>Yes</td></tr>
+          <tr><th scope="row">Repeats on a schedule</th><td>No</td><td>Yes</td><td>Manual</td><td>Yes</td></tr>
+          <tr><th scope="row">Records date, provider, and cost</th><td>Handwritten</td><td>Rarely</td><td>Yes</td><td>Yes</td></tr>
+          <tr><th scope="row">Keeps receipts, manuals, and photos with the item</th><td>No</td><td>No</td><td>Links only</td><td>Yes</td></tr>
+          <tr><th scope="row">Separates more than one property</th><td>Separate sheets</td><td>Separate calendars</td><td>Separate tabs</td><td>Yes</td></tr>
+          <tr><th scope="row">Cost</th><td>Free</td><td>Free</td><td>Free</td><td>Free for {pricing.freeItemLimit} items; Pro ${pricing.proAnnual}/year or ${pricing.proLifetime} once</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>
+      For a longer walkthrough of each method, read
+      <a href="/resources/how-to-keep-track-of-home-maintenance/">how to keep track of home maintenance</a>.
+    </p>
+  </section>
+
+  <section>
+    <h2>Pricing</h2>
+    <p>
+      Around The House is free for up to {pricing.freeItemLimit} items.
+      Around The House Pro removes the limit for ${pricing.proAnnual} a year, or ${pricing.proLifetime}
+      once with no subscription. Prices are in US dollars; the App Store shows your local price.
+      <a href="/pricing/">See pricing</a>.
+    </p>
+  </section>
+
+  <section class="faq" aria-labelledby="faq-title">
+    <h2 id="faq-title">Frequently asked questions</h2>
+    {faq.map(({ q, a }) => (
+      <>
+        <h3>{q}</h3>
+        <p>{a}</p>
+      </>
+    ))}
   </section>
 
   <RelatedLinks heading="Related" items={related} />
