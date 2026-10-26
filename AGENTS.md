@@ -16,3 +16,5 @@ npm run test:a11y
 - When you add an interactive component, add a keyboard check for it to that script.
 - A pass does not prove conformance. Do not claim the site is WCAG compliant or certified. See [docs/ACCESSIBILITY_AUDIT.md](docs/ACCESSIBILITY_AUDIT.md) for conventions and the manual checklist.
 - Do not push or deploy unless asked. Pushing to `main` publishes the site.
+
+For blog articles, also read [docs/BLOG_AUTHORING.md](docs/BLOG_AUTHORING.md) and [BLOG_SETUP.md](BLOG_SETUP.md). Run `npm run blog:validate` and `npm run test:blog` in addition to the required checks above.

@@ -10,3 +10,6 @@ images/
 docs/design/phase2/
 docs/design/phase3/
 images/old/
+
+# Only referenced images from published blog articles are copied here.
+public/blog/

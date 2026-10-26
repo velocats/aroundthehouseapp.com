@@ -31,6 +31,15 @@ for (const entry of siteData.matchAll(/\{[^{}]*?path:\s*['"]([^'"]+)['"][^{}]*?l
   lastmods.set(entry[1], entry[2]);
 }
 
+// Blog dates come from the built, published pages, so drafts cannot contribute.
+for (const route of routes.filter(route => route.startsWith('/blog/') && route !== '/blog/')) {
+  const html = await readFile(new URL(`.${route}index.html`, dist), 'utf8');
+  const updated = html.match(/property="article:modified_time" content="(\d{4}-\d{2}-\d{2})/);
+  const published = html.match(/property="article:published_time" content="(\d{4}-\d{2}-\d{2})/);
+  const date = updated?.[1] ?? published?.[1];
+  if (date) lastmods.set(route, date);
+}
+
 const urls = routes.map((route) => {
   const lastmod = lastmods.get(route);
   return `  <url>\n    <loc>${new URL(route, site)}</loc>${lastmod ? `\n    <lastmod>${lastmod}</lastmod>` : ''}\n  </url>`;

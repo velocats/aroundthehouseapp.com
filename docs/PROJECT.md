@@ -20,11 +20,12 @@ Its primary differentiation is a focused native Apple experience with no Around 
 
 ## Technical architecture
 
-Astro maps files in `src/pages/` to static routes. Pages compose shared components and one of three layouts:
+Astro maps files in `src/pages/` to static routes. Pages compose shared components and the shared layouts:
 
 - `BaseLayout.astro` owns the document shell, canonical URL, social metadata, robots directive, icons, and base JSON-LD graph.
 - `LandingLayout.astro` provides shared structure and schema for product and use-case landing pages.
 - `ArticleLayout.astro` provides editorial metadata, article schema, dates, breadcrumbs, and related content structure.
+- `BlogLayout.astro` renders Content Collection articles with author, dates, reading time, optional images, and BlogPosting metadata. Posts are maintained directly in `src/content/blog/`; see `BLOG_SETUP.md`.
 
 `src/data/site.ts` is the content registry for internal links and page metadata. Registry entries should correspond to implemented route files so related-link modules cannot introduce a broken path.
 

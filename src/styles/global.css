@@ -781,3 +781,15 @@ button:focus-visible,summary:focus-visible,input:focus-visible,select:focus-visi
 /* A definite width lets a lazy screenshot reserve its height before it loads, so
    the page does not jump under a keyboard user's focus (and CLS stays at zero). */
 .product-block-shot { width:100%; }
+
+/* Blog content uses the same editorial measure and type as homeowner guides. */
+.blog-index { padding-bottom: 72px; }
+.blog-index .resource-list { margin-top: 0; }
+.blog-index .kicker { margin: 0 0 12px; color: var(--accent-dark); }
+.blog-index .article-meta { font-size: 14px; }
+.blog-article img { max-width: 100%; height: auto; border-radius: 8px; margin-block: 24px; }
+.blog-article pre { max-width: 100%; overflow-x: auto; padding: 16px; background: var(--surface); }
+.blog-article :is(a, code) { overflow-wrap: anywhere; }
+.blog-article-footer { margin-top: 48px; padding-top: 20px; border-top: 1px solid var(--line); }
+/* Leave room for the additional discovery link at narrower desktop widths. */
+@media (min-width: 981px) { .nav-links { gap: 14px; } }

@@ -1,0 +1,26 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import { publishedPosts, dateLabel, readingTime, postPath } from '../../lib/blog';
+const posts = await publishedPosts();
+const breadcrumbs = [{ name: 'Home', path: '/' }, { name: 'Blog', path: '/blog/' }];
+---
+<BaseLayout title="Around the House Blog | Practical Ideas for Homeowners" description="Helpful ideas for keeping home records, remembering paint colors, and making maintenance easier, with practical tips for using Around the House." canonicalPath="/blog/" breadcrumbs={breadcrumbs}>
+  <main id="main-content" tabindex="-1">
+    <div class="container"><Breadcrumbs items={breadcrumbs} /></div>
+    <section class="resources-hero"><div class="container">
+      <p class="kicker">The Around the House blog</p>
+      <h1>A little more organized. A little more at home.</h1>
+      <p class="lead">Practical ideas for keeping your home's details close at hand, and getting more from Around the House.</p>
+      <p class="resource-publisher"><a href="/blog/rss.xml">Follow new articles with RSS</a></p>
+    </div></section>
+    <section class="container blog-index" aria-label="Blog articles">
+      {posts.length ? <ul class="resource-list">{posts.map(post => <li>
+        <p class="kicker">{post.data.category}</p>
+        <h2><a href={postPath(post.slug)}>{post.data.title}</a></h2>
+        <p>{post.data.description}</p>
+        <p class="article-meta"><time datetime={post.data.published}>{dateLabel(post.data.published)}</time><span aria-hidden="true"> · </span>{post.data.author}<span aria-hidden="true"> · </span>{readingTime(post.body)} min read</p>
+      </li>)}</ul> : <p>New articles are on their way. In the meantime, explore our <a href="/resources/">homeowner guides</a>.</p>}
+    </section>
+  </main>
+</BaseLayout>

@@ -22,7 +22,8 @@ const maintenance = [
   ['/home-maintenance-calendar/', 'Maintenance calendar'],
   ['/home-repair-cost-tracker/', 'Repair costs'],
   ['/annual-home-maintenance-checklist/', 'Free annual checklist'],
-  ['/resources/', 'Homeowner guides']
+  ['/resources/', 'Homeowner guides'],
+  ['/blog/', 'Around the House blog']
 ];
 const more = [
   ['/pricing/', 'Pricing & download'],
@@ -37,7 +38,7 @@ const more = [
 ];
 ---
 <footer class="footer">
-  {compact ? <div class="container"><p>© 2026 Around The House. Built and supported by the <a href="/about/">Quiet Tools Support Team</a> in Colorado, United States.</p><ul class="footer-links"><li><a href="/support/">Support</a></li><li><a href="/accessibility/">Accessibility</a></li><li><a href="/privacy/">Privacy</a></li><li><a href="/terms/">Terms</a></li></ul></div> :
+  {compact ? <div class="container"><p>© 2026 Around The House. Built and supported by the <a href="/about/">Quiet Tools Support Team</a> in Colorado, United States.</p><ul class="footer-links"><li><a href="/blog/">Blog</a></li><li><a href="/support/">Support</a></li><li><a href="/accessibility/">Accessibility</a></li><li><a href="/privacy/">Privacy</a></li><li><a href="/terms/">Terms</a></li></ul></div> :
     <div class="container footer-grid">
       <div><a class="brand" href="/" aria-label="Around The House home"><img class="brand-mark" src="/assets/icons/around-the-house-icon.png" width="512" height="512" alt="" /><span>Around The House</span></a><p>Your home has a history. Keep it.</p><AppStoreLink /><p><a href="https://quiettoolsapps.com/">A Quiet Tools app</a><br />Colorado, United States<br />© 2026 Around The House.</p></div>
       <div><h2>Home records</h2><ul>{records.map(([href, label]) => <li><a href={href}>{label}</a></li>)}</ul></div>

@@ -12,13 +12,17 @@ const {
   ogTitle = title,
   ogDescription = description,
   ogType = 'website',
+  socialImage = null,
+  socialImageAlt = 'Around The House: private home records for iPhone, iPad, and Mac.',
+  socialImageWidth = 1200,
+  socialImageHeight = 630,
   structuredData = null,
   breadcrumbs = null
 } = Astro.props;
 
 const canonicalUrl = new URL(canonicalPath, Astro.site ?? 'https://aroundthehouseapp.com').toString();
 const siteUrl = new URL('/', Astro.site ?? 'https://aroundthehouseapp.com').toString();
-const ogImageUrl = new URL('/assets/og/around-the-house-og-v2.png', Astro.site ?? 'https://aroundthehouseapp.com').toString();
+const ogImageUrl = new URL(socialImage ?? '/assets/og/around-the-house-og-v2.png', Astro.site ?? 'https://aroundthehouseapp.com').toString();
 const baseSchema = [
   {
     '@type': 'Organization',
@@ -106,18 +110,20 @@ const schemaGraph = [
     <meta property="og:url" content={canonicalUrl} />
     <meta property="og:site_name" content="Around The House" />
     <meta property="og:image" content={ogImageUrl} />
-    <meta property="og:image:alt" content="Around The House: private home records for iPhone, iPad, and Mac." />
-    <meta property="og:image:width" content="1200" />
-    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content={socialImageAlt} />
+    <meta property="og:image:width" content={socialImageWidth} />
+    <meta property="og:image:height" content={socialImageHeight} />
     <meta property="og:type" content={ogType} />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={ogTitle} />
     <meta name="twitter:description" content={ogDescription} />
     <meta name="twitter:image" content={ogImageUrl} />
+    <link rel="alternate" type="application/rss+xml" title="Around the House blog" href="/blog/rss.xml" />
+    <slot name="head" />
     <link rel="icon" href="/assets/icons/favicon-32.png" sizes="32x32" />
     <link rel="apple-touch-icon" href="/assets/icons/favicon-180.png" />
     <link rel="manifest" href="/site.webmanifest" />
-    <script type="application/ld+json" set:html={JSON.stringify({ '@context': 'https://schema.org', '@graph': schemaGraph })}></script>
+    <script type="application/ld+json" set:html={JSON.stringify({ '@context': 'https://schema.org', '@graph': schemaGraph }).replace(/</g, '\\u003c')}></script>
   </head>
   <body>
     <a class="skip-link" href="#main-content">Skip to main content</a>

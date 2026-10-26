@@ -10,10 +10,20 @@
     "preview": "astro preview",
     "check": "npm run build && node scripts/validate-site.mjs",
     "test:quiz": "node scripts/home-health-check-test.mjs",
-    "test:a11y": "node scripts/accessibility-test.mjs"
+    "test:a11y": "node scripts/accessibility-test.mjs",
+    "prebuild": "node scripts/prepare-blog.mjs",
+    "predev": "node scripts/prepare-blog.mjs",
+    "test:blog": "node --test scripts/blog-test.mjs",
+    "blog:validate": "node scripts/blog/validate.mjs",
+    "prestart": "node scripts/prepare-blog.mjs"
   },
   "dependencies": {
-    "astro": "^4.16.18"
+    "astro": "^4.16.18",
+    "image-size": "^2.0.4",
+    "remark-parse": "^11.0.0",
+    "unified": "^11.0.5",
+    "yaml": "^2.9.1",
+    "zod": "^3.25.76"
   },
   "devDependencies": {
     "@axe-core/playwright": "^4.13.0",

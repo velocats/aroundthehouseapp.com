@@ -32,6 +32,8 @@ The generated site is written to `dist/`.
 │   └── robots.txt         # Points crawlers to the generated sitemap
 ├── scripts/               # App Store and social-image generation utilities
 ├── src/
+│   ├── content/blog/      # Markdown blog posts
+│   ├── content/blog-images/ # Blog source images (published references copied at build)
 │   ├── components/        # Shared navigation, CTAs, content blocks, and footer
 │   ├── data/site.ts       # URLs and metadata for the planned content system
 │   ├── layouts/           # Metadata, schema, landing-page, and article shells
@@ -61,6 +63,9 @@ The generated site is written to `dist/`.
 | `/private-home-maintenance-app/` | Privacy-focused landing page |
 | `/homezada-alternative/` | Dated HomeZada comparison page |
 | `/resources/` | Editorial guide index |
+| `/blog/` | Homeowner blog index |
+| `/blog/*/` | Published Markdown articles |
+| `/blog/rss.xml` | Blog RSS feed |
 | `/resources/*/` | Home maintenance and recordkeeping guides |
 | `/screenshots/` | iPhone and iPad product gallery |
 | `/pricing/` | Monthly and lifetime pricing |
@@ -145,3 +150,7 @@ Centralizing all mutable product information in `src/data/site.ts` is recommende
 See [docs/WEBSITE_REDESIGN.md](docs/WEBSITE_REDESIGN.md) for the audit, changed pages, feature evidence, screenshot inventory, and verification limits. Proposed app work is recorded separately in [docs/APP_RECOMMENDATIONS.md](docs/APP_RECOMMENDATIONS.md).
 
 For optional browser QA, start `npm run preview -- --host 127.0.0.1 --port 4321` after a successful build. `scripts/browser-qa.mjs` uses Playwright and installed Chrome to check every route at four viewport sizes, exercise existing interactions, and save representative screenshots. Use `PLAYWRIGHT_MODULE` to point to a bundled Playwright ESM entry point if it is not installed in the project. `PREVIEW_URL` overrides the preview origin. Browser QA does not submit the support form.
+
+## Blog publishing
+
+Articles live in `src/content/blog/` in this repository and publish through the existing deployment when pushed to `main`. See [BLOG_SETUP.md](BLOG_SETUP.md) for authoring, draft behavior, images, review commands, and collaboration setup.

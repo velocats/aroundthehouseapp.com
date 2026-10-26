@@ -1,0 +1,53 @@
+---
+import { readFileSync } from 'node:fs';
+import { imageSize } from 'image-size';
+import { join } from 'node:path';
+import BaseLayout from './BaseLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import { dateLabel, readingTime, postPath } from '../lib/blog';
+const { post } = Astro.props;
+const { data } = post;
+const path = postPath(post.slug);
+const url = new URL(path, Astro.site).href;
+const breadcrumbs = [{ name: 'Home', path: '/' }, { name: 'Blog', path: '/blog/' }, { name: data.title, path }];
+const image = data.featuredImage;
+const dimensions = image ? imageSize(readFileSync(join(process.cwd(), 'src/content/blog-images', image.src.split('/').at(-1)))) : null;
+const schema = {
+  '@type': 'BlogPosting', '@id': `${url}#article`, headline: data.title, description: data.description,
+  datePublished: data.published, dateModified: data.updated ?? data.published,
+  author: { '@type': data.author === 'Quiet Tools Support Team' ? 'Organization' : 'Person', name: data.author },
+  publisher: { '@id': `${Astro.site}#organization` }, mainEntityOfPage: { '@id': `${url}#webpage` },
+  articleSection: data.category, inLanguage: 'en-US',
+  ...(image ? { image: new URL(image.src, Astro.site).href } : {})
+};
+---
+<BaseLayout title={`${data.title} | Around the House`} description={data.description} canonicalPath={path}
+  ogType="article" structuredData={schema} breadcrumbs={breadcrumbs}
+  socialImage={image?.src} socialImageAlt={image?.alt} socialImageWidth={dimensions?.width} socialImageHeight={dimensions?.height}>
+  <Fragment slot="head">
+    <meta property="article:published_time" content={`${data.published}T00:00:00Z`} />
+    {data.updated && <meta property="article:modified_time" content={`${data.updated}T00:00:00Z`} />}
+    <meta property="article:author" content={data.author} />
+    <meta property="article:section" content={data.category} />
+  </Fragment>
+  <main id="main-content" tabindex="-1">
+    <div class="container"><Breadcrumbs items={breadcrumbs} /></div>
+    <article class="article blog-article">
+      <div class="container article-inner">
+        <header class="article-header">
+          <p class="kicker">{data.category}</p>
+          <h1>{data.title}</h1>
+          <p class="lead">{data.description}</p>
+          <p class="article-meta">By {data.author}<span aria-hidden="true"> · </span>
+            Published <time datetime={data.published}>{dateLabel(data.published)}</time>
+            {data.updated && <><span aria-hidden="true"> · </span>Updated <time datetime={data.updated}>{dateLabel(data.updated)}</time></>}
+            <span aria-hidden="true"> · </span>{readingTime(post.body)} min read
+          </p>
+        </header>
+        {image && <img class="blog-featured" src={image.src} alt={image.alt} width={dimensions.width} height={dimensions.height} />}
+        <slot />
+        <footer class="blog-article-footer"><p><a href="/blog/">← All blog articles</a><span aria-hidden="true"> · </span><a href="/editorial-standards/">Editorial standards</a></p></footer>
+      </div>
+    </article>
+  </main>
+</BaseLayout>
